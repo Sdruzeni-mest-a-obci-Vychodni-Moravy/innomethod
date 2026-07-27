@@ -6,6 +6,9 @@
 <title>Bílé Karpaty – Poznej krajinu, druhy i kvíz</title>
 <meta name="description" content="Objevte Chráněnou krajinnou oblast Bílé Karpaty: karty druhů, život krajiny a interaktivní kvíz Poznej Bílé Karpaty.">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
 <style>
   main { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
 
@@ -107,7 +110,7 @@
 
   .feature-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 40px 0 20px;
   }
@@ -191,12 +194,17 @@
 
   <nav class="site-nav">
     <div class="site-nav-inner">
-      <a class="site-logo" href="index.html">
-        <span class="logo-mark">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#3f5c40" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8 0 14-6 14-14 0-1 0-2-1-2-8 0-14 6-14 14 0 1 0 2 1 2z"/><path d="M4 20c0-6 3-10 8-12"/></svg>
+      <div class="nav-left">
+        <span class="funder-badge" title="Sdružení měst a obcí Východní Moravy">
+          <svg viewBox="0 0 40 40" width="24" height="24" aria-hidden="true"><g fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 34h26"/><path d="M10 34V19h6v15"/><path d="M23 34V14h7v20"/><path d="M26.5 14V9"/><path d="M24.5 9h4"/><path d="M13 19l3-4.5 3 4.5"/></g><circle cx="26.5" cy="20" r="1.3" fill="#1a1a1a"/><circle cx="26.5" cy="26" r="1.3" fill="#1a1a1a"/></svg>
         </span>
-        Bílé Karpaty
-      </a>
+        <a class="site-logo" href="index.html">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3f5c40" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8 0 14-6 14-14 0-1 0-2-1-2-8 0-14 6-14 14 0 1 0 2 1 2z"/><path d="M4 20c0-6 3-10 8-12"/></svg>
+          </span>
+          Bílé Karpaty
+        </a>
+      </div>
       <button class="nav-toggle" aria-label="Otevřít menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -205,6 +213,10 @@
         <li><a href="zivot-bilych-karpat.html">Život Bílých Karpat</a></li>
         <li><a class="nav-cta" href="quiz.html">Kvíz</a></li>
       </ul>
+      <span class="interreg-badge" title="Program Interreg Slovensko – Česko">
+        <svg class="eu-flag" data-color="black" viewBox="0 0 60 40" width="28" height="19" aria-hidden="true"></svg>
+        <span>Interreg</span>
+      </span>
     </div>
   </nav>
 
@@ -212,9 +224,9 @@
 
     <section class="hero">
       <div class="hero-copy">
-        <span class="pill-badge">🌿 CHKO Bílé Karpaty</span>
-        <h1>Poznej krajinu, druhy i příběhy Bílých Karpat</h1>
-        <p class="lead">Bílé Karpaty jsou domovem světově unikátních květnatých luk, vzácných živočichů i rostlin. Prozkoumejte je s námi na kartách objevitele a vyzkoušejte, jak dobře je znáte v interaktivním kvízu.</p>
+        <span class="pill-badge">🌿 Projekt INNOMETHOD · CHKO Bílé Karpaty</span>
+        <h1>Chráníme biodiverzitu Bílých Karpat — s vámi</h1>
+        <p class="lead">Bílé Karpaty jsou domovem světově unikátních květnatých luk i vzácných druhů rostlin a živočichů. Projekt INNOMETHOD spojuje moderní technologie, terénní výzkum a osvětu, aby pomohl tuto krajinu chránit — a přiblížil ji vám. Poznávejte, objevujte a zapojte se do ochrany přírody, která to potřebuje.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="zivot-bilych-karpat.html">Objevit druhy</a>
           <a class="btn btn-outline" href="quiz.html">Spustit kvíz</a>
@@ -225,8 +237,8 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="#2f4830" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
             </span>
             <div>
-              <h3>Chráněná krajina</h3>
-              <p>Louky, lesy a stráně s výjimečnou biodiverzitou na česko-slovenském pomezí.</p>
+              <h3>Moderní technologie</h3>
+              <p>3D mapování, DNA analýzy a digitální nástroje pro ochranu přírody.</p>
             </div>
           </div>
           <div class="mini-feature">
@@ -234,8 +246,8 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="#2f4830" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
             </span>
             <div>
-              <h3>Pro školy i rodiny</h3>
-              <p>Karty objevitele a kvíz vhodné pro výuku i výlet s dětmi.</p>
+              <h3>Pro školy i veřejnost</h3>
+              <p>Karty objevitele, kvíz i komunitní mapování druhů pro každého.</p>
             </div>
           </div>
         </div>
@@ -254,9 +266,9 @@
     </section>
 
     <section class="about">
-      <span class="pill-badge">Proč Bílé Karpaty</span>
-      <h2>Krajina, kterou stojí za to poznat zblízka</h2>
-      <p>Od vlka obecného přes vzácné orchideje až po tesaříka alpského — na kartách objevitele najdete deset druhů, které v Bílých Karpatech skutečně žijí a rostou. V kvízu si pak ověříte, jak dobře přírodu regionu znáte.</p>
+      <span class="pill-badge">O projektu INNOMETHOD</span>
+      <h2>Krajina, kterou chráníme společně</h2>
+      <p>INNOMETHOD je cezhraničný projekt zaměřený na ochranu biodiverzity v Bílých/Bielych Karpatech. Propojuje digitální technologie s terénním výzkumem a zapojuje místní odborníky, vědecké instituce i veřejnost. Na kartách objevitele poznáte druhy, které v Bílých Karpatech skutečně žijí, v kvízu si ověříte své znalosti a díky komunitnímu mapování na iNaturalist můžete sami přispět k ochraně této jedinečné krajiny.</p>
     </section>
 
     <div class="feature-grid">
@@ -284,14 +296,6 @@
         <p>Louky s desítkami druhů rostlin na jediném čtverečním metru.</p>
         <a class="go" href="zivot-bilych-karpat.html" aria-label="Zobrazit louky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
       </div>
-      <div class="feature-card">
-        <span class="icon-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2f4830" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-        </span>
-        <h3>Interaktivní kvíz</h3>
-        <p>12 terénních výzev — otestujte, jak dobře znáte Bílé Karpaty.</p>
-        <a class="go" href="quiz.html" aria-label="Spustit kvíz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-      </div>
     </div>
 
     <div class="ticker" aria-hidden="true">
@@ -300,13 +304,71 @@
       </div>
     </div>
 
+    <div class="engage-grid">
+      <div class="engage-card">
+        <span class="pill-badge">📱 Zapojte se</span>
+        <h3>Mapujte biodiverzitu s námi na iNaturalist</h3>
+        <p>Staňte se součástí komunitního mapování druhů v Bílých Karpatech. Každá vaše fotografie rostliny, motýla nebo stopy pomáhá vědcům i ochráncům přírody lépe porozumět tomu, co se v krajině děje.</p>
+        <div class="engage-actions">
+          <a class="btn btn-primary" href="https://www.inaturalist.org/projects/innomethod-biodiverzita-bilych-bielych-karpat" target="_blank" rel="noopener">Projekt na iNaturalist →</a>
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=org.inaturalist.android" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 18c0 .55.45 1 1 1h1v3a1.5 1.5 0 003 0v-3h2v3a1.5 1.5 0 003 0v-3h1c.55 0 1-.45 1-1V9H6v9zM3.5 9A1.5 1.5 0 002 10.5v6a1.5 1.5 0 003 0v-6A1.5 1.5 0 003.5 9zm17 0a1.5 1.5 0 00-1.5 1.5v6a1.5 1.5 0 003 0v-6A1.5 1.5 0 0020.5 9zM8 3.5 6.7 2.2a.5.5 0 10-.7.7L7.2 4.1A6.98 6.98 0 004 9h16a6.98 6.98 0 00-3.2-4.9l1.2-1.2a.5.5 0 10-.7-.7L16 3.5A7.4 7.4 0 0012 3c-1.5 0-2.9.2-4-.5z"/></svg>
+            Stáhnout pro Android
+          </a>
+          <a class="store-btn" href="https://apps.apple.com/app/inaturalist/id421397028" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12-1.14.463-2.35 1.17-3.06.803-.822 2.13-1.44 2.994-1.59zm4.564 15.83c-.618 1.386-.914 2.006-1.71 3.23-1.11 1.7-2.68 3.82-4.62 3.83-1.72.02-2.16-1.12-4.49-1.11-2.33.01-2.82 1.13-4.54 1.11-1.94-.02-3.42-1.94-4.53-3.64C-1.02 16.5-1.53 10.9 1.66 7.94c1.53-1.44 3.36-1.99 5.15-1.99 1.53 0 2.68.86 3.6.86.9 0 2.14-.87 3.9-.87 1.53 0 3.15.5 4.34 1.65-3.82 2.09-3.19 7.7 1.28 9.65-.35.62-.66 1.02-.98 1.99z"/></svg>
+            Stáhnout pro iPhone
+          </a>
+        </div>
+      </div>
+      <div class="engage-card">
+        <span class="pill-badge">📷 Sledujte nás</span>
+        <h3>Bílé Karpaty na Instagramu</h3>
+        <p>Sledujte aktuality z terénu, nové druhy i zákulisí projektu INNOMETHOD.</p>
+        <div class="engage-actions">
+          <a class="instagram-btn" href="https://www.instagram.com/innomethod_bilekarpaty?igsh=ZnlpNzRoeDR3c2xn&utm_source=qr" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-3a1 1 0 100 2 1 1 0 000-2z"/></svg>
+            @innomethod_bilekarpaty
+          </a>
+        </div>
+      </div>
+    </div>
+
     <div class="cta-band">
       <div>
-        <h2>Připraveni na výzvu?</h2>
-        <p>Vyzkoušejte 12 kvízových výzev a zjistěte, jestli si zasloužíte titul Objevitele Bílých Karpat.</p>
+        <h2>Vyberte si, kam vyrazíte dál</h2>
+        <p>Prohlédněte si druhy Bílých Karpat, nebo si otestujte své znalosti v interaktivním kvízu.</p>
       </div>
-      <a class="btn btn-accent" href="quiz.html">Spustit kvíz →</a>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn btn-outline" style="border-color:#fff; color:#fff;" href="zivot-bilych-karpat.html">Život Bílých Karpat</a>
+        <a class="btn btn-accent" href="quiz.html">Kvíz – Objevuj Bílé Karpaty</a>
+      </div>
     </div>
+
+    <section class="partners-section">
+      <span class="pill-badge">Projekt podporují</span>
+      <h2>Partneři a spolufinancování</h2>
+      <div class="partners-grid">
+        <span class="partner-logo" title="Interreg Slovensko – Česko">
+          <span class="interreg-word">Interreg</span>
+          <svg class="eu-flag" data-color="blue" viewBox="0 0 60 40" width="52" height="35" aria-hidden="true"></svg>
+          <span class="funder-caption"><strong>Spolufinancovaný</strong>Európskou úniou<br>Slovensko – Česko</span>
+        </span>
+        <span class="partner-logo" title="Sdružení měst a obcí Východní Moravy">
+          <svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true"><g fill="none" stroke="#0f7d6c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 34h26"/><path d="M10 34V19h6v15"/><path d="M23 34V14h7v20"/><path d="M26.5 14V9"/><path d="M24.5 9h4"/><path d="M13 19l3-4.5 3 4.5"/></g><circle cx="26.5" cy="20" r="1.3" fill="#0f7d6c"/><circle cx="26.5" cy="26" r="1.3" fill="#0f7d6c"/></svg>
+          <span class="smovm-word hand-logo">Sdružení měst a obcí<br>Východní Moravy</span>
+        </span>
+        <span class="partner-logo" title="TUC">
+          <svg viewBox="0 0 60 50" width="34" height="28" aria-hidden="true"><path d="M4 4h22v10h-6v32h-10V14H4z" fill="#e8d24f"/><path d="M28 20c4-7 11-9 18-6-2 4-2 9 0 13-7 3-14 0-18-7z" fill="#6d8f65"/><path d="M28 28c4-7 11-9 18-6-2 4-2 9 0 13-7 3-14 0-18-7z" fill="#3f5c40"/></svg>
+          <span class="tuc-word">uC</span>
+        </span>
+        <span class="partner-logo" title="Dům přírody Bílých Karpat">
+          <svg viewBox="0 0 60 44" width="40" height="30" aria-hidden="true"><path d="M6 20c8-16 40-16 48 0" fill="none" stroke="#e8a33d" stroke-width="4" stroke-linecap="round"/><path d="M20 44V30c0-6 4-10 10-10s10 4 10 10v14z" fill="#2f6b52"/></svg>
+          <span class="dp-word">Dům přírody</span>
+        </span>
+      </div>
+      <p class="funder-fineprint">Projekt INNOMETHOD je spolufinancovaný Európskou úniou v rámci programu Interreg Slovensko – Česko.</p>
+    </section>
 
   </main>
 
