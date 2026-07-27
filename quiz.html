@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kvíz – Poznej Bílé Karpaty</title>
+<meta name="description" content="Interaktivní kvíz Poznej Bílé Karpaty – 12 terénních výzev o přírodě CHKO Bílé Karpaty.">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .quiz-shell { max-width: 980px; margin: 28px auto 56px; padding: 0 20px; }
+
+  .quiz-progress-outer { height: 6px; background: var(--cream-border); border-radius: 999px; overflow: hidden; margin-bottom: 18px; }
+  .quiz-progress-fill { height: 100%; background: var(--yellow); transition: width .3s ease; width: 0%; }
+
+  .quiz-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-soft-lg); border: 1px solid var(--cream-border); overflow: hidden; }
+
+  .quiz-topbar { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 18px 26px; border-bottom: 1px solid var(--cream-border); }
+
+  .quiz-badge-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+  .timer-ring-wrap { position: relative; width: 52px; height: 52px; flex-shrink: 0; }
+  .timer-ring-wrap svg { transform: rotate(-90deg); }
+  .timer-ring-bg { stroke: var(--cream-border); }
+  .timer-ring-fg { stroke: var(--dark-green); transition: stroke-dashoffset 1s linear, stroke .3s; }
+  .timer-ring-wrap.urgent .timer-ring-fg { stroke: #c0392b; }
+  .timer-ring-wrap.urgent .timer-num { color: #c0392b; }
+  .timer-num { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; color: var(--dark-green); }
+  .timer-done-chip { font-size: 0.78rem; font-weight: 700; color: var(--mid-green); background: var(--cream-soft); border: 1px solid var(--cream-border); border-radius: 999px; padding: 6px 12px; white-space: nowrap; }
+
+  .quiz-body { padding: 30px 26px 8px; display: grid; grid-template-columns: 1fr; gap: 26px; }
+  .quiz-body.has-panel { grid-template-columns: 1.1fr 0.9fr; align-items: stretch; }
+  .quiz-panel-img { border-radius: var(--radius-md); overflow: hidden; min-height: 220px; order: 2; background: var(--cream-soft); }
+  .quiz-panel-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 760px) {
+    .quiz-body.has-panel { grid-template-columns: 1fr; }
+    .quiz-panel-img { order: -1; max-height: 220px; }
+  }
+
+  .quiz-title { font-size: clamp(1.25rem, 3vw, 1.65rem); color: var(--dark-green); margin: 0 0 10px; line-height: 1.25; }
+  .quiz-subtitle { color: var(--text-muted); margin: 0 0 18px; font-size: 0.95rem; line-height: 1.5; }
+
+  .options-grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .option-image-card { border: 2px solid var(--cream-border); border-radius: var(--radius-md); overflow: hidden; cursor: pointer; background: var(--cream-soft); text-align: center; transition: border-color .15s, transform .15s; }
+  .option-image-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
+  .option-image-card .label { padding: 8px 6px; font-size: 0.82rem; font-weight: 700; color: var(--text-body); }
+  .option-image-card:hover { transform: translateY(-2px); border-color: var(--mid-green); }
+  .option-image-card.correct { border-color: #3f8f52; background: #eaf6ec; }
+  .option-image-card.incorrect { border-color: #c0392b; background: #fbeaea; }
+  .option-image-card.selected:not(.correct):not(.incorrect) { border-color: var(--dark-green); }
+
+  .track-preview { text-align: center; margin-bottom: 18px; }
+  .track-preview img { width: 160px; height: 160px; object-fit: cover; border-radius: var(--radius-md); border: 2px solid var(--cream-border); }
+  .track-preview .cap { font-size: 0.78rem; color: var(--text-muted); font-weight: 700; margin-top: 6px; letter-spacing: .04em; text-transform: uppercase; }
+
+  .options-letters-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .option-letter { width: 62px; height: 62px; border-radius: 50%; border: 2px solid var(--cream-border); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.25rem; color: var(--dark-green); cursor: pointer; background: var(--cream-soft); transition: all .15s; }
+  .option-letter:hover { border-color: var(--mid-green); }
+  .option-letter.correct { background: #3f8f52; border-color: #3f8f52; color: #fff; }
+  .option-letter.incorrect { background: #c0392b; border-color: #c0392b; color: #fff; }
+  .option-letter.selected:not(.correct):not(.incorrect) { border-color: var(--dark-green); }
+
+  .options-text-list { display: flex; flex-direction: column; gap: 12px; }
+  .option-text-row { display: flex; align-items: center; gap: 14px; border: 2px solid var(--cream-border); border-radius: var(--radius-md); padding: 14px 18px; cursor: pointer; background: var(--cream-soft); transition: all .15s; font-weight: 600; color: var(--text-body); }
+  .option-text-row .letter-chip { width: 30px; height: 30px; border-radius: 50%; background: var(--white); border: 1.5px solid var(--cream-border); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; color: var(--dark-green); flex-shrink: 0; }
+  .option-text-row:hover { border-color: var(--mid-green); }
+  .option-text-row.correct { border-color: #3f8f52; background: #eaf6ec; }
+  .option-text-row.incorrect { border-color: #c0392b; background: #fbeaea; }
+  .option-text-row.selected:not(.correct):not(.incorrect) { border-color: var(--dark-green); }
+
+  .options-boolean { display: flex; gap: 16px; }
+  .option-boolean-btn { flex: 1; padding: 26px; border-radius: var(--radius-md); border: 2px solid var(--cream-border); background: var(--cream-soft); font-weight: 800; font-size: 1.1rem; cursor: pointer; color: var(--dark-green); text-align: center; transition: all .15s; }
+  .option-boolean-btn:hover { border-color: var(--mid-green); }
+  .option-boolean-btn.correct { background: #3f8f52; border-color: #3f8f52; color: #fff; }
+  .option-boolean-btn.incorrect { background: #c0392b; border-color: #c0392b; color: #fff; }
+
+  .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .compare-card { border-radius: var(--radius-md); overflow: hidden; border: 3px solid var(--cream-border); cursor: pointer; position: relative; transition: border-color .15s; }
+  .compare-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+  .compare-card .compare-letter { position: absolute; top: 10px; left: 10px; background: rgba(255,255,255,.92); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--dark-green); }
+  .compare-card:hover { border-color: var(--mid-green); }
+  .compare-card.correct { border-color: #3f8f52; }
+  .compare-card.incorrect { border-color: #c0392b; }
+
+  .locked-options [data-optkey] { pointer-events: none; }
+
+  .feedback-banner { margin-top: 18px; padding: 14px 18px; border-radius: var(--radius-md); font-weight: 600; font-size: 0.9rem; }
+  .feedback-banner.correct { background: #eaf6ec; color: #2f6b3c; }
+  .feedback-banner.incorrect { background: #fbeaea; color: #a3312a; }
+
+  .intro-list { list-style: none; padding: 0; margin: 0 0 14px; display: flex; flex-direction: column; gap: 10px; color: var(--text-body); font-weight: 600; }
+
+  .answerkey-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  .answerkey-table th, .answerkey-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--cream-border); font-size: 0.88rem; }
+  .answerkey-table th { color: var(--dark-green); }
+  .answerkey-wrap { overflow-x: auto; }
+
+  .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 22px; }
+  .tier-card { border: 2px solid var(--cream-border); border-radius: var(--radius-md); padding: 20px; text-align: center; background: var(--cream-soft); }
+  .tier-card img { width: 60px; height: 60px; margin: 0 auto 10px; }
+  .tier-card.active { border-color: var(--yellow); background: #fff9e6; box-shadow: var(--shadow-soft); }
+  .tier-card h3 { margin: 6px 0 4px; color: var(--dark-green); font-size: 1rem; }
+  .tier-card p { margin: 0; font-size: 0.82rem; color: var(--text-muted); }
+  @media (max-width: 700px) { .tier-grid { grid-template-columns: 1fr; } }
+
+  .score-callout { background: var(--dark-green); color: #fff; border-radius: var(--radius-md); padding: 20px 24px; text-align: center; margin-top: 4px; }
+  .score-callout .num { font-size: 2.2rem; font-weight: 800; }
+  .score-callout .of { font-size: 1rem; opacity: .8; }
+
+  .multi-check-btn { margin-top: 18px; }
+
+  .quiz-footer-controls { display: flex; align-items: center; justify-content: space-between; padding: 16px 26px 22px; gap: 12px; flex-wrap: wrap; }
+  .quiz-footer-controls .step-count { font-size: 0.82rem; color: var(--text-muted); font-weight: 700; text-align: center; }
+  .quiz-footer-controls button:disabled { opacity: .4; cursor: not-allowed; }
+  .quiz-nav-btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.9rem; padding: 11px 20px; border-radius: var(--radius-full); border: 1.5px solid var(--dark-green); background: transparent; color: var(--dark-green); cursor: pointer; transition: all .15s; }
+  .quiz-nav-btn:hover:not(:disabled) { background: var(--dark-green); color: #fff; }
+  .quiz-nav-btn.primary { background: var(--yellow); border-color: var(--yellow); color: var(--dark-green-2); }
+  .quiz-nav-btn.primary:hover:not(:disabled) { background: var(--yellow-dark); color: var(--dark-green-2); }
+</style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <a class="site-logo" href="index.html">
+        <span class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3f5c40" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8 0 14-6 14-14 0-1 0-2-1-2-8 0-14 6-14 14 0 1 0 2 1 2z"/><path d="M4 20c0-6 3-10 8-12"/></svg>
+        </span>
+        Bílé Karpaty
+      </a>
+      <button class="nav-toggle" aria-label="Otevřít menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="site-nav-links">
+        <li><a href="index.html">Domů</a></li>
+        <li><a href="zivot-bilych-karpat.html">Život Bílých Karpat</a></li>
+        <li><a class="nav-cta" href="quiz.html" aria-current="page">Kvíz</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="quiz-shell" id="quizShell">
+    <div class="quiz-progress-outer"><div class="quiz-progress-fill" id="quizProgressFill"></div></div>
+    <div class="quiz-card" id="quizCard"></div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <ul class="site-footer-links">
+        <li><a href="index.html">Domů</a></li>
+        <li><a href="zivot-bilych-karpat.html">Život Bílých Karpat</a></li>
+        <li><a href="quiz.html">Kvíz</a></li>
+      </ul>
+      <span class="site-footer-copy">Sdružení měst a obcí Východní Moravy – CHKO Bílé Karpaty</span>
+    </div>
+  </footer>
+
+  <script src="assets/site.js"></script>
+  <script>
+  (function () {
+    var IMG = 'assets/quiz/img/';
+
+    var SCREENS = [
+      { kind: 'intro', badge: '🌿 Poznej Bílé Karpaty', title: 'Mise: staň se objevitelem Bílých Karpat', subtitle: 'Čeká tě 12 výzev.', image: IMG + 'image-1-1.jpg',
+        rules: ['Odpovědi zapisuj do své kartičky.', 'Za každou správnou odpověď získáš 1 bod.', 'Přemýšlej, pozoruj a bav se.'],
+        footerNote: 'Na konci zjistíš, jak dobře znáš Bílé Karpaty.' },
+
+      { kind: 'challenge', num: 1, timer: 30, badge: 'VÝZVA 1', title: 'Kde leží Bílé Karpaty?', subtitle: 'Vyber správné místo na mapě.',
+        layout: 'panel', image: IMG + 'image-2-1.jpg', imagePosition: 'bottom', optionMode: 'letters',
+        options: [{ key: 'A' }, { key: 'B' }, { key: 'C' }, { key: 'D' }], correct: ['D'] },
+
+      { kind: 'challenge', num: 2, timer: 45, badge: 'VÝZVA 2', title: 'Znáš orchidej?', subtitle: 'Pouze jedna fotografie zobrazuje orchidej.',
+        layout: 'imageGrid', optionMode: 'imageGrid',
+        options: [
+          { key: 'A', image: IMG + 'image-3-1.jpg' },
+          { key: 'B', image: IMG + 'image-3-2.jpg' },
+          { key: 'C', image: IMG + 'image-3-3.jpg' },
+          { key: 'D', image: IMG + 'image-3-4.jpg' }
+        ], correct: ['D'] },
+
+      { kind: 'challenge', num: 3, timer: 30, badge: 'VÝZVA 3', title: 'Pravda nebo mýtus?', subtitle: 'V Bílých Karpatech roste více než 40 druhů orchidejí.',
+        layout: 'panel', image: IMG + 'image-4-1.jpg', optionMode: 'boolean',
+        options: [{ key: 'PRAVDA', label: 'Pravda' }, { key: 'MYTUS', label: 'Mýtus' }], correct: ['PRAVDA'] },
+
+      { kind: 'challenge', num: 4, timer: 30, badge: 'VÝZVA 4', title: 'Kdo nežije v Bílých Karpatech?',
+        layout: 'imageGrid', optionMode: 'imageGrid',
+        options: [
+          { key: 'A', image: IMG + 'image-5-1.jpg', label: '🐺 Vlk obecný' },
+          { key: 'B', image: IMG + 'image-5-2.jpg', label: '🐃 Zubr evropský' },
+          { key: 'C', image: IMG + 'image-5-3.jpg', label: '🦊 Liška obecná' },
+          { key: 'D', image: IMG + 'image-5-4.jpg', label: '🦌 Jelen evropský' }
+        ], correct: ['B'] },
+
+      { kind: 'challenge', num: 5, timer: 45, badge: 'VÝZVA 5', title: 'Které zvíře zanechalo tuto stopu?',
+        layout: 'trackGrid', trackImage: IMG + 'image-6-1.jpg', optionMode: 'imageGrid',
+        options: [
+          { key: 'A', image: IMG + 'image-6-2.jpg', label: 'Pes domácí' },
+          { key: 'B', image: IMG + 'image-6-3.jpg', label: 'Liška obecná' },
+          { key: 'C', image: IMG + 'image-6-4.jpg', label: 'Vlk obecný' },
+          { key: 'D', image: IMG + 'image-6-5.jpg', label: 'Rys ostrovid' }
+        ], correct: ['C'] },
+
+      { kind: 'challenge', num: 6, timer: 45, badge: 'VÝZVA 6', title: 'Jak se jmenuje nejvyšší vrchol Bílých Karpat?',
+        layout: 'panel', image: IMG + 'image-7-1.jpg', optionMode: 'textList',
+        options: [{ key: 'A', label: 'Velká Javořina' }, { key: 'B', label: 'Lysá hora' }, { key: 'C', label: 'Velký Javorník' }, { key: 'D', label: 'Radhošť' }],
+        correct: ['A'] },
+
+      { kind: 'challenge', num: 7, timer: 30, badge: 'VÝZVA 7', title: 'Co pomáhá zachovat druhově pestré louky?', subtitle: 'Vyber dvě správné odpovědi.',
+        layout: 'panel', image: IMG + 'image-8-1.jpg', optionMode: 'textList', multiSelect: true,
+        options: [
+          { key: 'A', label: 'Šetrné kosení luk' },
+          { key: 'B', label: 'Hnojení luk chemickými hnojivy' },
+          { key: 'C', label: 'Pastva hospodářských zvířat' },
+          { key: 'D', label: 'Rozorání louky' }
+        ], correct: ['A', 'C'] },
+
+      { kind: 'challenge', num: 8, timer: 30, badge: 'VÝZVA 8', title: 'Najdi rozdíl', subtitle: '👉 Co je špatně a proč?',
+        layout: 'compare', optionMode: 'compare',
+        options: [{ key: 'A', image: IMG + 'image-9-1.jpg' }, { key: 'B', image: IMG + 'image-9-2.jpg' }],
+        correct: ['A'], explanation: 'Vzácné květiny se netrhají.' },
+
+      { kind: 'memorize', num: '9a', badge: 'VÝZVA 9', title: 'Zapamatuj si obrázek', subtitle: 'Za chvíli tě čeká otázka — dobře se dívej!',
+        timer: 12, image: IMG + 'image-10-1.jpg' },
+
+      { kind: 'challenge', num: 9, timer: 20, badge: 'VÝZVA 9', title: 'Kolik motýlů bylo na obrázku?',
+        layout: 'plain', optionMode: 'textList',
+        options: [{ key: 'A', label: '1 🦋' }, { key: 'B', label: 'Byly to můry, ne motýli' }, { key: 'C', label: '2 🦋' }, { key: 'D', label: 'Více než 3' }],
+        correct: ['C'] },
+
+      { kind: 'challenge', num: 10, timer: 30, badge: 'VÝZVA 10', title: 'Poznáš zvíře?',
+        layout: 'panel', image: IMG + 'image-12-1.jpg', optionMode: 'textList',
+        options: [{ key: 'A', label: 'Kalous ušatý' }, { key: 'B', label: 'Vlk obecný' }, { key: 'C', label: 'Výr skalný' }, { key: 'D', label: 'Puštík obecný' }],
+        correct: ['C'] },
+
+      { kind: 'challenge', num: 11, timer: 20, badge: 'VÝZVA 11', title: 'Co bys udělal?', subtitle: 'Našel jsi rostlinu, která vypadá jako vzácná…',
+        layout: 'panel', image: IMG + 'image-13-1.jpg', optionMode: 'textList',
+        options: [
+          { key: 'A', label: 'Utrhnu ji, abych zjistil, co to bylo.' },
+          { key: 'B', label: 'Vyfotím ji a zkusím ji určit pomocí iNaturalistu.' },
+          { key: 'C', label: 'Přesadím ji doma do květináče.' }
+        ], correct: ['B'] },
+
+      { kind: 'challenge', num: 12, timer: 60, badge: 'VÝZVA 12 · FINÁLE', title: 'Kteří živočichové jsou pro Bílé Karpaty typičtí?', subtitle: 'Vyber 5 — každé správné zvíře = 1 bonusový bod.',
+        layout: 'panel', image: IMG + 'image-14-1.jpg', optionMode: 'textList', multiSelect: true, perItemScoring: true,
+        options: [
+          { key: 'A', label: '🦋 Jasoň dymnivkový' },
+          { key: 'B', label: '🐞 Páchník hnědý' },
+          { key: 'C', label: '🦗 Kobylka sága' },
+          { key: 'D', label: '🦋 Otakárek ovocný' },
+          { key: 'E', label: '🦎 Ještěrka zelená' },
+          { key: 'F', label: '🦅 Orel mořský' },
+          { key: 'G', label: '🐈 Kočka divoká' },
+          { key: 'H', label: '🦅 Včelojed lesní' }
+        ], correct: ['A', 'B', 'C', 'D', 'E', 'G'] },
+
+      { kind: 'answerkey', badge: 'Shrnutí', title: 'Správné odpovědi' },
+      { kind: 'results', badge: 'Vyhodnocení', title: 'Jak jsi dopadl?', image: IMG + 'image-16-1.jpg' },
+      { kind: 'thanks', badge: '🌿 Děkujeme', title: 'Děkujeme za účast!', subtitle: 'Ukaž svou kartičku organizátorovi a získej razítko do své sběratelské karty!', image: IMG + 'image-17-1.jpg' }
+    ];
+
+    var ANSWERKEY_ROWS = [
+      ['1', 'D'], ['2', 'D'], ['3', 'Pravda'], ['4', 'B — Zubr evropský'], ['5', 'C'], ['6', 'A'],
+      ['7', 'A + C'], ['8', 'A — vzácné květiny se netrhají'], ['9', 'C'], ['10', 'C'], ['11', 'B'],
+      ['12', 'A, B, C, D, E, G']
+    ];
+
+    var TIERS = [
+      { min: 0, max: 6, name: 'Pozorovatel', img: IMG + 'image-16-2.png', desc: 'Právě jsi začal objevovat přírodu Bílých Karpat.' },
+      { min: 7, max: 11, name: 'Badatel', img: IMG + 'image-16-3.png', desc: 'Přírodu Bílých Karpat už znáš opravdu dobře.' },
+      { min: 12, max: 999, name: 'Objevitel', img: IMG + 'image-16-4.png', desc: 'Gratulujeme! Získal jsi titul Objevitele Bílých Karpat.' }
+    ];
+
+    var challengeCount = SCREENS.filter(function (s) { return s.kind === 'challenge'; }).length;
+
+    var state = {
+      idx: 0,
+      score: 0,
+      per: SCREENS.map(function () { return { selected: [], locked: false }; })
+    };
+    var timerId = null;
+
+    var cardEl = document.getElementById('quizCard');
+    var progressFillEl = document.getElementById('quizProgressFill');
+
+    function esc(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function clearTimer() {
+      if (timerId) { clearInterval(timerId); timerId = null; }
+    }
+
+    function startTimer(seconds) {
+      clearTimer();
+      var remaining = seconds;
+      updateRing(remaining, seconds);
+      timerId = setInterval(function () {
+        remaining -= 1;
+        updateRing(remaining, seconds);
+        if (remaining <= 0) {
+          clearTimer();
+          onTimerExpire();
+        }
+      }, 1000);
+    }
+
+    function updateRing(remaining, total) {
+      var fg = document.getElementById('timerRingFg');
+      var num = document.getElementById('timerNum');
+      var wrap = document.getElementById('timerRingWrap');
+      if (!fg || !num) return;
+      var R = 22, C = 2 * Math.PI * R;
+      var frac = Math.max(remaining, 0) / total;
+      fg.setAttribute('stroke-dasharray', C.toFixed(2));
+      fg.setAttribute('stroke-dashoffset', (C * (1 - frac)).toFixed(2));
+      num.textContent = Math.max(remaining, 0);
+      if (wrap) wrap.classList.toggle('urgent', remaining <= 5);
+    }
+
+    function onTimerExpire() {
+      var st = state.per[state.idx];
+      if (!st.locked) lockAndReveal();
+      setTimeout(goNext, 1200);
+    }
+
+    function scoreScreen(s, st) {
+      if (s.kind !== 'challenge') return;
+      if (s.perItemScoring) {
+        state.score += st.selected.filter(function (k) { return s.correct.indexOf(k) !== -1; }).length;
+      } else if (s.multiSelect) {
+        var a = st.selected.slice().sort().join(',');
+        var b = s.correct.slice().sort().join(',');
+        if (a === b) state.score += 1;
+      } else {
+        if (st.selected[0] === s.correct[0]) state.score += 1;
+      }
+    }
+
+    function lockAndReveal() {
+      var s = SCREENS[state.idx];
+      var st = state.per[state.idx];
+      if (st.locked) return;
+      st.locked = true;
+      scoreScreen(s, st);
+      clearTimer();
+      render();
+    }
+
+    function handleOptionClick(key) {
+      var s = SCREENS[state.idx];
+      var st = state.per[state.idx];
+      if (st.locked) return;
+      if (s.multiSelect) {
+        var i = st.selected.indexOf(key);
+        if (i === -1) st.selected.push(key); else st.selected.splice(i, 1);
+        render();
+      } else {
+        st.selected = [key];
+        lockAndReveal();
+      }
+    }
+
+    function goNext() {
+      clearTimer();
+      if (state.idx < SCREENS.length - 1) { state.idx++; render(); }
+    }
+    function goPrev() {
+      clearTimer();
+      if (state.idx > 0) { state.idx--; render(); }
+    }
+    function restart() {
+      clearTimer();
+      state.idx = 0;
+      state.score = 0;
+      state.per = SCREENS.map(function () { return { selected: [], locked: false }; });
+      render();
+    }
+
+    function optCls(base, key, s, st) {
+      var cls = base;
+      var isSel = st.selected.indexOf(key) !== -1;
+      var isCorrect = s.correct && s.correct.indexOf(key) !== -1;
+      if (st.locked) {
+        if (isCorrect) cls += ' correct';
+        else if (isSel) cls += ' incorrect';
+      } else if (isSel) {
+        cls += ' selected';
+      }
+      return cls;
+    }
+
+    function renderOptionsHtml(s, st) {
+      var lockedCls = st.locked ? ' locked-options' : '';
+      if (s.optionMode === 'letters') {
+        return '<div class="options-letters-row' + lockedCls + '">' + s.options.map(function (o) {
+          return '<div class="' + optCls('option-letter', o.key, s, st) + '" data-optkey="' + o.key + '">' + o.key + '</div>';
+        }).join('') + '</div>';
+      }
+      if (s.optionMode === 'imageGrid') {
+        return '<div class="options-grid-2x2' + lockedCls + '">' + s.options.map(function (o) {
+          return '<div class="' + optCls('option-image-card', o.key, s, st) + '" data-optkey="' + o.key + '">' +
+            '<img src="' + o.image + '" alt="Možnost ' + o.key + '" loading="lazy">' +
+            '<div class="label">' + o.key + (o.label ? ' · ' + esc(o.label) : '') + '</div></div>';
+        }).join('') + '</div>';
+      }
+      if (s.optionMode === 'boolean') {
+        return '<div class="options-boolean' + lockedCls + '">' + s.options.map(function (o) {
+          return '<div class="' + optCls('option-boolean-btn', o.key, s, st) + '" data-optkey="' + o.key + '">' + esc(o.label) + '</div>';
+        }).join('') + '</div>';
+      }
+      if (s.optionMode === 'compare') {
+        return '<div class="compare-row' + lockedCls + '">' + s.options.map(function (o) {
+          return '<div class="' + optCls('compare-card', o.key, s, st) + '" data-optkey="' + o.key + '">' +
+            '<span class="compare-letter">' + o.key + '</span><img src="' + o.image + '" alt="Varianta ' + o.key + '" loading="lazy"></div>';
+        }).join('') + '</div>';
+      }
+      // textList
+      var rows = '<div class="options-text-list' + lockedCls + '">' + s.options.map(function (o) {
+        return '<div class="' + optCls('option-text-row', o.key, s, st) + '" data-optkey="' + o.key + '">' +
+          '<span class="letter-chip">' + o.key + '</span><span>' + esc(o.label) + '</span></div>';
+      }).join('') + '</div>';
+      if (s.multiSelect && !st.locked) {
+        rows += '<button class="btn btn-primary multi-check-btn" id="checkMultiBtn" ' + (st.selected.length ? '' : 'disabled') + '>Ověřit odpověď</button>';
+      }
+      return rows;
+    }
+
+    function feedbackHtml(s, st) {
+      if (!st.locked || s.kind !== 'challenge') return '';
+      var correctCount, msg, ok;
+      if (s.perItemScoring) {
+        correctCount = st.selected.filter(function (k) { return s.correct.indexOf(k) !== -1; }).length;
+        ok = correctCount > 0;
+        msg = 'Získal jsi ' + correctCount + ' z ' + s.correct.length + ' bonusových bodů. Správně: ' + s.correct.join(', ') + '.';
+      } else if (s.multiSelect) {
+        var a = st.selected.slice().sort().join(',');
+        var b = s.correct.slice().sort().join(',');
+        ok = a === b;
+        msg = ok ? 'Správně! (+1 bod)' : 'Bohužel, správně je: ' + s.correct.join(' + ') + '.';
+      } else {
+        ok = st.selected[0] === s.correct[0];
+        var correctLabel = (s.options.filter(function (o) { return o.key === s.correct[0]; })[0] || {}).label;
+        msg = ok ? 'Správně! (+1 bod)' : 'Bohužel, správná odpověď je ' + s.correct[0] + (correctLabel ? ' — ' + esc(correctLabel) : '') + '.';
+      }
+      if (s.explanation) msg += ' <br>' + esc(s.explanation);
+      return '<div class="feedback-banner show ' + (ok ? 'correct' : 'incorrect') + '">' + msg + '</div>';
+    }
+
+    function panelImgHtml(s) {
+      var pos = s.imagePosition ? 'object-position:' + s.imagePosition + ';' : '';
+      return '<div class="quiz-panel-img"><img style="' + pos + '" src="' + s.image + '" alt="" loading="lazy"></div>';
+    }
+
+    function renderTopbar(s, st) {
+      var badgeHtml = '<span class="pill-badge">' + esc(s.badge) + '</span>';
+      var timerHtml = '';
+      if (s.timer) {
+        if (st.locked) {
+          timerHtml = '<span class="timer-done-chip">✓ Vyhodnoceno</span>';
+        } else {
+          timerHtml = '<div class="timer-ring-wrap" id="timerRingWrap">' +
+            '<svg width="52" height="52" viewBox="0 0 52 52">' +
+            '<circle class="timer-ring-bg" cx="26" cy="26" r="22" fill="none" stroke-width="4"></circle>' +
+            '<circle class="timer-ring-fg" id="timerRingFg" cx="26" cy="26" r="22" fill="none" stroke-width="4" stroke-linecap="round"></circle>' +
+            '</svg><div class="timer-num" id="timerNum">' + s.timer + '</div></div>';
+        }
+      }
+      return '<div class="quiz-topbar"><div class="quiz-badge-row">' + badgeHtml + '</div>' + timerHtml + '</div>';
+    }
+
+    function renderFooter(s) {
+      var idx = state.idx;
+      var isLast = idx === SCREENS.length - 1;
+      var stepLabel;
+      if (s.kind === 'intro') stepLabel = 'Úvod';
+      else if (s.kind === 'memorize') stepLabel = 'Výzva ' + s.num;
+      else if (s.kind === 'challenge') stepLabel = 'Výzva ' + s.num + ' / ' + challengeCount;
+      else if (s.kind === 'answerkey') stepLabel = 'Shrnutí odpovědí';
+      else if (s.kind === 'results') stepLabel = 'Vyhodnocení';
+      else stepLabel = 'Konec';
+
+      var nextLabel = s.kind === 'intro' ? 'Začít výzvu 1 →' : (isLast ? '' : 'Další →');
+      var nextBtn = isLast
+        ? '<button class="quiz-nav-btn primary" id="restartBtn">Spustit znovu ↺</button>'
+        : '<button class="quiz-nav-btn primary" id="nextBtn">' + nextLabel + '</button>';
+
+      return '<div class="quiz-footer-controls">' +
+        '<button class="quiz-nav-btn" id="prevBtn" ' + (idx === 0 ? 'disabled' : '') + '>← Zpět</button>' +
+        '<span class="step-count">' + esc(stepLabel) + '</span>' +
+        nextBtn +
+        '</div>';
+    }
+
+    function renderBody(s, st) {
+      if (s.kind === 'intro') {
+        return '<div class="quiz-body has-panel">' +
+          '<div><h1 class="quiz-title">' + esc(s.title) + '</h1><p class="quiz-subtitle">' + esc(s.subtitle) + '</p>' +
+          '<ul class="intro-list">' + s.rules.map(function (r) { return '<li>✔ ' + esc(r) + '</li>'; }).join('') + '</ul>' +
+          '<p class="quiz-subtitle">' + esc(s.footerNote) + '</p></div>' +
+          panelImgHtml(s) + '</div>';
+      }
+
+      if (s.kind === 'memorize') {
+        return '<div class="quiz-body">' +
+          '<h1 class="quiz-title">' + esc(s.title) + '</h1><p class="quiz-subtitle">' + esc(s.subtitle) + '</p>' +
+          '<div class="quiz-panel-img" style="min-height:320px;"><img src="' + s.image + '" alt="" loading="lazy"></div>' +
+          '</div>';
+      }
+
+      if (s.kind === 'answerkey') {
+        return '<div class="quiz-body"><h1 class="quiz-title">' + esc(s.title) + '</h1>' +
+          '<div class="answerkey-wrap"><table class="answerkey-table"><thead><tr><th>Výzva</th><th>Správná odpověď</th></tr></thead><tbody>' +
+          ANSWERKEY_ROWS.map(function (r) { return '<tr><td>' + esc(r[0]) + '</td><td>' + esc(r[1]) + '</td></tr>'; }).join('') +
+          '</tbody></table></div></div>';
+      }
+
+      if (s.kind === 'results') {
+        var maxScore = challengeCount - 1 + 6; // 11 single-point challenges + up to 6 bonus in challenge 12
+        var tier = TIERS[0];
+        for (var i = 0; i < TIERS.length; i++) { if (state.score >= TIERS[i].min) tier = TIERS[i]; }
+        return '<div class="quiz-body">' +
+          '<h1 class="quiz-title">' + esc(s.title) + '</h1>' +
+          '<div class="score-callout"><div class="num">' + state.score + '<span class="of"> / ' + maxScore + ' bodů</span></div></div>' +
+          '<div class="tier-grid">' + TIERS.map(function (t) {
+            var active = t === tier ? ' active' : '';
+            return '<div class="tier-card' + active + '"><img src="' + t.img + '" alt="' + esc(t.name) + '">' +
+              '<h3>' + esc(t.name) + '</h3><p>' + (t.max < 999 ? t.min + '–' + t.max : t.min + '+') + ' bodů</p>' +
+              (active ? '<p style="margin-top:8px;font-weight:700;color:var(--dark-green);">' + esc(t.desc) + '</p>' : '') +
+              '</div>';
+          }).join('') + '</div>' +
+          panelImgHtml({ image: s.image }) +
+          '</div>';
+      }
+
+      if (s.kind === 'thanks') {
+        return '<div class="quiz-body has-panel">' +
+          '<div><h1 class="quiz-title">' + esc(s.title) + '</h1><p class="quiz-subtitle">' + esc(s.subtitle) + '</p>' +
+          '<a class="btn btn-primary" href="zivot-bilych-karpat.html">Objevit druhy →</a></div>' +
+          panelImgHtml(s) + '</div>';
+      }
+
+      // challenge
+      var optionsArea = renderOptionsHtml(s, st) + feedbackHtml(s, st);
+      if (s.layout === 'panel') {
+        return '<div class="quiz-body has-panel"><div><h1 class="quiz-title">' + esc(s.title) + '</h1>' +
+          (s.subtitle ? '<p class="quiz-subtitle">' + esc(s.subtitle) + '</p>' : '') +
+          optionsArea + '</div>' + panelImgHtml(s) + '</div>';
+      }
+      if (s.layout === 'trackGrid') {
+        return '<div class="quiz-body"><h1 class="quiz-title">' + esc(s.title) + '</h1>' +
+          (s.subtitle ? '<p class="quiz-subtitle">' + esc(s.subtitle) + '</p>' : '') +
+          '<div class="track-preview"><img src="' + s.trackImage + '" alt="Stopa"><div class="cap">Stopa</div></div>' +
+          optionsArea + '</div>';
+      }
+      if (s.layout === 'compare') {
+        return '<div class="quiz-body"><h1 class="quiz-title">' + esc(s.title) + '</h1>' +
+          (s.subtitle ? '<p class="quiz-subtitle">' + esc(s.subtitle) + '</p>' : '') +
+          optionsArea + '</div>';
+      }
+      // imageGrid / plain
+      return '<div class="quiz-body"><h1 class="quiz-title">' + esc(s.title) + '</h1>' +
+        (s.subtitle ? '<p class="quiz-subtitle">' + esc(s.subtitle) + '</p>' : '') +
+        optionsArea + '</div>';
+    }
+
+    function render() {
+      var s = SCREENS[state.idx];
+      var st = state.per[state.idx];
+
+      progressFillEl.style.width = ((state.idx + 1) / SCREENS.length * 100) + '%';
+
+      cardEl.innerHTML = renderTopbar(s, st) + renderBody(s, st) + renderFooter(s);
+
+      var prevBtn = document.getElementById('prevBtn');
+      var nextBtn = document.getElementById('nextBtn');
+      var restartBtn = document.getElementById('restartBtn');
+      var checkBtn = document.getElementById('checkMultiBtn');
+      if (prevBtn) prevBtn.addEventListener('click', goPrev);
+      if (nextBtn) nextBtn.addEventListener('click', goNext);
+      if (restartBtn) restartBtn.addEventListener('click', restart);
+      if (checkBtn) checkBtn.addEventListener('click', lockAndReveal);
+
+      if (s.timer && !st.locked) startTimer(s.timer); else clearTimer();
+
+      window.scrollTo({ top: cardEl.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+    }
+
+    document.getElementById('quizShell').addEventListener('click', function (e) {
+      var el = e.target.closest('[data-optkey]');
+      if (!el) return;
+      handleOptionClick(el.getAttribute('data-optkey'));
+    });
+
+    render();
+  })();
+  </script>
+</body>
+</html>

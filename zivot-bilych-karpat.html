@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Život Bílých Karpat – karty objevitele</title>
+<meta name="description" content="Deset druhů savců, ptáků, obojživelníků, hmyzu a rostlin CHKO Bílé Karpaty na interaktivních kartách objevitele.">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  main { max-width: var(--max-width); margin: 0 auto; padding: 0 20px 60px; }
+
+  .page-hero {
+    text-align: center;
+    padding: 48px 0 8px;
+  }
+
+  .page-hero h1 {
+    color: var(--dark-green);
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    margin: 14px 0 12px;
+  }
+
+  .page-hero p {
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 1.02rem;
+  }
+
+  .section-title {
+    color: var(--dark-green);
+    font-size: 1.3rem;
+    margin: 40px 0 18px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--cream-border);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .animal-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--cream-border);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    text-decoration: none;
+    color: var(--text-body);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+
+  .animal-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--mid-green);
+  }
+
+  .animal-card .icon { font-size: 2.1rem; margin-bottom: 10px; }
+  .animal-card h2 { margin: 0 0 4px; font-size: 1.15rem; color: var(--dark-green); }
+  .animal-card .latin { margin: 0 0 12px; font-style: italic; color: var(--text-muted); font-size: 0.9rem; }
+  .animal-card .open { margin-top: auto; font-weight: 600; font-size: 0.9rem; color: var(--dark-green); }
+  .animal-card .open::after { content: " →"; }
+</style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <a class="site-logo" href="index.html">
+        <span class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3f5c40" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8 0 14-6 14-14 0-1 0-2-1-2-8 0-14 6-14 14 0 1 0 2 1 2z"/><path d="M4 20c0-6 3-10 8-12"/></svg>
+        </span>
+        Bílé Karpaty
+      </a>
+      <button class="nav-toggle" aria-label="Otevřít menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="site-nav-links">
+        <li><a href="index.html">Domů</a></li>
+        <li><a href="zivot-bilych-karpat.html" aria-current="page">Život Bílých Karpat</a></li>
+        <li><a class="nav-cta" href="quiz.html">Kvíz</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="page-hero">
+      <span class="pill-badge">🌿 Karty objevitele</span>
+      <h1>Živočichové a rostliny CHKO Bílé Karpaty</h1>
+      <p>Vyberte si kartu a poznejte druhy, které žijí a rostou v Chráněné krajinné oblasti Bílé Karpaty.</p>
+    </div>
+
+    <h2 class="section-title">Savci</h2>
+    <div class="grid">
+      <a class="animal-card" href="karta_vlk.html">
+        <span class="icon">🐺</span>
+        <h2>Vlk obecný</h2>
+        <p class="latin">Canis lupus</p>
+        <span class="open">Otevřít kartu</span>
+      </a>
+      <a class="animal-card" href="karta_kocka.html">
+        <span class="icon">🐈</span>
+        <h2>Kočka divoká</h2>
+        <p class="latin">Felis silvestris</p>
+        <span class="open">Otevřít kartu</span>
+      </a>
+      <a class="animal-card" href="karta_vydra.html">
+        <span class="icon">🦦</span>
+        <h2>Vydra říční</h2>
+        <p class="latin">Lutra lutra</p>
+        <span class="open">Otevřít kartu</span>
+      </a>
+    </div>
+
+    <h2 class="section-title">Ptáci</h2>
+    <div class="grid">
+      <a class="animal-card" href="karta_vlha.html">
+        <span class="icon">🐦</span>
+        <h2>Vlha pestrá</h2>
+        <p class="latin">Merops apiaster</p>
+        <span class="open">Otevřít kartu</span>
+      </a>
+    </div>
+
+    <h2 class="section-title">Obojživelníci</h2>
+    <div class="grid">
+      <a class="animal-card" href="karta_mlok.html">
+        <span class="icon">🦎</span>
+        <h2>Mlok skvrnitý</h2>
+        <p class="latin">Salamandra salamandra</p>
+        <span class="open">Otevřít kartu</span>
+      </a>
+    </div>
+
+    <h2 class="section-title">Hmyz</h2>
+    <div class="grid">
+      <a class="animal-card" href="karta_modrasek.html">
+        <span class="icon">🦋</span>
+        <h2>Modrásek bahenní</h2>
+        <p class="latin">Phengaris nausithous</p>
+        <span class="open">Otevřít kartu</span>
+      </a>
+      <a class="animal-card" href="karta_rohac.html">
+        <span class="icon">🪲</span>
+        <h2>Roháč obecný</h2>
+        <p class="latin">Lucanus cervus</p>
+        <span class="open">Otevřít kartu</span>
+      </a>
+      <a class="animal-card" href="karta_tesarik.html">
+        <span class="icon">🪲</span>
+        <h2>Tesařík alpský</h2>
+        <p class="latin">Rosalia alpina</p>
+        <span class="open">Otevřít kartu</span>
+      </a>
+    </div>
+
+    <h2 class="section-title">Rostliny</h2>
+    <div class="grid">
+      <a class="animal-card" href="karta_lilie.html">
+        <span class="icon">🌸</span>
+        <h2>Lilie zlatohlavá</h2>
+        <p class="latin">Lilium martagon</p>
+        <span class="open">Otevřít kartu</span>
+      </a>
+      <a class="animal-card" href="karta_vstavac.html">
+        <span class="icon">🌺</span>
+        <h2>Vstavač vojenský</h2>
+        <p class="latin">Orchis militaris</p>
+        <span class="open">Otevřít kartu</span>
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <ul class="site-footer-links">
+        <li><a href="index.html">Domů</a></li>
+        <li><a href="zivot-bilych-karpat.html">Život Bílých Karpat</a></li>
+        <li><a href="quiz.html">Kvíz</a></li>
+      </ul>
+      <span class="site-footer-copy">Sdružení měst a obcí Východní Moravy – CHKO Bílé Karpaty</span>
+    </div>
+  </footer>
+
+  <script src="assets/site.js"></script>
+</body>
+</html>

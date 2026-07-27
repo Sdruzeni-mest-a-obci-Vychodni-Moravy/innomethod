@@ -3,233 +3,324 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karty objevitele – CHKO Bílé Karpaty</title>
+<title>Bílé Karpaty – Poznej krajinu, druhy i kvíz</title>
+<meta name="description" content="Objevte Chráněnou krajinnou oblast Bílé Karpaty: karty druhů, život krajiny a interaktivní kvíz Poznej Bílé Karpaty.">
+<link rel="stylesheet" href="assets/site.css">
 <style>
-  :root {
-    --cream: #f6f3ea;
-    --cream-border: #e7e1d0;
-    --dark-green: #3f5c40;
-    --mid-green: #6d8f65;
-    --text-body: #2c2c28;
-    --text-muted: #55584f;
-    --yellow: #e8d24f;
-    --yellow-dark: #d9bf2f;
-    --white: #ffffff;
-  }
+  main { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
 
-  * { box-sizing: border-box; }
-
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-    background: var(--cream);
-    color: var(--text-body);
-  }
-
-  header {
-    background: var(--dark-green);
-    color: var(--white);
-    padding: 48px 16px 40px;
-    text-align: center;
-  }
-
-  header .badge {
-    display: inline-block;
-    background: var(--yellow);
-    color: var(--dark-green);
-    font-weight: 700;
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    padding: 5px 14px;
-    border-radius: 999px;
-    margin-bottom: 16px;
-  }
-
-  header h1 {
-    margin: 0 0 12px;
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-  }
-
-  header p {
-    margin: 0 auto;
-    max-width: 640px;
-    color: #dfe6dc;
-    font-size: 1.05rem;
-    line-height: 1.5;
-  }
-
-  main {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 40px 20px 64px;
-  }
-
-  .section-title {
-    color: var(--dark-green);
-    font-size: 1.3rem;
-    margin: 40px 0 18px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--cream-border);
-  }
-
-  .section-title:first-child { margin-top: 0; }
-
-  .grid {
+  .hero {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items: center;
+    padding: 56px 0 64px;
   }
 
-  .animal-card {
+  .hero-copy h1 {
+    font-size: clamp(2.1rem, 4vw, 3rem);
+    color: var(--dark-green);
+    line-height: 1.15;
+    margin: 18px 0 16px;
+  }
+
+  .hero-copy p.lead {
+    color: var(--text-muted);
+    font-size: 1.08rem;
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 0 28px;
+  }
+
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 36px; }
+
+  .hero-mini-features {
     display: flex;
-    flex-direction: column;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .mini-feature { display: flex; gap: 14px; align-items: flex-start; max-width: 220px; }
+  .mini-feature h3 { margin: 0 0 4px; font-size: 0.98rem; color: var(--dark-green); }
+  .mini-feature p { margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+
+  .hero-visual { position: relative; }
+
+  .hero-visual .frame {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft-lg);
+    aspect-ratio: 4 / 5;
+  }
+
+  .hero-visual .frame img { width: 100%; height: 100%; object-fit: cover; }
+
+  .stat-card {
+    position: absolute;
+    bottom: -28px;
+    left: -24px;
+    background: var(--yellow);
+    border-radius: var(--radius-lg);
+    padding: 22px 26px;
+    box-shadow: var(--shadow-soft-lg);
+    max-width: 240px;
+  }
+
+  .stat-card .stat-num {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--dark-green-2);
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .stat-card .stat-label {
+    font-size: 0.85rem;
+    color: var(--dark-green-2);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  .stat-card hr { border: none; border-top: 1px solid rgba(63,92,64,0.25); margin: 10px 0; }
+
+  .stat-card .stat-sub { font-size: 0.78rem; color: var(--dark-green-2); opacity: 0.85; line-height: 1.4; }
+
+  section.about {
+    text-align: center;
+    padding: 40px 0 8px;
+  }
+
+  section.about h2 {
+    color: var(--dark-green);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    max-width: 760px;
+    margin: 10px auto 14px;
+  }
+
+  section.about p {
+    color: var(--text-muted);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 40px 0 20px;
+  }
+
+  .feature-card {
     background: var(--white);
     border: 1px solid var(--cream-border);
-    border-radius: 16px;
-    padding: 22px;
-    text-decoration: none;
-    color: var(--text-body);
-    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    border-radius: var(--radius-lg);
+    padding: 26px 22px;
+    position: relative;
   }
 
-  .animal-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 24px rgba(63, 92, 64, 0.15);
-    border-color: var(--mid-green);
+  .feature-card h3 { color: var(--dark-green); font-size: 1.05rem; margin: 16px 0 10px; }
+  .feature-card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; margin: 0; }
+
+  .feature-card .go {
+    position: absolute;
+    bottom: 18px;
+    right: 20px;
+    color: var(--mid-green);
+  }
+  .feature-card .go svg { width: 18px; height: 18px; }
+
+  .ticker {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 30px 0;
+    margin-top: 20px;
+    border-top: 1px solid var(--cream-border);
+    border-bottom: 1px solid var(--cream-border);
   }
 
-  .animal-card .icon {
-    font-size: 2.1rem;
-    margin-bottom: 10px;
+  .ticker-track {
+    display: inline-block;
+    animation: ticker-scroll 26s linear infinite;
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--cream-border);
   }
 
-  .animal-card h2 {
-    margin: 0 0 4px;
-    font-size: 1.15rem;
-    color: var(--dark-green);
+  .ticker-track span.dot { color: var(--mid-green); -webkit-text-stroke: 0; margin: 0 18px; }
+
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 
-  .animal-card .latin {
-    margin: 0 0 12px;
-    font-style: italic;
-    color: var(--text-muted);
-    font-size: 0.9rem;
+  .cta-band {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: var(--dark-green);
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 40px 44px;
+    margin: 40px 0 56px;
+    flex-wrap: wrap;
   }
 
-  .animal-card .open {
-    margin-top: auto;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--dark-green);
+  .cta-band h2 { margin: 0 0 8px; font-size: 1.5rem; }
+  .cta-band p { margin: 0; color: #dfe6dc; max-width: 460px; }
+  .cta-band .btn-accent { flex-shrink: 0; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding-top: 32px; }
+    .hero-visual { order: -1; max-width: 420px; margin: 0 auto 40px; }
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-card { left: 16px; bottom: -24px; }
   }
 
-  .animal-card .open::after {
-    content: " →";
-  }
-
-  footer {
-    text-align: center;
-    padding: 24px 16px 48px;
-    color: var(--text-muted);
-    font-size: 0.85rem;
+  @media (max-width: 560px) {
+    .feature-grid { grid-template-columns: 1fr; }
+    .cta-band { flex-direction: column; text-align: center; }
+    .hero-visual { max-width: 300px; }
   }
 </style>
 </head>
 <body>
 
-  <header>
-    <span class="badge">KARTY OBJEVITELE</span>
-    <h1>Živočichové a rostliny CHKO Bílé Karpaty</h1>
-    <p>Vyberte si kartu a poznejte druhy, které žijí a rostou v Chráněné krajinné oblasti Bílé Karpaty.</p>
-  </header>
+  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <a class="site-logo" href="index.html">
+        <span class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3f5c40" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8 0 14-6 14-14 0-1 0-2-1-2-8 0-14 6-14 14 0 1 0 2 1 2z"/><path d="M4 20c0-6 3-10 8-12"/></svg>
+        </span>
+        Bílé Karpaty
+      </a>
+      <button class="nav-toggle" aria-label="Otevřít menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="site-nav-links">
+        <li><a href="index.html" aria-current="page">Domů</a></li>
+        <li><a href="zivot-bilych-karpat.html">Život Bílých Karpat</a></li>
+        <li><a class="nav-cta" href="quiz.html">Kvíz</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <main>
 
-    <h2 class="section-title">Savci</h2>
-    <div class="grid">
-      <a class="animal-card" href="karta_vlk.html">
-        <span class="icon">🐺</span>
-        <h2>Vlk obecný</h2>
-        <p class="latin">Canis lupus</p>
-        <span class="open">Otevřít kartu</span>
-      </a>
-      <a class="animal-card" href="karta_kocka.html">
-        <span class="icon">🐈</span>
-        <h2>Kočka divoká</h2>
-        <p class="latin">Felis silvestris</p>
-        <span class="open">Otevřít kartu</span>
-      </a>
-      <a class="animal-card" href="karta_vydra.html">
-        <span class="icon">🦦</span>
-        <h2>Vydra říční</h2>
-        <p class="latin">Lutra lutra</p>
-        <span class="open">Otevřít kartu</span>
-      </a>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="pill-badge">🌿 CHKO Bílé Karpaty</span>
+        <h1>Poznej krajinu, druhy i příběhy Bílých Karpat</h1>
+        <p class="lead">Bílé Karpaty jsou domovem světově unikátních květnatých luk, vzácných živočichů i rostlin. Prozkoumejte je s námi na kartách objevitele a vyzkoušejte, jak dobře je znáte v interaktivním kvízu.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="zivot-bilych-karpat.html">Objevit druhy</a>
+          <a class="btn btn-outline" href="quiz.html">Spustit kvíz</a>
+        </div>
+        <div class="hero-mini-features">
+          <div class="mini-feature">
+            <span class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#2f4830" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            </span>
+            <div>
+              <h3>Chráněná krajina</h3>
+              <p>Louky, lesy a stráně s výjimečnou biodiverzitou na česko-slovenském pomezí.</p>
+            </div>
+          </div>
+          <div class="mini-feature">
+            <span class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#2f4830" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+            </span>
+            <div>
+              <h3>Pro školy i rodiny</h3>
+              <p>Karty objevitele a kvíz vhodné pro výuku i výlet s dětmi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="frame">
+          <img src="assets/quiz/img/image-7-1.jpg" alt="Hřeben Bílých Karpat při východu slunce" loading="eager">
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">90<span style="font-size:1.2rem;">+</span></div>
+          <div class="stat-label">druhů rostlin na jedné louce</div>
+          <hr>
+          <div class="stat-sub">Louky Bílých Karpat patří k nejbohatším na druhy rostlin v Evropě.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <span class="pill-badge">Proč Bílé Karpaty</span>
+      <h2>Krajina, kterou stojí za to poznat zblízka</h2>
+      <p>Od vlka obecného přes vzácné orchideje až po tesaříka alpského — na kartách objevitele najdete deset druhů, které v Bílých Karpatech skutečně žijí a rostou. V kvízu si pak ověříte, jak dobře přírodu regionu znáte.</p>
+    </section>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <span class="icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2f4830" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8 0 14-6 14-14 0-1 0-2-1-2-8 0-14 6-14 14 0 1 0 2 1 2z"/><path d="M4 20c0-6 3-10 8-12"/></svg>
+        </span>
+        <h3>Karty objevitele</h3>
+        <p>Deset druhů zpracovaných do přehledných interaktivních karet.</p>
+        <a class="go" href="zivot-bilych-karpat.html" aria-label="Zobrazit karty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      </div>
+      <div class="feature-card">
+        <span class="icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2f4830" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </span>
+        <h3>Savci, ptáci, hmyz i rostliny</h3>
+        <p>Od vydry říční po vstavač vojenský — poznejte pestrost regionu.</p>
+        <a class="go" href="zivot-bilych-karpat.html" aria-label="Zobrazit druhy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      </div>
+      <div class="feature-card">
+        <span class="icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2f4830" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/></svg>
+        </span>
+        <h3>Světově unikátní louky</h3>
+        <p>Louky s desítkami druhů rostlin na jediném čtverečním metru.</p>
+        <a class="go" href="zivot-bilych-karpat.html" aria-label="Zobrazit louky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      </div>
+      <div class="feature-card">
+        <span class="icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2f4830" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+        </span>
+        <h3>Interaktivní kvíz</h3>
+        <p>12 terénních výzev — otestujte, jak dobře znáte Bílé Karpaty.</p>
+        <a class="go" href="quiz.html" aria-label="Spustit kvíz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      </div>
     </div>
 
-    <h2 class="section-title">Ptáci</h2>
-    <div class="grid">
-      <a class="animal-card" href="karta_vlha.html">
-        <span class="icon">🐦</span>
-        <h2>Vlha pestrá</h2>
-        <p class="latin">Merops apiaster</p>
-        <span class="open">Otevřít kartu</span>
-      </a>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        Objevování <span class="dot">✳</span> Příroda <span class="dot">✳</span> Poznání <span class="dot">✳</span> Ochrana <span class="dot">✳</span> Objevování <span class="dot">✳</span> Příroda <span class="dot">✳</span> Poznání <span class="dot">✳</span> Ochrana <span class="dot">✳</span>
+      </div>
     </div>
 
-    <h2 class="section-title">Obojživelníci</h2>
-    <div class="grid">
-      <a class="animal-card" href="karta_mlok.html">
-        <span class="icon">🦎</span>
-        <h2>Mlok skvrnitý</h2>
-        <p class="latin">Salamandra salamandra</p>
-        <span class="open">Otevřít kartu</span>
-      </a>
-    </div>
-
-    <h2 class="section-title">Hmyz</h2>
-    <div class="grid">
-      <a class="animal-card" href="karta_modrasek.html">
-        <span class="icon">🦋</span>
-        <h2>Modrásek bahenní</h2>
-        <p class="latin">Phengaris nausithous</p>
-        <span class="open">Otevřít kartu</span>
-      </a>
-      <a class="animal-card" href="karta_rohac.html">
-        <span class="icon">🪲</span>
-        <h2>Roháč obecný</h2>
-        <p class="latin">Lucanus cervus</p>
-        <span class="open">Otevřít kartu</span>
-      </a>
-      <a class="animal-card" href="karta_tesarik.html">
-        <span class="icon">🪲</span>
-        <h2>Tesařík alpský</h2>
-        <p class="latin">Rosalia alpina</p>
-        <span class="open">Otevřít kartu</span>
-      </a>
-    </div>
-
-    <h2 class="section-title">Rostliny</h2>
-    <div class="grid">
-      <a class="animal-card" href="karta_lilie.html">
-        <span class="icon">🌸</span>
-        <h2>Lilie zlatohlavá</h2>
-        <p class="latin">Lilium martagon</p>
-        <span class="open">Otevřít kartu</span>
-      </a>
-      <a class="animal-card" href="karta_vstavac.html">
-        <span class="icon">🌺</span>
-        <h2>Vstavač vojenský</h2>
-        <p class="latin">Orchis militaris</p>
-        <span class="open">Otevřít kartu</span>
-      </a>
+    <div class="cta-band">
+      <div>
+        <h2>Připraveni na výzvu?</h2>
+        <p>Vyzkoušejte 12 kvízových výzev a zjistěte, jestli si zasloužíte titul Objevitele Bílých Karpat.</p>
+      </div>
+      <a class="btn btn-accent" href="quiz.html">Spustit kvíz →</a>
     </div>
 
   </main>
 
-  <footer>
-    Sdružení měst a obcí Východní Moravy – CHKO Bílé Karpaty
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <ul class="site-footer-links">
+        <li><a href="index.html">Domů</a></li>
+        <li><a href="zivot-bilych-karpat.html">Život Bílých Karpat</a></li>
+        <li><a href="quiz.html">Kvíz</a></li>
+      </ul>
+      <span class="site-footer-copy">Sdružení měst a obcí Východní Moravy – CHKO Bílé Karpaty</span>
+    </div>
   </footer>
 
+  <script src="assets/site.js"></script>
 </body>
 </html>
