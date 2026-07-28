@@ -40,9 +40,9 @@ a { color: inherit; }
 .site-nav {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(6px);
+  z-index: 500;
+  isolation: isolate;
+  background: var(--white);
   border-bottom: 1px solid var(--cream-border);
 }
 
@@ -167,6 +167,7 @@ a { color: inherit; }
     top: 100%;
     left: 0;
     right: 0;
+    z-index: 10;
     background: var(--white);
     flex-direction: column;
     align-items: flex-start;
@@ -180,6 +181,15 @@ a { color: inherit; }
   .site-nav-links a { width: 100%; padding: 10px 0; }
   .nav-cta { order: 3; margin-top: 6px; }
   .nav-toggle { display: inline-flex; }
+}
+
+@media (max-width: 430px) {
+  .site-nav-inner { gap: 8px; padding: 12px 14px; }
+  .nav-left { gap: 6px; }
+  .funder-badge img { height: 20px; }
+  .site-logo { gap: 6px; font-size: 0.9rem; }
+  .site-logo .logo-mark { width: 28px; height: 28px; }
+  .site-logo .logo-mark svg { width: 15px; height: 15px; }
 }
 
 /* ---------- Shared components ---------- */

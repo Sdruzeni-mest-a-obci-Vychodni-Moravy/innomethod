@@ -9,6 +9,37 @@
 <style>
   main { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
 
+  .store-badges { margin-top: 12px; }
+  .store-badge { height: 42px; width: auto; display: block; }
+
+  .top-funder-banner { background: var(--cream-soft); border-bottom: 1px solid var(--cream-border); }
+
+  .top-funder-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 14px 20px;
+    min-height: 48px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .tfb-interreg { height: 34px; width: auto; }
+
+  .tfb-smovm {
+    height: 30px;
+    width: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (max-width: 640px) {
+    .top-funder-inner { flex-direction: column; gap: 12px; padding: 16px 20px; min-height: 0; }
+    .tfb-smovm { position: static; transform: none; }
+  }
+
   .hero {
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
@@ -107,7 +138,7 @@
 
   .feature-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 40px 0 20px;
   }
@@ -130,6 +161,34 @@
     color: var(--mid-green);
   }
   .feature-card .go svg { width: 18px; height: 18px; }
+
+  .meadows-section { padding: 44px 0 8px; text-align: center; }
+  .meadows-section h2 {
+    color: var(--dark-green);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    margin: 10px 0 12px;
+  }
+  .meadows-intro { color: var(--text-muted); max-width: 640px; margin: 0 auto 30px; line-height: 1.6; }
+
+  .meadows-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+    text-align: left;
+  }
+
+  .meadow-card {
+    background: var(--white);
+    border: 1px solid var(--cream-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .meadow-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); }
+  .meadow-card img { width: 100%; height: 170px; object-fit: cover; }
+  .meadow-body { padding: 18px 20px 22px; }
+  .meadow-body h3 { color: var(--dark-green); margin: 0 0 8px; font-size: 1.08rem; }
+  .meadow-body p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; margin: 0; }
 
   .ticker {
     overflow: hidden;
@@ -192,12 +251,9 @@
   <nav class="site-nav">
     <div class="site-nav-inner">
       <div class="nav-left">
-        <span class="funder-badge" title="Sdružení měst a obcí Východní Moravy">
-          <img src="assets/logos/smovm-black.png" alt="SMOVM">
-        </span>
         <a class="site-logo" href="index.html">
           <span class="logo-mark">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#3f5c40" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c8 0 14-6 14-14 0-1 0-2-1-2-8 0-14 6-14 14 0 1 0 2 1 2z"/><path d="M4 20c0-6 3-10 8-12"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3f5c40" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17l5-9 4 5 4-7 7 11"/></svg>
           </span>
           Bílé Karpaty
         </a>
@@ -210,11 +266,15 @@
         <li><a href="zivot-bilych-karpat.html">Život Bílých Karpat</a></li>
         <li><a class="nav-cta" href="quiz.html">Kvíz</a></li>
       </ul>
-      <span class="interreg-badge" title="Program Interreg Slovensko – Česko">
-        <img src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko">
-      </span>
     </div>
   </nav>
+
+  <div class="top-funder-banner">
+    <div class="top-funder-inner">
+      <img class="tfb-interreg" src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko – Spolufinancovaný Európskou úniou">
+      <img class="tfb-smovm" src="assets/logos/smovm-black.png" alt="Sdružení měst a obcí Východní Moravy">
+    </div>
+  </div>
 
   <main>
 
@@ -284,15 +344,50 @@
         <p>Od vydry říční po vstavač vojenský — poznejte pestrost regionu.</p>
         <a class="go" href="zivot-bilych-karpat.html" aria-label="Zobrazit druhy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
       </div>
-      <div class="feature-card">
-        <span class="icon-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2f4830" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/></svg>
-        </span>
-        <h3>Světově unikátní louky</h3>
-        <p>Louky s desítkami druhů rostlin na jediném čtverečním metru.</p>
-        <a class="go" href="zivot-bilych-karpat.html" aria-label="Zobrazit louky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-      </div>
     </div>
+
+    <section class="meadows-section">
+      <span class="pill-badge">🌾 Světově unikátní louky</span>
+      <h2>Louky, které stojí za ochranu</h2>
+      <p class="meadows-intro">Bílé/Biele Karpaty hostí několik z nejcennějších lučních rezervací v Evropě. Pět z nich představujeme blíže.</p>
+      <div class="meadows-grid">
+        <article class="meadow-card">
+          <img src="assets/quiz/img/image-4-1.jpg" alt="Orchidej na louce v NPR Čertoryje" loading="lazy">
+          <div class="meadow-body">
+            <h3>Čertoryje</h3>
+            <p>Čertoryje a její Orchidejová naučná stezka patří k nejvýznamnějším lučním lokalitám českých Bílých Karpat. Rozkvétá tu mimořádné množství vstavačovitých rostlin – od vstavače vojenského po prstnatce a vemeníky. Tato pestrost není náhoda: louky jsou po staletí šetrně koseny a spásány. Procházet se smí jen po značených cestách, přesná místa vzácných rostlin se veřejně nesdílí.</p>
+          </div>
+        </article>
+        <article class="meadow-card">
+          <img src="assets/quiz/img/image-8-1.jpg" alt="Pestrá květnatá louka v NPR Zahrady pod Hájem" loading="lazy">
+          <div class="meadow-body">
+            <h3>Zahrady pod Hájem</h3>
+            <p>Rozsáhlá druhově bohatá louka na Horňácku, propojená s tradiční krajinou a lidovou kulturou regionu. Její pestrá mozaika vznikla dlouhodobým šetrným hospodařením – kosením a pastvou, které místní generace praktikují po staletí. Zahrady pod Hájem jsou důkazem, že příroda a tradiční obhospodařování krajiny se nevylučují – naopak, jedno bez druhého by tahle krása nevznikla.</p>
+          </div>
+        </article>
+        <article class="meadow-card">
+          <img src="assets/quiz/img/image-9-1.jpg" alt="Rodina pozoruje květnatou louku v NPR Jazevčí" loading="lazy">
+          <div class="meadow-body">
+            <h3>Jazevčí</h3>
+            <p>Národní přírodní rezervace Jazevčí patří mezi nejhodnotnější luční lokality v jižní části českých Bílých Karpat. Je domovem řady vzácných a citlivých druhů rostlin i hmyzu, jejichž přežití závisí na opatrném managementu. Návštěvníci jsou vítáni, ale přesná místa výskytu nejvzácnějších druhů se nezveřejňují – ochrana křehké rovnováhy má přednost před masovou turistikou.</p>
+          </div>
+        </article>
+        <article class="meadow-card">
+          <img src="assets/quiz/img/image-13-1.jpg" alt="Orchidej v ranní louce v NPR Porážky" loading="lazy">
+          <div class="meadow-body">
+            <h3>Porážky</h3>
+            <p>Nedaleko Jazevčí najdeme další cennou rezervaci – Porážky. Společně s Jazevčím a přírodní rezervací Machová tvoří soubor mimořádně hodnotných lučních biotopů jižních Bílých Karpat, patřících k nejbohatším na počet druhů rostlin na jednotku plochy ve střední Evropě. Křehká rovnováha mezi kosením, pastvou a ochranou vzácných druhů je tu klíčová.</p>
+          </div>
+        </article>
+        <article class="meadow-card">
+          <img src="assets/quiz/img/image-10-1.jpg" alt="Cesta loukou v Holubyho kopanicích" loading="lazy">
+          <div class="meadow-body">
+            <h3>Holubyho kopanice</h3>
+            <p>Na slovenské straně pohoří se rozkládá Území evropského významu Holubyho kopanice, pojmenované po botaniku Jozefu Ľudovítu Holubym. Rozptýlená kopaničiarska krajina spojuje louky, sady, prameniště a lesy do jedinečné mozaiky biotopů sítě Natura 2000. Generace lidí tu hospodařily v souladu s krajinou – a právě toto soužití vytvořilo prostředí bohaté na druhy.</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
     <div class="ticker" aria-hidden="true">
       <div class="ticker-track">
@@ -307,13 +402,32 @@
         <p>Staňte se součástí komunitního mapování druhů v Bílých Karpatech. Každá vaše fotografie rostliny, motýla nebo stopy pomáhá vědcům i ochráncům přírody lépe porozumět tomu, co se v krajině děje.</p>
         <div class="engage-actions">
           <a class="btn btn-primary" href="https://www.inaturalist.org/projects/innomethod-biodiverzita-bilych-bielych-karpat" target="_blank" rel="noopener">Projekt na iNaturalist →</a>
-          <a class="store-btn" href="https://play.google.com/store/apps/details?id=org.inaturalist.android" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 18c0 .55.45 1 1 1h1v3a1.5 1.5 0 003 0v-3h2v3a1.5 1.5 0 003 0v-3h1c.55 0 1-.45 1-1V9H6v9zM3.5 9A1.5 1.5 0 002 10.5v6a1.5 1.5 0 003 0v-6A1.5 1.5 0 003.5 9zm17 0a1.5 1.5 0 00-1.5 1.5v6a1.5 1.5 0 003 0v-6A1.5 1.5 0 0020.5 9zM8 3.5 6.7 2.2a.5.5 0 10-.7.7L7.2 4.1A6.98 6.98 0 004 9h16a6.98 6.98 0 00-3.2-4.9l1.2-1.2a.5.5 0 10-.7-.7L16 3.5A7.4 7.4 0 0012 3c-1.5 0-2.9.2-4-.5z"/></svg>
-            Stáhnout pro Android
+        </div>
+        <div class="engage-actions store-badges">
+          <a href="https://play.google.com/store/apps/details?id=org.inaturalist.android" target="_blank" rel="noopener" aria-label="Získat na Google Play">
+            <svg class="store-badge" viewBox="0 0 155 42" xmlns="http://www.w3.org/2000/svg" role="img">
+              <rect width="155" height="42" rx="6" fill="#000"/>
+              <rect x="0.5" y="0.5" width="154" height="41" rx="5.5" fill="none" stroke="#a6a6a6" stroke-width="0.6"/>
+              <g transform="translate(13,10)">
+                <polygon points="0,0 0,22 11,11" fill="#00d1ff"/>
+                <polygon points="0,0 15.5,8.3 11,11" fill="#00e676"/>
+                <polygon points="0,22 15.5,13.7 11,11" fill="#ffcc00"/>
+                <polygon points="15.5,8.3 20,11 15.5,13.7 11,11" fill="#ff3b30"/>
+              </g>
+              <text x="40" y="17" font-family="Arial, Helvetica, sans-serif" font-size="7.2" fill="#fff">ZÍSKAT NA</text>
+              <text x="40" y="31" font-family="Arial, Helvetica, sans-serif" font-size="13.5" font-weight="600" fill="#fff">Google Play</text>
+            </svg>
           </a>
-          <a class="store-btn" href="https://apps.apple.com/app/inaturalist/id421397028" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12-1.14.463-2.35 1.17-3.06.803-.822 2.13-1.44 2.994-1.59zm4.564 15.83c-.618 1.386-.914 2.006-1.71 3.23-1.11 1.7-2.68 3.82-4.62 3.83-1.72.02-2.16-1.12-4.49-1.11-2.33.01-2.82 1.13-4.54 1.11-1.94-.02-3.42-1.94-4.53-3.64C-1.02 16.5-1.53 10.9 1.66 7.94c1.53-1.44 3.36-1.99 5.15-1.99 1.53 0 2.68.86 3.6.86.9 0 2.14-.87 3.9-.87 1.53 0 3.15.5 4.34 1.65-3.82 2.09-3.19 7.7 1.28 9.65-.35.62-.66 1.02-.98 1.99z"/></svg>
-            Stáhnout pro iPhone
+          <a href="https://apps.apple.com/app/inaturalist/id421397028" target="_blank" rel="noopener" aria-label="Stáhnout v App Store">
+            <svg class="store-badge" viewBox="0 0 155 42" xmlns="http://www.w3.org/2000/svg" role="img">
+              <rect width="155" height="42" rx="6" fill="#000"/>
+              <rect x="0.5" y="0.5" width="154" height="41" rx="5.5" fill="none" stroke="#a6a6a6" stroke-width="0.6"/>
+              <g fill="#fff" transform="translate(13,8)">
+                <path d="M13.9 5.6c-.9.1-1.9.6-2.6 1.3-.6.6-1.1 1.6-.9 2.6.9.1 1.9-.6 2.6-1.3.6-.6 1-1.6.9-2.6zm.8 4.4c-1.4-.1-2.6.8-3.3.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.9 1.2 9.1.8 1.1 1.7 2.3 2.9 2.3 1.1 0 1.6-.7 3-.7 1.4 0 1.8.7 3 .7 1.3 0 2.1-1.1 2.9-2.2.5-.8 1-1.7 1.3-2.7-1.3-.5-2.2-1.8-2.2-3.2 0-1.5.9-2.8 2.1-3.4-.6-1.2-1.9-2.1-3.5-2.2z"/>
+              </g>
+              <text x="40" y="17" font-family="Arial, Helvetica, sans-serif" font-size="7.2" fill="#fff">STÁHNOUT V</text>
+              <text x="40" y="31" font-family="Arial, Helvetica, sans-serif" font-size="13.5" font-weight="600" fill="#fff">App Store</text>
+            </svg>
           </a>
         </div>
       </div>
