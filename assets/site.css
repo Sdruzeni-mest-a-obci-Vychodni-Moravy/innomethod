@@ -302,7 +302,14 @@ a { color: inherit; }
 .partners-section h2 {
   color: var(--dark-green);
   font-size: 1.15rem;
-  margin: 8px 0 28px;
+  margin: 30px 0 24px;
+}
+
+.partners-lead-logo {
+  display: block;
+  margin: 10px auto 8px;
+  height: 68px;
+  width: auto;
 }
 
 .partners-grid {

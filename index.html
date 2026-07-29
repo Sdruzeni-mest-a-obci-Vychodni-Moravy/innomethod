@@ -18,27 +18,23 @@
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 14px 20px;
-    min-height: 48px;
-    position: relative;
     display: flex;
-    align-items: center;
+    justify-content: center;
   }
 
-  .tfb-interreg { height: 34px; width: auto; }
+  .tfb-smovm { height: 30px; width: auto; }
 
-  .tfb-smovm {
-    height: 30px;
-    width: auto;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  .hero-top-banner {
+    grid-column: 1 / -1;
+    order: -2;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 24px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--cream-border);
   }
 
-  @media (max-width: 640px) {
-    .top-funder-inner { flex-direction: column; gap: 12px; padding: 16px 20px; min-height: 0; }
-    .tfb-smovm { position: static; transform: none; }
-  }
+  .hero-interreg { height: 44px; width: auto; }
 
   .hero {
     display: grid;
@@ -271,7 +267,6 @@
 
   <div class="top-funder-banner">
     <div class="top-funder-inner">
-      <img class="tfb-interreg" src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko – Spolufinancovaný Európskou úniou">
       <img class="tfb-smovm" src="assets/logos/smovm-black.png" alt="Sdružení měst a obcí Východní Moravy">
     </div>
   </div>
@@ -279,6 +274,9 @@
   <main>
 
     <section class="hero">
+      <div class="hero-top-banner">
+        <img class="hero-interreg" src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko – Spolufinancovaný Európskou úniou">
+      </div>
       <div class="hero-copy">
         <span class="pill-badge">🌿 Projekt INNOMETHOD · CHKO Bílé Karpaty</span>
         <h1>Chráníme biodiverzitu Bílých Karpat — s vámi</h1>
@@ -352,35 +350,35 @@
       <p class="meadows-intro">Bílé/Biele Karpaty hostí několik z nejcennějších lučních rezervací v Evropě. Pět z nich představujeme blíže.</p>
       <div class="meadows-grid">
         <article class="meadow-card">
-          <img src="assets/quiz/img/image-4-1.jpg" alt="Orchidej na louce v NPR Čertoryje" loading="lazy">
+          <img src="assets/meadows/certoryje.jpg" alt="Louka v NPR Čertoryje" loading="lazy">
           <div class="meadow-body">
             <h3>Čertoryje</h3>
             <p>Čertoryje a její Orchidejová naučná stezka patří k nejvýznamnějším lučním lokalitám českých Bílých Karpat. Rozkvétá tu mimořádné množství vstavačovitých rostlin – od vstavače vojenského po prstnatce a vemeníky. Tato pestrost není náhoda: louky jsou po staletí šetrně koseny a spásány. Procházet se smí jen po značených cestách, přesná místa vzácných rostlin se veřejně nesdílí.</p>
           </div>
         </article>
         <article class="meadow-card">
-          <img src="assets/quiz/img/image-8-1.jpg" alt="Pestrá květnatá louka v NPR Zahrady pod Hájem" loading="lazy">
+          <img src="assets/meadows/zahrady-pod-hajem.jpg" alt="Louka v NPR Zahrady pod Hájem" loading="lazy">
           <div class="meadow-body">
             <h3>Zahrady pod Hájem</h3>
             <p>Rozsáhlá druhově bohatá louka na Horňácku, propojená s tradiční krajinou a lidovou kulturou regionu. Její pestrá mozaika vznikla dlouhodobým šetrným hospodařením – kosením a pastvou, které místní generace praktikují po staletí. Zahrady pod Hájem jsou důkazem, že příroda a tradiční obhospodařování krajiny se nevylučují – naopak, jedno bez druhého by tahle krása nevznikla.</p>
           </div>
         </article>
         <article class="meadow-card">
-          <img src="assets/quiz/img/image-9-1.jpg" alt="Rodina pozoruje květnatou louku v NPR Jazevčí" loading="lazy">
+          <img src="assets/meadows/jazevci.jpg" alt="Louka v NPR Jazevčí" loading="lazy">
           <div class="meadow-body">
             <h3>Jazevčí</h3>
             <p>Národní přírodní rezervace Jazevčí patří mezi nejhodnotnější luční lokality v jižní části českých Bílých Karpat. Je domovem řady vzácných a citlivých druhů rostlin i hmyzu, jejichž přežití závisí na opatrném managementu. Návštěvníci jsou vítáni, ale přesná místa výskytu nejvzácnějších druhů se nezveřejňují – ochrana křehké rovnováhy má přednost před masovou turistikou.</p>
           </div>
         </article>
         <article class="meadow-card">
-          <img src="assets/quiz/img/image-13-1.jpg" alt="Orchidej v ranní louce v NPR Porážky" loading="lazy">
+          <img src="assets/meadows/porazky.jpg" alt="Pohled na louky v NPR Porážky" loading="lazy">
           <div class="meadow-body">
             <h3>Porážky</h3>
             <p>Nedaleko Jazevčí najdeme další cennou rezervaci – Porážky. Společně s Jazevčím a přírodní rezervací Machová tvoří soubor mimořádně hodnotných lučních biotopů jižních Bílých Karpat, patřících k nejbohatším na počet druhů rostlin na jednotku plochy ve střední Evropě. Křehká rovnováha mezi kosením, pastvou a ochranou vzácných druhů je tu klíčová.</p>
           </div>
         </article>
         <article class="meadow-card">
-          <img src="assets/quiz/img/image-10-1.jpg" alt="Cesta loukou v Holubyho kopanicích" loading="lazy">
+          <img src="assets/meadows/holubyho-kopanice.jpg" alt="Krajina Holubyho kopanic" loading="lazy">
           <div class="meadow-body">
             <h3>Holubyho kopanice</h3>
             <p>Na slovenské straně pohoří se rozkládá Území evropského významu Holubyho kopanice, pojmenované po botaniku Jozefu Ľudovítu Holubym. Rozptýlená kopaničiarska krajina spojuje louky, sady, prameniště a lesy do jedinečné mozaiky biotopů sítě Natura 2000. Generace lidí tu hospodařily v souladu s krajinou – a právě toto soužití vytvořilo prostředí bohaté na druhy.</p>
@@ -457,11 +455,14 @@
 
     <section class="partners-section">
       <span class="pill-badge">Projekt podporují</span>
-      <h2>Partneři a spolufinancování</h2>
+      <img class="partners-lead-logo" src="assets/logos/interreg-color.png" alt="Interreg Slovensko – Česko – Spolufinancovaný Európskou úniou">
+      <h2>Realizátoři</h2>
       <div class="partners-grid">
-        <span class="partner-logo"><img src="assets/logos/interreg-color.png" alt="Interreg Slovensko – Česko – Spolufinancovaný Európskou úniou"></span>
         <span class="partner-logo"><img src="assets/logos/smovm-color.png" alt="Sdružení měst a obcí Východní Moravy"></span>
         <span class="partner-logo"><img src="assets/logos/tuc.png" alt="TUC"></span>
+      </div>
+      <h2>Partneři</h2>
+      <div class="partners-grid">
         <span class="partner-logo"><img src="assets/logos/dum-prirody.png" alt="Dům přírody Bílých Karpat"></span>
       </div>
       <p class="funder-fineprint">Projekt INNOMETHOD je spolufinancovaný Európskou úniou v rámci programu Interreg Slovensko – Česko.</p>
