@@ -573,17 +573,41 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
 
-    // Prehratie audiopríbehu
+    // Prehratie / pozastavenie audiopríbehu
     var audioBtn = document.getElementById('audio-btn');
     var audioEl = document.getElementById('story-audio');
     if (audioBtn && audioEl) {
+      var audioIconEl = audioBtn.querySelector('.icon');
+      var audioLabelEl = audioBtn.querySelector('.label');
+      var audioPlayIconHTML = audioIconEl.innerHTML;
+      var audioPauseIconHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg>';
+      var audioOriginalLabel = audioLabelEl.textContent;
+
       audioBtn.addEventListener('click', function (e) {
         e.preventDefault();
-        try { audioEl.currentTime = 0; } catch (err) { /* médium ešte nie je pripravené, ignorovať */ }
-        var playPromise = audioEl.play();
-        if (playPromise && typeof playPromise.catch === 'function') {
-          playPromise.catch(function () { /* prehrávanie zablokované prehliadačom, nič nerobiť */ });
+        if (audioEl.paused) {
+          document.querySelectorAll('audio').forEach(function (a) {
+            if (a !== audioEl && !a.paused) { a.pause(); }
+          });
+          var playPromise = audioEl.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(function () { /* prehrávanie zablokované prehliadačom, nič nerobiť */ });
+          }
+        } else {
+          audioEl.pause();
         }
+      });
+
+      audioEl.addEventListener('play', function () {
+        audioLabelEl.textContent = 'POZASTAVIT PŘÍBĚH';
+        audioIconEl.innerHTML = audioPauseIconHTML;
+      });
+      audioEl.addEventListener('pause', function () {
+        audioLabelEl.textContent = audioOriginalLabel;
+        audioIconEl.innerHTML = audioPlayIconHTML;
+      });
+      audioEl.addEventListener('ended', function () {
+        audioEl.currentTime = 0;
       });
     }
 
