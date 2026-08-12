@@ -31,6 +31,7 @@
   .quiz-body.has-panel { grid-template-columns: 1.1fr 0.9fr; align-items: stretch; }
   .quiz-panel-img { border-radius: var(--radius-md); overflow: hidden; min-height: 220px; order: 2; background: var(--cream-soft); }
   .quiz-panel-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .quiz-panel-img.memorize-panel img { object-fit: contain; background: var(--cream-soft); }
   @media (max-width: 760px) {
     .quiz-body.has-panel { grid-template-columns: 1fr; }
     .quiz-panel-img { order: -1; max-height: 220px; }
@@ -75,7 +76,7 @@
 
   .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .compare-card { border-radius: var(--radius-md); overflow: hidden; border: 3px solid var(--cream-border); cursor: pointer; position: relative; transition: border-color .15s; }
-  .compare-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+  .compare-card img { width: 100%; height: 200px; object-fit: contain; display: block; background: var(--cream-soft); }
   .compare-card .compare-letter { position: absolute; top: 10px; left: 10px; background: rgba(255,255,255,.92); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--dark-green); }
   .compare-card:hover { border-color: var(--mid-green); }
   .compare-card.correct { border-color: #3f8f52; }
@@ -247,7 +248,7 @@
           { key: 'C', label: 'Přesadím ji doma do květináče.' }
         ], correct: ['B'] },
 
-      { kind: 'challenge', num: 12, timer: 60, badge: 'VÝZVA 12 · FINÁLE', title: 'Kteří živočichové jsou pro Bílé Karpaty typičtí?', subtitle: 'Vyber 5 — každé správné zvíře = 1 bonusový bod.',
+      { kind: 'challenge', num: 12, timer: 60, badge: 'VÝZVA 12 · FINÁLE', title: 'Kteří živočichové jsou pro Bílé Karpaty typičtí?', subtitle: 'Vyber 6 — každé správné zvíře = 1 bonusový bod.',
         layout: 'panel', image: IMG + 'image-14-1.jpg', optionMode: 'textList', multiSelect: true, perItemScoring: true,
         options: [
           { key: 'A', label: '🦋 Jasoň dymnivkový' },
@@ -491,8 +492,9 @@
         ? '<button class="quiz-nav-btn primary" id="restartBtn">Spustit znovu ↺</button>'
         : '<button class="quiz-nav-btn primary" id="nextBtn">' + nextLabel + '</button>';
 
+      var prevDisabled = idx === 0 || s.kind === 'memorize';
       return '<div class="quiz-footer-controls">' +
-        '<button class="quiz-nav-btn" id="prevBtn" ' + (idx === 0 ? 'disabled' : '') + '>← Zpět</button>' +
+        '<button class="quiz-nav-btn" id="prevBtn" ' + (prevDisabled ? 'disabled' : '') + '>← Zpět</button>' +
         '<span class="step-count">' + esc(stepLabel) + '</span>' +
         nextBtn +
         '</div>';
@@ -510,7 +512,7 @@
       if (s.kind === 'memorize') {
         return '<div class="quiz-body">' +
           '<h1 class="quiz-title">' + esc(s.title) + '</h1><p class="quiz-subtitle">' + esc(s.subtitle) + '</p>' +
-          '<div class="quiz-panel-img" style="min-height:320px;"><img src="' + s.image + '" alt="" loading="lazy"></div>' +
+          '<div class="quiz-panel-img memorize-panel" style="min-height:320px;"><img src="' + s.image + '" alt="" loading="lazy"></div>' +
           '</div>';
       }
 
