@@ -76,7 +76,7 @@
 
   .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .compare-card { border-radius: var(--radius-md); overflow: hidden; border: 3px solid var(--cream-border); cursor: pointer; position: relative; transition: border-color .15s; }
-  .compare-card img { width: 100%; height: 200px; object-fit: contain; display: block; background: var(--cream-soft); }
+  .compare-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
   .compare-card .compare-letter { position: absolute; top: 10px; left: 10px; background: rgba(255,255,255,.92); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--dark-green); }
   .compare-card:hover { border-color: var(--mid-green); }
   .compare-card.correct { border-color: #3f8f52; }
@@ -492,7 +492,7 @@
         ? '<button class="quiz-nav-btn primary" id="restartBtn">Spustit znovu ↺</button>'
         : '<button class="quiz-nav-btn primary" id="nextBtn">' + nextLabel + '</button>';
 
-      var prevDisabled = idx === 0 || s.kind === 'memorize';
+      var prevDisabled = idx === 0 || (s.kind === 'challenge' && s.num === 9);
       return '<div class="quiz-footer-controls">' +
         '<button class="quiz-nav-btn" id="prevBtn" ' + (prevDisabled ? 'disabled' : '') + '>← Zpět</button>' +
         '<span class="step-count">' + esc(stepLabel) + '</span>' +
@@ -590,8 +590,6 @@
       if (checkBtn) checkBtn.addEventListener('click', lockAndReveal);
 
       if (s.timer && !st.locked) startTimer(s.timer); else clearTimer();
-
-      window.scrollTo({ top: cardEl.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
     }
 
     document.getElementById('quizShell').addEventListener('click', function (e) {
