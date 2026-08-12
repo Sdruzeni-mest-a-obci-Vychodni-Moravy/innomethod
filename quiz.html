@@ -214,7 +214,7 @@
         correct: ['A'] },
 
       { kind: 'challenge', num: 7, timer: 30, badge: 'VÝZVA 7', title: 'Co pomáhá zachovat druhově pestré louky?', subtitle: 'Vyber dvě správné odpovědi.',
-        layout: 'panel', image: IMG + 'image-8-1.jpg', optionMode: 'textList', multiSelect: true,
+        layout: 'panel', image: IMG + 'image-8-1.jpg', optionMode: 'textList', multiSelect: true, perItemScoring: true,
         options: [
           { key: 'A', label: 'Šetrné kosení luk' },
           { key: 'B', label: 'Hnojení luk chemickými hnojivy' },
@@ -439,7 +439,7 @@
       if (s.perItemScoring) {
         correctCount = st.selected.filter(function (k) { return s.correct.indexOf(k) !== -1; }).length;
         ok = correctCount > 0;
-        msg = 'Získal jsi ' + correctCount + ' z ' + s.correct.length + ' bonusových bodů. Správně: ' + s.correct.join(', ') + '.';
+        msg = 'Získal jsi ' + correctCount + ' z ' + s.correct.length + ' bodů. Správně: ' + s.correct.join(', ') + '.';
       } else if (s.multiSelect) {
         var a = st.selected.slice().sort().join(',');
         var b = s.correct.slice().sort().join(',');
@@ -524,7 +524,7 @@
       }
 
       if (s.kind === 'results') {
-        var maxScore = challengeCount - 1 + 6; // 11 single-point challenges + up to 6 bonus in challenge 12
+        var maxScore = (challengeCount - 2) + 2 + 6; // 10 single-point challenges + up to 2 for challenge 7 + up to 6 bonus in challenge 12
         var tier = TIERS[0];
         for (var i = 0; i < TIERS.length; i++) { if (state.score >= TIERS[i].min) tier = TIERS[i]; }
         return '<div class="quiz-body">' +
