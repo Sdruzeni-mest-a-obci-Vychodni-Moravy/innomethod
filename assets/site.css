@@ -196,7 +196,7 @@ a { color: inherit; }
     display: none;
   }
   .site-nav-links.open { display: flex; }
-  .site-nav-links a { width: 100%; padding: 10px 0; }
+  .site-nav-links a { width: 100%; padding: 10px 0 4px; }
   .nav-cta { order: 3; margin-top: 6px; }
   .nav-toggle { display: inline-flex; }
 }

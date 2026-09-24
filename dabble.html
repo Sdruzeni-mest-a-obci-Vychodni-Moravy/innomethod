@@ -74,6 +74,26 @@
     color: var(--dark-green);
     font-size: 1.05rem;
   }
+
+  @media (max-width: 600px) {
+    .dabble-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      padding: 24px 0 40px;
+    }
+
+    .dabble-card {
+      padding: 14px 10px 16px;
+    }
+
+    .dabble-card .icon-frame {
+      margin-bottom: 10px;
+    }
+
+    .dabble-card .dabble-name {
+      font-size: 0.88rem;
+    }
+  }
 </style>
 </head>
 <body>
