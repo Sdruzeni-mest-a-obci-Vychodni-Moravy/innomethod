@@ -186,6 +186,34 @@
   .meadow-body h3 { color: var(--dark-green); margin: 0 0 8px; font-size: 1.08rem; }
   .meadow-body p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; margin: 0; }
 
+  .map-section { padding: 44px 0 8px; text-align: center; }
+  .map-section h2 {
+    color: var(--dark-green);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    margin: 10px 0 12px;
+  }
+  .map-intro { color: var(--text-muted); max-width: 640px; margin: 0 auto 24px; line-height: 1.6; }
+
+  .map-frame {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--cream-border);
+    box-shadow: var(--shadow-soft);
+    background: var(--white);
+  }
+  .map-frame iframe { width: 100%; height: 600px; display: block; border: 0; }
+
+  .map-frame-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: var(--mid-green);
+  }
+
+  @media (max-width: 700px) {
+    .map-frame iframe { height: 420px; }
+  }
+
   .ticker {
     overflow: hidden;
     white-space: nowrap;
@@ -386,6 +414,16 @@
           </div>
         </article>
       </div>
+    </section>
+
+    <section class="map-section">
+      <span class="pill-badge">🗺️ Mapová prohlížečka</span>
+      <h2>Prozkoumejte krajinu na interaktivní mapě</h2>
+      <p class="map-intro">Podívejte se na mapové vrstvy a lokality projektu přímo zde na stránce.</p>
+      <div class="map-frame">
+        <iframe src="https://wegas.cz/rravm/" title="Mapová prohlížečka RRAVM" loading="lazy" allowfullscreen></iframe>
+      </div>
+      <a class="map-frame-link" href="https://wegas.cz/rravm/" target="_blank" rel="noopener">Otevřít mapu v novém okně →</a>
     </section>
 
     <div class="ticker" aria-hidden="true">
