@@ -114,8 +114,24 @@ a { color: inherit; }
 }
 .interreg-badge img { display: block; height: 26px; width: auto; }
 
+.nav-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--cream-border);
+  flex-shrink: 0;
+}
+
+.nav-logo-interreg {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.nav-logo-interreg img { display: block; height: 50px; width: auto; }
+
 @media (max-width: 860px) {
   .interreg-badge { display: none; }
+  .nav-divider,
+  .nav-logo-interreg { display: none; }
 }
 
 .site-nav-links a {
