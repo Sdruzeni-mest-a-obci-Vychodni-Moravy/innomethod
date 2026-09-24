@@ -92,7 +92,8 @@ a { color: inherit; }
   flex-shrink: 0;
 }
 
-.site-logo .logo-mark svg { width: 18px; height: 18px; }
+.site-logo .logo-mark svg,
+.site-logo .logo-mark img { width: 18px; height: 18px; display: block; }
 
 .site-nav-links {
   display: flex;
@@ -189,7 +190,8 @@ a { color: inherit; }
   .funder-badge img { height: 20px; }
   .site-logo { gap: 6px; font-size: 0.9rem; }
   .site-logo .logo-mark { width: 28px; height: 28px; }
-  .site-logo .logo-mark svg { width: 15px; height: 15px; }
+  .site-logo .logo-mark svg,
+  .site-logo .logo-mark img { width: 15px; height: 15px; }
 }
 
 /* ---------- Shared components ---------- */
