@@ -85,7 +85,8 @@ a { color: inherit; }
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: var(--yellow);
+  background: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.14);
   display: flex;
   align-items: center;
   justify-content: center;
