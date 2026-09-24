@@ -90,11 +90,6 @@
 
   .intro-list { list-style: none; padding: 0; margin: 0 0 14px; display: flex; flex-direction: column; gap: 10px; color: var(--text-body); font-weight: 600; }
 
-  .answerkey-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
-  .answerkey-table th, .answerkey-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--cream-border); font-size: 0.88rem; }
-  .answerkey-table th { color: var(--dark-green); }
-  .answerkey-wrap { overflow-x: auto; }
-
   .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 22px; }
   .tier-card { border: 2px solid var(--cream-border); border-radius: var(--radius-md); padding: 20px; text-align: center; background: var(--cream-soft); }
   .tier-card img { width: 60px; height: 60px; margin: 0 auto 10px; }
@@ -140,8 +135,8 @@
       <ul class="site-nav-links">
         <li><a href="index.html">Domů</a></li>
         <li><a href="zivot-bilych-karpat.html">Život Bílých Karpat</a></li>
-        <li><a class="nav-cta" href="quiz.html" aria-current="page">Kvíz</a></li>
         <li><a href="dabble.html">Dabble</a></li>
+        <li><a class="nav-cta" href="quiz.html" aria-current="page">Kvíz</a></li>
       </ul>
     </div>
   </nav>
@@ -156,8 +151,8 @@
       <ul class="site-footer-links">
         <li><a href="index.html">Domů</a></li>
         <li><a href="zivot-bilych-karpat.html">Život Bílých Karpat</a></li>
-        <li><a href="quiz.html">Kvíz</a></li>
         <li><a href="dabble.html">Dabble</a></li>
+        <li><a href="quiz.html">Kvíz</a></li>
       </ul>
       <span class="site-footer-copy">Sdružení měst a obcí Východní Moravy – CHKO Bílé Karpaty</span>
     </div>
@@ -261,15 +256,8 @@
           { key: 'H', label: '🦅 Včelojed lesní' }
         ], correct: ['A', 'B', 'C', 'D', 'E', 'G'] },
 
-      { kind: 'answerkey', badge: 'Shrnutí', title: 'Správné odpovědi' },
       { kind: 'results', badge: 'Vyhodnocení', title: 'Jak jsi dopadl?', image: IMG + 'image-16-1.jpg' },
       { kind: 'thanks', badge: '🌿 Děkujeme', title: 'Děkujeme za účast!', subtitle: 'Ukaž svou kartičku organizátorovi a získej razítko do své sběratelské karty!', image: IMG + 'image-17-1.jpg' }
-    ];
-
-    var ANSWERKEY_ROWS = [
-      ['1', 'D'], ['2', 'D'], ['3', 'Pravda'], ['4', 'B — Zubr evropský'], ['5', 'C'], ['6', 'A'],
-      ['7', 'A + C'], ['8', 'A — vzácné květiny se netrhají'], ['9', 'C'], ['10', 'C'], ['11', 'B'],
-      ['12', 'A, B, C, D, E, G']
     ];
 
     var TIERS = [
@@ -489,7 +477,6 @@
       if (s.kind === 'intro') stepLabel = 'Úvod';
       else if (s.kind === 'memorize') stepLabel = 'Výzva ' + s.num;
       else if (s.kind === 'challenge') stepLabel = 'Výzva ' + s.num + ' / ' + challengeCount;
-      else if (s.kind === 'answerkey') stepLabel = 'Shrnutí odpovědí';
       else if (s.kind === 'results') stepLabel = 'Vyhodnocení';
       else stepLabel = 'Konec';
 
@@ -520,13 +507,6 @@
           '<h1 class="quiz-title">' + esc(s.title) + '</h1><p class="quiz-subtitle">' + esc(s.subtitle) + '</p>' +
           '<div class="quiz-panel-img memorize-panel" style="min-height:320px;"><img src="' + s.image + '" alt="" loading="lazy"></div>' +
           '</div>';
-      }
-
-      if (s.kind === 'answerkey') {
-        return '<div class="quiz-body"><h1 class="quiz-title">' + esc(s.title) + '</h1>' +
-          '<div class="answerkey-wrap"><table class="answerkey-table"><thead><tr><th>Výzva</th><th>Správná odpověď</th></tr></thead><tbody>' +
-          ANSWERKEY_ROWS.map(function (r) { return '<tr><td>' + esc(r[0]) + '</td><td>' + esc(r[1]) + '</td></tr>'; }).join('') +
-          '</tbody></table></div></div>';
       }
 
       if (s.kind === 'results') {

@@ -4,28 +4,75 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dabble – Bílé Karpaty</title>
-<meta name="description" content="Připravujeme novou sekci webu Bílé Karpaty.">
+<meta name="description" content="Karpaty Dabble – hry na hledání stejných obrázků podle prostředí Bílých Karpat.">
 <link rel="stylesheet" href="assets/site.css">
 <style>
   main { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
 
-  .coming-soon {
+  .page-hero {
     text-align: center;
-    padding: 90px 20px 100px;
+    padding: 48px 0 8px;
   }
 
-  .coming-soon h1 {
+  .page-hero h1 {
     color: var(--dark-green);
     font-size: clamp(1.9rem, 4vw, 2.6rem);
-    margin: 16px 0 14px;
+    margin: 14px 0 12px;
   }
 
-  .coming-soon p {
+  .page-hero p {
     color: var(--text-muted);
-    max-width: 560px;
-    margin: 0 auto 28px;
+    max-width: 640px;
+    margin: 0 auto;
     line-height: 1.6;
     font-size: 1.02rem;
+  }
+
+  .dabble-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 40px 0 60px;
+  }
+
+  .dabble-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--white);
+    border: 1px solid var(--cream-border);
+    border-radius: var(--radius-lg);
+    padding: 22px 20px 24px;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+
+  .dabble-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--mid-green);
+  }
+
+  .dabble-card .icon-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--cream-soft);
+    margin-bottom: 16px;
+  }
+
+  .dabble-card .icon-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .dabble-card .dabble-name {
+    font-weight: 700;
+    color: var(--dark-green);
+    font-size: 1.05rem;
   }
 </style>
 </head>
@@ -51,21 +98,36 @@
       <ul class="site-nav-links">
         <li><a href="index.html">Domů</a></li>
         <li><a href="zivot-bilych-karpat.html">Život Bílých Karpat</a></li>
-        <li><a class="nav-cta" href="quiz.html">Kvíz</a></li>
         <li><a href="dabble.html" aria-current="page">Dabble</a></li>
+        <li><a class="nav-cta" href="quiz.html">Kvíz</a></li>
       </ul>
     </div>
   </nav>
 
   <main>
-    <div class="coming-soon">
-      <span class="pill-badge">🚧 Připravujeme</span>
-      <h1>Dabble už brzy</h1>
-      <p>Na této sekci právě pracujeme. Vraťte se prosím později, nebo se mezitím podívejte na karty objevitele nebo si vyzkoušejte náš kvíz.</p>
-      <div class="hero-actions" style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-        <a class="btn btn-primary" href="zivot-bilych-karpat.html">Život Bílých Karpat</a>
-        <a class="btn btn-outline" href="quiz.html">Spustit kvíz</a>
-      </div>
+    <div class="page-hero">
+      <span class="pill-badge">🎮 Karpaty Dabble</span>
+      <h1>Vyber si hru</h1>
+      <p>Kdo první najde stejný obrázek? Čtyři varianty podle prostředí Bílých Karpat.</p>
+    </div>
+
+    <div class="dabble-grid">
+      <a class="dabble-card" href="https://karpaty-dobble.lovable.app/les" target="_blank" rel="noopener">
+        <span class="icon-frame"><img src="assets/dabble/les.png" alt="Starý les"></span>
+        <span class="dabble-name">Starý les</span>
+      </a>
+      <a class="dabble-card" href="https://karpaty-dobble.lovable.app/louka" target="_blank" rel="noopener">
+        <span class="icon-frame"><img src="assets/dabble/louka.png" alt="Květinová louka"></span>
+        <span class="dabble-name">Květinová louka</span>
+      </a>
+      <a class="dabble-card" href="https://karpaty-dobble.lovable.app/skala" target="_blank" rel="noopener">
+        <span class="icon-frame"><img src="assets/dabble/skala.png" alt="Skalnaté bradlo"></span>
+        <span class="dabble-name">Skalnaté bradlo</span>
+      </a>
+      <a class="dabble-card" href="https://karpaty-dobble.lovable.app/voda" target="_blank" rel="noopener">
+        <span class="icon-frame"><img src="assets/dabble/voda.png" alt="Zatopený lom"></span>
+        <span class="dabble-name">Zatopený lom</span>
+      </a>
     </div>
   </main>
 
@@ -74,8 +136,8 @@
       <ul class="site-footer-links">
         <li><a href="index.html">Domů</a></li>
         <li><a href="zivot-bilych-karpat.html">Život Bílých Karpat</a></li>
-        <li><a href="quiz.html">Kvíz</a></li>
         <li><a href="dabble.html" aria-current="page">Dabble</a></li>
+        <li><a href="quiz.html">Kvíz</a></li>
       </ul>
       <span class="site-footer-copy">Sdružení měst a obcí Východní Moravy – CHKO Bílé Karpaty</span>
     </div>
