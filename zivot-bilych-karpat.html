@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Život Bílých Karpat – karty objevitele</title>
+<title>Expedice Karpaty – karty objevitele</title>
 <meta name="description" content="Deset druhů savců, ptáků, obojživelníků, hmyzu a rostlin CHKO Bílé Karpaty na interaktivních kartách objevitele.">
 <link rel="stylesheet" href="assets/site.css">
 <style>
@@ -71,6 +71,58 @@
   .animal-card .latin { margin: 0 0 12px; font-style: italic; color: var(--text-muted); font-size: 0.9rem; }
   .animal-card .open { margin-top: auto; font-weight: 600; font-size: 0.9rem; color: var(--dark-green); }
   .animal-card .open::after { content: " →"; }
+
+  .expedice { margin-top: 64px; padding-top: 44px; border-top: 2px solid var(--cream-border); scroll-margin-top: 80px; }
+  .expedice-head { text-align: center; max-width: 720px; margin: 0 auto 34px; }
+  .expedice-head h2 { color: var(--dark-green); font-size: clamp(1.6rem, 3.4vw, 2.2rem); margin: 14px 0 12px; line-height: 1.2; }
+  .expedice-head p { color: var(--text-muted); line-height: 1.6; margin: 0; font-size: 1.02rem; }
+
+  .exp-subtitle { color: var(--dark-green); font-size: 1.3rem; margin: 0 0 16px; }
+
+  .download-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 16px; }
+  .download-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--cream-border); border-radius: var(--radius-lg); padding: 12px 12px 14px; }
+  .download-card .thumb { background: var(--cream-soft); border-radius: var(--radius-md); aspect-ratio: 297 / 420; overflow: hidden; margin-bottom: 12px; }
+  .download-card .thumb img { width: 100%; height: 100%; object-fit: contain; }
+  .download-card h4 { margin: 0 0 4px; color: var(--dark-green); font-size: 0.96rem; line-height: 1.3; }
+  .download-card .meta { margin: 0 0 12px; font-size: 0.78rem; color: var(--text-muted); }
+  .download-card .btn { margin-top: auto; justify-content: center; padding: 10px 14px; font-size: 0.88rem; }
+
+  .qr-note { display: flex; gap: 16px; align-items: center; background: var(--white); border: 1px solid var(--cream-border); border-radius: var(--radius-md); padding: 16px 20px; margin-top: 20px; }
+  .qr-note p { margin: 0; color: var(--text-body); line-height: 1.55; font-size: 0.94rem; }
+  .qr-note .icon-circle { width: 46px; height: 46px; }
+  .qr-note .icon-circle svg { width: 22px; height: 22px; }
+
+  .guide-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 28px; align-items: start; margin-top: 44px; }
+  .steps { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .steps li { display: flex; gap: 14px; align-items: center; background: var(--white); border: 1px solid var(--cream-border); border-radius: var(--radius-md); padding: 12px 16px; }
+  .steps .num { flex: none; width: 38px; height: 38px; border-radius: 50%; background: var(--yellow); color: var(--dark-green-2); font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  .steps strong { display: block; color: var(--dark-green); font-size: 1rem; }
+  .steps .desc { display: block; margin-top: 2px; font-size: 0.86rem; color: var(--text-muted); line-height: 1.45; }
+
+  .tip-box { margin-top: 18px; background: #fff9e6; border: 1.5px solid var(--yellow); border-radius: var(--radius-md); padding: 18px 20px; }
+  .tip-box h3 { margin: 0 0 6px; color: var(--dark-green); font-size: 1.05rem; }
+  .tip-box p { margin: 0; color: var(--text-body); line-height: 1.55; font-size: 0.93rem; }
+
+  .guide-download { margin-top: 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+  .guide-download .meta { font-size: 0.82rem; color: var(--text-muted); }
+
+  .needs-box { background: var(--white); border: 1px solid var(--cream-border); border-radius: var(--radius-lg); padding: 20px 22px; }
+  .needs-box h3 { margin: 0 0 14px; color: var(--dark-green); font-size: 1.1rem; }
+  .needs-box ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .needs-box li { display: flex; gap: 10px; align-items: center; font-weight: 600; color: var(--text-body); }
+  .needs-box li::before { content: "✔"; color: var(--mid-green); font-weight: 800; }
+
+  .exp-slogan { margin: 36px 0 0; background: var(--dark-green); color: var(--yellow); text-align: center; border-radius: var(--radius-lg); padding: 26px 20px; font-size: clamp(1.1rem, 3vw, 1.55rem); font-weight: 800; line-height: 1.35; }
+
+  @media (max-width: 860px) {
+    .guide-layout { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 430px) {
+    .download-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .download-card { padding: 10px 10px 12px; }
+    .download-card .btn { padding: 9px 10px; font-size: 0.82rem; }
+    .qr-note { align-items: flex-start; }
+  }
 </style>
 </head>
 <body>
@@ -94,7 +146,7 @@
       </button>
       <ul class="site-nav-links">
         <li><a href="index.html">Domů</a></li>
-        <li><a href="zivot-bilych-karpat.html" aria-current="page">Život Bílých Karpat</a></li>
+        <li><a href="zivot-bilych-karpat.html" aria-current="page">Expedice Karpaty</a></li>
         <li><a href="dabble.html">Dabble</a></li>
         <li><a class="nav-cta" href="quiz.html">Kvíz</a></li>
       </ul>
@@ -189,13 +241,104 @@
       </a>
     </div>
 
+    <section class="expedice" id="expedice" aria-labelledby="expedice-title">
+      <div class="expedice-head">
+        <span class="pill-badge">🧭 Expedice Karpaty · pro učitele</span>
+        <h2 id="expedice-title">Karty do výuky ke stažení</h2>
+        <p>Karty zvířat a rostlin si můžete stáhnout, vytisknout na papír A3, vystřihnout podle obrysu a volně je používat při výuce, školních aktivitách i aktivitách v přírodě.</p>
+      </div>
+
+      <h3 class="exp-subtitle">Stáhnout zde</h3>
+      <div class="download-grid">
+        <div class="download-card">
+          <div class="thumb"><img src="assets/expedice/nahled/vlk_A3.jpg" alt="Náhled karty Vlk obecný" loading="lazy"></div>
+          <h4>Vlk obecný</h4>
+          <p class="meta">PDF · A3 · 262 kB</p>
+          <a class="btn btn-primary" href="assets/expedice/vlk_A3.pdf" download aria-label="Stáhnout PDF – Vlk obecný">Stáhnout PDF</a>
+        </div>
+        <div class="download-card">
+          <div class="thumb"><img src="assets/expedice/nahled/kocka_vlha_A3.jpg" alt="Náhled karty Kočka divoká a Vlha pestrá" loading="lazy"></div>
+          <h4>Kočka divoká + Vlha pestrá</h4>
+          <p class="meta">PDF · A3 · 276 kB</p>
+          <a class="btn btn-primary" href="assets/expedice/kocka_vlha_A3.pdf" download aria-label="Stáhnout PDF – Kočka divoká a Vlha pestrá">Stáhnout PDF</a>
+        </div>
+        <div class="download-card">
+          <div class="thumb"><img src="assets/expedice/nahled/mlok_vydra_A3.jpg" alt="Náhled karty Mlok skvrnitý a Vydra říční" loading="lazy"></div>
+          <h4>Mlok skvrnitý + Vydra říční</h4>
+          <p class="meta">PDF · A3 · 229 kB</p>
+          <a class="btn btn-primary" href="assets/expedice/mlok_vydra_A3.pdf" download aria-label="Stáhnout PDF – Mlok skvrnitý a Vydra říční">Stáhnout PDF</a>
+        </div>
+        <div class="download-card">
+          <div class="thumb"><img src="assets/expedice/nahled/modrasek_rohac_A3.jpg" alt="Náhled karty Modrásek bahenní a Roháč obecný" loading="lazy"></div>
+          <h4>Modrásek bahenní + Roháč obecný</h4>
+          <p class="meta">PDF · A3 · 364 kB</p>
+          <a class="btn btn-primary" href="assets/expedice/modrasek_rohac_A3.pdf" download aria-label="Stáhnout PDF – Modrásek bahenní a Roháč obecný">Stáhnout PDF</a>
+        </div>
+        <div class="download-card">
+          <div class="thumb"><img src="assets/expedice/nahled/tesarik_A3.jpg" alt="Náhled karty Tesařík alpský" loading="lazy"></div>
+          <h4>Tesařík alpský</h4>
+          <p class="meta">PDF · A3 · 352 kB</p>
+          <a class="btn btn-primary" href="assets/expedice/tesarik_A3.pdf" download aria-label="Stáhnout PDF – Tesařík alpský">Stáhnout PDF</a>
+        </div>
+        <div class="download-card">
+          <div class="thumb"><img src="assets/expedice/nahled/lilie_vstavac_A3.jpg" alt="Náhled karty Lilie zlatohlavá a Vstavač vojenský" loading="lazy"></div>
+          <h4>Lilie zlatohlavá + Vstavač vojenský</h4>
+          <p class="meta">PDF · A3 · 347 kB</p>
+          <a class="btn btn-primary" href="assets/expedice/lilie_vstavac_A3.pdf" download aria-label="Stáhnout PDF – Lilie zlatohlavá a Vstavač vojenský">Stáhnout PDF</a>
+        </div>
+      </div>
+
+      <div class="qr-note">
+        <span class="icon-circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 17h3v3"/></svg>
+        </span>
+        <p>Na každé kartě je <strong>QR kód</strong>. Po naskenování mobilem nebo tabletem se otevře odpovídající digitální karta druhu na tomto webu – stejné karty najdete výše na této stránce.</p>
+      </div>
+
+      <div class="guide-layout">
+        <div>
+          <h3 class="exp-subtitle">Jak na to?</h3>
+          <ol class="steps">
+            <li><span class="num">1</span><span><strong>Stáhněte</strong><span class="desc">Vyberte karty a stáhněte PDF soubory z nabídky výše.</span></span></li>
+            <li><span class="num">2</span><span><strong>Vytiskněte na A3</strong><span class="desc">Barevně, ve skutečné velikosti (100 %), aby QR kódy zůstaly dobře čitelné.</span></span></li>
+            <li><span class="num">3</span><span><strong>Vystřihněte podle obrysu</strong><span class="desc">Stříhejte podél přerušované čáry, kterou označují nůžky.</span></span></li>
+            <li><span class="num">4</span><span><strong>Používejte karty při výuce a aktivitách</strong><span class="desc">Ve třídě, na chodbě, na školní zahradě i v terénu.</span></span></li>
+            <li><span class="num">5</span><span><strong>Skenujte QR kódy pro digitální obsah</strong><span class="desc">Fotoaparát mobilu nebo tabletu otevře kartu druhu na webu.</span></span></li>
+          </ol>
+
+          <div class="tip-box">
+            <h3>💡 Tip pro učitele</h3>
+            <p>Karty můžete volně využít při nejrůznějších aktivitách – jako poznávačku druhů, stopovací hru v okolí školy, skupinovou práci, nástěnku nebo podklad pro projektový den. Děti mohou karty rozmístit po třídě či venku a pomocí QR kódů o každém druhu zjistit víc.</p>
+          </div>
+
+          <div class="guide-download">
+            <a class="btn btn-accent" href="assets/expedice/Expedice-Karpaty-navod.pdf" download>Stáhnout celý návod (PDF)</a>
+            <span class="meta">PDF · A4 · 438 kB</span>
+          </div>
+        </div>
+
+        <aside class="needs-box" aria-labelledby="needs-title">
+          <h3 id="needs-title">Co budete potřebovat</h3>
+          <ul>
+            <li>tiskárnu</li>
+            <li>papír A3</li>
+            <li>nůžky</li>
+            <li>mobil nebo tablet</li>
+            <li>připojení k internetu</li>
+          </ul>
+        </aside>
+      </div>
+
+      <p class="exp-slogan">Vytiskněte. Vystřihněte. Naskenujte. Objevujte.</p>
+    </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="site-footer-inner">
       <ul class="site-footer-links">
         <li><a href="index.html">Domů</a></li>
-        <li><a href="zivot-bilych-karpat.html">Život Bílých Karpat</a></li>
+        <li><a href="zivot-bilych-karpat.html">Expedice Karpaty</a></li>
         <li><a href="dabble.html">Dabble</a></li>
         <li><a href="quiz.html">Kvíz</a></li>
       </ul>
