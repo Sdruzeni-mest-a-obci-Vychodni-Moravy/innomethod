@@ -82,6 +82,14 @@
     'připojení k internetu': 'pripojenie na internet',
     'Vytiskněte. Vystřihněte. Naskenujte. Objevujte.': 'Vytlačte. Vystrihnite. Naskenujte. Objavujte.',
 
+    // Dabble page
+    'Dabble – Bílé Karpaty': 'Dabble – Biele Karpaty',
+    'Karpaty Dabble – hry na hledání stejných obrázků podle prostředí Bílých Karpat.':
+      'Karpaty Dabble – hry na hľadanie rovnakých obrázkov podľa prostredia Bielych Karpát.',
+    'Kdo první najde stejný obrázek? Čtyři varianty podle prostředí Bílých Karpat.':
+      'Kto prvý nájde rovnaký obrázok? Štyri varianty podľa prostredia Bielych Karpát.',
+    'Květinová louka': 'Kvetinová lúka',
+
     // Species cards: shared labels
     'KARTA OBJEVITELE': 'KARTA OBJAVITEĽA',
     'POSLECHNI SI PŘÍBĚH': 'VYPOČUJ SI PRÍBEH',

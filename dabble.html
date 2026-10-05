@@ -6,6 +6,7 @@
 <title>Dabble – Bílé Karpaty</title>
 <meta name="description" content="Karpaty Dabble – hry na hledání stejných obrázků podle prostředí Bílých Karpat.">
 <link rel="stylesheet" href="assets/site.css">
+<script src="assets/i18n.js"></script>
 <style>
   main { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
 
@@ -112,6 +113,11 @@
           <img src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko">
         </span>
       </div>
+      <div class="lang-switch" role="group" aria-label="Jazyk">
+        <button type="button" data-lang="cs" aria-pressed="true" lang="cs" title="Čeština">CZ</button>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <button type="button" data-lang="sk" aria-pressed="false" lang="sk" title="Slovenčina">SK</button>
+      </div>
       <button class="nav-toggle" aria-label="Otevřít menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -132,19 +138,19 @@
     </div>
 
     <div class="dabble-grid">
-      <a class="dabble-card" href="https://karpaty-dabble.lovable.app/les" target="_blank" rel="noopener">
+      <a class="dabble-card" href="https://karpaty-dabble.lovable.app/les" data-sk-href="https://karpaty-dabble.lovable.app/sk/les" target="_blank" rel="noopener">
         <span class="icon-frame"><img src="assets/dabble/les.png" alt="Starý les"></span>
         <span class="dabble-name">Starý les</span>
       </a>
-      <a class="dabble-card" href="https://karpaty-dabble.lovable.app/louka" target="_blank" rel="noopener">
+      <a class="dabble-card" href="https://karpaty-dabble.lovable.app/louka" data-sk-href="https://karpaty-dabble.lovable.app/sk/louka" target="_blank" rel="noopener">
         <span class="icon-frame"><img src="assets/dabble/louka.png" alt="Květinová louka"></span>
         <span class="dabble-name">Květinová louka</span>
       </a>
-      <a class="dabble-card" href="https://karpaty-dabble.lovable.app/skala" target="_blank" rel="noopener">
+      <a class="dabble-card" href="https://karpaty-dabble.lovable.app/skala" data-sk-href="https://karpaty-dabble.lovable.app/sk/skala" target="_blank" rel="noopener">
         <span class="icon-frame"><img src="assets/dabble/skala.png" alt="Skalnaté bradlo"></span>
         <span class="dabble-name">Skalnaté bradlo</span>
       </a>
-      <a class="dabble-card" href="https://karpaty-dabble.lovable.app/voda" target="_blank" rel="noopener">
+      <a class="dabble-card" href="https://karpaty-dabble.lovable.app/voda" data-sk-href="https://karpaty-dabble.lovable.app/sk/voda" target="_blank" rel="noopener">
         <span class="icon-frame"><img src="assets/dabble/voda.png" alt="Zatopený lom"></span>
         <span class="dabble-name">Zatopený lom</span>
       </a>
