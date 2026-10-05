@@ -179,6 +179,40 @@ a { color: inherit; }
 
 .nav-toggle svg { width: 26px; height: 26px; }
 
+.lang-switch {
+  order: 5;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--cream-border);
+  border-radius: var(--radius-full);
+  background: var(--cream-soft);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.lang-switch button {
+  font: inherit;
+  line-height: 1;
+  border: 0;
+  border-radius: var(--radius-full);
+  padding: 7px 11px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.lang-switch button:hover { color: var(--dark-green); }
+.lang-switch button[aria-pressed="true"] { background: var(--dark-green); color: var(--white); }
+.lang-switch button:focus-visible { outline: 2px solid var(--yellow); outline-offset: 1px; }
+.lang-switch .lang-sep { color: var(--text-muted); opacity: 0.5; font-weight: 600; }
+
+@media (max-width: 760px) {
+  .lang-switch { order: 0; margin-left: auto; }
+  .lang-switch + .nav-toggle { margin-left: 4px; }
+}
+
 @media (max-width: 760px) {
   .site-nav-links {
     position: absolute;

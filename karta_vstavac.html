@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="cs">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -376,6 +376,7 @@
   }
 </style>
 <link rel="stylesheet" href="assets/site.css">
+<script src="assets/i18n.js"></script>
 <style>
   .site-nav-inner {
     padding-top: 10px;
@@ -393,6 +394,11 @@
       </a>
       <span class="nav-divider" aria-hidden="true"></span>
       <span class="nav-logo-interreg" title="Program Interreg Slovensko – Česko"><img src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko"></span>
+    </div>
+    <div class="lang-switch" role="group" aria-label="Jazyk">
+      <button type="button" data-lang="cs" aria-pressed="true" lang="cs" title="Čeština">CZ</button>
+      <span class="lang-sep" aria-hidden="true">/</span>
+      <button type="button" data-lang="sk" aria-pressed="false" lang="sk" title="Slovenčina">SK</button>
     </div>
     <button class="nav-toggle" aria-label="Otevřít menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
     <ul class="site-nav-links">
@@ -607,11 +613,11 @@
       });
 
       audioEl.addEventListener('play', function () {
-        audioLabelEl.textContent = 'POZASTAVIT PŘÍBĚH';
+        audioLabelEl.textContent = window.innomethodI18n ? innomethodI18n.t('POZASTAVIT PŘÍBĚH') : 'POZASTAVIT PŘÍBĚH';
         audioIconEl.innerHTML = audioPauseIconHTML;
       });
       audioEl.addEventListener('pause', function () {
-        audioLabelEl.textContent = audioOriginalLabel;
+        audioLabelEl.textContent = window.innomethodI18n ? innomethodI18n.t(audioOriginalLabel) : audioOriginalLabel;
         audioIconEl.innerHTML = audioPlayIconHTML;
       });
       audioEl.addEventListener('ended', function () {
