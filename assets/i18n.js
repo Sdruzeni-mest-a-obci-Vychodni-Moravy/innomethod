@@ -1,5 +1,7 @@
 (function () {
-  var STORE_KEY = 'innomethod-lang';
+  var MANUAL_KEY = 'innomethod-lang-manual';
+  var SESSION_KEY = 'innomethod-lang-session';
+  var LEGACY_KEY = 'innomethod-lang';
 
   var SK = {
     // Navigation, shared
@@ -272,28 +274,33 @@
 
   function norm(s) { return s.replace(/\s+/g, ' ').trim(); }
 
-  function readSaved() {
-    try { return localStorage.getItem(STORE_KEY); } catch (e) { return null; }
+  function valid(l) { return l === 'sk' || l === 'cs' ? l : null; }
+
+  function readStore(store, key) {
+    try { return valid(window[store].getItem(key)); } catch (e) { return null; }
   }
-  function save(l) {
-    try { localStorage.setItem(STORE_KEY, l); } catch (e) {}
+  function writeStore(store, key, value) {
+    try { window[store].setItem(key, value); } catch (e) {}
   }
 
+  try { localStorage.removeItem(LEGACY_KEY); } catch (e) {}
+
+  function localeLang() {
+    var primary = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+    return /^sk\b/i.test(primary) ? 'sk' : 'cs';
+  }
+
+  // Manual choice wins, then a ?lang= link (for this visit only), then the device locale.
   function detect() {
+    var manual = readStore('localStorage', MANUAL_KEY);
+    if (manual) return manual;
     var m = /[?&]lang=(sk|cs|cz)\b/i.exec(location.search);
     if (m) {
       var fromUrl = m[1].toLowerCase() === 'sk' ? 'sk' : 'cs';
-      save(fromUrl);
+      writeStore('sessionStorage', SESSION_KEY, fromUrl);
       return fromUrl;
     }
-    var saved = readSaved();
-    if (saved === 'sk' || saved === 'cs') return saved;
-    var prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
-    for (var i = 0; i < prefs.length; i++) {
-      if (/^sk\b/i.test(prefs[i])) return 'sk';
-      if (/^cs\b/i.test(prefs[i])) return 'cs';
-    }
-    return 'cs';
+    return readStore('sessionStorage', SESSION_KEY) || localeLang();
   }
 
   var lang = detect();
@@ -334,6 +341,19 @@
       if (!el.hasAttribute('data-cs-href')) el.setAttribute('data-cs-href', el.getAttribute('href'));
       el.setAttribute('href', lang === 'sk' ? skHref : el.getAttribute('data-cs-href'));
     }
+    // Slovak audio is set as the element's src; removing it falls back to the original Czech <source>.
+    var skSrc = el.getAttribute('data-sk-src');
+    if (skSrc && el.nodeName === 'AUDIO') {
+      var want = lang === 'sk' ? skSrc : null;
+      if (el.getAttribute('src') !== want) {
+        var wasPlaying = !el.paused;
+        if (wasPlaying) el.pause();
+        if (want) el.setAttribute('src', want); else el.removeAttribute('src');
+        el.load();
+        // load() drops the queued pause event, so notify the card's play button directly.
+        if (wasPlaying) el.dispatchEvent(new Event('pause'));
+      }
+    }
   }
 
   function translateTree(root) {
@@ -345,7 +365,7 @@
     }
     if (root.nodeType !== 1 || root.nodeName === 'SCRIPT' || root.nodeName === 'STYLE') return;
     translateElement(root);
-    var els = root.querySelectorAll('[alt],[title],[aria-label],[data-sk-href]');
+    var els = root.querySelectorAll('[alt],[title],[aria-label],[data-sk-href],[data-sk-src]');
     for (var i = 0; i < els.length; i++) translateElement(els[i]);
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode: function (n) {
@@ -385,7 +405,7 @@
   function setLang(next) {
     if (next !== 'sk' && next !== 'cs') return;
     lang = next;
-    save(next);
+    writeStore('localStorage', MANUAL_KEY, next);
     applyAll();
   }
 
