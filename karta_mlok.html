@@ -378,37 +378,44 @@
 <link rel="stylesheet" href="assets/site.css">
 <script src="assets/i18n.js"></script>
 <style>
-  .site-nav-inner {
-    padding-top: 10px;
-    padding-bottom: 10px;
+  body { padding-top: 0; }
+  .site-nav { margin: 0 -16px; }
+  @media (max-width: 600px) {
+    html, body { overflow-x: clip; }
+    .site-nav { margin: 0 -12px; }
   }
 </style>
 </head>
 <body>
-<nav class="site-nav">
-  <div class="site-nav-inner">
-    <div class="nav-left">
-      <a class="site-logo" href="index.html">
-        <span class="logo-mark"><img src="assets/icons/logo-innomethod.svg" alt="INNOMETHOD"></span>
-        INNOMETHOD
-      </a>
-      <span class="nav-divider" aria-hidden="true"></span>
-      <span class="nav-logo-interreg" title="Program Interreg Slovensko – Česko"><img src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko"></span>
+  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <div class="nav-left">
+        <a class="site-logo" href="index.html">
+          <span class="logo-mark">
+            <img src="assets/icons/logo-innomethod.svg" alt="INNOMETHOD">
+          </span>
+          Bílé Karpaty
+        </a>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <span class="nav-logo-interreg" title="Program Interreg Slovensko – Česko">
+          <img src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko">
+        </span>
+      </div>
+      <div class="lang-switch" role="group" aria-label="Jazyk">
+        <button type="button" data-lang="cs" aria-pressed="true" lang="cs" title="Čeština">CZ</button>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <button type="button" data-lang="sk" aria-pressed="false" lang="sk" title="Slovenčina">SK</button>
+      </div>
+      <button class="nav-toggle" aria-label="Otevřít menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="site-nav-links">
+        <li><a href="zivot-bilych-karpat.html" aria-current="page">Expedice Karpaty</a></li>
+        <li><a href="dabble.html">Dabble</a></li>
+        <li><a class="nav-cta" href="quiz.html">Kvíz</a></li>
+      </ul>
     </div>
-    <div class="lang-switch" role="group" aria-label="Jazyk">
-      <button type="button" data-lang="cs" aria-pressed="true" lang="cs" title="Čeština">CZ</button>
-      <span class="lang-sep" aria-hidden="true">/</span>
-      <button type="button" data-lang="sk" aria-pressed="false" lang="sk" title="Slovenčina">SK</button>
-    </div>
-    <button class="nav-toggle" aria-label="Otevřít menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-    <ul class="site-nav-links">
-      <li><a href="zivot-bilych-karpat.html" aria-current="page">Expedice Karpaty</a></li>
-      <li><a href="dabble.html">Dabble</a></li>
-      <li><a class="nav-cta" href="quiz.html">Kvíz</a></li>
-    </ul>
-    <span class="interreg-badge" title="Sdružení měst a obcí Východní Moravy"><img src="assets/logos/smovm-black.png" alt="SMOVM"></span>
-  </div>
-</nav>
+  </nav>
 <div class="card">
 
   <div class="top-grid">
