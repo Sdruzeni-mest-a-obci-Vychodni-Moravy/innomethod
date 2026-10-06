@@ -6,6 +6,7 @@
 <title>Kvíz – Poznej Bílé Karpaty</title>
 <meta name="description" content="Interaktivní kvíz Poznej Bílé Karpaty – 12 terénních výzev o přírodě CHKO Bílé Karpaty.">
 <link rel="stylesheet" href="assets/site.css">
+<script src="assets/i18n.js"></script>
 <style>
   /* ---------- Launch card (in page) ---------- */
   .quiz-launch-wrap { max-width: 980px; margin: 36px auto 56px; padding: 0 20px; }
@@ -75,6 +76,9 @@
     border-bottom: 1px solid var(--cream-border);
   }
   .quiz-topbar .pill-badge { margin-right: auto; }
+
+  .quiz-topbar .lang-switch { order: 0; margin-left: 0; }
+  .quiz-topbar .lang-switch button { padding: 6px 9px; }
 
   .quiz-exit-btn {
     flex: none;
@@ -342,6 +346,11 @@
           <img src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko">
         </span>
       </div>
+      <div class="lang-switch" role="group" aria-label="Jazyk">
+        <button type="button" data-lang="cs" aria-pressed="true" lang="cs" title="Čeština">CZ</button>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <button type="button" data-lang="sk" aria-pressed="false" lang="sk" title="Slovenčina">SK</button>
+      </div>
       <button class="nav-toggle" aria-label="Otevřít menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -545,6 +554,10 @@
       return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
+    function L(s) { return window.innomethodI18n ? innomethodI18n.t(s) : s; }
+    function isSK() { return !!(window.innomethodI18n && innomethodI18n.lang() === 'sk'); }
+    function U(cs, sk) { return isSK() ? sk : cs; }
+
     /* ---------- Scoring ---------- */
 
     function correctPicks(s, st) {
@@ -727,36 +740,36 @@
     function renderOptions(s, st) {
       if (s.optionMode === 'letters') {
         return '<div class="options-letters-row">' + s.options.map(function (o) {
-          return optBtn('option-letter', o, s, st, o.key, 'Místo ' + o.key);
+          return optBtn('option-letter', o, s, st, o.key, U('Místo ', 'Miesto ') + o.key);
         }).join('') + '</div>';
       }
       if (s.optionMode === 'imageGrid') {
         return '<div class="options-grid-2x2">' + s.options.map(function (o) {
-          var label = o.key + (o.label ? ' · ' + o.label : '');
+          var label = o.key + (o.label ? ' · ' + L(o.label) : '');
           return optBtn('option-image-card', o, s, st,
-            '<img src="' + o.image + '" alt="Možnost ' + esc(label) + '">' +
+            '<img src="' + o.image + '" alt="' + U('Možnost ', 'Možnosť ') + esc(label) + '">' +
             '<span class="label">' + esc(label) + '</span>');
         }).join('') + '</div>';
       }
       if (s.optionMode === 'boolean') {
         return '<div class="options-boolean">' + s.options.map(function (o) {
-          return optBtn('option-boolean-btn', o, s, st, esc(o.label));
+          return optBtn('option-boolean-btn', o, s, st, esc(L(o.label)));
         }).join('') + '</div>';
       }
       if (s.optionMode === 'compare') {
         return '<div class="compare-row">' + s.options.map(function (o) {
           return optBtn('compare-card', o, s, st,
-            '<span class="compare-letter">' + o.key + '</span><img src="' + o.image + '" alt="Varianta ' + o.key + '">', 'Varianta ' + o.key);
+            '<span class="compare-letter">' + o.key + '</span><img src="' + o.image + '" alt="' + U('Varianta ', 'Variant ') + o.key + '">', U('Varianta ', 'Variant ') + o.key);
         }).join('') + '</div>';
       }
       var many = s.options.length > 6 ? ' many' : '';
       return '<div class="options-text-list' + many + '">' + s.options.map(function (o) {
-        return optBtn('option-text-row', o, s, st, '<span class="letter-chip">' + o.key + '</span><span>' + esc(o.label) + '</span>');
+        return optBtn('option-text-row', o, s, st, '<span class="letter-chip">' + o.key + '</span><span>' + esc(L(o.label)) + '</span>');
       }).join('') + '</div>';
     }
 
     function selectCountText(s, st) {
-      return 'Vybráno ' + st.selected.length + ' z ' + s.correct.length;
+      return U('Vybráno ', 'Vybrané ') + st.selected.length + ' z ' + s.correct.length;
     }
 
     function feedbackHtml(s, st) {
@@ -764,17 +777,18 @@
       var ok, msg;
       if (s.perItemScoring) {
         ok = st.points > 0;
-        msg = 'Získal jsi ' + st.points + ' z ' + s.correct.length + ' bodů. Správně: ' + s.correct.join(', ') + '.';
+        msg = U('Získal jsi ', 'Získal si ') + st.points + ' z ' + s.correct.length + U(' bodů. Správně: ', ' bodov. Správne: ') + s.correct.join(', ') + '.';
       } else if (s.multiSelect) {
         ok = st.points === 1;
-        msg = ok ? 'Správně! (+1 bod)' : 'Bohužel, správně je: ' + s.correct.join(' + ') + '.';
+        msg = ok ? U('Správně! (+1 bod)', 'Správne! (+1 bod)') : U('Bohužel, správně je: ', 'Bohužiaľ, správne je: ') + s.correct.join(' + ') + '.';
       } else {
         ok = st.points === 1;
         var correctLabel = (s.options.filter(function (o) { return o.key === s.correct[0]; })[0] || {}).label;
-        msg = ok ? 'Správně! (+1 bod)' : 'Bohužel, správná odpověď je ' + s.correct[0] + (correctLabel ? ' — ' + esc(correctLabel.replace(/[.!?…]+$/, '')) : '') + '.';
+        if (correctLabel) correctLabel = L(correctLabel);
+        msg = ok ? U('Správně! (+1 bod)', 'Správne! (+1 bod)') : U('Bohužel, správná odpověď je ', 'Bohužiaľ, správna odpoveď je ') + s.correct[0] + (correctLabel ? ' — ' + esc(correctLabel.replace(/[.!?…]+$/, '')) : '') + '.';
       }
-      if (st.timedOut && !st.selected.length) msg = '⏱ Čas vypršel. ' + msg;
-      if (s.explanation) msg += ' <br>' + esc(s.explanation);
+      if (st.timedOut && !st.selected.length) msg = U('⏱ Čas vypršel. ', '⏱ Čas vypršal. ') + msg;
+      if (s.explanation) msg += ' <br>' + esc(L(s.explanation));
       return '<div class="feedback-banner ' + (ok ? 'correct' : 'incorrect') + '">' + msg + '</div>';
     }
 
@@ -787,17 +801,17 @@
     }
 
     function headHtml(s) {
-      return '<h1 class="quiz-title">' + esc(s.title) + '</h1>' +
-        (s.subtitle ? '<p class="quiz-subtitle">' + esc(s.subtitle) + '</p>' : '');
+      return '<h1 class="quiz-title">' + esc(L(s.title)) + '</h1>' +
+        (s.subtitle ? '<p class="quiz-subtitle">' + esc(L(s.subtitle)) + '</p>' : '');
     }
 
     function renderTopbar(s, st) {
       var timerHtml = '';
       if (s.timer) {
         if (s.kind === 'challenge' && st.locked) {
-          timerHtml = '<span class="timer-done-chip">✓ Vyhodnoceno</span>';
+          timerHtml = '<span class="timer-done-chip">' + U('✓ Vyhodnoceno', '✓ Vyhodnotené') + '</span>';
         } else {
-          timerHtml = '<div class="timer-ring-wrap" id="timerRingWrap" role="timer" aria-label="Zbývající čas">' +
+          timerHtml = '<div class="timer-ring-wrap" id="timerRingWrap" role="timer" aria-label="' + U('Zbývající čas', 'Zostávajúci čas') + '">' +
             '<svg viewBox="0 0 52 52" aria-hidden="true">' +
             '<circle class="timer-ring-bg" cx="26" cy="26" r="' + RING_R + '" fill="none" stroke-width="4"></circle>' +
             '<circle class="timer-ring-fg" id="timerRingFg" cx="26" cy="26" r="' + RING_R + '" fill="none" stroke-width="4" stroke-linecap="round"' +
@@ -805,8 +819,14 @@
             '</svg><div class="timer-num" id="timerNum">' + s.timer + '</div></div>';
         }
       }
-      return '<span class="pill-badge">' + esc(s.badge) + '</span>' + timerHtml +
-        '<button type="button" class="quiz-exit-btn" data-action="exit" aria-label="Ukončit kvíz" title="Ukončit kvíz">' +
+      var sk = isSK();
+      var langSwitch = '<div class="lang-switch" role="group" aria-label="Jazyk">' +
+        '<button type="button" data-lang="cs" aria-pressed="' + !sk + '" lang="cs" title="Čeština">CZ</button>' +
+        '<span class="lang-sep" aria-hidden="true">/</span>' +
+        '<button type="button" data-lang="sk" aria-pressed="' + sk + '" lang="sk" title="Slovenčina">SK</button></div>';
+      var exitLabel = esc(L('Ukončit kvíz'));
+      return '<span class="pill-badge">' + esc(L(s.badge)) + '</span>' + timerHtml + langSwitch +
+        '<button type="button" class="quiz-exit-btn" data-action="exit" aria-label="' + exitLabel + '" title="' + exitLabel + '">' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>' +
         '</button>';
     }
@@ -816,54 +836,54 @@
       if (s.kind === 'intro') stepLabel = 'Úvod';
       else if (s.kind === 'memorize') stepLabel = 'Výzva ' + parseInt(s.num, 10) + ' / ' + CHALLENGE_COUNT;
       else if (s.kind === 'challenge') stepLabel = 'Výzva ' + s.num + ' / ' + CHALLENGE_COUNT;
-      else if (s.kind === 'results') stepLabel = 'Vyhodnocení';
-      else stepLabel = 'Konec';
+      else if (s.kind === 'results') stepLabel = L('Vyhodnocení');
+      else stepLabel = U('Konec', 'Koniec');
 
       var primary;
       if (state.idx === SCREENS.length - 1) {
-        primary = '<button type="button" class="quiz-nav-btn primary" data-action="restart">Spustit znovu ↺</button>';
+        primary = '<button type="button" class="quiz-nav-btn primary" data-action="restart">' + U('Spustit znovu ↺', 'Spustiť znova ↺') + '</button>';
       } else if (s.kind === 'intro') {
-        primary = '<button type="button" class="quiz-nav-btn primary" data-action="next">Začít výzvu 1 →</button>';
+        primary = '<button type="button" class="quiz-nav-btn primary" data-action="next">' + U('Začít výzvu 1 →', 'Začať výzvu 1 →') + '</button>';
       } else if (s.kind === 'challenge' && s.multiSelect && !st.locked) {
-        primary = '<button type="button" class="quiz-nav-btn primary" data-action="verify">Ověřit odpověď</button>';
+        primary = '<button type="button" class="quiz-nav-btn primary" data-action="verify">' + U('Ověřit odpověď', 'Overiť odpoveď') + '</button>';
       } else {
-        primary = '<button type="button" class="quiz-nav-btn primary" data-action="next">Další →</button>';
+        primary = '<button type="button" class="quiz-nav-btn primary" data-action="next">' + U('Další →', 'Ďalej →') + '</button>';
       }
 
-      return '<button type="button" class="quiz-nav-btn" data-action="prev"' + (isPrevDisabled() ? ' disabled' : '') + '>← Zpět</button>' +
+      return '<button type="button" class="quiz-nav-btn" data-action="prev"' + (isPrevDisabled() ? ' disabled' : '') + '>' + U('← Zpět', '← Späť') + '</button>' +
         '<span class="step-count">' + esc(stepLabel) + '</span>' + primary;
     }
 
     function renderBody(s, st) {
       if (s.kind === 'intro') {
         return '<div class="q-layout has-media"><div class="q-text">' + headHtml(s) +
-          '<ul class="intro-list">' + s.rules.map(function (r) { return '<li>✔ ' + esc(r) + '</li>'; }).join('') + '</ul>' +
-          '<p class="quiz-subtitle">' + esc(s.footerNote) + '</p></div>' +
+          '<ul class="intro-list">' + s.rules.map(function (r) { return '<li>✔ ' + esc(L(r)) + '</li>'; }).join('') + '</ul>' +
+          '<p class="quiz-subtitle">' + esc(L(s.footerNote)) + '</p></div>' +
           mediaHtml(s.image) + '</div>';
       }
 
       if (s.kind === 'memorize') {
         return '<div class="q-layout"><div class="q-text">' + headHtml(s) + '</div>' +
-          mediaHtml(s.image, s.imageFit, 'Obrázek k zapamatování') + '</div>';
+          mediaHtml(s.image, s.imageFit, U('Obrázek k zapamatování', 'Obrázok na zapamätanie')) + '</div>';
       }
 
       if (s.kind === 'results') {
         var score = totalScore();
         var tier = tierFor(score);
         return '<div class="q-layout has-media"><div class="q-text">' +
-          '<h1 class="quiz-title">' + esc(s.title) + '</h1>' +
-          '<div class="score-callout"><div class="num">' + score + '<span class="of"> / ' + MAX_SCORE + ' bodů</span></div></div>' +
+          '<h1 class="quiz-title">' + esc(L(s.title)) + '</h1>' +
+          '<div class="score-callout"><div class="num">' + score + '<span class="of"> / ' + MAX_SCORE + U(' bodů', ' bodov') + '</span></div></div>' +
           '<div class="tier-grid">' + TIERS.map(function (t) {
             return '<div class="tier-card' + (t === tier ? ' active' : '') + '"><img src="' + t.img + '" alt="">' +
-              '<h3>' + esc(t.name) + '</h3><p>' + (t.max < 999 ? t.min + '–' + t.max : t.min + '+') + ' bodů</p></div>';
+              '<h3>' + esc(L(t.name)) + '</h3><p>' + (t.max < 999 ? t.min + '–' + t.max : t.min + '+') + U(' bodů', ' bodov') + '</p></div>';
           }).join('') + '</div>' +
-          '<p class="tier-desc">' + esc(tier.desc) + '</p>' +
+          '<p class="tier-desc">' + esc(L(tier.desc)) + '</p>' +
           '</div>' + mediaHtml(s.image) + '</div>';
       }
 
       if (s.kind === 'thanks') {
         return '<div class="q-layout has-media"><div class="q-text">' + headHtml(s) +
-          '<div><a class="btn btn-primary" href="zivot-bilych-karpat.html">Objevit druhy →</a></div></div>' +
+          '<div><a class="btn btn-primary" href="zivot-bilych-karpat.html">' + U('Objevit druhy →', 'Objaviť druhy →') + '</a></div></div>' +
           mediaHtml(s.image) + '</div>';
       }
 
@@ -878,7 +898,7 @@
       }
       if (s.layout === 'trackGrid') {
         return '<div class="q-layout"><div class="q-text grow">' +
-          '<div class="track-head"><figure class="track-preview"><img src="' + s.trackImage + '" alt="Stopa zvířete">' +
+          '<div class="track-head"><figure class="track-preview"><img src="' + s.trackImage + '" alt="' + U('Stopa zvířete', 'Stopa zvieraťa') + '">' +
           '<figcaption class="cap">Stopa</figcaption></figure><div>' + headHtml(s) + '</div></div>' +
           '<div class="q-fill">' + options + '</div></div></div>';
       }
@@ -989,6 +1009,8 @@
     /* ---------- Events ---------- */
 
     launchBtn.addEventListener('click', openApp);
+
+    document.addEventListener('innomethod:langchange', function () { if (isOpen) render(); });
 
     cardEl.addEventListener('click', function (e) {
       var opt = e.target.closest('[data-optkey]');
