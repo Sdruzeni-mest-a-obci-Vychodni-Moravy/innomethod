@@ -259,6 +259,7 @@
     'Audiopříběh o tomto druhu.': 'Audiopríbeh o tomto druhu.',
     'Úkol inspirovaný příběhem.': 'Úloha inšpirovaná príbehom.',
     'Vyber si věkovou kategorii:': 'Vyber si vekovú kategóriu:',
+    '5–10 let': '5–10 rokov',
     '7–10 let': '7–10 rokov',
     '11–15 let': '11–15 rokov',
     'ZÁKLADNÍ INFORMACE': 'ZÁKLADNÉ INFORMÁCIE',
