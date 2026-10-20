@@ -252,6 +252,89 @@
     'Přírodu Bílých Karpat už znáš opravdu dobře.': 'Prírodu Bielych Karpát už poznáš naozaj dobre.',
     'Gratulujeme! Získal jsi titul Objevitele Bílých Karpat.': 'Gratulujeme! Získal si titul Objaviteľa Bielych Karpát.',
 
+    // Dobrodružství s Karpíkem
+    'Dobrodružství': 'Dobrodružstvá',
+    'Dobrodružství s Karpíkem – Bílé Karpaty': 'Dobrodružstvá s Karpíkom – Biele Karpaty',
+    'Rodinné výpravy s Karpíkem do Bílých Karpat: hravé úkoly, příroda a dobrodružství na trasách Zahrady pod Hájem, Hostětín a Komňa – Zuvačov.':
+      'Rodinné výpravy s Karpíkom do Bielych Karpát: hravé úlohy, príroda a dobrodružstvo na trasách Zahrady pod Hájem, Hostětín a Komňa – Zuvačov.',
+    'Dobrodružství s Karpíkem': 'Dobrodružstvá s Karpíkom',
+    'Objevujte společně Bílé Karpaty': 'Objavujte spoločne Biele Karpaty',
+    'Vydejte se s Karpíkem na rodinné výpravy do Bílých Karpat, při kterých se obyčejná procházka mění v cestu plnou objevů. Děti budou cestou poznávat zdejší přírodu, plnit hravé úkoly a objevovat, čím je krajina Bílých Karpat tak výjimečná.':
+      'Vydajte sa s Karpíkom na rodinné výpravy do Bielych Karpát, počas ktorých sa obyčajná prechádzka mení na cestu plnú objavov. Deti budú cestou spoznávať miestnu prírodu, plniť hravé úlohy a objavovať, čím je krajina Bielych Karpát taká výnimočná.',
+    'Maskot Karpík s holí a dalekohledem': 'Maskot Karpík s palicou a ďalekohľadom',
+    'Poslechni si, co říká Karpík': 'Vypočuj si, čo hovorí Karpík',
+    '„Ahoj, já jsem Karpík! Vyrazíte se mnou objevovat Bílé Karpaty? Čekají nás výlety plné her, přírody a dobrodružství!“':
+      '„Ahoj, ja som Karpík! Vyrazíte so mnou objavovať Biele Karpaty? Čakajú nás výlety plné hier, prírody a dobrodružstiev!“',
+    'Klikni na bublinu a poslechni si Karpíka': 'Klikni na bublinu a vypočuj si Karpíka',
+    'Karpík mluví – kliknutím ho zastavíš': 'Karpík rozpráva – kliknutím ho zastavíš',
+    'Karpíkovy výpravy': 'Karpíkove výpravy',
+    'Kam vyrazíme za dobrodružstvím?': 'Kam vyrazíme za dobrodružstvom?',
+    'Jak to funguje?': 'Ako to funguje?',
+    'Karpík u rozcestníku ukazuje směr': 'Karpík pri rázcestníku ukazuje smer',
+    'Pojďte s Karpíkem objevovat Bílé Karpaty! Pro malé i velké dobrodruhy připravil výlety, na kterých se obyčejná procházka mění v cestu plnou objevů.':
+      'Poďte s Karpíkom objavovať Biele Karpaty! Pre malých aj veľkých dobrodruhov pripravil výlety, na ktorých sa obyčajná prechádzka mení na cestu plnú objavov.',
+    'Společně budete poznávat louky, lesy i staré sady, hledat rostliny a zvířata, plnit hravé úkoly a postupně odhalovat příběhy zdejší krajiny.':
+      'Spoločne budete spoznávať lúky, lesy aj staré sady, hľadať rastliny a zvieratá, plniť hravé úlohy a postupne odhaľovať príbehy miestnej krajiny.',
+    'Každá výprava ukáže dětem další kousek Bílých Karpat – a možná zjistí, že to největší dobrodružství začíná právě venku.':
+      'Každá výprava ukáže deťom ďalší kúsok Bielych Karpát – a možno zistia, že to najväčšie dobrodružstvo sa začína práve vonku.',
+    '1. Vyberte si dobrodružství': '1. Vyberte si dobrodružstvo',
+    'Prohlédněte si připravené trasy a vyberte si, kam se s Karpíkem vydáte. Stačí vám jen telefon a chuť objevovat!':
+      'Pozrite si pripravené trasy a vyberte si, kam sa s Karpíkom vydáte. Stačí vám len telefón a chuť objavovať!',
+    'Na začátku každé trasy najdete QR kód. Jeho umístění je uvedeno v detailu každé trasy. Naskenujte ho telefonem a dobrodružství s Karpíkem může začít!':
+      'Na začiatku každej trasy nájdete QR kód. Jeho umiestnenie je uvedené v detaile každej trasy. Naskenujte ho telefónom a dobrodružstvo s Karpíkom môže začať!',
+    '3. Objevujte a hrajte si': '3. Objavujte a hrajte sa',
+    'Karpík vás bude provázet jednotlivými zastaveními. Čekají vás hravé úkoly, přírodní zajímavosti i malá překvapení.':
+      'Karpík vás bude sprevádzať jednotlivými zastaveniami. Čakajú vás hravé úlohy, prírodné zaujímavosti aj malé prekvapenia.',
+    '4. Získejte symbol dobrodružství': '4. Získajte symbol dobrodružstva',
+    'Na konci každé trasy na vás čeká jedinečný symbol. Uložte si ho do telefonu jako vzpomínku na společnou výpravu.':
+      'Na konci každej trasy na vás čaká jedinečný symbol. Uložte si ho do telefónu ako spomienku na spoločnú výpravu.',
+    '5. Sbírejte symboly a staňte se strážcem Bílých Karpat': '5. Zbierajte symboly a staňte sa strážcom Bielych Karpát',
+    'Za čtyři nasbírané symboly z různých dobrodružství získáte odměnu a stanete se strážcem Bílých Karpat! Stačí uložené symboly ukázat na vybraném výdejním místě a odměna je vaše.':
+      'Za štyri nazbierané symboly z rôznych dobrodružstiev získate odmenu a stanete sa strážcom Bielych Karpát! Stačí uložené symboly ukázať na vybranom výdajnom mieste a odmena je vaša.',
+    'Jaké dobrodružství s Karpíkem vyberete?': 'Aké dobrodružstvo s Karpíkom si vyberiete?',
+    'Staré sady a louky v Zahradách pod Hájem': 'Staré sady a lúky v Zahradách pod Hájem',
+    'Vydejte se s dětmi za dobrodružstvím s Karpíkem do Zahrad pod Hájem! Provede vás krajinou starých sadů a bělokarpatských luk, kde na malé objevitele čeká spousta rostlin, zvířat i přírodních překvapení.':
+      'Vydajte sa s deťmi za dobrodružstvom s Karpíkom do Zahrad pod Hájem! Prevedie vás krajinou starých sadov a bielokarpatských lúk, kde na malých objaviteľov čaká množstvo rastlín, zvierat aj prírodných prekvapení.',
+    'Polní cesta do Hostětína': 'Poľná cesta do Hostětína',
+    'Vydejte se s dětmi za dobrodružstvím s Karpíkem do Hostětína! Provede vás kolem dřevěných soch v krajině až do přírodní zahrady, kde na malé objevitele čeká poznávání, hraní i nejedno přírodní překvapení.':
+      'Vydajte sa s deťmi za dobrodružstvom s Karpíkom do Hostětína! Prevedie vás okolo drevených sôch v krajine až do prírodnej záhrady, kde na malých objaviteľov čaká spoznávanie, hranie aj nejedno prírodné prekvapenie.',
+    'Zřícenina Zuvačova ve stínu starého javoru': 'Zrúcanina Zuvačova v tieni starého javora',
+    'Vydejte se s dětmi za dobrodružstvím s Karpíkem z Komně k tajemné zřícenině Zuvačova! Cestou objevíte zelenou Modrou vodu, ukryté prameny i starý javor, který střeží pozůstatky hradu. Na malé objevitele čeká poznávání, hraní a nejedno překvapení.':
+      'Vydajte sa s deťmi za dobrodružstvom s Karpíkom z Komne k tajomnej zrúcanine Zuvačova! Cestou objavíte zelenú Modrú vodu, ukryté pramene aj starý javor, ktorý stráži pozostatky hradu. Na malých objaviteľov čaká spoznávanie, hranie a nejedno prekvapenie.',
+
+    // Dobrodružství: Hostětín route detail
+    'Hostětín – Sochy v krajině · Dobrodružství s Karpíkem': 'Hostětín – Sochy v krajine · Dobrodružstvá s Karpíkom',
+    'Rodinná výprava s Karpíkem v Hostětíně: od soch v krajině až do přírodní zahrady Centra Veronica. 5 zastavení, 2,5 km, přibližně 1 hodina.':
+      'Rodinná výprava s Karpíkom v Hostětíne: od sôch v krajine až do prírodnej záhrady Centra Veronica. 5 zastavení, 2,5 km, približne 1 hodina.',
+    'Hostětín – Sochy v krajině': 'Hostětín – Sochy v krajine',
+    'Od soch v krajině až do přírodní zahrady': 'Od sôch v krajine až do prírodnej záhrady',
+    'Co společně objevíte?': 'Čo spoločne objavíte?',
+    'Děti vyrážejí s Karpíkem na výpravu': 'Deti vyrážajú s Karpíkom na výpravu',
+    'Cesta Hostětínem bude plná malých objevů. S Karpíkem se zastavíte u neobvyklých': 'Cesta Hostětínom bude plná malých objavov. S Karpíkom sa zastavíte pri nezvyčajných',
+    'Soch v krajině': 'Sochách v krajine',
+    ', rozhlédnete se po loukách a stromech a nakonec společně zamíříte do': ', rozhliadnete sa po lúkach a stromoch a nakoniec spoločne zamierite do',
+    'přírodní zahrady': 'prírodnej záhrady',
+    'u Centra Veronica.': 'pri Centre Veronica.',
+    'Trasa dobrodružství': 'Trasa dobrodružstva',
+    '5 zastavení · 2,5 km · přibližně 1 hod.': '5 zastavení · 2,5 km · približne 1 hod.',
+    'obecní úřad Hostětín': 'obecný úrad Hostětín',
+    'Cíl:': 'Cieľ:',
+    'Přírodní zahrada v Hostětíně': 'Prírodná záhrada v Hostětíne',
+    'Náročnost:': 'Náročnosť:',
+    'lehká': 'ľahká',
+    'pro rodiny s dětmi': 'pre rodiny s deťmi',
+    'Malovaná krajina u Hostětína se sochou na louce': 'Maľovaná krajina pri Hostětíne so sochou na lúke',
+    'Start dobrodružství s Karpíkem': 'Štart dobrodružstva s Karpíkom',
+    'Naskenujte QR kód na informační tabuli u autobusové zastávky.': 'Naskenujte QR kód na informačnej tabuli pri autobusovej zastávke.',
+    'Kód je označen logem Innomethod.': 'Kód je označený logom Innomethod.',
+    'Prodlužte si výlet kolem Hostětína': 'Predĺžte si výlet okolo Hostětína',
+    'Máte ještě chuť pokračovat? Vydejte se na 6 km dlouhou naučnou a vycházkovou stezku Naokolo Hostětína. Zavede vás do okolní krajiny a přiblíží, jak se tu dříve žilo a pracovalo, co lidé pěstovali nebo jak děti trávily čas na pastvě. Cestou nechybí ani pěkné výhledy do krajiny.':
+      'Máte ešte chuť pokračovať? Vydajte sa na 6 km dlhý náučný a vychádzkový chodník Naokolo Hostětína. Zavedie vás do okolitej krajiny a priblíži, ako sa tu kedysi žilo a pracovalo, čo ľudia pestovali alebo ako deti trávili čas na pastve. Cestou nechýbajú ani pekné výhľady do krajiny.',
+    'Zastavte se v Centru Veronica': 'Zastavte sa v Centre Veronica',
+    'Po výpravě si můžete ještě odpočinout v přírodní zahradě Centra Veronica. Děti tu mohou dál objevovat zahradu – je zde například potok, krtčí nora, hmyzí domečky, vrbové prvky nebo dřevěný xylofon.':
+      'Po výprave si môžete ešte oddýchnuť v prírodnej záhrade Centra Veronica. Deti tu môžu ďalej objavovať záhradu – je tu napríklad potok, krtia nora, hmyzie domčeky, vŕbové prvky alebo drevený xylofón.',
+    'Zpět na seznam tras': 'Späť na zoznam trás',
+
     // Species cards: shared labels
     'KARTA OBJEVITELE': 'KARTA OBJAVITEĽA',
     'POSLECHNI SI PŘÍBĚH': 'VYPOČUJ SI PRÍBEH',

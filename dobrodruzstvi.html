@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dobrodružství s Karpíkem – Bílé Karpaty</title>
+<meta name="description" content="Rodinné výpravy s Karpíkem do Bílých Karpat: hravé úkoly, příroda a dobrodružství na trasách Zahrady pod Hájem, Hostětín a Komňa – Zuvačov.">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/i18n.js"></script>
+<link rel="stylesheet" href="assets/dobrodruzstvi.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <div class="nav-left">
+        <a class="site-logo" href="index.html">
+          <span class="logo-mark">
+            <img src="assets/icons/logo-innomethod.svg" alt="INNOMETHOD">
+          </span>
+          Bílé Karpaty
+        </a>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <span class="nav-logo-interreg" title="Program Interreg Slovensko – Česko">
+          <img src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko">
+        </span>
+      </div>
+      <div class="lang-switch" role="group" aria-label="Jazyk">
+        <button type="button" data-lang="cs" aria-pressed="true" lang="cs" title="Čeština">CZ</button>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <button type="button" data-lang="sk" aria-pressed="false" lang="sk" title="Slovenčina">SK</button>
+      </div>
+      <button class="nav-toggle" aria-label="Otevřít menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="site-nav-links">
+        <li><a href="zivot-bilych-karpat.html">Expedice Karpaty</a></li>
+        <li><a href="dobrodruzstvi.html" aria-current="page">Dobrodružství</a></li>
+        <li><a href="dabble.html">Dabble</a></li>
+        <li><a class="nav-cta" href="quiz.html">Kvíz</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="adv">
+
+    <section class="adv-hero">
+      <h1>Dobrodružství s Karpíkem</h1>
+      <p class="adv-sub">Objevujte společně Bílé Karpaty</p>
+      <p class="adv-lead">Vydejte se s Karpíkem na rodinné výpravy do Bílých Karpat, při kterých se obyčejná procházka mění v cestu plnou objevů. Děti budou cestou poznávat zdejší přírodu, plnit hravé úkoly a objevovat, čím je krajina Bílých Karpat tak výjimečná.</p>
+    </section>
+
+    <section class="adv-intro">
+      <div class="karpik-scene">
+        <img class="karpik-figure" src="assets/dobrodruzstvi/karpik-ahoj.webp" width="520" height="613" alt="Maskot Karpík s holí a dalekohledem">
+        <div class="bubble-wrap">
+        <button type="button" class="karpik-bubble" aria-label="Poslechni si, co říká Karpík" aria-disabled="true" tabindex="-1">
+          <span class="bubble-text">„Ahoj, já jsem Karpík! Vyrazíte se mnou objevovat Bílé Karpaty? Čekají nás výlety plné her, přírody a dobrodružství!“</span>
+          <span class="bubble-play" aria-hidden="true">
+            <svg class="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+          </span>
+        </button>
+        <p class="bubble-hint" aria-hidden="true">🔊 <span class="hint-idle">Klikni na bublinu a poslechni si Karpíka</span><span class="hint-playing">Karpík mluví – kliknutím ho zastavíš</span></p>
+        </div>
+        <audio preload="metadata" data-sk-src="assets/dobrodruzstvi/audio/karpik-ahoj-sk.mp3">
+          <source src="assets/dobrodruzstvi/audio/karpik-ahoj-cs.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <a class="adv-link-card" href="#vypravy">
+        <span class="icon-circle"><img src="assets/dobrodruzstvi/ikona-rozcestnik.webp" width="160" height="106" alt=""></span>
+        <h2>Karpíkovy výpravy</h2>
+        <p>Kam vyrazíme za dobrodružstvím?</p>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="9 5 19 5 19 15"/></svg></span>
+      </a>
+    </section>
+
+    <section class="adv-how" id="jak-to-funguje">
+      <h2>Jak to funguje?</h2>
+      <div class="how-grid">
+        <img src="assets/dobrodruzstvi/karpik-rozcestnik.webp" width="720" height="480" alt="Karpík u rozcestníku ukazuje směr" loading="lazy">
+        <div class="how-text">
+          <p>Pojďte s Karpíkem objevovat Bílé Karpaty! Pro malé i velké dobrodruhy připravil výlety, na kterých se obyčejná procházka mění v cestu plnou objevů.</p>
+          <p>Společně budete poznávat louky, lesy i staré sady, hledat rostliny a zvířata, plnit hravé úkoly a postupně odhalovat příběhy zdejší krajiny.</p>
+          <p>Každá výprava ukáže dětem další kousek Bílých Karpat – a možná zjistí, že to největší dobrodružství začíná právě venku.</p>
+        </div>
+      </div>
+      <ol class="how-steps">
+        <li><h3>1. Vyberte si dobrodružství</h3><p>Prohlédněte si připravené trasy a vyberte si, kam se s Karpíkem vydáte. Stačí vám jen telefon a chuť objevovat!</p></li>
+        <li><h3>2. Naskenujte QR kód</h3><p>Na začátku každé trasy najdete QR kód. Jeho umístění je uvedeno v detailu každé trasy. Naskenujte ho telefonem a dobrodružství s Karpíkem může začít!</p></li>
+        <li><h3>3. Objevujte a hrajte si</h3><p>Karpík vás bude provázet jednotlivými zastaveními. Čekají vás hravé úkoly, přírodní zajímavosti i malá překvapení.</p></li>
+        <li><h3>4. Získejte symbol dobrodružství</h3><p>Na konci každé trasy na vás čeká jedinečný symbol. Uložte si ho do telefonu jako vzpomínku na společnou výpravu.</p></li>
+        <li><h3>5. Sbírejte symboly a staňte se strážcem Bílých Karpat</h3><p>Za čtyři nasbírané symboly z různých dobrodružství získáte odměnu a stanete se strážcem Bílých Karpat! Stačí uložené symboly ukázat na vybraném výdejním místě a odměna je vaše.</p></li>
+      </ol>
+    </section>
+
+    <section class="adv-routes" id="vypravy">
+      <h2>Jaké dobrodružství s Karpíkem vyberete?</h2>
+      <div class="route-grid">
+
+        <article class="route-card">
+          <div class="route-photo">
+            <img src="assets/dobrodruzstvi/foto-zahrady-pod-hajem.webp" width="800" height="533" alt="Staré sady a louky v Zahradách pod Hájem" loading="lazy">
+            <svg class="wave" viewBox="0 0 400 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 C70 4 150 34 230 18 C300 4 350 10 400 22 L400 34 L0 34 Z" fill="#ffffff"/></svg>
+          </div>
+          <h3>Zahrady pod Hájem</h3>
+          <p class="route-meta">Velká nad Veličkou · 6 km · 2 hod.</p>
+          <img class="route-line" src="assets/dobrodruzstvi/trasa.webp" width="900" height="300" alt="" loading="lazy">
+          <div class="route-body">
+            <p>Vydejte se s dětmi za dobrodružstvím s Karpíkem do Zahrad pod Hájem! Provede vás krajinou starých sadů a bělokarpatských luk, kde na malé objevitele čeká spousta rostlin, zvířat i přírodních překvapení.</p>
+            <img class="route-drawing" src="assets/dobrodruzstvi/kresba-kvet.webp" width="240" height="359" alt="" loading="lazy">
+          </div>
+        </article>
+
+        <a class="route-card" href="dobrodruzstvi-hostetin.html">
+          <div class="route-photo">
+            <img src="assets/dobrodruzstvi/foto-hostetin.webp" width="512" height="384" alt="Polní cesta do Hostětína" loading="lazy">
+            <svg class="wave" viewBox="0 0 400 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 C70 4 150 34 230 18 C300 4 350 10 400 22 L400 34 L0 34 Z" fill="#ffffff"/></svg>
+          </div>
+          <h3>Hostětín</h3>
+          <p class="route-meta">Hostětín · 2,4 km · 45 min.</p>
+          <img class="route-line" src="assets/dobrodruzstvi/trasa.webp" width="900" height="300" alt="" loading="lazy">
+          <div class="route-body">
+            <p>Vydejte se s dětmi za dobrodružstvím s Karpíkem do Hostětína! Provede vás kolem dřevěných soch v krajině až do přírodní zahrady, kde na malé objevitele čeká poznávání, hraní i nejedno přírodní překvapení.</p>
+            <img class="route-drawing" src="assets/dobrodruzstvi/kresba-jablko.webp" width="234" height="283" alt="" loading="lazy">
+          </div>
+          <span class="route-more">Detail trasy →</span>
+        </a>
+
+        <article class="route-card">
+          <div class="route-photo">
+            <img src="assets/dobrodruzstvi/foto-komna-zuvacov.webp" width="640" height="427" alt="Zřícenina Zuvačova ve stínu starého javoru" loading="lazy">
+            <svg class="wave" viewBox="0 0 400 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 C70 4 150 34 230 18 C300 4 350 10 400 22 L400 34 L0 34 Z" fill="#ffffff"/></svg>
+          </div>
+          <h3>Komňa – Zuvačov</h3>
+          <p class="route-meta">Komňa · 7 km · 2 h 15 min.</p>
+          <img class="route-line" src="assets/dobrodruzstvi/trasa.webp" width="900" height="300" alt="" loading="lazy">
+          <div class="route-body">
+            <p>Vydejte se s dětmi za dobrodružstvím s Karpíkem z Komně k tajemné zřícenině Zuvačova! Cestou objevíte zelenou Modrou vodu, ukryté prameny i starý javor, který střeží pozůstatky hradu. Na malé objevitele čeká poznávání, hraní a nejedno překvapení.</p>
+            <img class="route-drawing" src="assets/dobrodruzstvi/kresba-list.webp" width="240" height="212" alt="" loading="lazy">
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <ul class="site-footer-links">
+        <li><a href="index.html">Domů</a></li>
+        <li><a href="zivot-bilych-karpat.html">Expedice Karpaty</a></li>
+        <li><a href="dobrodruzstvi.html" aria-current="page">Dobrodružství</a></li>
+        <li><a href="dabble.html">Dabble</a></li>
+        <li><a href="quiz.html">Kvíz</a></li>
+      </ul>
+      <span class="site-footer-copy">Sdružení měst a obcí Východní Moravy – CHKO Bílé Karpaty</span>
+    </div>
+  </footer>
+
+  <script src="assets/site.js"></script>
+  <script src="assets/karpik-bubble.js"></script>
+</body>
+</html>

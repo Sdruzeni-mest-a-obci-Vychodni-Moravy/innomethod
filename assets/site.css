@@ -128,13 +128,14 @@ a { color: inherit; }
 }
 .nav-logo-interreg img { display: block; height: 50px; width: auto; }
 
-@media (max-width: 860px) {
+@media (max-width: 1000px) {
   .interreg-badge { display: none; }
   .nav-divider,
   .nav-logo-interreg { display: none; }
 }
 
 .site-nav-links a {
+  white-space: nowrap;
   text-decoration: none;
   color: var(--text-body);
   font-weight: 600;
