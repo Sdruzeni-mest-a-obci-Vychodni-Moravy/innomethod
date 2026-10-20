@@ -206,3 +206,52 @@ a.route-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft)
   .extra-grid { grid-template-columns: 1fr; }
   .detail-head { flex-direction: column; }
 }
+
+/* ---------- Trail through "Jak to funguje?" – drawn as the reader scrolls ---------- */
+.trail { --gutter: 132px; position: relative; padding: 34px 0 0 var(--gutter); }
+.trail-svg { position: absolute; left: 0; top: 0; width: var(--gutter); height: 100%; overflow: visible; }
+.trail-ghost,
+.trail-ink { fill: none; stroke-width: 3.2; stroke-linecap: round; stroke-dasharray: 7 8; }
+.trail-ghost { stroke: #cfc6ae; }
+.trail-ink { stroke: var(--dark-green); }
+.trail-reveal { fill: none; stroke: #fff; stroke-width: 14; stroke-linecap: round; }
+.trail-node .ring { fill: var(--cream); stroke: #b9c7b2; stroke-width: 2.5; transition: fill 0.35s ease, stroke 0.35s ease; }
+.trail-node .core { fill: var(--dark-green); opacity: 0; transform-box: fill-box; transform-origin: center; transform: scale(0.3); transition: opacity 0.35s ease, transform 0.35s ease; }
+.trail-node.is-reached .ring { fill: var(--yellow); stroke: var(--dark-green); }
+.trail-node.is-reached .core { opacity: 1; transform: scale(1); }
+.trail-mark { fill: none; stroke: #b9c7b2; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.35s ease; }
+.trail-mark.is-reached { stroke: var(--dark-green); }
+.trail-mark .flag { fill: #b9c7b2; stroke: none; transition: fill 0.35s ease; }
+.trail-mark.is-reached .flag { fill: var(--yellow); }
+.trail-tip { fill: var(--dark-green); }
+.trail-tip-halo { fill: var(--yellow); opacity: 0.55; }
+.how-steps li { transition: border-color 0.35s ease, box-shadow 0.35s ease; }
+.how-steps li.is-reached { border-color: var(--mid-green); }
+
+/* ---------- Route card: the trail draws left to right on hover / tap ---------- */
+.route-line-draw { position: relative; width: 72%; margin: 14px auto 6px; }
+.route-line-draw .route-line { width: 100%; margin: 0; }
+.route-line-draw .route-line:first-child { opacity: 0.2; }
+.route-line-draw .route-line-ink {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.9s cubic-bezier(0.45, 0.05, 0.3, 1);
+}
+@media (hover: hover) {
+  .route-card:hover .route-line-ink { clip-path: inset(0 0 0 0); }
+}
+.route-card:focus-visible .route-line-ink,
+.route-card.is-drawing .route-line-ink { clip-path: inset(0 0 0 0); }
+a.route-card:focus-visible { outline: 3px solid var(--dark-green); outline-offset: 3px; }
+
+@media (max-width: 560px) {
+  .trail { --gutter: 54px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-line-draw .route-line-ink { transition: none; }
+  .trail-node .ring, .trail-node .core, .trail-mark, .how-steps li { transition: none; }
+}

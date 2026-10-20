@@ -86,6 +86,8 @@
           <p>Každá výprava ukáže dětem další kousek Bílých Karpat – a možná zjistí, že to největší dobrodružství začíná právě venku.</p>
         </div>
       </div>
+      <div class="trail" data-trail>
+        <svg class="trail-svg" aria-hidden="true" focusable="false"></svg>
       <ol class="how-steps">
         <li><h3>1. Vyberte si dobrodružství</h3><p>Prohlédněte si připravené trasy a vyberte si, kam se s Karpíkem vydáte. Stačí vám jen telefon a chuť objevovat!</p></li>
         <li><h3>2. Naskenujte QR kód</h3><p>Na začátku každé trasy najdete QR kód. Jeho umístění je uvedeno v detailu každé trasy. Naskenujte ho telefonem a dobrodružství s Karpíkem může začít!</p></li>
@@ -93,6 +95,7 @@
         <li><h3>4. Získejte symbol dobrodružství</h3><p>Na konci každé trasy na vás čeká jedinečný symbol. Uložte si ho do telefonu jako vzpomínku na společnou výpravu.</p></li>
         <li><h3>5. Sbírejte symboly a staňte se strážcem Bílých Karpat</h3><p>Za čtyři nasbírané symboly z různých dobrodružství získáte odměnu a stanete se strážcem Bílých Karpat! Stačí uložené symboly ukázat na vybraném výdejním místě a odměna je vaše.</p></li>
       </ol>
+      </div>
     </section>
 
     <section class="adv-routes" id="vypravy">
@@ -106,7 +109,10 @@
           </div>
           <h3>Zahrady pod Hájem</h3>
           <p class="route-meta">Velká nad Veličkou · 6 km · 2 hod.</p>
-          <img class="route-line" src="assets/dobrodruzstvi/trasa.webp" width="900" height="300" alt="" loading="lazy">
+          <div class="route-line-draw" aria-hidden="true">
+            <img class="route-line" src="assets/dobrodruzstvi/trasa.webp" width="900" height="300" alt="" loading="lazy">
+            <img class="route-line route-line-ink" src="assets/dobrodruzstvi/trasa.webp" width="900" height="300" alt="" loading="lazy">
+          </div>
           <div class="route-body">
             <p>Vydejte se s dětmi za dobrodružstvím s Karpíkem do Zahrad pod Hájem! Provede vás krajinou starých sadů a bělokarpatských luk, kde na malé objevitele čeká spousta rostlin, zvířat i přírodních překvapení.</p>
             <img class="route-drawing" src="assets/dobrodruzstvi/kresba-kvet.webp" width="240" height="359" alt="" loading="lazy">
@@ -120,7 +126,10 @@
           </div>
           <h3>Hostětín</h3>
           <p class="route-meta">Hostětín · 2,4 km · 45 min.</p>
-          <img class="route-line" src="assets/dobrodruzstvi/trasa.webp" width="900" height="300" alt="" loading="lazy">
+          <div class="route-line-draw" aria-hidden="true">
+            <img class="route-line" src="assets/dobrodruzstvi/trasa.webp" width="900" height="300" alt="" loading="lazy">
+            <img class="route-line route-line-ink" src="assets/dobrodruzstvi/trasa.webp" width="900" height="300" alt="" loading="lazy">
+          </div>
           <div class="route-body">
             <p>Vydejte se s dětmi za dobrodružstvím s Karpíkem do Hostětína! Provede vás kolem dřevěných soch v krajině až do přírodní zahrady, kde na malé objevitele čeká poznávání, hraní i nejedno přírodní překvapení.</p>
             <img class="route-drawing" src="assets/dobrodruzstvi/kresba-jablko.webp" width="234" height="283" alt="" loading="lazy">
@@ -135,7 +144,10 @@
           </div>
           <h3>Komňa – Zuvačov</h3>
           <p class="route-meta">Komňa · 7 km · 2 h 15 min.</p>
-          <img class="route-line" src="assets/dobrodruzstvi/trasa.webp" width="900" height="300" alt="" loading="lazy">
+          <div class="route-line-draw" aria-hidden="true">
+            <img class="route-line" src="assets/dobrodruzstvi/trasa.webp" width="900" height="300" alt="" loading="lazy">
+            <img class="route-line route-line-ink" src="assets/dobrodruzstvi/trasa.webp" width="900" height="300" alt="" loading="lazy">
+          </div>
           <div class="route-body">
             <p>Vydejte se s dětmi za dobrodružstvím s Karpíkem z Komně k tajemné zřícenině Zuvačova! Cestou objevíte zelenou Modrou vodu, ukryté prameny i starý javor, který střeží pozůstatky hradu. Na malé objevitele čeká poznávání, hraní a nejedno překvapení.</p>
             <img class="route-drawing" src="assets/dobrodruzstvi/kresba-list.webp" width="240" height="212" alt="" loading="lazy">
@@ -162,5 +174,6 @@
 
   <script src="assets/site.js"></script>
   <script src="assets/karpik-bubble.js"></script>
+  <script src="assets/dobrodruzstvi.js"></script>
 </body>
 </html>
