@@ -1,5 +1,7 @@
 (function () {
   var NS = 'http://www.w3.org/2000/svg';
+  // Presentation attributes keep the trail looking right even if the stylesheet is stale or missing.
+  var MARK = { 'class': 'trail-mark', fill: 'none', stroke: '#b9c7b2', 'stroke-width': 2.2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' };
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var touchOnly = window.matchMedia('(hover: none)');
 
@@ -47,9 +49,9 @@
 
       var defs = svgEl('defs', {}, svg);
       var mask = svgEl('mask', { id: 'trail-mask', maskUnits: 'userSpaceOnUse', x: -w, y: -40, width: w * 3, height: h + 80 }, defs);
-      var reveal = svgEl('path', { d: d, 'class': 'trail-reveal' }, mask);
-      svgEl('path', { d: d, 'class': 'trail-ghost' }, svg);
-      svgEl('path', { d: d, 'class': 'trail-ink', mask: 'url(#trail-mask)' }, svg);
+      var reveal = svgEl('path', { d: d, 'class': 'trail-reveal', fill: 'none', stroke: '#fff', 'stroke-width': 14, 'stroke-linecap': 'round' }, mask);
+      svgEl('path', { d: d, 'class': 'trail-ghost', fill: 'none', stroke: '#cfc6ae', 'stroke-width': 3.2, 'stroke-linecap': 'round', 'stroke-dasharray': '7 8' }, svg);
+      svgEl('path', { d: d, 'class': 'trail-ink', mask: 'url(#trail-mask)', fill: 'none', stroke: '#3f5c40', 'stroke-width': 3.2, 'stroke-linecap': 'round', 'stroke-dasharray': '7 8' }, svg);
 
       var total = reveal.getTotalLength();
       reveal.style.strokeDasharray = total + ' ' + total;
@@ -63,25 +65,25 @@
       svg.removeChild(probe);
 
       var big = w > 80;
-      var start = svgEl('g', { 'class': 'trail-mark' }, svg);
+      var start = svgEl('g', MARK, svg);
       svgEl('circle', { cx: pts[0].x, cy: pts[0].y, r: big ? 7 : 5 }, start);
-      svgEl('circle', { cx: pts[0].x, cy: pts[0].y, r: 2, 'class': 'flag' }, start);
+      svgEl('circle', { cx: pts[0].x, cy: pts[0].y, r: 2, 'class': 'flag', fill: '#b9c7b2', stroke: 'none' }, start);
 
       var nodes = steps.map(function (li, k) {
         var p = pts[k + 1];
         var g = svgEl('g', { 'class': 'trail-node' }, svg);
-        svgEl('circle', { 'class': 'ring', cx: p.x, cy: p.y, r: big ? 13 : 10 }, g);
-        svgEl('circle', { 'class': 'core', cx: p.x, cy: p.y, r: big ? 5 : 4 }, g);
+        svgEl('circle', { 'class': 'ring', cx: p.x, cy: p.y, r: big ? 13 : 10, fill: '#f6f3ea', stroke: '#b9c7b2', 'stroke-width': 2.5 }, g);
+        svgEl('circle', { 'class': 'core', cx: p.x, cy: p.y, r: big ? 5 : 4, fill: '#3f5c40', opacity: 0 }, g);
         return { len: lens[k + 1], g: g, li: li };
       });
 
       var end = pts[pts.length - 1];
-      var flag = svgEl('g', { 'class': 'trail-mark' }, svg);
+      var flag = svgEl('g', MARK, svg);
       svgEl('line', { x1: end.x, y1: end.y, x2: end.x, y2: end.y - 26 }, flag);
-      svgEl('path', { 'class': 'flag', d: 'M' + end.x + ' ' + (end.y - 26) + ' l17 5.5 -17 6 z' }, flag);
+      svgEl('path', { 'class': 'flag', fill: '#b9c7b2', stroke: 'none', d: 'M' + end.x + ' ' + (end.y - 26) + ' l17 5.5 -17 6 z' }, flag);
 
-      var halo = svgEl('circle', { 'class': 'trail-tip-halo', r: big ? 10 : 8 }, svg);
-      var tip = svgEl('circle', { 'class': 'trail-tip', r: big ? 4.5 : 3.5 }, svg);
+      var halo = svgEl('circle', { 'class': 'trail-tip-halo', r: big ? 10 : 8, fill: '#e8d24f', opacity: 0.55 }, svg);
+      var tip = svgEl('circle', { 'class': 'trail-tip', r: big ? 4.5 : 3.5, fill: '#3f5c40' }, svg);
 
       var samples = [];
       for (var L = 0; L < total; L += 6) samples.push({ len: L, y: reveal.getPointAtLength(L).y });
