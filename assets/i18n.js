@@ -261,10 +261,10 @@
     'Objevujte společně Bílé Karpaty': 'Objavujte spoločne Biele Karpaty',
     'Maskot Karpík s holí a dalekohledem': 'Maskot Karpík s palicou a ďalekohľadom',
     'Poslechni si, co říká Karpík': 'Vypočuj si, čo hovorí Karpík',
-    '„Ahoj, já jsem Karpík! Vyrazíte se mnou objevovat Bílé Karpaty? Čekají nás výlety plné her, přírody a dobrodružství!“':
-      '„Ahoj, ja som Karpík! Vyrazíte so mnou objavovať Biele Karpaty? Čakajú nás výlety plné hier, prírody a dobrodružstiev!“',
-    'Klikni na bublinu a poslechni si Karpíka': 'Klikni na bublinu a vypočuj si Karpíka',
-    'Karpík mluví – kliknutím ho zastavíš': 'Karpík rozpráva – kliknutím ho zastavíš',
+    '„Ahoj, já jsem Karpík! Pojďte se mnou objevovat Bílé Karpaty. Čeká nás spousta dobrodružství!“':
+      '„Ahoj, ja som Karpík! Poďte so mnou objavovať Biele Karpaty. Čaká nás veľa dobrodružstiev!“',
+    'Klikni a poslechni si Karpíka': 'Klikni a vypočuj si Karpíka',
+    'Klikni a Karpíka zastavíš': 'Klikni a Karpíka zastavíš',
     'Karpíkovy výpravy': 'Karpíkove výpravy',
     'Kam vyrazíme za dobrodružstvím?': 'Kam vyrazíme za dobrodružstvom?',
     'Jak to funguje?': 'Ako to funguje?',
