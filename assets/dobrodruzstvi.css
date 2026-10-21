@@ -1,6 +1,8 @@
 /* Dobrodružství s Karpíkem – shared by dobrodruzstvi.html and route detail pages */
 
-.adv { max-width: var(--max-width); margin: 0 auto; padding: 0 20px 64px; }
+/* --fig sizes the greeting Karpík; the signpost Karpík (720×480, figure ≈ 88 % of its height) is sized from it
+   so he stays about a quarter smaller: 1.5 × --fig wide. */
+.adv { --fig: 260px; max-width: var(--max-width); margin: 0 auto; padding: 0 20px 64px; }
 .adv img { height: auto; }
 .adv h2 { color: var(--dark-green); font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; margin: 0 0 18px; }
 .adv-sub { color: var(--mid-green); font-size: clamp(1.15rem, 2.4vw, 1.5rem); font-weight: 600; margin: 0; }
@@ -22,7 +24,6 @@
 /* The bubble sits beside Karpík's head; its tail tip lands just right of his face at mouth height.
    Positions are fractions of the figure (--fig) and bubble (--bw × --bh) sizes, so they scale together. */
 .karpik-scene {
-  --fig: 200px;
   --bw: 272px;
   --bh: 192px;
   position: relative;
@@ -102,7 +103,6 @@
   font-weight: 700;
 }
 .adv .bubble-hint { white-space: nowrap; } /* beats the text-wrap shorthand on .adv p */
-.bubble-hint .hint-playing { display: none; }
 
 /* Audio available: the bubble becomes a play button with a visible cue */
 .karpik-scene.has-audio .karpik-bubble { cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease; }
@@ -114,8 +114,7 @@
 .karpik-scene.is-playing .bubble-play::before { animation: none; opacity: 0; }
 .karpik-scene.is-playing .bubble-play .icon-play { display: none; }
 .karpik-scene.is-playing .bubble-play .icon-pause { display: block; }
-.karpik-scene.is-playing .hint-idle { display: none; }
-.karpik-scene.is-playing .hint-playing { display: inline; }
+.karpik-scene.is-playing .bubble-hint { visibility: hidden; }
 
 @keyframes bubble-pulse {
   0% { transform: scale(0.9); opacity: 0.7; }
@@ -151,7 +150,7 @@
 .adv-how { padding: 48px 0 8px; scroll-margin-top: 80px; }
 .adv-how > h2 { text-align: center; }
 .how-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 40px; align-items: center; margin-bottom: 36px; }
-.how-grid img { width: 100%; max-width: 320px; justify-self: center; }
+.how-grid img { width: 100%; max-width: calc(var(--fig) * 1.5); justify-self: center; }
 .how-text p { margin: 0; max-width: 32em; color: var(--text-body); font-size: 1.1rem; line-height: 1.65; }
 .how-steps { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
 .how-steps li { background: var(--white); border: 1px solid var(--cream-border); border-radius: var(--radius-lg); padding: 18px 24px; }
@@ -214,12 +213,21 @@ a.route-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft)
 .extra-card .pin { position: absolute; right: 22px; bottom: 18px; }
 .detail-back { display: flex; justify-content: flex-end; margin: 18px 0 0; }
 
+@media (max-width: 1100px) {
+  .adv { --fig: 200px; } /* two columns get narrow here */
+}
 @media (max-width: 860px) {
+  .adv { --fig: 260px; }
   .adv-intro, .how-grid, .discover-grid, .detail-route { grid-template-columns: 1fr; }
   .adv-intro { align-items: stretch; }
 }
+@media (max-width: 640px) {
+  .adv { --fig: 200px; }
+}
 @media (max-width: 560px) {
-  .karpik-scene { --fig: 118px; --bw: 210px; --bh: 172px; }
+  .adv { --fig: 124px; }
+  .how-grid img { max-width: 200px; } /* the greeting Karpík can't grow beside the bubble here */
+  .karpik-scene { --bw: 204px; --bh: 172px; }
   .karpik-bubble { font-size: 0.84rem; line-height: 1.4; }
   .bubble-play { width: 38px; height: 38px; }
   .bubble-play svg { width: 19px; height: 19px; }
@@ -228,7 +236,8 @@ a.route-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft)
   .detail-head { flex-direction: column; }
 }
 @media (max-width: 360px) {
-  .karpik-scene { --fig: 100px; --bw: 182px; --bh: 160px; }
+  .adv { --fig: 100px; }
+  .karpik-scene { --bw: 182px; --bh: 160px; }
   .karpik-bubble { font-size: 0.78rem; }
   .adv .bubble-hint { white-space: normal; max-width: 100%; }
 }

@@ -264,7 +264,6 @@
     '„Ahoj, já jsem Karpík! Pojďte se mnou objevovat Bílé Karpaty. Čeká nás spousta dobrodružství!“':
       '„Ahoj, ja som Karpík! Poďte so mnou objavovať Biele Karpaty. Čaká nás veľa dobrodružstiev!“',
     'Klikni a poslechni si Karpíka': 'Klikni a vypočuj si Karpíka',
-    'Klikni a Karpíka zastavíš': 'Klikni a Karpíka zastavíš',
     'Karpíkovy výpravy': 'Karpíkove výpravy',
     'Kam vyrazíme za dobrodružstvím?': 'Kam vyrazíme za dobrodružstvom?',
     'Jak to funguje?': 'Ako to funguje?',
