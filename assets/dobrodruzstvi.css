@@ -8,7 +8,8 @@
 /* ---------- Hero ---------- */
 .adv-hero { text-align: center; padding: 48px 0 8px; }
 .adv-hero h1 { color: var(--dark-green); font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.15; margin: 0 0 14px; }
-.adv-lead { color: var(--text-muted); max-width: 760px; margin: 22px auto 0; line-height: 1.6; font-size: 1.05rem; }
+.adv-lead { color: var(--text-muted); max-width: 32em; margin: 18px auto 0; line-height: 1.6; font-size: 1.12rem; }
+.adv p { text-wrap: pretty; }
 
 /* ---------- Karpík with speech bubble ---------- */
 .adv-intro {
@@ -131,13 +132,13 @@
 /* ---------- How it works ---------- */
 .adv-how { padding: 48px 0 8px; scroll-margin-top: 80px; }
 .adv-how > h2 { text-align: center; }
-.how-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px; align-items: center; margin-bottom: 28px; }
-.how-grid img { width: 100%; max-width: 380px; justify-self: center; }
-.how-text p { margin: 0 0 14px; color: var(--text-body); line-height: 1.6; text-align: center; }
-.how-steps { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
-.how-steps li { background: var(--white); border: 1px solid var(--cream-border); border-radius: var(--radius-lg); padding: 20px 24px; }
-.how-steps h3 { margin: 0 0 8px; color: var(--dark-green); font-size: 1.05rem; }
-.how-steps p { margin: 0; color: var(--text-muted); line-height: 1.55; }
+.how-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 40px; align-items: center; margin-bottom: 36px; }
+.how-grid img { width: 100%; max-width: 320px; justify-self: center; }
+.how-text p { margin: 0; max-width: 32em; color: var(--text-body); font-size: 1.1rem; line-height: 1.65; }
+.how-steps { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.how-steps li { background: var(--white); border: 1px solid var(--cream-border); border-radius: var(--radius-lg); padding: 18px 24px; }
+.how-steps h3 { margin: 0 0 4px; color: var(--dark-green); font-size: 1.05rem; }
+.how-steps p { margin: 0; max-width: 66ch; color: var(--text-muted); line-height: 1.55; }
 
 /* ---------- Routes ---------- */
 .adv-routes { padding: 48px 0 0; scroll-margin-top: 80px; }
@@ -162,7 +163,7 @@ a.route-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft)
 .route-meta { margin: 0; padding: 7px 12px; background: var(--yellow); color: var(--dark-green-2); text-align: center; font-size: 0.8rem; font-weight: 600; }
 .route-line { display: block; width: 72%; margin: 14px auto 6px; height: auto; }
 .route-body { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) 72px; gap: 10px; align-items: start; padding: 6px 16px 18px; }
-.route-body p { margin: 0; font-size: 0.88rem; line-height: 1.55; color: var(--text-body); }
+.route-body p { margin: 0; font-size: 0.93rem; line-height: 1.55; color: var(--text-muted); }
 .route-drawing { width: 72px; height: auto; align-self: end; }
 .route-more { display: block; margin: 0 16px 18px; color: var(--dark-green); font-weight: 700; font-size: 0.9rem; }
 
@@ -216,9 +217,9 @@ a.route-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft)
 .trail-ink { stroke: var(--dark-green); }
 .trail-reveal { fill: none; stroke: #fff; stroke-width: 14; stroke-linecap: round; }
 .trail-node .ring { fill: var(--cream); stroke: #b9c7b2; stroke-width: 2.5; transition: fill 0.35s ease, stroke 0.35s ease; }
-.trail-node .core { fill: var(--dark-green); opacity: 0; transform-box: fill-box; transform-origin: center; transform: scale(0.3); transition: opacity 0.35s ease, transform 0.35s ease; }
+.trail-node .num { fill: var(--mid-green); transition: fill 0.35s ease; }
 .trail-node.is-reached .ring { fill: var(--yellow); stroke: var(--dark-green); }
-.trail-node.is-reached .core { opacity: 1; transform: scale(1); }
+.trail-node.is-reached .num { fill: var(--dark-green-2); }
 .trail-mark { fill: none; stroke: #b9c7b2; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.35s ease; }
 .trail-mark.is-reached { stroke: var(--dark-green); }
 .trail-mark .flag { fill: #b9c7b2; stroke: none; transition: fill 0.35s ease; }
@@ -253,5 +254,5 @@ a.route-card:focus-visible { outline: 3px solid var(--dark-green); outline-offse
 
 @media (prefers-reduced-motion: reduce) {
   .route-line-draw .route-line-ink { transition: none; }
-  .trail-node .ring, .trail-node .core, .trail-mark, .how-steps li { transition: none; }
+  .trail-node .ring, .trail-node .num, .trail-mark, .how-steps li { transition: none; }
 }

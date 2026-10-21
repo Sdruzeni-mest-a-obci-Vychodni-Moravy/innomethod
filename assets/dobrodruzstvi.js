@@ -73,7 +73,11 @@
         var p = pts[k + 1];
         var g = svgEl('g', { 'class': 'trail-node' }, svg);
         svgEl('circle', { 'class': 'ring', cx: p.x, cy: p.y, r: big ? 13 : 10, fill: '#f6f3ea', stroke: '#b9c7b2', 'stroke-width': 2.5 }, g);
-        svgEl('circle', { 'class': 'core', cx: p.x, cy: p.y, r: big ? 5 : 4, fill: '#3f5c40', opacity: 0 }, g);
+        var num = svgEl('text', {
+          'class': 'num', x: p.x, y: p.y, fill: '#6d8f65', 'text-anchor': 'middle', 'dominant-baseline': 'central',
+          'font-size': big ? 13 : 11, 'font-weight': 700, 'font-family': "'Segoe UI', Roboto, Arial, sans-serif"
+        }, g);
+        num.textContent = String(k + 1);
         return { len: lens[k + 1], g: g, li: li };
       });
 

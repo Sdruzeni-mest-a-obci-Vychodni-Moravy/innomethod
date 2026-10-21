@@ -259,8 +259,6 @@
       'Rodinné výpravy s Karpíkom do Bielych Karpát: hravé úlohy, príroda a dobrodružstvo na trasách Zahrady pod Hájem, Hostětín a Komňa – Zuvačov.',
     'Dobrodružství s Karpíkem': 'Dobrodružstvá s Karpíkom',
     'Objevujte společně Bílé Karpaty': 'Objavujte spoločne Biele Karpaty',
-    'Vydejte se s Karpíkem na rodinné výpravy do Bílých Karpat, při kterých se obyčejná procházka mění v cestu plnou objevů. Děti budou cestou poznávat zdejší přírodu, plnit hravé úkoly a objevovat, čím je krajina Bílých Karpat tak výjimečná.':
-      'Vydajte sa s Karpíkom na rodinné výpravy do Bielych Karpát, počas ktorých sa obyčajná prechádzka mení na cestu plnú objavov. Deti budú cestou spoznávať miestnu prírodu, plniť hravé úlohy a objavovať, čím je krajina Bielych Karpát taká výnimočná.',
     'Maskot Karpík s holí a dalekohledem': 'Maskot Karpík s palicou a ďalekohľadom',
     'Poslechni si, co říká Karpík': 'Vypočuj si, čo hovorí Karpík',
     '„Ahoj, já jsem Karpík! Vyrazíte se mnou objevovat Bílé Karpaty? Čekají nás výlety plné her, přírody a dobrodružství!“':
@@ -271,36 +269,38 @@
     'Kam vyrazíme za dobrodružstvím?': 'Kam vyrazíme za dobrodružstvom?',
     'Jak to funguje?': 'Ako to funguje?',
     'Karpík u rozcestníku ukazuje směr': 'Karpík pri rázcestníku ukazuje smer',
-    'Pojďte s Karpíkem objevovat Bílé Karpaty! Pro malé i velké dobrodruhy připravil výlety, na kterých se obyčejná procházka mění v cestu plnou objevů.':
-      'Poďte s Karpíkom objavovať Biele Karpaty! Pre malých aj veľkých dobrodruhov pripravil výlety, na ktorých sa obyčajná prechádzka mení na cestu plnú objavov.',
-    'Společně budete poznávat louky, lesy i staré sady, hledat rostliny a zvířata, plnit hravé úkoly a postupně odhalovat příběhy zdejší krajiny.':
-      'Spoločne budete spoznávať lúky, lesy aj staré sady, hľadať rastliny a zvieratá, plniť hravé úlohy a postupne odhaľovať príbehy miestnej krajiny.',
-    'Každá výprava ukáže dětem další kousek Bílých Karpat – a možná zjistí, že to největší dobrodružství začíná právě venku.':
-      'Každá výprava ukáže deťom ďalší kúsok Bielych Karpát – a možno zistia, že to najväčšie dobrodružstvo sa začína práve vonku.',
-    '1. Vyberte si dobrodružství': '1. Vyberte si dobrodružstvo',
-    'Prohlédněte si připravené trasy a vyberte si, kam se s Karpíkem vydáte. Stačí vám jen telefon a chuť objevovat!':
-      'Pozrite si pripravené trasy a vyberte si, kam sa s Karpíkom vydáte. Stačí vám len telefón a chuť objavovať!',
-    'Na začátku každé trasy najdete QR kód. Jeho umístění je uvedeno v detailu každé trasy. Naskenujte ho telefonem a dobrodružství s Karpíkem může začít!':
-      'Na začiatku každej trasy nájdete QR kód. Jeho umiestnenie je uvedené v detaile každej trasy. Naskenujte ho telefónom a dobrodružstvo s Karpíkom môže začať!',
-    '3. Objevujte a hrajte si': '3. Objavujte a hrajte sa',
-    'Karpík vás bude provázet jednotlivými zastaveními. Čekají vás hravé úkoly, přírodní zajímavosti i malá překvapení.':
-      'Karpík vás bude sprevádzať jednotlivými zastaveniami. Čakajú vás hravé úlohy, prírodné zaujímavosti aj malé prekvapenia.',
-    '4. Získejte symbol dobrodružství': '4. Získajte symbol dobrodružstva',
-    'Na konci každé trasy na vás čeká jedinečný symbol. Uložte si ho do telefonu jako vzpomínku na společnou výpravu.':
-      'Na konci každej trasy na vás čaká jedinečný symbol. Uložte si ho do telefónu ako spomienku na spoločnú výpravu.',
-    '5. Sbírejte symboly a staňte se strážcem Bílých Karpat': '5. Zbierajte symboly a staňte sa strážcom Bielych Karpát',
-    'Za čtyři nasbírané symboly z různých dobrodružství získáte odměnu a stanete se strážcem Bílých Karpat! Stačí uložené symboly ukázat na vybraném výdejním místě a odměna je vaše.':
-      'Za štyri nazbierané symboly z rôznych dobrodružstiev získate odmenu a stanete sa strážcom Bielych Karpát! Stačí uložené symboly ukázať na vybranom výdajnom mieste a odmena je vaša.',
+    'Rodinné výpravy po Bílých Karpatech, na kterých děti poznávají přírodu a plní hravé úkoly.':
+      'Rodinné výpravy po Bielych Karpatoch, na ktorých deti spoznávajú prírodu a plnia hravé úlohy.',
+    'Vyberte si dobrodružství':
+      'Vyberte si dobrodružstvo',
+    'Vyberte si trasu níže. Stačí telefon a chuť objevovat.':
+      'Vyberte si trasu nižšie. Stačí telefón a chuť objavovať.',
+    'Najdete ho na začátku trasy, přesné místo je uvedeno v jejím detailu.':
+      'Nájdete ho na začiatku trasy, presné miesto je uvedené v jej detaile.',
+    'Objevujte a hrajte si':
+      'Objavujte a hrajte sa',
+    'Karpík vás provede zastaveními s hravými úkoly a přírodními zajímavostmi.':
+      'Karpík vás prevedie zastaveniami s hravými úlohami a prírodnými zaujímavosťami.',
+    'Získejte symbol dobrodružství':
+      'Získajte symbol dobrodružstva',
+    'Na konci trasy si do telefonu uložíte jedinečný symbol na památku.':
+      'Na konci trasy si do telefónu uložíte jedinečný symbol na pamiatku.',
+    'Sbírejte symboly a staňte se strážcem Bílých Karpat':
+      'Zbierajte symboly a staňte sa strážcom Bielych Karpát',
+    'Za čtyři symboly z různých tras dostanete na výdejním místě odměnu.':
+      'Za štyri symboly z rôznych trás dostanete na výdajnom mieste odmenu.',
+    'Krajinou starých sadů a bělokarpatských luk, kde na malé objevitele čekají rostliny, zvířata i přírodní překvapení.':
+      'Krajinou starých sadov a bielokarpatských lúk, kde na malých objaviteľov čakajú rastliny, zvieratá aj prírodné prekvapenia.',
+    'Kolem dřevěných soch v krajině až do přírodní zahrady, kde se dá objevovat i hrát.':
+      'Okolo drevených sôch v krajine až do prírodnej záhrady, kde sa dá objavovať aj hrať.',
+    'Z Komně k tajemné zřícenině Zuvačova, kolem zelené Modré vody, ukrytých pramenů a starého javoru.':
+      'Z Komne k tajomnej zrúcanine Zuvačova, okolo zelenej Modrej vody, ukrytých prameňov a starého javora.',
+    'Karpík připravil pro malé i velké dobrodruhy výlety po loukách, lesích a starých sadech. Cestou budete hledat rostliny a zvířata, plnit úkoly a zjistíte, že největší dobrodružství začíná venku.':
+      'Karpík pripravil pre malých aj veľkých dobrodruhov výlety po lúkach, lesoch a starých sadoch. Cestou budete hľadať rastliny a zvieratá, plniť úlohy a zistíte, že najväčšie dobrodružstvo sa začína vonku.',
     'Jaké dobrodružství s Karpíkem vyberete?': 'Aké dobrodružstvo s Karpíkom si vyberiete?',
     'Staré sady a louky v Zahradách pod Hájem': 'Staré sady a lúky v Zahradách pod Hájem',
-    'Vydejte se s dětmi za dobrodružstvím s Karpíkem do Zahrad pod Hájem! Provede vás krajinou starých sadů a bělokarpatských luk, kde na malé objevitele čeká spousta rostlin, zvířat i přírodních překvapení.':
-      'Vydajte sa s deťmi za dobrodružstvom s Karpíkom do Zahrad pod Hájem! Prevedie vás krajinou starých sadov a bielokarpatských lúk, kde na malých objaviteľov čaká množstvo rastlín, zvierat aj prírodných prekvapení.',
     'Polní cesta do Hostětína': 'Poľná cesta do Hostětína',
-    'Vydejte se s dětmi za dobrodružstvím s Karpíkem do Hostětína! Provede vás kolem dřevěných soch v krajině až do přírodní zahrady, kde na malé objevitele čeká poznávání, hraní i nejedno přírodní překvapení.':
-      'Vydajte sa s deťmi za dobrodružstvom s Karpíkom do Hostětína! Prevedie vás okolo drevených sôch v krajine až do prírodnej záhrady, kde na malých objaviteľov čaká spoznávanie, hranie aj nejedno prírodné prekvapenie.',
     'Zřícenina Zuvačova ve stínu starého javoru': 'Zrúcanina Zuvačova v tieni starého javora',
-    'Vydejte se s dětmi za dobrodružstvím s Karpíkem z Komně k tajemné zřícenině Zuvačova! Cestou objevíte zelenou Modrou vodu, ukryté prameny i starý javor, který střeží pozůstatky hradu. Na malé objevitele čeká poznávání, hraní a nejedno překvapení.':
-      'Vydajte sa s deťmi za dobrodružstvom s Karpíkom z Komne k tajomnej zrúcanine Zuvačova! Cestou objavíte zelenú Modrú vodu, ukryté pramene aj starý javor, ktorý stráži pozostatky hradu. Na malých objaviteľov čaká spoznávanie, hranie a nejedno prekvapenie.',
 
     // Dobrodružství: Hostětín route detail
     'Hostětín – Sochy v krajině · Dobrodružství s Karpíkem': 'Hostětín – Sochy v krajine · Dobrodružstvá s Karpíkom',
