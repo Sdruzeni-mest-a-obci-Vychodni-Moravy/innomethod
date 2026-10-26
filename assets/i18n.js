@@ -319,6 +319,8 @@
     'Trasa dobrodružství': 'Trasa dobrodružstva',
     '5 zastavení · 2,4 km · přibližně 1 hod.': '5 zastavení · 2,4 km · približne 1 hod.',
     'Převýšení:': 'Prevýšenie:',
+    'Stoupání': 'Stúpanie',
+    'Klesání': 'Klesanie',
     'Sezónnost:': 'Sezónnosť:',
     'celoroční návštěva': 'celoročná návšteva',
     'obecní úřad Hostětín': 'obecný úrad Hostětín',

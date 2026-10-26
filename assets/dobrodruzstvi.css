@@ -200,6 +200,9 @@ a.route-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft)
 .route-facts dt { font-weight: 700; color: var(--text-body); }
 .route-facts dd { margin: 0; color: var(--text-body); }
 .route-facts .pin { position: absolute; right: 18px; bottom: 16px; }
+.route-facts .elev { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.elev span { display: inline-flex; align-items: center; gap: 6px; }
+.elev svg { width: 18px; height: 18px; flex: none; color: var(--mid-green); }
 .pin { color: var(--mid-green); }
 .pin svg { width: 30px; height: 36px; display: block; }
 .detail-art { width: 100%; max-width: 260px; justify-self: center; border-radius: var(--radius-md); }
