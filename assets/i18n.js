@@ -324,6 +324,7 @@
     'pro rodiny s dětmi': 'pre rodiny s deťmi',
     'Malovaná krajina u Hostětína se sochou na louce': 'Maľovaná krajina pri Hostětíne so sochou na lúke',
     'Polní cesta nad Hostětínem s výhledem na obec a kopce Bílých Karpat': 'Poľná cesta nad Hostětínom s výhľadom na obec a kopce Bielych Karpát',
+    'Dřevěná socha pastýře s holí v lese u Hostětína': 'Drevená socha pastiera s palicou v lese pri Hostětíne',
     'Mapa trasy Hostětín – Sochy v krajině': 'Mapa trasy Hostětín – Sochy v krajine',
     'Start dobrodružství s Karpíkem': 'Štart dobrodružstva s Karpíkom',
     'Naskenujte QR kód na informační tabuli u autobusové zastávky.': 'Naskenujte QR kód na informačnej tabuli pri autobusovej zastávke.',
