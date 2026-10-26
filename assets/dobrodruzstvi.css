@@ -204,6 +204,13 @@ a.route-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft)
 .pin svg { width: 30px; height: 36px; display: block; }
 .detail-art { width: 100%; max-width: 260px; justify-self: center; border-radius: var(--radius-md); }
 .detail-photo { max-width: 100%; height: auto; }
+/* Map variant: photo spans from the map's top to the pill's bottom, facts sit below. */
+.detail-route-map { grid-template-areas: "head head" "main photo" "facts ."; align-items: stretch; row-gap: 0; }
+.detail-route-map > h2 { grid-area: head; }
+.detail-route-map .route-main { grid-area: main; }
+.detail-route-map .route-main .route-pill { margin-bottom: 0; }
+.detail-route-map .detail-photo { grid-area: photo; height: 0; min-height: 100%; object-fit: cover; }
+.detail-route-map .route-facts { grid-area: facts; margin-top: 14px; }
 .start-note { display: flex; gap: 16px; align-items: center; background: var(--white); border: 1px solid var(--cream-border); border-radius: var(--radius-md); padding: 16px 20px; }
 .start-note .icon-circle { width: 46px; height: 46px; }
 .start-note .icon-circle svg { width: 22px; height: 22px; }
@@ -222,6 +229,8 @@ a.route-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft)
   .adv { --fig: 260px; }
   .adv-intro, .how-grid, .discover-grid, .detail-route { grid-template-columns: 1fr; }
   .adv-intro { align-items: stretch; }
+  .detail-route-map { grid-template-areas: "head" "main" "facts" "photo"; }
+  .detail-route-map .detail-photo { height: auto; min-height: 0; margin-top: 28px; }
 }
 @media (max-width: 640px) {
   .adv { --fig: 200px; }
