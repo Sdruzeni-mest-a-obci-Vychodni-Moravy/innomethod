@@ -303,8 +303,8 @@
 
     // Dobrodružství: Hostětín route detail
     'Hostětín – Sochy v krajině · Dobrodružství s Karpíkem': 'Hostětín – Sochy v krajine · Dobrodružstvá s Karpíkom',
-    'Rodinná výprava s Karpíkem v Hostětíně: od soch v krajině až do přírodní zahrady Centra Veronica. 5 zastavení, 2,5 km, přibližně 1 hodina.':
-      'Rodinná výprava s Karpíkom v Hostětíne: od sôch v krajine až do prírodnej záhrady Centra Veronica. 5 zastavení, 2,5 km, približne 1 hodina.',
+    'Rodinná výprava s Karpíkem v Hostětíně: od soch v krajině až do přírodní zahrady Centra Veronica. 5 zastavení, 2,4 km, přibližně 1 hodina.':
+      'Rodinná výprava s Karpíkom v Hostětíne: od sôch v krajine až do prírodnej záhrady Centra Veronica. 5 zastavení, 2,4 km, približne 1 hodina.',
     'Hostětín – Sochy v krajině': 'Hostětín – Sochy v krajine',
     'Od soch v krajině až do přírodní zahrady': 'Od sôch v krajine až do prírodnej záhrady',
     'Co společně objevíte?': 'Čo spoločne objavíte?',
@@ -314,8 +314,13 @@
     ', rozhlédnete se po loukách a stromech a nakonec společně zamíříte do': ', rozhliadnete sa po lúkach a stromoch a nakoniec spoločne zamierite do',
     'přírodní zahrady': 'prírodnej záhrady',
     'u Centra Veronica.': 'pri Centre Veronica.',
+    'u Centra Veronica. Celou trasu si zobrazíte v mobilním telefonu a na jednotlivých zastaveních se společně s Karpíkem pustíte do hravých úkolů. V přírodní zahradě pak dokončíte poslední hru a společně objevíte symbol celé hostětínské výpravy, který si uložíte do své sbírky.':
+      'pri Centre Veronica. Celú trasu si zobrazíte v mobilnom telefóne a na jednotlivých zastaveniach sa spolu s Karpíkom pustíte do hravých úloh. V prírodnej záhrade potom dokončíte poslednú hru a spoločne objavíte symbol celej hostětínskej výpravy, ktorý si uložíte do svojej zbierky.',
     'Trasa dobrodružství': 'Trasa dobrodružstva',
-    '5 zastavení · 2,5 km · přibližně 1 hod.': '5 zastavení · 2,5 km · približne 1 hod.',
+    '5 zastavení · 2,4 km · přibližně 1 hod.': '5 zastavení · 2,4 km · približne 1 hod.',
+    'Převýšení:': 'Prevýšenie:',
+    'Sezónnost:': 'Sezónnosť:',
+    'celoroční návštěva': 'celoročná návšteva',
     'obecní úřad Hostětín': 'obecný úrad Hostětín',
     'Cíl:': 'Cieľ:',
     'Přírodní zahrada v Hostětíně': 'Prírodná záhrada v Hostětíne',
