@@ -255,8 +255,8 @@
     // Dobrodružství s Karpíkem
     'Dobrodružství': 'Dobrodružstvá',
     'Dobrodružství s Karpíkem – Bílé Karpaty': 'Dobrodružstvá s Karpíkom – Biele Karpaty',
-    'Rodinné výpravy s Karpíkem do Bílých Karpat: hravé úkoly, příroda a dobrodružství na trasách Zahrady pod Hájem, Hostětín a Komňa – Zuvačov.':
-      'Rodinné výpravy s Karpíkom do Bielych Karpát: hravé úlohy, príroda a dobrodružstvo na trasách Zahrady pod Hájem, Hostětín a Komňa – Zuvačov.',
+    'Rodinné výpravy s Karpíkem do Bílých Karpat: hravé úkoly, příroda a dobrodružství na trasách Zahrady pod Hájem, Hostětín, Komňa – Zuvačov a Žítková.':
+      'Rodinné výpravy s Karpíkom do Bielych Karpát: hravé úlohy, príroda a dobrodružstvo na trasách Zahrady pod Hájem, Hostětín, Komňa – Zuvačov a Žítková.',
     'Dobrodružství s Karpíkem': 'Dobrodružstvá s Karpíkom',
     'Objevujte společně Bílé Karpaty': 'Objavujte spoločne Biele Karpaty',
     'Maskot Karpík s holí a dalekohledem': 'Maskot Karpík s palicou a ďalekohľadom',
@@ -343,6 +343,89 @@
     'Po výpravě si můžete ještě odpočinout v přírodní zahradě Centra Veronica. Děti tu mohou dál objevovat zahradu – je zde například potok, krtčí nora, hmyzí domečky, vrbové prvky nebo dřevěný xylofon.':
       'Po výprave si môžete ešte oddýchnuť v prírodnej záhrade Centra Veronica. Deti tu môžu ďalej objavovať záhradu – je tu napríklad potok, krtia nora, hmyzie domčeky, vŕbové prvky alebo drevený xylofón.',
     'Zpět na seznam tras': 'Späť na zoznam trás',
+
+    // Dobrodružství: shared route detail labels
+    'Start / cíl:': 'Štart / cieľ:',
+    'střední, kopcovitá krajina s klesáním i stoupáním': 'stredná, kopcovitá krajina s klesaním aj stúpaním',
+    'pro rodiny s dětmi zvyklými na procházky': 'pre rodiny s deťmi zvyknutými na prechádzky',
+    'ideálně od jara do podzimu': 'ideálne od jari do jesene',
+    'Naskenujte QR kód na informační tabuli u obecního úřadu.': 'Naskenujte QR kód na informačnej tabuli pri obecnom úrade.',
+    'Detail trasy →': 'Detail trasy →',
+
+    // Dobrodružství: Zahrady pod Hájem route detail
+    'Zahrady pod Hájem – Horňácko · Dobrodružství s Karpíkem': 'Zahrady pod Hájem – Horňácko · Dobrodružstvá s Karpíkom',
+    'Rodinná výprava s Karpíkem do Zahrad pod Hájem u Velké nad Veličkou: staré ovocné sady, pestré louky a lesy Horňácka. 5 zastavení, 6 km, přibližně 2 hodiny.':
+      'Rodinná výprava s Karpíkom do Zahrad pod Hájem pri Veľkej nad Veličkou: staré ovocné sady, pestré lúky a lesy Horňácka. 5 zastavení, 6 km, približne 2 hodiny.',
+    'Zahrady pod Hájem – Horňácko': 'Zahrady pod Hájem – Horňácko',
+    'Mezi starými sady a rozkvetlými loukami': 'Medzi starými sadmi a rozkvitnutými lúkami',
+    'Vydejte se s Karpíkem do Zahrad pod Hájem, kde se mezi starými ovocnými sady, pestrými loukami a lesy ukrývá spousta přírodních překvapení. Společně budete pátrat po zdejších rostlinách a zvířatech, poznávat staré ovocné odrůdy a objevovat, jak lidé po generace utvářeli krajinu Horňácka. Celou trasu si zobrazíte v mobilním telefonu a na jednotlivých zastaveních se společně s Karpíkem pustíte do hravých úkolů. Na konci výpravy pak objevíte její symbol, který si uložíte do své sbírky Bílých Karpat.':
+      'Vydajte sa s Karpíkom do Zahrad pod Hájem, kde sa medzi starými ovocnými sadmi, pestrými lúkami a lesmi ukrýva množstvo prírodných prekvapení. Spoločne budete pátrať po tunajších rastlinách a zvieratách, spoznávať staré ovocné odrody a objavovať, ako ľudia po generácie formovali krajinu Horňácka. Celú trasu si zobrazíte v mobilnom telefóne a na jednotlivých zastaveniach sa spolu s Karpíkom pustíte do hravých úloh. Na konci výpravy potom objavíte jej symbol, ktorý si uložíte do svojej zbierky Bielych Karpát.',
+    'Mapa trasy Zahrady pod Hájem': 'Mapa trasy Zahrady pod Hájem',
+    '5 zastavení · 6 km · přibližně 2 hod.': '5 zastavení · 6 km · približne 2 hod.',
+    'Staré ovocné stromy na rozkvetlé louce v Zahradách pod Hájem': 'Staré ovocné stromy na rozkvitnutej lúke v Zahradách pod Hájem',
+    'obecní úřad Velká nad Veličkou': 'obecný úrad Velká nad Veličkou',
+    'Kam se ještě podívat?': 'Kam sa ešte pozrieť?',
+    'Za tajemstvím opevněného kostela ve Velké nad Veličkou': 'Za tajomstvom opevneného kostola vo Veľkej nad Veličkou',
+    'Zastavte se u kostela sv. Máří Magdalény, který ukrývá neobvyklé svědectví o minulosti Horňácka. Obklopuje ho stará hradební zeď se střílnami, za kterou kdysi místní obyvatelé hledali ochranu před nepřáteli. Dokážete střílny ve zdi objevit?':
+      'Zastavte sa pri kostole sv. Márie Magdalény, ktorý ukrýva nezvyčajné svedectvo o minulosti Horňácka. Obklopuje ho stará hradbová stena so strieľňami, za ktorou kedysi miestni obyvatelia hľadali ochranu pred nepriateľmi. Dokážete strieľne v múre objaviť?',
+    'Objevte větrný mlýn v Kuželově': 'Objavte veterný mlyn v Kuželove',
+    'Vydejte se k historickému větrnému mlýnu z roku 1842, který patří k nejzajímavějším památkám Horňácka. Nahlédněte do jeho útrob a objevte, jak se kdysi pomocí větru mlelo obilí na mouku. Při prohlídce poznáte také život a hospodaření našich předků.':
+      'Vydajte sa k historickému veternému mlynu z roku 1842, ktorý patrí k najzaujímavejším pamiatkam Horňácka. Nahliadnite do jeho útrob a objavte, ako sa kedysi pomocou vetra mlelo obilie na múku. Pri prehliadke spoznáte aj život a hospodárenie našich predkov.',
+
+    // Dobrodružství: Komňa route detail
+    'Komňa – Modrá voda – Zuvačov · Dobrodružství s Karpíkem': 'Komňa – Modrá voda – Zuvačov · Dobrodružstvá s Karpíkom',
+    'Rodinná výprava s Karpíkem z Komně k zelené Modré vodě, zřícenině hradu Zuvačov a studánce Růženka. 5 zastavení, 7 km, přibližně 2 hodiny 15 minut.':
+      'Rodinná výprava s Karpíkom z Komne k zelenej Modrej vode, zrúcanine hradu Zuvačov a studničke Růženka. 5 zastavení, 7 km, približne 2 hodiny 15 minút.',
+    'Komňa – Modrá voda – Zuvačov': 'Komňa – Modrá voda – Zuvačov',
+    'Od zelené Modré vody až k tajemnému hradnímu pánovi': 'Od zelenej Modrej vody až k tajomnému hradnému pánovi',
+    'Komňa je malá bělokarpatská obec s bohatou historií, starými domy, kostelem i připomínkami tradičního života na vesnici. Z jejího středu se s Karpíkem vydáte ven do krajiny, kde se postupně střídají louky, lesy, prameny i kamenitá místa. Cestou objevíte zvláštní zelenou hladinu':
+      'Komňa je malá bielokarpatská obec s bohatou históriou, starými domami, kostolom aj pripomienkami tradičného života na dedine. Z jej stredu sa s Karpíkom vydáte von do krajiny, kde sa postupne striedajú lúky, lesy, pramene aj kamenisté miesta. Cestou objavíte zvláštnu zelenú hladinu',
+    'Modré vody': 'Modrej vody',
+    'v bývalém lomu, pozůstatky': 'v bývalom lome, pozostatky',
+    'hradu Zuvačov': 'hradu Zuvačov',
+    ', které dnes téměř splývají s lesem, a nenápadně ukrytou studánku Růženku. Celou trasu si zobrazíte v mobilním telefonu a jednotlivá zastavení vám pomohou všimnout si míst, přírody a příběhů, které byste při obyčejné procházce možná přehlédli. Na konci trasy společně objevíte symbol celé výpravy, který si uložíte do své sbírky.':
+      ', ktoré dnes takmer splývajú s lesom, a nenápadne ukrytú studničku Růženku. Celú trasu si zobrazíte v mobilnom telefóne a jednotlivé zastavenia vám pomôžu všimnúť si miesta, prírodu a príbehy, ktoré by ste pri obyčajnej prechádzke možno prehliadli. Na konci trasy spoločne objavíte symbol celej výpravy, ktorý si uložíte do svojej zbierky.',
+    'Mapa trasy Komňa – Modrá voda – Zuvačov': 'Mapa trasy Komňa – Modrá voda – Zuvačov',
+    '5 zastavení · 7 km · přibližně 2 hod. 15 min.': '5 zastavení · 7 km · približne 2 hod. 15 min.',
+    'Zbytky kamenné hradby Zuvačova pod korunou starého stromu': 'Zvyšky kamennej hradby Zuvačova pod korunou starého stromu',
+    'obecní úřad Komňa': 'obecný úrad Komňa',
+    'Kam se dále v Komni podívat?': 'Kam sa ešte v Komni pozrieť?',
+    'Nahlédněte do obydlí zvěrokleštiče': 'Nahliadnite do obydlia zverokleštiča',
+    'V Komni můžete navštívit také památkově chráněný domek zvěrokleštiče z roku 1850. Připomíná dnes už zaniklé řemeslo i způsob života na venkově v minulosti.':
+      'V Komni môžete navštíviť aj pamiatkovo chránený domček zverokleštiča z roku 1850. Pripomína dnes už zaniknuté remeslo aj spôsob života na vidieku v minulosti.',
+    'Zastavte se v Památníku J. A. Komenského': 'Zastavte sa v Pamätníku J. A. Komenského',
+    'Chcete poznat Komňu ještě o něco víc? Nahlédněte do Památníku J. A. Komenského, který najdete v historické sýpce z roku 1774. Expozice připomíná historii obce i osobnost Jana Amose Komenského, s jehož jménem je Komňa tradičně spojována.':
+      'Chcete spoznať Komňu ešte o niečo viac? Nahliadnite do Pamätníka J. A. Komenského, ktorý nájdete v historickej sýpke z roku 1774. Expozícia pripomína históriu obce aj osobnosť Jána Amosa Komenského, s ktorého menom sa Komňa tradične spája.',
+
+    // Dobrodružství: Žítková route detail
+    'Žítková – Moravské Kopanice · Dobrodružství s Karpíkem': 'Žítková – Moravské Kopanice · Dobrodružstvá s Karpíkom',
+    'Rodinná výprava s Karpíkem krajinou Moravských Kopanic: dřevěná zvonička, stopy zvířat, kopaničářské kroje a příběhy starých chalup. 5 zastavení, 5,4 km, přibližně 2 hodiny.':
+      'Rodinná výprava s Karpíkom krajinou Moravských Kopaníc: drevená zvonička, stopy zvierat, kopaničiarske kroje a príbehy starých chalúp. 5 zastavení, 5,4 km, približne 2 hodiny.',
+    'Žítková – Moravské Kopanice': 'Žítková – Moravské Kopanice',
+    'Po stopách života na Moravských Kopanicích': 'Po stopách života na Moravských Kopaniciach',
+    'Vydejte se s Karpíkem do krajiny': 'Vydajte sa s Karpíkom do krajiny',
+    'Moravských Kopanic': 'Moravských Kopaníc',
+    ', kde se mezi loukami a kopci ukrývají staré chalupy a příběhy dávných časů. Společně se zastavíte u dřevěné zvoničky, vydáte se po stopách zvířat, poznáte tradiční kopaničářské kroje a nahlédnete do života lidí, kteří zde kdysi hospodařili. Celou trasu si zobrazíte v mobilním telefonu a na jednotlivých zastaveních se společně s Karpíkem pustíte do hravých úkolů. Na konci putování odhalíte malé překvapení z kopaničářské chalupy – symbol celé žítkovské výpravy, který si uložíte do své sbírky.':
+      ', kde sa medzi lúkami a kopcami ukrývajú staré chalupy a príbehy dávnych čias. Spoločne sa zastavíte pri drevenej zvoničke, vydáte sa po stopách zvierat, spoznáte tradičné kopaničiarske kroje a nahliadnete do života ľudí, ktorí tu kedysi hospodárili. Celú trasu si zobrazíte v mobilnom telefóne a na jednotlivých zastaveniach sa spolu s Karpíkom pustíte do hravých úloh. Na konci putovania odhalíte malé prekvapenie z kopaničiarskej chalupy – symbol celej žítkovskej výpravy, ktorý si uložíte do svojej zbierky.',
+    'Mapa trasy Žítková – Moravské Kopanice': 'Mapa trasy Žítková – Moravské Kopanice',
+    '5 zastavení · 5,4 km · přibližně 2 hod.': '5 zastavení · 5,4 km · približne 2 hod.',
+    'Dřevěná zvonička na louce v Žítkové': 'Drevená zvonička na lúke v Žítkovej',
+    'obecní úřad Žítková': 'obecný úrad Žítková',
+    'ideálně od jara do podzimu, v zimě hrozí na trase náledí': 'ideálne od jari do jesene, v zime hrozí na trase poľadovica',
+    'Kam se ještě na Žítkové podívat?': 'Kam sa ešte v Žítkovej pozrieť?',
+    'Muzeum poslední žítkovské bohyně': 'Múzeum poslednej žítkovskej bohyne',
+    'Navštivte původní chalupu Irmy Gabrhelové, poslední žítkovské bohyně, a poznejte příběhy žen, které se proslavily lidovým léčitelstvím a věštěním. Muzeum nabízí komentovanou prohlídku přibližující jejich život i tradice Moravských Kopanic.':
+      'Navštívte pôvodnú chalupu Irmy Gabrhelovej, poslednej žítkovskej bohyne, a spoznajte príbehy žien, ktoré sa preslávili ľudovým liečiteľstvom a veštením. Múzeum ponúka komentovanú prehliadku približujúcu ich život aj tradície Moravských Kopaníc.',
+    'Více o muzeu': 'Viac o múzeu',
+    'Sýr Od Kapličky – ovčí farma': 'Syr Od Kapličky – ovčia farma',
+    'Jen kousek od muzea se můžete zastavit na ovčí farmě, kde se tradičně vyrábějí ovčí sýry a další mléčné výrobky. Ochutnejte místní speciality, dopřejte si malé občerstvení a poznejte další kousek života na Moravských Kopanicích.':
+      'Len kúsok od múzea sa môžete zastaviť na ovčej farme, kde sa tradične vyrábajú ovčie syry a ďalšie mliečne výrobky. Ochutnajte miestne špeciality, doprajte si malé občerstvenie a spoznajte ďalší kúsok života na Moravských Kopaniciach.',
+    'Farma na Facebooku': 'Farma na Facebooku',
+    'Žítková': 'Žítková',
+    'Žítková · 5,4 km · 2 hod.': 'Žítková · 5,4 km · 2 hod.',
+    'Krajinou Moravských Kopanic k dřevěné zvoničce, po stopách zvířat a za příběhy starých kopaničářských chalup.':
+      'Krajinou Moravských Kopaníc k drevenej zvoničke, po stopách zvierat a za príbehmi starých kopaničiarskych chalúp.',
+    'Louky a chalupy v kopcích Moravských Kopanic u Žítkové': 'Lúky a chalupy v kopcoch Moravských Kopaníc pri Žítkovej',
 
     // Species cards: shared labels
     'KARTA OBJEVITELE': 'KARTA OBJAVITEĽA',

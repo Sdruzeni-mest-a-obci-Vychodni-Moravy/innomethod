@@ -222,6 +222,9 @@ a.route-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft)
 .extra-card { position: relative; background: var(--white); border: 1px solid var(--cream-border); border-radius: var(--radius-lg); padding: 22px 24px 56px; }
 .extra-card h3 { margin: 0 0 12px; color: var(--mid-green); font-size: 1.1rem; }
 .extra-card p { margin: 0; line-height: 1.6; }
+.extra-card .extra-link { margin-top: 12px; }
+.extra-link a { color: var(--dark-green); font-weight: 700; text-underline-offset: 3px; }
+.extra-link a:hover { color: var(--dark-green-2); }
 .extra-card .pin { position: absolute; right: 22px; bottom: 18px; }
 .detail-back { display: flex; justify-content: flex-end; margin: 18px 0 0; }
 
