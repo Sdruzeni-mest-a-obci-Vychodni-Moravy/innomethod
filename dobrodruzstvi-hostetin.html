@@ -81,22 +81,12 @@
       </dl>
     </section>
 
-    <section id="start">
+    <section>
       <h2>Start dobrodružství s Karpíkem</h2>
-      <div class="start-note" id="qr-instruction">
+      <div class="start-note">
         <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 17h3v3"/></svg></span>
         <p><strong>Naskenujte QR kód na informační tabuli u autobusové zastávky.</strong><br>Kód je označen logem Innomethod.</p>
       </div>
-      <nav class="task-panel" id="task-panel" aria-label="Úkoly na trase" hidden>
-        <p class="tasks-intro">Vyberte si úkol na trase:</p>
-        <ol class="task-list">
-          <li><a class="task-link" href="hra/hostetin/ukol1.html">Úkol 1</a></li>
-          <li><a class="task-link" href="hra/hostetin/ukol2.html">Úkol 2</a></li>
-          <li><a class="task-link" href="hra/hostetin/ukol3.html">Úkol 3</a></li>
-          <li><a class="task-link" href="hra/hostetin/ukol4.html">Úkol 4</a></li>
-          <li><a class="task-link" href="hra/hostetin/ukol5.html">Úkol 5</a></li>
-        </ol>
-      </nav>
     </section>
 
     <section class="extra-grid">
@@ -129,19 +119,6 @@
     </div>
   </footer>
 
-  <script>
-    // Úkoly jsou skryté – ukáže je jen odkaz z QR kódu na trase (?qr=hostetin).
-    // Velikost písmen ani diakritika nehrají roli; po příchodu z QR se úkoly přesunou hned pod nadpis.
-    (function () {
-      var raw = (location.href.match(/[?&#]qr=([^&#?\/]*)/i) || [])[1] || '';
-      try { raw = decodeURIComponent(raw); } catch (e) {}
-      var code = raw.normalize('NFD').replace(/[̀-ͯ]/g, '').trim().toLowerCase();
-      if (code !== 'hostetin') return;
-      document.getElementById('qr-instruction').hidden = true;
-      document.getElementById('task-panel').hidden = false;
-      document.querySelector('.detail-head').after(document.getElementById('start'));
-    })();
-  </script>
   <script src="assets/site.js?v=20261021c"></script>
 </body>
 </html>
