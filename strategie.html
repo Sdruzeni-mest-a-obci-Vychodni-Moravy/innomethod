@@ -21,6 +21,7 @@
   --radius-lg:22px; --radius-md:14px; --radius-full:999px;
   --shadow-soft:0 10px 28px rgba(63,92,64,.14); --shadow-soft-lg:0 18px 40px rgba(63,92,64,.18);
   --font:'Segoe UI', Roboto, Arial, sans-serif;
+  --nav-h:132px;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -34,22 +35,40 @@ h1,h2,h3{color:var(--dark-green);line-height:1.18;text-wrap:balance;margin:0}
 
 /* nav */
 .site-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:500;background:var(--white);border-bottom:1px solid var(--cream-border)}
-.site-nav .wrap{display:flex;align-items:center;gap:14px;padding-block:9px}
-.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;color:var(--dark-green);white-space:nowrap}
-.logo-mark{width:44px;height:44px;border-radius:50%;background:var(--white);box-shadow:0 2px 10px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.logo-mark img{width:25px;height:25px}
-.site-logo small{display:block;font-weight:600;color:var(--text-muted);font-size:12.5px}
-.nav-right{margin-left:auto;display:flex;align-items:center;gap:14px}
-.nav-left{display:flex;align-items:center;gap:14px;min-width:0}
+/* hlavní menu – shodné s ostatními stránkami webu (assets/site.css) */
+.site-nav-inner{position:relative;max-width:1180px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px}
+.nav-left{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;color:var(--dark-green);font-size:1.05rem;white-space:nowrap}
+.site-logo .logo-mark{width:46px;height:46px;border-radius:50%;background:var(--white);box-shadow:0 2px 10px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.site-logo .logo-mark img{width:26px;height:26px;display:block}
 .nav-divider{width:1px;height:28px;background:var(--cream-border);flex-shrink:0}
-.nav-left .interreg{height:34px;width:auto;flex-shrink:0}
+.nav-logo-interreg{display:inline-flex;align-items:center;flex-shrink:0}
+.nav-logo-interreg img{display:block;height:50px;width:auto}
+.site-nav-links{display:flex;align-items:center;justify-content:flex-end;gap:28px;list-style:none;margin:0;padding:0 6px 0 0;flex:1}
+.site-nav-links a{white-space:nowrap;text-decoration:none;color:var(--text-body);font-weight:600;font-size:.95rem;padding:6px 2px;border-bottom:2px solid transparent;transition:border-color .15s ease,color .15s ease}
+.site-nav-links a:hover,.site-nav-links a[aria-current="page"]{color:var(--dark-green);border-color:var(--yellow)}
+.site-nav-links a.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:var(--dark-green-2);font-weight:700;font-size:.9rem;padding:10px 18px;border:0;border-radius:var(--radius-full);transition:background .15s ease,transform .15s ease}
+.site-nav-links a.nav-cta:hover{background:var(--yellow-dark);transform:translateY(-1px)}
+.nav-toggle{margin-left:auto;display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--dark-green)}
+.nav-toggle svg{width:26px;height:26px}
+@media (max-width:1000px){:root{--nav-h:128px}.nav-divider,.nav-logo-interreg{display:none}}
+@media (max-width:760px){
+ .site-nav-links{position:absolute;top:100%;left:0;right:0;z-index:10;background:var(--white);flex-direction:column;align-items:flex-start;gap:4px;padding:10px 20px 18px;border-bottom:1px solid var(--cream-border);box-shadow:var(--shadow-soft);display:none}
+ .site-nav-links.open{display:flex}
+ .site-nav-links a{width:100%;padding:10px 0}
+ .site-nav-links a:hover,.site-nav-links a[aria-current="page"]{border-color:transparent;text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:2px;text-underline-offset:3px}
+ .site-nav-links a.nav-cta{width:auto;margin-top:6px;padding:10px 18px;text-decoration:none}
+ .nav-toggle{display:inline-flex}
+}
+@media (max-width:430px){:root{--nav-h:114px}.site-nav-inner{gap:8px;padding:12px 14px}.nav-left{gap:6px}.site-logo{gap:6px;font-size:.9rem}.site-logo .logo-mark{width:36px;height:36px}.site-logo .logo-mark img{width:20px;height:20px}}
+.tabs{border-top:1px solid var(--cream-border);background:var(--cream-soft)}
+.tabs .wrap{display:flex;align-items:center;gap:10px}
+.tabs-list{display:flex;gap:4px;flex:1;min-width:0;overflow-x:auto;padding-block:7px;scrollbar-width:thin}
 .progress{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--dark-green-2);background:var(--yellow-soft);padding:6px 12px;border-radius:var(--radius-full);white-space:nowrap}
 .progress .pb{width:60px;height:6px;border-radius:3px;background:var(--white);overflow:hidden}
 .progress .pb i{display:block;height:100%;background:var(--dark-green)}
-.backlink{font-size:14px;font-weight:700;color:var(--dark-green);text-decoration:none;white-space:nowrap}.backlink:hover{text-decoration:underline}
-@media (max-width:640px){.backlink{display:none}.nav-left .interreg,.nav-divider{display:none}.site-logo small{display:none}}
-.tabs{border-top:1px solid var(--cream-border);background:var(--cream-soft)}
-.tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:7px;scrollbar-width:thin}
+.tabs .progress{flex:none}
+@media (max-width:640px){.tabs .progress .pb{display:none}}
 .tabs a{flex:0 0 auto;text-decoration:none;color:var(--text-muted);font-weight:600;font-size:14px;padding:6px 12px;border-radius:var(--radius-full);display:flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid transparent}
 .tabs a:hover{color:var(--dark-green);border-color:var(--cream-border);background:var(--white)}
 .tabs a[aria-current="page"]{background:var(--dark-green);color:var(--white)}
@@ -214,10 +233,10 @@ legend{font-weight:800;color:var(--dark-green);margin-bottom:8px;padding:0;font-
 .ov-c .m{font-size:13px;color:var(--text-muted)}
 
 /* dashboard */
-.subnav{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:6px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 112px);z-index:4;background:var(--cream);padding-block:8px}
+.subnav{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:6px;position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--nav-h));z-index:4;background:var(--cream);padding-block:8px}
 .subnav button{flex:0 0 auto;font:700 14px var(--font);border:1.5px solid var(--cream-border);background:var(--white);color:var(--dark-green);padding:7px 14px;border-radius:var(--radius-full);cursor:pointer}
 .subnav button:hover{border-color:var(--mid-green)}
-.dsec{display:grid;gap:16px;scroll-margin-top:170px}
+.dsec{display:grid;gap:16px;scroll-margin-top:calc(var(--nav-h) + 58px)}
 .dsec > h3{font-size:22px;display:flex;align-items:center;gap:10px}
 .dsec > h3 .ic{width:36px;height:36px;border-radius:50%;background:var(--yellow);display:inline-flex;align-items:center;justify-content:center;font-size:17px}
 .src{font-size:12.5px;color:var(--text-muted);margin:0}
@@ -309,11 +328,27 @@ footer{border-top:1px solid var(--cream-border);margin-top:30px;padding-block:28
 </head>
 <body>
 <div class="site-nav">
-  <div class="wrap">
-    <div class="nav-left"><a class="site-logo" href="index.html" title="Zpět na web Bílé Karpaty"><span class="logo-mark"><img src="assets/icons/logo-innomethod.svg" alt=""></span><span>Bílé Karpaty<small>Strategie ochrany biodiverzity</small></span></a><span class="nav-divider" aria-hidden="true"></span><img class="interreg" src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko"></div>
-    <div class="nav-right"><a class="backlink" href="index.html">← Web projektu</a><span class="progress" id="prog"></span></div>
+  <div class="site-nav-inner">
+    <div class="nav-left">
+      <a class="site-logo" href="index.html">
+        <span class="logo-mark"><img src="assets/icons/logo-innomethod.svg" alt="INNOMETHOD"></span>
+        Bílé Karpaty
+      </a>
+      <span class="nav-divider" aria-hidden="true"></span>
+      <span class="nav-logo-interreg" title="Program Interreg Slovensko – Česko"><img src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko"></span>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Otevřít menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="site-nav-links">
+      <li><a href="zivot-bilych-karpat.html">Expedice Karpaty</a></li>
+      <li><a href="dobrodruzstvi.html">Dobrodružství</a></li>
+      <li><a href="dabble.html">Dabble</a></li>
+      <li><a href="strategie.html" aria-current="page">Strategie</a></li>
+      <li><a class="nav-cta" href="quiz.html">Kvíz</a></li>
+    </ul>
   </div>
-  <nav class="tabs" aria-label="Kapitoly"><div class="wrap" id="tabs"></div></nav>
+  <nav class="tabs" aria-label="Kapitoly"><div class="wrap"><div class="tabs-list" id="tabs"></div><span class="progress" id="prog"></span></div></nav>
 </div>
 
 <main class="wrap">
@@ -1008,6 +1043,15 @@ render();
   }catch(e){ online=false; showOffline(); }
   if(online){ await loadMoods(); if(Object.keys(quick).length && !moods.some(m=>m.mine)) persistQuick(); setInterval(()=>{ if(document.visibilityState==="visible") loadMoods(); },60000); }
   render();
+})();
+</script>
+<script>
+// mobilní menu – stejné chování jako assets/site.js
+(function(){
+  var toggle=document.querySelector('.nav-toggle'), links=document.querySelector('.site-nav-links');
+  if(!toggle||!links) return;
+  toggle.addEventListener('click',function(){ toggle.setAttribute('aria-expanded', links.classList.toggle('open')); });
+  links.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ links.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }); });
 })();
 </script>
 
