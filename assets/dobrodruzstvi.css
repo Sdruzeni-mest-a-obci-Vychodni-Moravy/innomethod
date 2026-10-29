@@ -210,6 +210,15 @@ a.route-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft)
 /* Map variant: photo spans from the map's top to the pill's bottom, facts sit below. */
 .detail-route-map { grid-template-areas: "head head" "main photo" "facts ."; align-items: stretch; row-gap: 0; }
 .detail-route-map > h2 { grid-area: head; }
+/* Veřejná stránka trasy: místo mapy karta s navigací na start (Mapy.com) */
+.route-nav { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; min-height: 340px; margin: 0 0 14px; padding: 24px; background: var(--white); border: 1px solid var(--cream-border); border-radius: var(--radius-md); color: var(--text-body); text-align: center; text-decoration: none; transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+.route-nav:hover { border-color: var(--mid-green); box-shadow: var(--shadow-soft); }
+.route-nav:focus-visible { outline: 3px solid var(--yellow-dark); outline-offset: 3px; }
+.route-nav img { width: 100%; max-width: 380px; height: auto; }
+.route-nav-text { display: flex; flex-direction: column; gap: 4px; }
+.route-nav-text strong { color: var(--dark-green); font-size: 1.15rem; }
+.route-nav-text span { color: var(--text-muted); font-size: 0.95rem; }
+.route-nav:hover .btn-primary { background: var(--dark-green-2); }
 .detail-route-map .route-main { grid-area: main; }
 .detail-route-map .route-main .route-pill { margin-bottom: 0; }
 .detail-route-map .detail-photo { grid-area: photo; height: 0; min-height: 100%; object-fit: cover; }

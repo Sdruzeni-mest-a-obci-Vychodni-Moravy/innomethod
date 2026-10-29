@@ -344,6 +344,9 @@
     'Po výpravě si můžete ještě odpočinout v přírodní zahradě Centra Veronica. Děti tu mohou dál objevovat zahradu – je zde například potok, krtčí nora, hmyzí domečky, vrbové prvky nebo dřevěný xylofon.':
       'Po výprave si môžete ešte oddýchnuť v prírodnej záhrade Centra Veronica. Deti tu môžu ďalej objavovať záhradu – je tu napríklad potok, krtia nora, hmyzie domčeky, vŕbové prvky alebo drevený xylofón.',
     'Zpět na seznam tras': 'Späť na zoznam trás',
+    'Navigujte se na start dobrodružství': 'Navigujte sa na štart dobrodružstva',
+    'obecní úřad Hostětín · trasa se otevře v Mapy.com': 'obecný úrad Hostětín · trasa sa otvorí v Mapy.com',
+    'Spustit navigaci': 'Spustiť navigáciu',
     'Poznejte Hostětín': 'Spoznajte Hostětín',
     'ještě před cestou': 'ešte pred cestou',
     'Úkoly na trase': 'Úlohy na trase',
