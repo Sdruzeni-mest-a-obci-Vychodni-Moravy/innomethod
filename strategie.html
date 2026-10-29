@@ -40,12 +40,14 @@ h1,h2,h3{color:var(--dark-green);line-height:1.18;text-wrap:balance;margin:0}
 .logo-mark img{width:25px;height:25px}
 .site-logo small{display:block;font-weight:600;color:var(--text-muted);font-size:12.5px}
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:14px}
-.nav-right .interreg{height:34px;width:auto}
+.nav-left{display:flex;align-items:center;gap:14px;min-width:0}
+.nav-divider{width:1px;height:28px;background:var(--cream-border);flex-shrink:0}
+.nav-left .interreg{height:34px;width:auto;flex-shrink:0}
 .progress{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--dark-green-2);background:var(--yellow-soft);padding:6px 12px;border-radius:var(--radius-full);white-space:nowrap}
 .progress .pb{width:60px;height:6px;border-radius:3px;background:var(--white);overflow:hidden}
 .progress .pb i{display:block;height:100%;background:var(--dark-green)}
 .backlink{font-size:14px;font-weight:700;color:var(--dark-green);text-decoration:none;white-space:nowrap}.backlink:hover{text-decoration:underline}
-@media (max-width:640px){.backlink{display:none}.nav-right .interreg{display:none}.site-logo small{display:none}}
+@media (max-width:640px){.backlink{display:none}.nav-left .interreg,.nav-divider{display:none}.site-logo small{display:none}}
 .tabs{border-top:1px solid var(--cream-border);background:var(--cream-soft)}
 .tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:7px;scrollbar-width:thin}
 .tabs a{flex:0 0 auto;text-decoration:none;color:var(--text-muted);font-weight:600;font-size:14px;padding:6px 12px;border-radius:var(--radius-full);display:flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid transparent}
@@ -239,12 +241,23 @@ legend{font-weight:800;color:var(--dark-green);margin-bottom:8px;padding:0;font-
 .hb .track i{position:absolute;left:0;top:0;bottom:0;background:var(--dark-green);border-radius:0 4px 4px 0}
 .hb .track b{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--text-body)}
 .hb .v{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
-.chart{position:relative;width:100%;overflow-x:auto}
-.chart svg{min-width:560px}
-.chart svg{display:block;width:100%;height:auto;overflow:visible}
-.chart text{font:12px var(--font);fill:var(--text-muted)}
-.tip{position:absolute;pointer-events:none;background:var(--dark-green-2);color:var(--white);font-size:13px;padding:8px 10px;border-radius:10px;box-shadow:var(--shadow-soft);white-space:nowrap;transform:translate(-50%,calc(-100% - 12px));z-index:3}
-.tip b{color:var(--yellow)}
+.db{max-height:460px;overflow-y:auto;border:1px solid var(--cream-border);border-radius:var(--radius-md);background:var(--white)}
+.db .ax,.db .r{display:grid;grid-template-columns:180px minmax(0,1fr) 60px;gap:12px;align-items:center;padding:0 12px}
+.db .ax{position:sticky;top:0;z-index:1;height:30px;background:var(--cream-soft);border-bottom:1px solid var(--cream-border);font-size:12px;color:var(--text-muted)}
+.db .ax .v{text-align:right}
+.db .r{width:100%;height:27px;border:0;background:none;font:inherit;font-size:13.5px;color:var(--text-body);text-align:left;cursor:pointer}
+.db .r:hover{background:var(--cream-soft)}
+.db .r.sel{background:var(--yellow-soft);font-weight:700}
+.db .r:focus-visible{outline:2px solid var(--dark-green);outline-offset:-2px}
+.db .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.db .tr{position:relative;height:100%}
+.db .gl{position:absolute;top:0;bottom:0;width:1px;background:#eee8d8}
+.db .ax .gl{background:none}
+.db .ax .gl span{position:absolute;top:8px;transform:translateX(-50%);white-space:nowrap}
+.db .ln{position:absolute;top:50%;height:3px;border-radius:2px;background:#d8d1bd;transform:translateY(-50%)}
+.db .dt{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;border:2px solid var(--white);transform:translate(-50%,-50%)}
+.db .v{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.legend i.dot{border-radius:50%}
 .obec-card{background:var(--yellow-soft);border-radius:var(--radius-md);padding:14px 16px;display:grid;gap:8px}
 .obec-card h4{font-size:19px}
 .obec-card .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
@@ -271,7 +284,7 @@ legend{font-weight:800;color:var(--dark-green);margin-bottom:8px;padding:0;font-
 .pillar.x{background:var(--dark-green);border-color:var(--dark-green);color:var(--white)}
 .pillar.x h4{color:var(--yellow)}
 .swot{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-@media (max-width:640px){.swot{grid-template-columns:1fr}.hb .r{grid-template-columns:110px minmax(0,1fr) 50px}}
+@media (max-width:640px){.swot{grid-template-columns:1fr}.hb .r{grid-template-columns:110px minmax(0,1fr) 50px}.db .ax,.db .r{grid-template-columns:112px minmax(0,1fr) 46px;gap:8px;padding:0 8px}}
 .swot .q{border-radius:var(--radius-lg);padding:16px 18px;display:grid;gap:6px;align-content:start}
 .swot .q h4{margin:0;font-size:16px}
 .swot .q ul{margin:0;padding-left:18px;font-size:14.5px}
@@ -308,8 +321,8 @@ footer{border-top:1px solid var(--cream-border);margin-top:30px;padding-block:28
 <body>
 <div class="site-nav">
   <div class="wrap">
-    <a class="site-logo" href="index.html" title="Zpět na web Bílé Karpaty"><span class="logo-mark"><img src="assets/icons/logo-innomethod.svg" alt=""></span><span>Bílé Karpaty<small>Strategie ochrany biodiverzity</small></span></a>
-    <div class="nav-right"><a class="backlink" href="index.html">← Web projektu</a><span class="progress" id="prog"></span><img class="interreg" src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko"></div>
+    <div class="nav-left"><a class="site-logo" href="index.html" title="Zpět na web Bílé Karpaty"><span class="logo-mark"><img src="assets/icons/logo-innomethod.svg" alt=""></span><span>Bílé Karpaty<small>Strategie ochrany biodiverzity</small></span></a><span class="nav-divider" aria-hidden="true"></span><img class="interreg" src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko"></div>
+    <div class="nav-right"><a class="backlink" href="index.html">← Web projektu</a><span class="progress" id="prog"></span></div>
   </div>
   <nav class="tabs" aria-label="Kapitoly"><div class="wrap" id="tabs"></div></nav>
 </div>
@@ -653,9 +666,9 @@ function dataHtml(){
      </div>
      <div id="ocard"></div>
      <h4>Děti vs. senioři v každé obci</h4>
-     <div class="chart" id="sc"></div>
-     <div class="legend">${["do 18 %","18–22 %","22–26 %","26 % a víc"].map((t,i)=>`<span><i style="background:${SEQ[i]}"></i>podíl 65+ ${t}</span>`).join("")}<span>· velikost bubliny = počet obyvatel</span></div>
-     <p class="src" style="margin-top:-4px">Obce nad přerušovanou čarou mají víc seniorů než dětí. Míra stárnutí téměř nezávisí na velikosti obce (korelace 0,10), rozhoduje spíš poloha.</p>
+     <div class="db" id="sc" aria-label="Podíl dětí a seniorů v obcích, seřazeno podle podílu seniorů"></div>
+     <div class="legend"><span><i class="dot" style="background:${AGEC[0]}"></i>děti 0–14 let</span><span><i class="dot" style="background:${AGEC[2]}"></i>senioři 65+</span><span>· seřazeno podle podílu seniorů, číslo vpravo = podíl 65+</span></div>
+     <p class="src" style="margin-top:-4px">Když je modrý bod vpravo od oranžového, má obec víc seniorů než dětí – platí to pro 58 z 61 obcí. Míra stárnutí téměř nezávisí na velikosti obce (korelace 0,10), rozhoduje spíš poloha.</p>
      <div class="otbl"><table><thead><tr>${[["n","Obec"],["pop","Obyvatel"],["pd","Děti %"],["ps","65+ %"],["age","Prům. věk"]].map(c=>`<th data-sort="${c[0]}"${dState.sort[0]===c[0]?` aria-sort="${dState.sort[1]>0?"ascending":"descending"}"`:""}>${c[1]}</th>`).join("")}</tr></thead><tbody id="otb"></tbody></table></div>
     </div>
    </div>
@@ -706,31 +719,20 @@ function drawObce(){
      <div class="kv"><div><b>${fmt(s.pop)}</b><span>obyvatel</span></div><div><b>${fmt(s.d)}</b><span>dětí do 14 let</span></div><div><b>${fmt(s.s)}</b><span>seniorů 65+</span></div><div><b>${fmt(s.age,1)}</b><span>průměrný věk</span></div></div>
      <p style="margin:0;font-size:14.5px">Podíl seniorů ${fmt(s.ps,1)} % je ${Math.abs(dS)<0.3?"na úrovni":dS>0?`o ${fmt(dS,1)} p. b. nad`:`o ${fmt(-dS,1)} p. b. pod`} průměrem území (23,0 %); podíl dětí ${fmt(s.pd,1)} % je ${Math.abs(dD)<0.3?"na úrovni":dD>0?`o ${fmt(dD,1)} p. b. nad`:`o ${fmt(-dD,1)} p. b. pod`} průměrem. ${rank}. nejstarší z 61 obcí podle podílu seniorů.${s.d<100?" Obec má méně než 100 dětí – vhodné jsou aktivity pro rodiny bez organizované skupiny (QR stanoviště, trasy).":""}</p></div>`})()
    : `<div class="hint">Vyberte obec v grafu, v tabulce nebo ji vyhledejte.</div>`;
-  drawScatter(list);
+  drawDumbbell(list);
 }
 
-function drawScatter(list){
-  const el=document.getElementById("sc"); const W=760,H=380,L=64,R=14,T=14,B=40;
-  const x0=7,x1=22,y0=12,y1=30; const X=v=>L+(v-x0)/(x1-x0)*(W-L-R), Y=v=>H-B-(v-y0)/(y1-y0)*(H-T-B);
-  const vis=new Set(list.map(o=>o.n));
-  const pts=[...OBCE].sort((a,b)=>b.pop-a.pop);
-  let g=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Bodový graf: podíl dětí a seniorů v 61 obcích">`;
-  for(let v=8;v<=22;v+=2) g+=`<line x1="${X(v)}" x2="${X(v)}" y1="${T}" y2="${H-B}" stroke="#eee8d8"/><text x="${X(v)}" y="${H-B+16}" text-anchor="middle">${v} %</text>`;
-  for(let v=12;v<=30;v+=3) g+=`<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="#eee8d8"/><text x="${L-6}" y="${Y(v)+4}" text-anchor="end">${v} %</text>`;
-  g+=`<line x1="${X(12)}" y1="${Y(12)}" x2="${X(22)}" y2="${Y(22)}" stroke="#55584f" stroke-dasharray="5 4"/>`;
-  g+=`<text x="${(L+W-R)/2}" y="${H-4}" text-anchor="middle" style="font-weight:700">Podíl dětí do 14 let</text><text transform="translate(12 ${(T+H-B)/2}) rotate(-90)" text-anchor="middle" style="font-weight:700">Podíl seniorů 65+</text>`;
-  pts.forEach(o=>{const r=3.5+Math.sqrt(o.pop)/11, on=vis.has(o.n), sel=o.n===dState.sel;
-    g+=`<circle data-o="${esc(o.n)}" cx="${X(o.pd).toFixed(1)}" cy="${Y(o.ps).toFixed(1)}" r="${r.toFixed(1)}" fill="${SEQ[band(o.ps)]}" fill-opacity="${on?0.9:0.15}" stroke="${sel?"#2f4830":"#ffffff"}" stroke-width="${sel?3:2}" style="cursor:pointer"/>`;});
-  const s=OBCE.find(o=>o.n===dState.sel);
-  if(s) g+=`<text x="${X(s.pd)}" y="${Y(s.ps)-(3.5+Math.sqrt(s.pop)/11)-6}" text-anchor="middle" style="font-weight:800;fill:#2f4830;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round">${esc(s.n)}</text>`;
-  g+=`</svg><div class="tip" id="stip" hidden></div>`;
-  el.innerHTML=g;
-  const tip=document.getElementById("stip"), svg=el.querySelector("svg");
-  el.querySelectorAll("circle").forEach(c=>{
-    c.onmouseenter=()=>{const o=OBCE.find(x=>x.n===c.dataset.o);const bb=svg.getBoundingClientRect(),sc=bb.width/W;tip.innerHTML=`<b>${esc(o.n)}</b> · ${fmt(o.pop)} obyv.<br>děti ${fmt(o.pd,1)} % · 65+ ${fmt(o.ps,1)} % · věk ${fmt(o.age,1)}`;tip.style.left=Math.min(Math.max(+c.getAttribute("cx")*sc,130),bb.width-130)+"px";tip.style.top=(+c.getAttribute("cy")*sc-(+c.getAttribute("r"))*sc)+"px";tip.hidden=false};
-    c.onmouseleave=()=>tip.hidden=true;
-    c.onclick=()=>{dState.sel=c.dataset.o;drawObce()};
-  });
+function drawDumbbell(list){
+  const el=document.getElementById("sc"), MAX=35, P=v=>(v/MAX*100).toFixed(2)+"%", ticks=[0,10,20,30];
+  const rows=[...list].sort((a,b)=>b.ps-a.ps);
+  const grid=lbl=>ticks.map(v=>`<i class="gl" style="left:${P(v)}">${lbl?`<span>${v} %</span>`:""}</i>`).join("");
+  el.innerHTML=`<div class="ax"><span>Obec</span><span class="tr">${grid(true)}</span><span class="v">65+</span></div>`+
+   (rows.map(o=>{const lo=Math.min(o.pd,o.ps), hi=Math.max(o.pd,o.ps);
+    return `<button type="button" class="r${o.n===dState.sel?" sel":""}" data-o="${esc(o.n)}" title="${esc(o.n)} · ${fmt(o.pop)} obyv. · děti ${fmt(o.pd,1)} % · 65+ ${fmt(o.ps,1)} % · věk ${fmt(o.age,1)}" aria-label="${esc(o.n)}: děti ${fmt(o.pd,1)} %, senioři ${fmt(o.ps,1)} %"><span class="nm">${esc(o.n)}</span><span class="tr">${grid(false)}<i class="ln" style="left:${P(lo)};width:${P(hi-lo)}"></i><i class="dt" style="left:${P(o.pd)};background:${AGEC[0]}"></i><i class="dt" style="left:${P(o.ps)};background:${AGEC[2]}"></i></span><span class="v">${fmt(o.ps,1)} %</span></button>`;}).join("")
+    ||`<div class="hint" style="padding:12px">Žádná obec neodpovídá hledání.</div>`);
+  el.querySelectorAll(".r").forEach(b=>b.onclick=()=>{dState.sel=b.dataset.o;drawObce()});
+  const sel=el.querySelector(".r.sel");
+  if(sel) el.scrollTop=sel.offsetTop-el.clientHeight/2+sel.offsetHeight/2;
 }
 
 /* ---------- doporučení pro cílové skupiny ---------- */
