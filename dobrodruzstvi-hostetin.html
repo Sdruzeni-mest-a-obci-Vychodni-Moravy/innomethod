@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  // QR kód na trase: adresa trasy + ?qr=KÓD otevře skrytou stránku trasy s úkoly (soubor <název-trasy>-KÓD.html).
+  (function () {
+    var m = location.search.match(/[?&]qr=([a-z0-9]{4,32})/i);
+    if (m) location.replace(location.pathname.replace(/\.html$/, '') + '-' + m[1].toLowerCase() + '.html');
+  })();
+</script>
 <title>Hostětín – Sochy v krajině · Dobrodružství s Karpíkem</title>
 <meta name="description" content="Rodinná výprava s Karpíkem v Hostětíně: od soch v krajině až do přírodní zahrady Centra Veronica. 5 zastavení, 2,4 km, přibližně 1 hodina.">
 <link rel="stylesheet" href="assets/site.css?v=20261021c">

@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  // QR kód na trase: adresa trasy + ?qr=KÓD otevře skrytou stránku trasy s úkoly (soubor <název-trasy>-KÓD.html).
+  (function () {
+    var m = location.search.match(/[?&]qr=([a-z0-9]{4,32})/i);
+    if (m) location.replace(location.pathname.replace(/\.html$/, '') + '-' + m[1].toLowerCase() + '.html');
+  })();
+</script>
 <title>Komňa – Modrá voda – Zuvačov · Dobrodružství s Karpíkem</title>
 <meta name="description" content="Rodinná výprava s Karpíkem z Komně k zelené Modré vodě, zřícenině hradu Zuvačov a studánce Růženka. 5 zastavení, 7 km, přibližně 2 hodiny 15 minut.">
 <link rel="stylesheet" href="assets/site.css?v=20261021c">

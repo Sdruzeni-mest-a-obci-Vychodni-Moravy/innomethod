@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  // QR kód na trase: adresa trasy + ?qr=KÓD otevře skrytou stránku trasy s úkoly (soubor <název-trasy>-KÓD.html).
+  (function () {
+    var m = location.search.match(/[?&]qr=([a-z0-9]{4,32})/i);
+    if (m) location.replace(location.pathname.replace(/\.html$/, '') + '-' + m[1].toLowerCase() + '.html');
+  })();
+</script>
 <title>Zahrady pod Hájem – Horňácko · Dobrodružství s Karpíkem</title>
 <meta name="description" content="Rodinná výprava s Karpíkem do Zahrad pod Hájem u Velké nad Veličkou: staré ovocné sady, pestré louky a lesy Horňácka. 5 zastavení, 6 km, přibližně 2 hodiny.">
 <link rel="stylesheet" href="assets/site.css?v=20261021c">
