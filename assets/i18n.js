@@ -7,6 +7,7 @@
     // Navigation, shared
     'Domů': 'Domov',
     'Expedice Karpaty': 'Expedícia Karpaty',
+    'Strategie': 'Stratégia',
     'Otevřít menu': 'Otvoriť menu',
     'Sdružení měst a obcí Východní Moravy – CHKO Bílé Karpaty': 'Sdružení měst a obcí Východní Moravy – CHKO Biele Karpaty',
 

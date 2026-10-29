@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Společná strategie ochrany biodiverzity Bílých / Bielych Karpat v kostce. Projděte si ji, odpovězte Karpíkovi a pošlete nám připomínky.">
+<meta property="og:title" content="Strategie pro přírodu Bílých Karpat – váš názor">
+<meta property="og:description" content="Projekt INNOMETHOD · Interreg Slovensko – Česko. Strategie v kostce, území v číslech a doporučení pro obce, školy i návštěvníky.">
+<meta property="og:image" content="assets/strategie/hreben.webp">
+<link rel="icon" href="assets/icons/logo-innomethod.svg" type="image/svg+xml">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+<title>Strategie Bílé Karpaty – INNOMETHOD</title>
+<style>
+/* Vizuál převzatý z webu INNOMETHOD (krémová, tmavě zelená, žlutá, zaoblené karty); záměrně jen světlý vzhled jako původní web */
+:root{
+  color-scheme:light;
+  --cream:#f6f3ea; --cream-soft:#fbf9f3; --cream-border:#e7e1d0;
+  --dark-green:#3f5c40; --dark-green-2:#2f4830; --mid-green:#6d8f65; --green-soft:#e6ede1;
+  --text-body:#2c2c28; --text-muted:#55584f;
+  --yellow:#e8d24f; --yellow-dark:#d9bf2f; --yellow-soft:#f8f0c4; --white:#ffffff; --warn:#9b3b2a;
+  --radius-lg:22px; --radius-md:14px; --radius-full:999px;
+  --shadow-soft:0 10px 28px rgba(63,92,64,.14); --shadow-soft-lg:0 18px 40px rgba(63,92,64,.18);
+  --font:'Segoe UI', Roboto, Arial, sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--text-body);font:400 16.5px/1.55 var(--font)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:600;background:var(--white)}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2,h3{color:var(--dark-green);line-height:1.18;text-wrap:balance;margin:0}
+
+/* nav */
+.site-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:500;background:var(--white);border-bottom:1px solid var(--cream-border)}
+.site-nav .wrap{display:flex;align-items:center;gap:14px;padding-block:9px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;color:var(--dark-green);white-space:nowrap}
+.logo-mark{width:44px;height:44px;border-radius:50%;background:var(--white);box-shadow:0 2px 10px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-mark img{width:25px;height:25px}
+.site-logo small{display:block;font-weight:600;color:var(--text-muted);font-size:12.5px}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.nav-right .interreg{height:34px;width:auto}
+.progress{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--dark-green-2);background:var(--yellow-soft);padding:6px 12px;border-radius:var(--radius-full);white-space:nowrap}
+.progress .pb{width:60px;height:6px;border-radius:3px;background:var(--white);overflow:hidden}
+.progress .pb i{display:block;height:100%;background:var(--dark-green)}
+.backlink{font-size:14px;font-weight:700;color:var(--dark-green);text-decoration:none;white-space:nowrap}.backlink:hover{text-decoration:underline}
+@media (max-width:640px){.backlink{display:none}.nav-right .interreg{display:none}.site-logo small{display:none}}
+.tabs{border-top:1px solid var(--cream-border);background:var(--cream-soft)}
+.tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:7px;scrollbar-width:thin}
+.tabs a{flex:0 0 auto;text-decoration:none;color:var(--text-muted);font-weight:600;font-size:14px;padding:6px 12px;border-radius:var(--radius-full);display:flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid transparent}
+.tabs a:hover{color:var(--dark-green);border-color:var(--cream-border);background:var(--white)}
+.tabs a[aria-current="page"]{background:var(--dark-green);color:var(--white)}
+.tabs a .ck{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--cream-border);display:inline-flex;align-items:center;justify-content:center;font-size:10px;line-height:1}
+.tabs a.seen .ck{background:var(--yellow);border-color:var(--yellow);color:var(--dark-green-2)}
+.tabs a.owner{color:#7a3a86}
+
+main{padding-block:28px 40px}
+.pill-badge{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--cream-border);color:var(--text-muted);font-size:13px;font-weight:600;padding:6px 14px;border-radius:var(--radius-full)}
+.btn{display:inline-flex;align-items:center;gap:8px;font:700 15px var(--font);padding:12px 22px;border-radius:var(--radius-full);text-decoration:none;border:none;cursor:pointer;transition:background .15s,transform .15s}
+.btn-primary{background:var(--dark-green);color:var(--white)} .btn-primary:hover{background:var(--dark-green-2);transform:translateY(-1px)}
+.btn-accent{background:var(--yellow);color:var(--dark-green-2)} .btn-accent:hover{background:var(--yellow-dark);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--dark-green);border:1.5px solid var(--dark-green)} .btn-outline:hover{background:var(--dark-green);color:var(--white)}
+.btn:disabled{opacity:.5;cursor:default;transform:none}
+:focus-visible{outline:3px solid var(--yellow-dark);outline-offset:2px}
+
+/* úvod */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;padding-block:16px 40px}
+.hero h1{font-size:clamp(30px,4.4vw,46px);margin:16px 0 14px}
+.hero .lead{color:var(--text-muted);font-size:17.5px;max-width:540px;margin:0 0 24px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.mini{display:flex;gap:26px;flex-wrap:wrap}
+.mini > div{display:flex;gap:12px;align-items:flex-start;max-width:230px}
+.mini .ic{width:40px;height:40px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--dark-green-2);flex-shrink:0}
+.mini h3{font-size:15px;margin:0 0 2px}
+.mini p{margin:0;font-size:13.5px;color:var(--text-muted);line-height:1.4}
+.hero-visual{position:relative;max-width:440px;justify-self:end;width:100%}
+.hero-visual .frame{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-soft-lg);aspect-ratio:4/5}
+.hero-visual .frame img{width:100%;height:100%;object-fit:cover}
+.stat-card{position:absolute;bottom:-24px;left:-22px;background:var(--yellow);border-radius:var(--radius-lg);padding:18px 22px;box-shadow:var(--shadow-soft-lg);max-width:230px;color:var(--dark-green-2)}
+.stat-card .n{font-size:34px;font-weight:800;line-height:1}
+.stat-card .l{font-size:13.5px;font-weight:600;margin-top:4px}
+.stat-card hr{border:0;border-top:1px solid rgba(63,92,64,.25);margin:9px 0}
+.stat-card .s{font-size:12.5px;opacity:.9;line-height:1.4}
+@media (max-width:880px){.hero{grid-template-columns:1fr}.hero-visual{order:-1;justify-self:center;max-width:340px;margin-bottom:24px}.stat-card{left:12px}}
+.center{text-align:center}
+.sec-head{display:grid;gap:10px;justify-items:center;text-align:center;margin:30px 0 22px}
+.sec-head h2{font-size:clamp(23px,3vw,30px)}
+.sec-head p{color:var(--text-muted);max-width:640px;margin:0}
+.ch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.ch-card{background:var(--white);border:1px solid var(--cream-border);border-radius:var(--radius-lg);overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.ch-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-soft)}
+.ch-card .ph{position:relative}
+.ch-card img{width:100%;height:140px;object-fit:cover}
+.ch-card .no{position:absolute;top:12px;left:12px;background:var(--white);color:var(--dark-green);font-weight:800;font-size:13px;border-radius:var(--radius-full);padding:4px 11px}
+.ch-card .done{position:absolute;top:12px;right:12px;background:var(--yellow);color:var(--dark-green-2);font-weight:800;font-size:12px;border-radius:var(--radius-full);padding:4px 10px}
+.ch-card .b{padding:16px 18px 20px;display:grid;gap:6px}
+.ch-card h3{font-size:17px}
+.ch-card p{margin:0;color:var(--text-muted);font-size:14px;line-height:1.5}
+
+/* kapitola */
+.ch-banner{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-soft);min-height:220px;display:flex;align-items:flex-end}
+.ch-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ch-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,40,28,0) 25%,rgba(28,40,28,.78))}
+.ch-banner .t{position:relative;z-index:1;padding:22px 26px;display:grid;gap:8px}
+.ch-banner .t span{justify-self:start;background:var(--yellow);color:var(--dark-green-2);font-weight:800;font-size:13px;border-radius:var(--radius-full);padding:4px 12px}
+.ch-banner h2{color:var(--white);font-size:clamp(25px,3.6vw,36px)}
+.chapter{display:grid;gap:22px;max-width:900px;margin:0 auto}
+.intro{color:var(--text-muted);font-size:17.5px;max-width:68ch;margin:0}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px}
+.tile{background:var(--white);border:1px solid var(--cream-border);border-radius:var(--radius-md);padding:16px 18px}
+.tile .n{font-size:27px;font-weight:800;color:var(--dark-green);font-variant-numeric:tabular-nums;line-height:1.1}
+.tile .l{font-size:13.5px;color:var(--text-muted);line-height:1.35;margin-top:4px}
+.tile.y{background:var(--yellow);border-color:var(--yellow)} .tile.y .n,.tile.y .l{color:var(--dark-green-2)}
+.list{display:grid;gap:12px}
+.card{background:var(--white);border:1px solid var(--cream-border);border-radius:var(--radius-lg);padding:18px 20px;display:grid;gap:6px}
+.card h3{font-size:17px}
+.card p{margin:0}
+.card .sub{color:var(--text-muted);font-size:15px}
+.k{font-size:12.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--mid-green)}
+details.card summary{cursor:pointer;list-style:none;display:flex;gap:12px;align-items:center}
+details.card summary::-webkit-details-marker{display:none}
+details.card summary::after{content:"+";margin-left:auto;width:28px;height:28px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--dark-green);flex-shrink:0}
+details.card[open] summary::after{content:"–"}
+.nb{width:32px;height:32px;border-radius:50%;background:var(--yellow);color:var(--dark-green-2);font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+blockquote.vision{margin:0;padding:28px 30px;background:var(--dark-green);color:var(--white);border-radius:var(--radius-lg);font-size:clamp(18px,2.4vw,22px);line-height:1.5}
+blockquote.vision cite{display:block;margin-top:12px;font-size:13.5px;font-style:normal;color:var(--yellow);font-weight:700}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.chip{display:inline-block;font-size:12.5px;font-weight:800;padding:3px 10px;border-radius:var(--radius-full)}
+.chip.vys{background:var(--yellow);color:var(--dark-green-2)}
+.chip.str{background:var(--cream);color:var(--text-muted);border:1px solid var(--cream-border)}
+.chip.sc{background:var(--dark-green);color:var(--white)}
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.filters button{font:600 14px var(--font);border:1px solid var(--cream-border);background:var(--white);color:var(--text-body);padding:7px 14px;border-radius:var(--radius-full);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--dark-green);color:var(--white);border-color:var(--dark-green)}
+.tbl{overflow-x:auto;border:1px solid var(--cream-border);border-radius:var(--radius-lg);background:var(--white)}
+table{border-collapse:collapse;width:100%;min-width:540px;font-size:15px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--cream-border);vertical-align:top}
+th{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);font-weight:800;background:var(--cream-soft)}
+tr:last-child td{border-bottom:0}
+td.c{font-variant-numeric:tabular-nums;color:var(--text-muted);white-space:nowrap}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.cards .card ul{margin:0;padding-left:18px;font-size:15px;color:var(--text-body)}
+.cards .card ul li::marker{color:var(--mid-green)}
+.note{font-size:14.5px;color:var(--text-muted);background:var(--cream-soft);border:1px solid var(--cream-border);border-radius:var(--radius-md);padding:12px 16px;margin:0}
+
+/* Karpík se ptá */
+.karpik{display:grid;grid-template-columns:140px minmax(0,1fr);gap:18px;align-items:end;background:var(--yellow-soft);border-radius:var(--radius-lg);padding:20px 22px 0 14px;overflow:hidden}
+.karpik > img{width:140px;height:auto;align-self:end}
+.karpik .bub{background:var(--white);border-radius:var(--radius-lg);padding:16px 18px;margin-bottom:20px;position:relative;box-shadow:var(--shadow-soft);display:grid;gap:10px;min-width:0}
+.karpik .bub::before{content:"";position:absolute;left:-9px;bottom:26px;border:10px solid transparent;border-right-color:var(--white);border-left:0}
+.karpik .who{font-size:12.5px;font-weight:800;color:var(--mid-green);letter-spacing:.05em;text-transform:uppercase}
+.karpik .q{font-weight:700;color:var(--dark-green-2);font-size:17.5px;line-height:1.35}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts button{font:600 14.5px var(--font);border:1.5px solid var(--cream-border);background:var(--cream-soft);color:var(--text-body);padding:8px 14px;border-radius:var(--radius-full);cursor:pointer;transition:transform .12s}
+.opts button:hover{border-color:var(--mid-green);transform:translateY(-1px)}
+.opts button[aria-pressed="true"]{background:var(--dark-green);border-color:var(--dark-green);color:var(--white)}
+.res{display:grid;gap:6px}
+.res .r{display:grid;grid-template-columns:minmax(0,1fr) 90px 40px;gap:10px;align-items:center;font-size:13.5px}
+.res .r.me span:first-child{font-weight:800;color:var(--dark-green)}
+.bar{height:8px;border-radius:4px;background:var(--cream);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--mid-green);transition:width .4s ease}
+.res .r.me .bar i{background:var(--yellow-dark)}
+.res .pc{text-align:right;color:var(--text-muted);font-variant-numeric:tabular-nums}
+.hint{font-size:13px;color:var(--text-muted)}
+@media (max-width:560px){.karpik{grid-template-columns:1fr;padding:18px 16px 0}.karpik > img{order:2;width:96px;justify-self:end;margin-top:-10px}.karpik .bub{margin-bottom:0}.karpik .bub::before{display:none}}
+
+/* připomínky */
+details.fb{background:var(--white);border:1.5px dashed var(--mid-green);border-radius:var(--radius-lg);padding:0}
+details.fb > summary{cursor:pointer;list-style:none;padding:16px 20px;display:flex;align-items:center;gap:12px;font-weight:700;color:var(--dark-green)}
+details.fb > summary::-webkit-details-marker{display:none}
+details.fb > summary .plus{width:30px;height:30px;border-radius:50%;background:var(--dark-green);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0}
+details.fb[open] > summary .plus{background:var(--yellow);color:var(--dark-green-2)}
+details.fb > summary .cnt{margin-left:auto;font-size:13px;color:var(--text-muted);font-weight:600}
+.fb form{padding:0 20px 20px;display:grid;gap:12px}
+.types{display:flex;flex-wrap:wrap;gap:6px}
+.types label{cursor:pointer}
+.types input{position:absolute;opacity:0;pointer-events:none}
+.types span{display:inline-block;border:1.5px solid var(--cream-border);border-radius:var(--radius-full);padding:7px 13px;font-weight:600;font-size:14px;background:var(--cream-soft)}
+.types input:checked+span{background:var(--dark-green);border-color:var(--dark-green);color:var(--white)}
+.types input:focus-visible+span{outline:3px solid var(--yellow-dark);outline-offset:2px}
+label.f{display:grid;gap:5px;font-size:14px;font-weight:700;color:var(--text-muted)}
+select,textarea,input[type=text]{font:400 16px var(--font);color:var(--text-body);background:var(--cream-soft);border:1px solid var(--cream-border);border-radius:var(--radius-md);padding:10px 12px;width:100%}
+textarea{min-height:90px;resize:vertical}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.status{font-size:14px;color:var(--text-muted)} .status.err{color:var(--warn)}
+.mine{display:grid;gap:6px}
+.mine .c{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;background:var(--green-soft);border-radius:var(--radius-md);padding:9px 12px}
+.mine .c p{margin:0;flex:1;min-width:0;overflow-wrap:anywhere}
+.mine .c button{background:none;border:0;color:var(--text-muted);cursor:pointer;font:600 13px var(--font);text-decoration:underline}
+.who-box{background:var(--white);border:1px solid var(--cream-border);border-radius:var(--radius-lg);padding:16px 20px;display:grid;gap:10px}
+.who-box .g{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.pager{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:6px}
+.banner{background:var(--yellow-soft);border-radius:var(--radius-lg);padding:14px 18px;font-size:15px;display:grid;gap:10px;margin-bottom:20px}
+.copybox{white-space:pre-wrap;font-size:13px;background:var(--white);border:1px solid var(--cream-border);border-radius:var(--radius-md);padding:10px;max-height:220px;overflow:auto}
+
+/* hodnocení */
+.survey{background:var(--white);border:1px solid var(--cream-border);border-radius:var(--radius-lg);padding:22px;display:grid;gap:22px}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:10px}
+legend{font-weight:800;color:var(--dark-green);margin-bottom:8px;padding:0;font-size:16.5px}
+.scale span{min-width:48px;text-align:center}
+.checks{display:grid;gap:7px}
+.checks label{display:flex;gap:9px;align-items:flex-start;font-size:15.5px;cursor:pointer}
+.checks input{margin-top:4px;accent-color:var(--dark-green);width:17px;height:17px}
+.cta-band{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--dark-green);color:var(--white);border-radius:var(--radius-lg);padding:30px 34px;flex-wrap:wrap}
+.cta-band h2{color:var(--white);font-size:23px;margin-bottom:6px}
+.cta-band p{margin:0;color:#dfe6dc;max-width:480px}
+
+/* přehled */
+.ov-row{display:grid;grid-template-columns:minmax(0,1fr) 120px 34px;gap:10px;align-items:center;font-size:14.5px}
+.ov-c{border-bottom:1px solid var(--cream-border);padding:10px 0;display:grid;gap:3px;font-size:15px}
+.ov-c .m{font-size:13px;color:var(--text-muted)}
+
+/* dashboard */
+.subnav{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:6px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 112px);z-index:4;background:var(--cream);padding-block:8px}
+.subnav button{flex:0 0 auto;font:700 14px var(--font);border:1.5px solid var(--cream-border);background:var(--white);color:var(--dark-green);padding:7px 14px;border-radius:var(--radius-full);cursor:pointer}
+.subnav button:hover{border-color:var(--mid-green)}
+.dsec{display:grid;gap:16px;scroll-margin-top:170px}
+.dsec > h3{font-size:22px;display:flex;align-items:center;gap:10px}
+.dsec > h3 .ic{width:36px;height:36px;border-radius:50%;background:var(--yellow);display:inline-flex;align-items:center;justify-content:center;font-size:17px}
+.src{font-size:12.5px;color:var(--text-muted);margin:0}
+.panel{background:var(--white);border:1px solid var(--cream-border);border-radius:var(--radius-lg);padding:18px 20px;display:grid;gap:12px;min-width:0}
+.panel h4{margin:0;color:var(--dark-green);font-size:16px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.hab-detail{background:var(--green-soft);border-radius:var(--radius-md);padding:14px 16px;display:grid;gap:6px}
+.hab-detail p{margin:0;font-size:15px}
+.stack{display:grid;gap:10px}
+.stack .lbl{font-size:13.5px;font-weight:700;color:var(--text-muted);margin-bottom:4px}
+.sbar{display:flex;gap:2px;height:34px;border-radius:6px;overflow:hidden}
+.sbar span{display:flex;align-items:center;justify-content:center;color:#fff;font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden;min-width:0}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--text-muted)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.seg{display:inline-flex;gap:2px;background:var(--cream);border-radius:var(--radius-full);padding:3px;flex-wrap:wrap}
+.seg button{font:700 13px var(--font);border:0;background:transparent;color:var(--text-muted);padding:6px 12px;border-radius:var(--radius-full);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--dark-green);color:var(--white)}
+.hb{display:grid;gap:8px}
+.hb .r{display:grid;grid-template-columns:150px minmax(0,1fr) 54px;gap:10px;align-items:center;font-size:14px}
+.hb .track{position:relative;height:16px;background:var(--cream);border-radius:4px}
+.hb .track i{position:absolute;left:0;top:0;bottom:0;background:var(--dark-green);border-radius:0 4px 4px 0}
+.hb .track b{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--text-body)}
+.hb .v{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.chart{position:relative;width:100%;overflow-x:auto}
+.chart svg{min-width:560px}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{font:12px var(--font);fill:var(--text-muted)}
+.tip{position:absolute;pointer-events:none;background:var(--dark-green-2);color:var(--white);font-size:13px;padding:8px 10px;border-radius:10px;box-shadow:var(--shadow-soft);white-space:nowrap;transform:translate(-50%,calc(-100% - 12px));z-index:3}
+.tip b{color:var(--yellow)}
+.obec-card{background:var(--yellow-soft);border-radius:var(--radius-md);padding:14px 16px;display:grid;gap:8px}
+.obec-card h4{font-size:19px}
+.obec-card .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+.obec-card .kv div{background:var(--white);border-radius:10px;padding:8px 10px}
+.obec-card .kv b{display:block;font-size:19px;color:var(--dark-green-2);font-variant-numeric:tabular-nums}
+.obec-card .kv span{font-size:12px;color:var(--text-muted)}
+.otbl{max-height:360px;overflow:auto;border:1px solid var(--cream-border);border-radius:var(--radius-md)}
+.otbl table{min-width:480px;font-size:14px}
+.otbl th{position:sticky;top:0;cursor:pointer;user-select:none}
+.otbl th[aria-sort]::after{content:" ↓";color:var(--dark-green)}
+.otbl th[aria-sort="ascending"]::after{content:" ↑"}
+.otbl tr{cursor:pointer} .otbl tr:hover td{background:var(--cream-soft)} .otbl tr.sel td{background:var(--yellow-soft)}
+.sw{display:inline-block;width:46px;height:8px;border-radius:4px;background:var(--cream);vertical-align:middle;margin-left:6px;overflow:hidden}
+.sw i{display:block;height:100%}
+.pillars3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.pillar{background:var(--white);border:1px solid var(--cream-border);border-radius:var(--radius-lg);padding:16px 18px;display:grid;gap:8px;align-content:start}
+.pillar h4{margin:0;color:var(--dark-green)}
+.pillar details{border-top:1px solid var(--cream-border);padding-top:8px}
+.pillar summary{cursor:pointer;font-weight:600;font-size:14.5px;display:flex;gap:8px;align-items:flex-start;list-style:none}
+.pillar summary::-webkit-details-marker{display:none}
+.pillar summary .n{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--cream);color:var(--dark-green);font-size:12px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+.pillar details[open] summary .n{background:var(--yellow)}
+.pillar details p{margin:6px 0 0 32px;font-size:14px;color:var(--text-muted)}
+.pillar.x{background:var(--dark-green);border-color:var(--dark-green);color:var(--white)}
+.pillar.x h4{color:var(--yellow)}
+.swot{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:640px){.swot{grid-template-columns:1fr}.hb .r{grid-template-columns:110px minmax(0,1fr) 50px}}
+.swot .q{border-radius:var(--radius-lg);padding:16px 18px;display:grid;gap:6px;align-content:start}
+.swot .q h4{margin:0;font-size:16px}
+.swot .q ul{margin:0;padding-left:18px;font-size:14.5px}
+.swot .s{background:var(--green-soft)} .swot .s h4{color:var(--dark-green)}
+.swot .w{background:var(--white);border:1px solid var(--cream-border)} .swot .w h4{color:var(--text-muted)}
+.swot .o{background:var(--yellow-soft)} .swot .o h4{color:var(--dark-green-2)}
+.swot .t{background:var(--cream-soft);border:1.5px dashed var(--cream-border)} .swot .t h4{color:var(--warn)}
+.data-teaser{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;background:var(--dark-green);color:var(--white);border-radius:var(--radius-lg);padding:22px 26px;margin-top:26px}
+.data-teaser h3{color:var(--white);font-size:20px;margin-bottom:4px}
+.data-teaser p{margin:0;color:#dfe6dc;font-size:15px}
+@media (max-width:640px){.data-teaser{grid-template-columns:1fr}}
+/* doporučení */
+.tips{display:grid;gap:4px}
+.tip-row{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"t b" "c b";column-gap:12px;align-items:center;padding:9px 10px;border-radius:var(--radius-md);transition:background .15s}
+.tip-row:hover{background:var(--cream-soft)}
+.tip-row.on{background:var(--yellow-soft)}
+.tip-row .tt{grid-area:t;font-size:15.5px}
+.tip-row .tc{grid-area:c;font-size:12.5px;color:var(--mid-green);font-weight:700}
+.tbtn{grid-area:b;font:700 13.5px var(--font);border:1.5px solid var(--dark-green);background:var(--white);color:var(--dark-green);padding:7px 13px;border-radius:var(--radius-full);cursor:pointer;white-space:nowrap}
+.tbtn[aria-pressed="true"]{background:var(--dark-green);color:var(--white)}
+.reco{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;align-items:center;background:var(--white);border:2px solid var(--yellow);border-radius:var(--radius-lg);padding:16px 20px}
+.reco img{width:110px;height:auto}
+.reco h3{font-size:19px;margin-bottom:4px}
+.reco p{margin:0 0 10px;color:var(--text-muted);font-size:15px}
+@media (max-width:560px){.reco{grid-template-columns:1fr}.reco img{width:80px}}
+footer{border-top:1px solid var(--cream-border);margin-top:30px;padding-block:28px 36px;text-align:center}
+.partners{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:34px;margin:14px 0}
+.partners img{height:44px;width:auto}
+.fine{max-width:620px;margin:0 auto;color:var(--text-muted);font-size:12.5px;line-height:1.5}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+</head>
+<body>
+<div class="site-nav">
+  <div class="wrap">
+    <a class="site-logo" href="index.html" title="Zpět na web Bílé Karpaty"><span class="logo-mark"><img src="assets/icons/logo-innomethod.svg" alt=""></span><span>Bílé Karpaty<small>Strategie ochrany biodiverzity</small></span></a>
+    <div class="nav-right"><a class="backlink" href="index.html">← Web projektu</a><span class="progress" id="prog"></span><img class="interreg" src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko"></div>
+  </div>
+  <nav class="tabs" aria-label="Kapitoly"><div class="wrap" id="tabs"></div></nav>
+</div>
+
+<main class="wrap">
+  <div class="banner" id="offline" hidden></div>
+  <div id="view"></div>
+</main>
+
+<footer class="wrap">
+  <div class="partners"><img src="assets/logos/smovm-color.png" alt="Sdružení měst a obcí Východní Moravy"><img src="assets/logos/tuc.png" alt="Trnavské umenovedné centrum"><img src="assets/logos/dum-prirody.png" alt="Dům přírody Bílých Karpat"></div>
+  <details id="gdpr" class="fine" style="text-align:left;margin:0 auto 14px;max-width:620px"><summary style="cursor:pointer;font-weight:700;color:var(--dark-green);text-align:center">Ochrana osobních údajů</summary>
+   <p>Správcem osobních údajů je Sdružení měst a obcí Východní Moravy (SMOVM), řešitel projektu INNOMETHOD. Připomínky, odpovědi a hodnocení sbíráme anonymně; váš prohlížeč dostane náhodný identifikátor, abyste mohli své odpovědi později upravit. E-mail a kontakt zpracováváme jen s vaším souhlasem, a to za účelem zaslání strategie v PDF a případného kontaktu k vašim připomínkám, po dobu realizace projektu. Souhlas můžete kdykoli odvolat a požádat o výmaz nebo přístup k údajům na e-mailu prudil@rravm.cz. Data jsou uložena na serverech Supabase v EU (Frankfurt).</p></details>
+  <p class="fine">Projekt INNOMETHOD – Inovativní metody a technologie v oblasti přeshraniční ochrany a zachování biodiverzity je spolufinancován Evropskou unií z programu Interreg Slovensko – Česko. Pracovní verze strategie, říjen 2026.</p>
+</footer>
+
+<script>
+const S = [
+ {id:"uzemi", t:"Území", img:"hreben", h:"O čem strategie je a pro koho", teaser:"Kde to celé platí, pro koho dokument vznikl a jak je poskládaný.",
+  intro:"Strategie vytváří společný česko-slovenský rámec pro ochranu a prezentaci přírody Bílých Karpat. Propojuje péči o krajinu s monitoringem, moderními technologiemi, vzděláváním, činností obcí a zapojením veřejnosti.",
+  items:["Vymezení území","Cílové skupiny","Struktura dokumentu","Postup zpracování"],
+  q:{q:"Jaký máte vztah k Bílým Karpatům?",o:["Bydlím tady","Jezdím sem rád/a","Byl/a jsem tu párkrát","Znám je zatím z mapy"]}},
+ {id:"zjisteni", t:"Zjištění", img:"certoryje", h:"Osm hlavních zjištění", teaser:"Co ukázala analýza přírody, obyvatel, dat a problémů v území.",
+  intro:"Analytická část popisuje přírodu, obyvatelstvo, aktéry, dostupná data a 15 problémových okruhů. Výsledkem je osm zjištění, na kterých stojí všechny návrhy.",
+  items:["1 – Příroda vznikla díky lidem","2 – Ohrožení vychází z lidského rozhodování","3 – Poznání se k lidem nedostává","4 – Malé obce potřebují nástroje bez organizace","5 – Nástroje s minimálním zásahem","6 – Rámec vzdělávání podporuje","7 – Jeden přírodní celek","8 – Obce chtějí praktickou spolupráci"],
+  q:{q:"Které zjištění vás nejvíc zaujalo?",o:["Louky vznikly díky lidem","Data se k lidem nedostávají","Málo dětí v malých obcích","Jeden celek přes hranici","Obce chtějí praktickou pomoc"]}},
+ {id:"vize", t:"Vize 2035", img:"zahrady", h:"Kam chceme do roku 2035 dojít", teaser:"Jak mají Bílé Karpaty vypadat za deset let.",
+  intro:"Vize popisuje stav, k němuž má společná strategie vést. Vychází z cíle schválené žádosti a doplňuje ho o závěry analýzy.",
+  items:["Text vize","Lidé jako základ ochrany","Vzdělávání venku od nejmenších","Šetrnost k území","Sdílení a spolupráce"],
+  q:{q:"Věříte, že se tahle vize do roku 2035 podaří?",o:["Určitě ano","Spíš ano","Spíš ne","Těžko říct"]}},
+ {id:"cile", t:"Cíle", img:"jazevci", h:"Pět strategických cílů", teaser:"Pět cílů, které vizi převádějí do konkrétních oblastí.",
+  intro:"Vizi rozkládá pět strategických cílů. Ústřední je první z nich, ostatní ho podporují.",
+  items:["SC 1 – Povědomí o biodiverzitě a výuka v terénu","SC 2 – Síť QR stanovišť a dostupné poznání","SC 3 – Obce a školy jako aktivní partneři","SC 4 – Šetrná návštěvnost a ochrana citlivých míst","SC 5 – Přeshraniční spolupráce a udržitelnost"],
+  q:{q:"Který cíl je podle vás nejdůležitější?",o:["SC 1 Výuka v terénu","SC 2 QR stanoviště","SC 3 Obce a školy","SC 4 Šetrná návštěvnost","SC 5 Spolupráce přes hranici"]}},
+ {id:"opatreni", t:"Opatření", img:"porazky", h:"23 opatření v pěti oblastech", teaser:"Konkrétní kroky – od péče o louky po síť QR stanovišť.",
+  intro:"Opatření jsou návrhem; jejich realizace závisí na zdrojích a kapacitách partnerů. Nosná je oblast Vzdělávání a osvěta se sítí QR stanovišť.",
+  items:[], q:{q:"Co byste ve svém okolí uvítali nejdřív?",o:["QR stanoviště a trasy","Péči o louky a sady","Vodu v krajině a tůně","Výuku dětí venku","Dobrovolnické akce","Opravené cesty v krajině"]}},
+ {id:"obce", t:"Pro obce", img:"hostetin", h:"Jedenáct doporučení pro obce", teaser:"Praktické karty pro starosty, zastupitele a pracovníky obcí.",
+  intro:"Doporučení jsou určena starostům, zastupitelům a pracovníkům obcí. Každé lze vytisknout jako samostatnou kartu. Nenahrazují stanovisko orgánu ochrany přírody.",
+  items:[], q:{q:"Co z toho se u vás už děje? (můžete vybrat víc)",multi:true,o:["Šetrné kosení luk","Květnaté plochy","Péče o staré stromy a sady","Boj s invazními druhy","Tůně a voda v krajině","Výuka venku se školou","Dobrovolnické akce","Zatím nic z toho"]}},
+ {id:"financovani", t:"Financování", img:"sad", h:"Z čeho opatření financovat", teaser:"Přehled dotačních a dalších zdrojů ke stavu září 2026.",
+  intro:"QR stanoviště nevyžadují stavby a jejich obsah lze obnovovat bez zásahu v terénu. Po skončení projektu stačí zajistit správu obsahu a podle zdrojů navazující aktivity.",
+  items:[], q:{q:"Co obcím nejvíc brání pečovat o krajinu?",o:["Peníze","Lidé a čas","Odborné know-how","Administrativa dotací","Nezájem veřejnosti"]}},
+ {id:"hodnoceni", t:"Vaše hodnocení", img:"kopanice", h:"Je pro vás strategie užitečná?", teaser:"Pět krátkých otázek na závěr. Asi dvě minuty.",
+  intro:"Pár otázek, které nám pomohou dokument dotáhnout. Nic z toho není povinné.", items:[]}
+];
+const M = [
+ ["2.1","Mozaiková péče o louky a pastviny","11.2","SC 3","vysoká"],["2.2","Sady, solitérní stromy a aleje","11.2","SC 3","střední"],["2.3","Voda v krajině, prameniště a mokřady","11.2","SC 3","střední"],["2.4","Dobrovolnická péče a zapojení veřejnosti","11.2","SC 3","střední"],
+ ["3.1","Mapový portál a databáze lokalit","11.3","SC 2","vysoká"],["3.2","Přírodní hodnoty v datech pro obce","11.3","SC 2, SC 3","vysoká"],["3.3","Občanská věda a školní pozorování","11.3","SC 2, SC 1","střední"],
+ ["4.1","Doporučení a seminář pro obce","11.4","SC 3","vysoká"],["4.2","Obecní pozemky pro přírodu a výuku","11.4","SC 3, SC 1","střední"],["4.3","Invazní druhy na území obcí","11.4","SC 3","střední"],["4.4","Příroda v rozhodování obce a územním plánování","11.4","SC 3, SC 4","střední"],["4.5","Sdílené kapacity obcí prostřednictvím SMOVM","11.4","SC 3, SC 5","střední"],["4.6","Cesty a průchodnost krajiny","11.4","SC 3, SC 4","střední"],
+ ["5.1","Síť QR stanovišť v terénu","11.5","SC 2, SC 1, SC 4","vysoká"],["5.2","Věkově odstupňovaný obsah stanovišť","11.5","SC 1, SC 2","vysoká"],["5.3","Metodická podpora učitelů a zařazení do výuky","11.5","SC 1, SC 3","vysoká"],["5.4","Výuka v terénu a tematické exkurze","11.5","SC 1, SC 4","střední"],["5.5","Aktivity pro rodiny a veřejnost","11.5","SC 1, SC 4","střední"],["5.6","Mezigenerační přenos znalosti krajiny","11.5","SC 1, SC 3","střední"],
+ ["6.1","Usměrňování návštěvnosti a ochrana citlivých míst","11.6","SC 4","vysoká"],["6.2","Přeshraniční pracovní skupina","11.6","SC 5","vysoká"],["6.3","Dvojjazyčnost a jednotná podoba výstupů","11.6","SC 5","střední"],["6.4","Správa a udržitelnost výstupů po projektu","11.6","SC 5","vysoká"]
+];
+const AREAS = {"11.2":"Péče o lokality a krajinu","11.3":"Data a mapový portál","11.4":"Obce jako správci krajiny","11.5":"Vzdělávání a osvěta","11.6":"Spolupráce a návštěvnost"};
+S[4].items = M.map(m=>m[0]+" "+m[1]);
+const R = [
+ ["Péče o obecní louky","Druhově bohaté louky jsou největší přírodní hodnotou Bílých Karpat a bez péče zarůstají.",["kosit jednou až dvakrát ročně a nehnojit","posečenou hmotu odklidit, nemulčovat","ponechat nepokosený pás a měnit jeho místo","kosit od středu plochy k okrajům"]],
+ ["Květnaté plochy v obci","Často sečené trávníky nedávají potravu opylovatelům.",["vybrat části zeleně bez nutnosti krátkého trávníku","kosit méně často","použít osivo regionálního původu","umístit ceduli s vysvětlením"]],
+ ["Staré stromy, aleje a sady","Jsou předmětem ochrany CHKO a domovem vzácných druhů.",["ošetřovat odborně, nekácet bez posouzení","vysazovat krajové odrůdy a původní dřeviny","ponechat staré a doupné stromy, kde to bezpečnost dovolí"]],
+ ["Invazní druhy","Čím později se zasáhne, tím je odstranění dražší.",["mapovat výskyt na obecních pozemcích a podél toků","zasáhnout včas a zásah opakovat","nevyvážet zahradní odpad do krajiny"]],
+ ["Voda v krajině","Prameniště a mokřady jsou vzácné a velmi zranitelné suchem.",["nezavážet a neodvodňovat je","zakládat tůně na vhodných pozemcích","zachovat břehové porosty drobných toků"]],
+ ["Obecní pozemky pro vzdělávání","Vztah k přírodě si děti vytvoří na místě, kam chodí pravidelně.",["vybrat pozemek v dosahu školy","upravit péči, aby bylo co pozorovat","nabídnout pozemek škole a spolkům"]],
+ ["Spolupráce se školami","Výuka venku má začínat už na 1. stupni ZŠ.",["zapojit školu do využívání stanovišť","podpořit výuku venku – pozemky, doprava","zprostředkovat setkání žáků s pamětníky"]],
+ ["Zapojení veřejnosti","Lidé chrání to, co znají.",["vysvětlovat změny péče ve zpravodaji a na webu","pořádat dobrovolnické akce","propagovat stanoviště a trasy"]],
+ ["Data a mapový portál při rozhodování","Včasné ověření předejde konfliktům i zbytečným nákladům.",["využívat mapový portál – katastr, chráněná území, biotopy","před změnou využití pozemku ověřit cenné biotopy","záměry včas konzultovat se správou CHKO"]],
+ ["Cesty v krajině","Poškozování cest a nejasné vlastnictví vedou ke střetům.",["zmapovat problémové úseky a vlastnictví","domluvit údržbu a obnovu cest po těžbě","řešit hlavně průchodnost, ne nutně zpevnění"]],
+ ["Šetrná turistika","Návštěvníci přinášejí příjmy, ale soustředění na citlivých místech škodí.",["propojovat trasy s vyhlídkami a službami","vést návštěvníky na odolná místa a značené cesty","podporovat místní služby a ubytování"]]
+];
+S[5].items = R.map(r=>r[0]);
+const F = [
+ ["OPŽP, SC 1.3 – přírodě blízká opatření","tůně, mokřady, revitalizace toků, stromořadí, sady, meze, prvky ÚSES"],
+ ["OPŽP – sídelní zeleň a srážková voda","zakládání a obnova zeleně, vsak a retence srážek"],
+ ["OPŽP, SC 1.6 – péče o přírodu","péče o stanoviště a druhy, omezení invazních druhů"],
+ ["Program péče o krajinu, podprogram B","neinvestiční opatření mimo ZCHÚ, likvidace invazních rostlin, péče o stromy"],
+ ["Národní program Životní prostředí","územní plány obcí v CHKO, přírodě blízká protipovodňová opatření"],
+ ["Krajské dotační programy","adaptační opatření, environmentální vzdělávání a osvěta"],
+ ["CLLD přes místní akční skupiny","menší projekty; nejpřístupnější cesta pro nejmenší obce"],
+ ["Komplexní pozemkové úpravy (SPÚ)","cesty, protierozní a retenční prvky, výsadby"],
+ ["SZP – agroenvironmentálně-klimatická opatření","platby hospodářům za péči o trvalé travní porosty"],
+ ["Interreg Slovensko – Česko","společné vzdělávání, sdílení dat a plánování"],
+ ["Rozpočty obcí a SMOVM","údržba stanovišť, péče o obecní pozemky, akce"],
+ ["Nadační a firemní zdroje","dobrovolnické akce, výsadby"]
+];
+S[6].items = F.map(f=>f[0]);
+const KARPIK = {uzemi:"karpik-ahoj",zjisteni:"karpik-rozcestnik",vize:"karpik-deti",cile:"karpik-ahoj",opatreni:"karpik-rozcestnik",obce:"karpik-deti",financovani:"karpik-ahoj"};
+const TYPES = [["souhlas","Souhlasím"],["doplnit","Něco chybí"],["nesouhlas","Nesouhlasím"],["dotaz","Mám dotaz"]];
+const ROLES = ["Obec / samospráva","Škola / pedagog","Ochrana přírody / správa CHKO","Vzdělávací či ekocentrum","Spolek / místní aktér","Odborník","Obyvatel Bílých Karpat","Návštěvník / turista","Jiné"];
+const PARTS = ["Analýza území a zjištění","Vize a cíle","Opatření","Doporučení pro obce","Přehled financování","Mapový portál a QR stanoviště"];
+const JOIN = ["QR stanoviště v naší obci / u školy","Seminář pro obce","Výuka v terénu a exkurze","Dobrovolnické akce v krajině","Podklad o přírodních hodnotách za katastr obce"];
+
+const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const ls = { get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}, set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}} };
+
+let me = ls.get("bk-me",{role:"",org:"",contact:"",comments:[],survey:{}});
+let quick = ls.get("bk-quick",{});           // {sectionId: string | string[]}
+let seen = new Set(ls.get("bk-seen",[]));
+let db=null, user=null, uid=null, isAdmin=false, online=false, all=[], moods=[];
+let saving=Promise.resolve(), savingQ=Promise.resolve(), saveState="", openFb=null;
+
+/* ---------- šablony ---------- */
+function tabsHtml(cur){
+  const tab=(s,i)=>`<a href="#${s.id}" class="${seen.has(s.id)?"seen":""}" ${cur===s.id?'aria-current="page"':""}><span class="ck">${seen.has(s.id)?"✓":i+1}</span>${esc(s.t)}</a>`;
+  let h = `<a href="#uvod" ${cur==="uvod"?'aria-current="page"':""}>Úvod</a><a href="#data" ${cur==="data"?'aria-current="page"':""}>📊 Území v číslech</a>` + S.slice(0,7).map(tab).join("")
+    + `<a href="#pro-koho" ${cur.startsWith("pro-")?'aria-current="page"':""}>🤝 Co můžete udělat</a>` + tab(S[7],7);
+  if(isAdmin) h += `<a href="#prehled" class="owner" ${cur==="prehled"?'aria-current="page"':""}>Přehled odpovědí</a>`;
+  return h;
+}
+function progHtml(){ const n=S.filter(s=>seen.has(s.id)).length; return `${n}/${S.length} <span class="pb"><i style="width:${n/S.length*100}%"></i></span>`; }
+
+function homeHtml(){
+  const started = seen.size>0; const next = S.find(s=>!seen.has(s.id))||S[S.length-1];
+  return `<section class="hero">
+    <div>
+      <span class="pill-badge">🌿 Projekt INNOMETHOD · Interreg Slovensko – Česko</span>
+      <h1>Strategie pro přírodu Bílých Karpat — a váš názor na ni</h1>
+      <p class="lead">Připravili jsme společnou česko-slovenskou strategii ochrany biodiverzity. Nemusíte číst 74 stran: projděte si osm krátkých kapitol, odpovězte Karpíkovi na pár otázek a napište nám, co vám chybí.</p>
+      <div class="hero-actions"><a class="btn btn-accent" href="#${next.id}">${started?"Pokračovat: "+esc(next.t):"Začít procházet"} →</a><a class="btn btn-outline" href="#data">📊 Nejdřív čísla o území</a></div>
+      <div class="mini">
+        <div><span class="ic">1</span><div><h3>Projděte si</h3><p>To nejdůležitější z každé kapitoly na jedné obrazovce.</p></div></div>
+        <div><span class="ic">2</span><div><h3>Odpovězte Karpíkovi</h3><p>Jedno kliknutí a uvidíte, jak to vidí ostatní.</p></div></div>
+        <div><span class="ic">3</span><div><h3>Připomínkujte</h3><p>Když budete chtít, napište nám k čemukoli poznámku.</p></div></div>
+      </div>
+    </div>
+    <div class="hero-visual"><div class="frame"><img src="assets/strategie/hreben.webp" alt="Hřeben Bílých Karpat při východu slunce"></div>
+      <div class="stat-card"><div class="n">10 min</div><div class="l">celé projití strategie</div><hr><div class="s">8 kapitol · 108 obcí na obou stranách hranice · vize do roku 2035</div></div></div>
+  </section>
+  ${recoHtml()}
+  <div class="sec-head"><span class="pill-badge">🗺️ Kapitoly</span><h2>Vyberte, kde začít</h2><p>Kapitoly na sebe navazují, ale můžete přeskakovat. Prošlé kapitoly označíme žlutě.</p></div>
+  <div class="ch-grid">${S.map((s,i)=>`<a class="ch-card" href="#${s.id}"><div class="ph"><img src="assets/strategie/${s.img}.webp" alt="" loading="lazy"><span class="no">${i+1}</span>${seen.has(s.id)?'<span class="done">✓ prošlo</span>':""}</div><div class="b"><h3>${esc(s.h)}</h3><p>${esc(s.teaser)}</p></div></a>`).join("")}</div>
+  <div class="data-teaser"><div><h3>📊 Území v číslech</h3><p>Interaktivní přehled analytické části: druhová bohatost, stárnutí obcí, 15 problémů a SWOT. Najděte i svou obec.</p></div><a class="btn btn-accent" href="#data">Otevřít přehled →</a></div>`;
+}
+
+function body(id){
+  if(id==="uzemi") return `
+   <div class="tiles">
+    <div class="tile y"><div class="n">61 + 47</div><div class="l">obcí na české a slovenské straně</div></div>
+    <div class="tile"><div class="n">747 km²</div><div class="l">CHKO Bílé Karpaty (od 1980)</div></div>
+    <div class="tile"><div class="n">44 568 ha</div><div class="l">CHKO Biele Karpaty (od 1979)</div></div>
+    <div class="tile"><div class="n">1996</div><div class="l">biosférická rezervace UNESCO; v roce 2000 Evropský diplom</div></div>
+    <div class="tile"><div class="n">≈ 79 tis.</div><div class="l">obyvatel slovenských obcí v CHKO</div></div>
+    <div class="tile"><div class="n">11 359</div><div class="l">dětí do 14 let na české straně</div></div>
+   </div>
+   <div class="list">
+    <div class="card"><div class="k">Pro koho</div><p>Primárně pro školy a vzdělávací instituce. Dále pro obce, pedagogy, správy CHKO, odborníky, ekocentra, rodiny s dětmi, turisty, spolky a veřejnost.</p></div>
+    <div class="card"><div class="k">Jak je dokument poskládaný</div><p><b>A – Analytická část:</b> příroda, obyvatelstvo, aktéři, data, problémy, legislativní rámec, SWOT. <b>B – Návrhová část:</b> vize, cíle, opatření, doporučení pro obce. <b>C – Implementační část:</b> řízení, správa výstupů, financování, komunikace.</p></div>
+    <div class="card"><div class="k">Jak vznikal</div><p>Rešerše podkladů (hlavně Plán péče o CHKO 2022–2031), demografická analýza z dat ČSÚ, databáze přírodně cenných lokalit, expertní syntéza a jednání v území – Valašskokloboucko (18. 8. 2026) a Správa CHKO Biele Karpaty v Nemšové (1. 10. 2026).</p></div>
+    <div class="card"><div class="k">Na co navazuje</div><p>Na výstupy projektu: mapový portál s trasami a lokalitami, interaktivní aktivity přes QR kódy a dronovou dokumentaci vybraných lokalit.</p></div>
+   </div>`;
+  if(id==="zjisteni"){
+   const z=[["Přírodní hodnota vznikla a trvá jen díky lidem.","Druhově bohaté louky jsou výsledkem staletého kosení a pastvy; bez péče zarůstají."],
+    ["Většina ohrožení má původ v rozhodování a chování lidí.","Opouštění hospodaření, nevhodná péče, invazní druhy, rušení citlivých míst – řešení stojí na informovanosti."],
+    ["Odborné poznání existuje, ale k lidem se nedostává.","Bílé Karpaty patří k nejlépe prozkoumaným územím střední Evropy, data jsou ale roztříštěná a školám chybí materiály k lokalitám v jejich okolí."],
+    ["Malé obce potřebují nástroje dostupné kdykoli a komukoli.","Ve 26 obcích žije méně než sto dětí. Organizované akce všude nejdou – fungují QR aktivity a mapový portál, které rodiny zvládnou samy."],
+    ["Ochrana území vyžaduje nástroje s minimálním zásahem.","V rezervacích se chodí jen po značených cestách, polohy vzácných druhů se nezveřejňují a nové stavby nejsou vhodné."],
+    ["Strategický rámec vzdělávání výslovně podporuje.","Strategie EU 2030, česká strategie biodiverzity 2026–2050, Karpatská úmluva i rámcový vzdělávací program."],
+    ["Bílé a Biele Karpaty jsou jeden přírodní celek.","Ochrana i vzdělávání mají smysl jen jako společný systém pro obě strany hranice."],
+    ["Obce očekávají praktickou spolupráci.","Voda v krajině, cesty, péče o krajinu, turistika, vzdělávání. Část obyvatel vnímá omezení ochrany přírody s nedůvěrou."]];
+   return `<div class="list">${z.map((x,i)=>`<details class="card"${i<2?" open":""}><summary><span class="nb">${i+1}</span><h3>${x[0]}</h3></summary><p class="sub" style="padding-left:44px">${x[1]}</p></details>`).join("")}</div>
+   <p class="note"><b>Hlavní závěr analýzy:</b> ochranu nelze zajistit jen péčí správců chráněných území. Je třeba rozšířit povědomí o biodiverzitě a dostat lidi – hlavně děti a rodiny – ven do krajiny. Nejjednodušším nástrojem je síť venkovních aktivit přes QR kódy propojená s mapovým portálem.</p>`;
+  }
+  if(id==="vize") return `
+   <blockquote class="vision">V roce 2035 jsou Bílé a Biele Karpaty krajinou, jejíž přírodní bohatství lidé na obou stranách hranice znají, rozumějí mu a podílejí se na jeho ochraně. Děti zde od prvních školních let poznávají přírodu přímo v terénu, rodiny a návštěvníci objevují krajinu šetrně po značených cestách, obce, školy a správci území sdílejí data i zkušenosti a druhově bohaté louky, lesy a prameniště zůstávají zachovány díky péči místních lidí.<cite>Vize strategie, kapitola 10.1</cite></blockquote>
+   <div class="grid2">
+    <div class="card"><h3>Lidé jako základ ochrany</h3><p class="sub">Staví na znalosti a vztahu lidí ke krajině, ne pouze na omezeních.</p></div>
+    <div class="card"><h3>Vzdělávání venku od nejmenších</h3><p class="sub">Děti se s místní přírodou setkávají v terénu už od 1. stupně ZŠ.</p></div>
+    <div class="card"><h3>Šetrnost k území</h3><p class="sub">Návštěvníci chodí po značených cestách, nástroje nevyžadují zásahy do krajiny.</p></div>
+    <div class="card"><h3>Sdílení a spolupráce</h3><p class="sub">Obce, školy a správy CHKO na obou stranách pracují se společnými daty.</p></div>
+   </div>`;
+  if(id==="cile"){
+   const c=[["SC 1","Povědomí o biodiverzitě a výuka v terénu","Rozšířit povědomí u všech skupin a zajistit, aby se děti od 1. stupně ZŠ pravidelně učily o místní přírodě venku. Ústřední cíl strategie.","počet zapojených škol, počet žáků ve výuce v terénu, počet osvětových akcí"],
+    ["SC 2","Síť QR stanovišť a dostupné poznání","Přeshraniční síť venkovních stanovišť s obsahem pro 1. a 2. stupeň, střední školy, dospělé i mezigenerační aktivity, propojená s mapovým portálem.","počet QR stanovišť CZ/SK, spuštění aktivit za rok, návštěvnost portálu"],
+    ["SC 3","Obce a školy jako aktivní partneři v péči o krajinu","Podklady o přírodních hodnotách, praktická doporučení a metodická podpora; zapojení do péče o louky, sady, stromy a vodu.","počet obcí využívajících podklady, počet akcí péče za účasti veřejnosti"],
+    ["SC 4","Šetrná návštěvnost a ochrana citlivých míst","Směřovat návštěvníky na odolné lokality a značené trasy, chránit údaje o výskytu vzácných druhů.","podíl stanovišť na značených trasách, počet lokalit s posouzením citlivosti"],
+    ["SC 5","Přeshraniční spolupráce a udržitelnost výstupů","Jednotný systém stanovišť, dat a pravidel; každý výstup má správce a funguje i po skončení financování.","počet společných setkání, podíl výstupů s určeným správcem"]];
+   return `<div class="list">${c.map(x=>`<div class="card"><div class="row"><span class="chip sc">${x[0]}</span><h3>${x[1]}</h3></div><p>${x[2]}</p><p class="sub">Jak poznáme úspěch: ${x[3]}</p></div>`).join("")}</div>`;
+  }
+  if(id==="opatreni") return `
+   <div class="filters" role="group" aria-label="Filtr oblastí"><button type="button" data-a="" aria-pressed="true">Vše</button>${Object.entries(AREAS).map(([k,v])=>`<button type="button" data-a="${k}" aria-pressed="false">${v}</button>`).join("")}<button type="button" data-a="vys" aria-pressed="false">★ Vysoká priorita</button></div>
+   <div class="tbl"><table><thead><tr><th>Č.</th><th>Opatření</th><th>Oblast</th><th>Cíl</th><th>Priorita</th></tr></thead><tbody id="mt"></tbody></table></div>
+   <p class="note">Lesní hospodaření, fragmentaci krajiny a tlak výstavby řeší hlavně jiné nástroje (plány péče, lesní hospodářské plány, územní plánování); strategie k nim přispívá podklady pro obce a osvětou.</p>`;
+  if(id==="obce") return `<div class="cards">${R.map(r=>`<div class="card"><h3>${r[0]}</h3><p class="sub">${r[1]}</p><ul>${r[2].map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("")}</div>
+   <p class="note">Ve zvláště chráněných územích je vždy vhodné postup předem konzultovat se správou CHKO. Se všemi tématy poradí správa CHKO a SMOVM.</p>`;
+  if(id==="financovani") return `<div class="tbl"><table><thead><tr><th>Zdroj</th><th>Co lze financovat</th></tr></thead><tbody>${F.map(f=>`<tr><td><b>${f[0]}</b></td><td>${f[1]}</td></tr>`).join("")}</tbody></table></div>
+   <p class="note">Rozcestníkem je portál Finance pro přírodu a krajinu AOPK ČR (dotace.aopk.gov.cz). Na slovenské straně chybí systémový program obdobný Programu péče o krajinu; zdroje se řeší se slovenskými partnery.</p>`;
+  if(id==="hodnoceni") return surveyHtml();
+  return "";
+}
+
+function karpikHtml(s){
+  if(!s.q) return "";
+  const mine = quick[s.id]; const answered = mine!=null && (!Array.isArray(mine)||mine.length);
+  const sel = v => Array.isArray(mine)? mine.includes(v) : mine===v;
+  return `<div class="karpik" id="kq"><img src="assets/strategie/${KARPIK[s.id]}.webp" alt="Karpík, průvodce projektu INNOMETHOD">
+   <div class="bub"><div class="who">Karpík se ptá · nepovinné</div><div class="q">${esc(s.q.q)}</div>
+    <div class="opts" role="group" aria-label="${esc(s.q.q)}">${s.q.o.map(o=>`<button type="button" data-o="${esc(o)}" aria-pressed="${sel(o)}">${esc(o)}</button>`).join("")}</div>
+    <div id="kres">${answered?resultsHtml(s):'<div class="hint">Klikněte na odpověď a uvidíte, jak odpověděli ostatní.</div>'}</div>
+   </div></div>`;
+}
+function resultsHtml(s){
+  const counts={}; let n=0;
+  const pool = online ? moods.filter(m=>!m.mine).map(m=>m.a?.[s.id]) : [];
+  pool.push(quick[s.id]);
+  pool.forEach(a=>{ if(a==null) return; const arr=Array.isArray(a)?a:[a]; if(!arr.length) return; n++; arr.forEach(v=>counts[v]=(counts[v]||0)+1); });
+  const mine=quick[s.id]; const isMine=v=>Array.isArray(mine)?mine.includes(v):mine===v;
+  const thanks = ["Díky, Karpík si to zapsal!","Super, díky!","Zapsáno, díky!"][s.id.length%3];
+  return `<div class="res"><div class="hint"><b style="color:var(--dark-green)">${thanks}</b> ${n>1?`Takhle odpověděli všichni (celkem ${n}):`:"Jste mezi prvními – výsledky se budou doplňovat."}</div>
+   ${n>1?s.q.o.map(o=>{const p=Math.round((counts[o]||0)/n*100);return `<div class="r${isMine(o)?" me":""}"><span>${esc(o)}</span><div class="bar"><i style="width:${p}%"></i></div><span class="pc">${p} %</span></div>`}).join(""):""}</div>`;
+}
+
+function whoHtml(){
+  return `<div class="who-box"><div><b style="color:var(--dark-green)">Za koho se díváte?</b> <span class="status">Nepovinné – pomůže nám roztřídit připomínky.</span></div>
+   <div class="g"><label class="f">Typ organizace<select id="w-role"><option value="">— vyberte —</option>${ROLES.map(r=>`<option${me.role===r?" selected":""}>${r}</option>`).join("")}</select></label>
+   <label class="f">Obec / organizace<input type="text" id="w-org" value="${esc(me.org)}" placeholder="např. Obec Strání"></label></div></div>`;
+}
+
+function fbHtml(s){
+  const mine = me.comments.filter(c=>c.section===s.id);
+  return `<details class="fb" id="fbd"${openFb===s.id?" open":""}><summary><span class="plus">+</span>Chcete k této kapitole něco napsat?<span class="cnt">${mine.length?`${mine.length} vaše připomínk${mine.length===1?"a":mine.length<5?"y":"y"}`:"nepovinné"}</span></summary>
+   <form id="fb" novalidate>
+   <div class="types" role="radiogroup" aria-label="Typ připomínky">${TYPES.map((t,i)=>`<label><input type="radio" name="typ" value="${t[0]}"${i===1?" checked":""}><span>${t[1]}</span></label>`).join("")}</div>
+   ${s.items.length?`<label class="f">Týká se<select id="fb-item"><option value="">Celé kapitoly</option>${s.items.map(x=>`<option>${esc(x)}</option>`).join("")}</select></label>`:""}
+   <label class="f">Vaše připomínka<textarea id="fb-text" placeholder="Co byste upravili, doplnili nebo vysvětlili? Stačí pár slov."></textarea></label>
+   <div class="row"><button class="btn btn-primary" type="submit">Přidat připomínku</button><span class="status" id="fb-st">${esc(saveState)}</span></div>
+   ${mine.length?`<div class="mine">${mine.map(c=>`<div class="c"><p><b>${esc(typeLabel(c.typ))}</b>${c.item?` · ${esc(c.item)}`:""}<br>${esc(c.text)}</p><button type="button" data-del="${c.id}">Odebrat</button></div>`).join("")}</div>`:""}
+  </form></details>`;
+}
+const typeLabel = t => (TYPES.find(x=>x[0]===t)||[0,t])[1];
+
+function surveyHtml(){
+  const v=me.survey||{};
+  const qn = Object.keys(quick).filter(k=>quick[k]!=null&&(!Array.isArray(quick[k])||quick[k].length)).length, cn=me.comments.length;
+  return `<div class="tiles"><div class="tile y"><div class="n">${seen.size}/${S.length}</div><div class="l">prošlých kapitol</div></div><div class="tile"><div class="n">${qn}</div><div class="l">odpovědí Karpíkovi</div></div><div class="tile"><div class="n">${cn}</div><div class="l">vašich připomínek</div></div></div>
+  <form class="survey" id="sv" novalidate>
+   <fieldset><legend>1. Jak užitečná je pro vás strategie?</legend><div class="hint">1 = vůbec, 5 = velmi</div>
+    <div class="types scale">${[1,2,3,4,5].map(n=>`<label><input type="radio" name="uz" value="${n}"${v.uzitecnost==n?" checked":""}><span>${n}</span></label>`).join("")}</div></fieldset>
+   <fieldset><legend>2. Které části pro vás budou přínosné?</legend><div class="checks">${PARTS.map(p=>`<label><input type="checkbox" name="parts" value="${esc(p)}"${(v.casti||[]).includes(p)?" checked":""}> ${esc(p)}</label>`).join("")}</div></fieldset>
+   <fieldset><legend>3. Využijete něco z toho ve své obci, škole či organizaci?</legend>
+    <div class="types">${["Ano","Možná","Spíše ne"].map(o=>`<label><input type="radio" name="vyuziti" value="${o}"${v.vyuziti===o?" checked":""}><span>${o}</span></label>`).join("")}</div>
+    <label class="f">Co konkrétně?<textarea id="sv-co" placeholder="Např. šetrné kosení obecní louky, QR stanoviště u školy…">${esc(v.co)}</textarea></label></fieldset>
+   <fieldset><legend>4. Do čeho byste se rádi zapojili?</legend><div class="checks">${JOIN.map(p=>`<label><input type="checkbox" name="join" value="${esc(p)}"${(v.zapojeni||[]).includes(p)?" checked":""}> ${esc(p)}</label>`).join("")}</div></fieldset>
+   <label class="f" style="font-size:16.5px;color:var(--dark-green)">5. Co ve strategii chybí nebo co by ji udělalo užitečnější?<textarea id="sv-chybi">${esc(v.chybi)}</textarea></label>
+   <label class="f">Kontakt, pokud se vám máme ozvat (nepovinné)<input type="text" id="sv-kontakt" value="${esc(me.contact)}" placeholder="jméno, e-mail nebo telefon"></label>
+   <div class="who-box" style="background:var(--yellow-soft);border-color:var(--yellow-soft)">
+    <div class="checks"><label><input type="checkbox" id="sv-pdf"${v.chcePdf?" checked":""}> <span><b>Pošlete mi kompletní strategii v PDF</b> – celý dokument (74 stran) vám zašleme e-mailem, jakmile bude finální.</span></label></div>
+    <label class="f" id="sv-mail-w"${v.chcePdf?"":" hidden"}>E-mail pro zaslání PDF<input type="email" id="sv-mail" value="${esc(v.email)}" placeholder="vas@email.cz" autocomplete="email"></label>
+   </div>
+   <div class="checks" id="sv-gdpr-w"${(v.chcePdf||me.contact)?"":" hidden"}><label><input type="checkbox" id="sv-gdpr"${v.souhlas?" checked":""}> <span style="font-size:14.5px">Souhlasím, aby Sdružení měst a obcí Východní Moravy zpracovalo uvedený kontakt a e-mail za účelem zaslání strategie a případného kontaktu k mým připomínkám. <a href="#gdpr" data-gdpr>Více o zpracování údajů</a></span></label></div>
+   <div class="row"><button class="btn btn-accent" type="submit">Odeslat hodnocení</button><span class="status" id="sv-st">${v.at?"Hodnocení uloženo "+new Date(v.at).toLocaleString("cs-CZ")+". Můžete ho kdykoli upravit.":""}</span></div>
+  </form>
+  <div class="cta-band"><div><h2>Děkujeme, že pomáháte Bílým Karpatům</h2><p>Vaše odpovědi zapracujeme do finální verze strategie. Připomínky můžete doplňovat, dokud je stránka otevřená k připomínkám.</p></div><div class="row"><a class="btn btn-accent" href="#data">📊 Území v číslech</a><a class="btn btn-outline" style="color:var(--white);border-color:var(--white)" href="#uvod">Zpět na úvod</a></div></div>`;
+}
+
+/* ---------- dashboard „Území v číslech“ ---------- */
+const D = {id:"data", t:"Území v číslech", q:{q:"Co vás v číslech nejvíc překvapilo?",o:["82 druhů rostlin na 1 m²","Stárnutí obcí","Málo dětí v malých obcích","Kolik je chráněných území","Nic, znám to"]}};
+KARPIK.data = "karpik-ahoj";
+// [obec, okres, obyvatel, 0–14, 15–64, 65+, průměrný věk] – ČSÚ, stav k 1. 1. 2026
+const OBCE = [
+["Blatnice pod Svatým Antonínkem","HO",1870,227,1101,542,47.7],["Blatnička","HO",440,62,269,109,45.9],["Hroznová Lhota","HO",1153,166,693,294,44.9],["Hrubá Vrbka","HO",601,92,362,147,44.8],["Javorník","HO",654,89,413,152,43.9],["Kněždub","HO",1044,150,652,242,44.7],["Kuželov","HO",415,61,275,79,42.9],["Lipov","HO",1394,194,858,342,45.1],["Louka","HO",921,116,575,230,45.6],["Malá Vrbka","HO",172,14,109,49,47.7],["Nová Lhota","HO",610,82,386,142,44.3],["Petrov","HO",1302,191,843,268,43.4],["Radějov","HO",845,116,507,222,45.5],["Strážnice","HO",5282,667,3308,1307,45.7],["Suchov","HO",472,57,287,128,47.3],["Sudoměřice","HO",1247,186,793,268,43.3],["Tasov","HO",502,68,331,103,43.3],["Tvarožná Lhota","HO",921,125,595,201,44.0],["Velká nad Veličkou","HO",2778,354,1716,708,45.7],
+["Bojkovice","UH",4395,674,2720,1001,43.8],["Boršice u Blatnice","UH",815,132,505,178,43.2],["Bystřice pod Lopeníkem","UH",857,151,495,211,43.8],["Bánov","UH",2164,338,1382,444,43.0],["Březová","UH",961,127,572,262,45.6],["Dolní Němčí","UH",2847,410,1782,655,44.3],["Horní Němčí","UH",807,98,505,204,45.7],["Hostětín","UH",216,31,135,50,46.2],["Komňa","UH",499,60,327,112,45.3],["Korytná","UH",894,112,546,236,46.2],["Lopeník","UH",228,36,143,49,44.2],["Nezdenice","UH",708,102,413,193,46.6],["Nivnice","UH",3347,531,2119,697,43.0],["Pitín","UH",892,132,582,178,42.6],["Rudice","UH",420,43,264,113,47.4],["Slavkov","UH",696,104,423,169,44.3],["Starý Hrozenkov","UH",774,99,484,191,45.3],["Strání","UH",3330,452,2092,786,44.9],["Suchá Loz","UH",1165,216,735,214,40.8],["Vyškovec","UH",187,39,124,24,38.5],["Vápenice","UH",189,27,117,45,45.5],["Záhorovice","UH",1037,164,662,211,43.1],["Šumice","UH",1598,241,992,365,44.6],["Žítková","UH",175,26,111,38,42.1],
+["Bohuslavice nad Vláří","ZL",349,51,228,70,45.6],["Brumov-Bylnice","ZL",5372,810,3372,1190,43.7],["Jestřabí","ZL",272,46,164,62,43.8],["Lipová","ZL",358,53,232,73,42.0],["Nedašov","ZL",1332,241,849,242,40.6],["Nedašova Lhota","ZL",676,102,458,116,42.0],["Návojná","ZL",683,119,427,137,42.2],["Petrůvka","ZL",318,49,193,76,44.6],["Poteč","ZL",746,103,487,156,42.6],["Rokytnice","ZL",587,83,377,127,44.9],["Slavičín","ZL",6168,842,3791,1535,45.5],["Valašské Klobouky","ZL",4864,750,3064,1050,43.3],["Valašské Příkazy","ZL",313,53,212,48,40.6],["Šanov","ZL",473,64,293,116,45.2],["Študlov","ZL",478,71,317,90,44.1],["Štítná nad Vláří-Popov","ZL",2067,319,1265,483,43.6],
+["Horní Lideč","VS",1317,181,882,254,43.0],["Střelná","VS",539,60,359,120,45.3]
+].map(r=>({n:r[0],o:r[1],pop:r[2],d:r[3],p:r[4],s:r[5],age:r[6],pd:r[3]/r[2]*100,ps:r[5]/r[2]*100}));
+const OKRES = {HO:"Hodonín",UH:"Uherské Hradiště",ZL:"Zlín",VS:"Vsetín"};
+const OKS = [["okres Hodonín",19,22623,13.3,24.5,45.2],["okres Uherské Hradiště",24,29201,14.9,22.7,44.0],["okres Zlín",16,25056,15.0,22.2,43.8],["okres Vsetín (2 obce)",2,1856,13.0,20.2,43.7]];
+const TOTAL = {pop:78736,pd:14.4,ps:23.0,age:44.3}, CR = {pd:15.1,ps:20.8,age:43.3};
+const SEQ = ["#b9cdb0","#87a87c","#5a7d52","#2f4830"]; // podíl 65+: do 18 %, 18–22, 22–26, 26+
+const band = ps => ps<18?0:ps<22?1:ps<26?2:3;
+const AGEC = ["#d08a0e","#3d8b3d","#3b7dd8"];
+const HAB = [
+ ["Druhově bohaté louky","luční byliny včetně vstavačovitých, denní motýli a další hmyz","pravidelná extenzivní seč, bez hnojení, mozaikovitě v různých termínech"],
+ ["Pastviny a jalovcové stráně","druhy pastevní krajiny, teplomilné rostliny a hmyz","extenzivní pastva, odstraňování náletových dřevin"],
+ ["Vlhké louky, prameniště a slatiny","mokřadní rostliny, obojživelníci, specializovaní bezobratlí","zachování vodního režimu, citlivě načasovaná seč"],
+ ["Teplomilné doubravy a lesostepi","teplomilné rostliny a hmyz","udržení světlého lesa a otevřených ploch"],
+ ["Bučiny a suťové lesy","horské druhy rostlin, hmyz vázaný na odumírající dřevo, dutinoví ptáci, netopýři","ponechání starých stromů a mrtvého dřeva"],
+ ["Vodní toky a potoční luhy","vodní bezobratlí, ryby, obojživelníci, ptáci vázaní na vodu","zachování přirozeného koryta a břehových porostů"],
+ ["Vápencová bradla (SK)","skalní a teplomilná květena a fauna","ochrana před sešlapem a zarůstáním"],
+ ["Sady, záhumenky a solitérní stromy","staré a krajové odrůdy ovocných dřevin, druhy vázané na staré stromy","údržba sadů, ponechání starých stromů"]
+];
+const PROB = [
+ ["Krajina a hospodaření",[[1,"Úbytek a degradace druhově bohatých luk a pastvin","Louky závisí na sečení a pastvě. Bez péče zarůstají, při příliš intenzivním hospodaření ztrácejí pestrost."],[2,"Zarůstání cenných bezlesých ploch","Po opuštění tradičního hospodaření nastupují křoviny, nálety a vysoké trávy; mizí světlomilné druhy."],[3,"Nevhodné nebo příliš jednotné hospodaření","Velkoplošná seč v jeden termín, hnojení, těžká mechanizace nebo intenzivní pastva narušují společenstva."],[5,"Nedostatek mozaikovitosti v krajině","Scelování ploch, zarůstání a intenzifikace zjednodušují pestrou mozaiku luk, sadů, mezí a remízků."],[13,"Nedostatečná kontinuita péče o krajinu","Jednorázové zásahy nestačí; chybí finance, kapacity, hospodáři i provázanost ochrany, zemědělství a obcí."]]],
+ ["Biodiverzita, voda a lesy",[[4,"Ohrožení vzácných a zvláště chráněných druhů","Mnoho druhů je vázáno na konkrétní stanoviště; změna hospodaření je ohrožuje přímo."],[6,"Stav lesů a potřeba přírodě bližšího hospodaření","Nevhodná skladba, málo starých stromů a mrtvého dřeva oslabují lesní druhy."],[7,"Úbytek vody v krajině a narušení vodního režimu","Sucho, rychlý odtok, odvodnění a narovnané toky ohrožují mokřady i stabilitu krajiny."],[8,"Ohrožení mokřadů, pramenišť a vlhkých luk","Malé, ale velmi cenné biotopy citlivé na vodní režim, zarůstání a zásahy v okolí."],[10,"Invazní a expanzivní druhy","Plán péče jmenuje 26 invazních a expanzivních rostlin; pozdní regulace je drahá."]]],
+ ["Lidské tlaky a konflikty",[[9,"Fragmentace krajiny a omezená prostupnost","Silnice, zástavba a oplocení ztěžují pohyb živočichů mezi Bílými Karpaty a okolím."],[11,"Tlak výstavby na krajinný ráz a biotopy","Rozptýlená výstavba narušuje krajinný ráz a fragmentuje biotopy."],[12,"Návštěvnost a rušení citlivých lokalit","Sešlap, pohyb mimo cesty, vjezdy a sběr rostlin hlavně tam, kde se lidé koncentrují."],[14,"Sladění ochrany přírody s potřebami obyvatel","Když je ochrana vnímána jen jako omezení, vzniká napětí s obcemi a hospodáři."],[15,"Aktualizace nástrojů ochrany a řízení území","Klima, výstavba a rekreace se mění; pravidla, zonace a plány péče s nimi musí držet krok."]]]
+];
+const SWOT = {
+ s:["mimořádná druhová bohatost, UNESCO a Evropský diplom, Natura 2000 na obou stranách","jedno z botanicky nejlépe prozkoumaných území střední Evropy","síť značených tras, naučných stezek a rozhleden bez potřeby nové infrastruktury","živá kulturní tradice – kopanice, sady, louky","mapový portál, interaktivní aktivity a dronová dokumentace projektu"],
+ w:["poznatky se do výuky dostávají omezeně, chybí materiály k lokalitám","roztříštěná data mezi institucemi a dvěma státy","stárnutí a rozdrobené osídlení; 26 obcí má méně než 100 dětí","omezené kapacity správ chráněných území","nekoordinované, místy zastaralé naučné stezky"],
+ o:["QR aktivity bez staveb, obsah lze měnit bez zásahu v terénu","výuka venku navázaná na RVP ZV","mezigenerační formáty – senioři jako nositelé znalosti krajiny","šetrná turistika a cykloturistika pro místní služby","dotace na péči o krajinu a vodu (OPŽP, PPK, CLLD, Interreg)"],
+ t:["odchod mladých z malých obcí, zužování produktivní složky","opouštění tradičního hospodaření a zarůstání luk","invazní druhy, sucho a eroze","nedůvěra části obyvatel k omezením ochrany přírody","nejistá udržitelnost výstupů po skončení projektu"]
+};
+let dState = {hab:0, okMetric:"ps", okFilter:"", sel:"", sort:["ps",-1], q:""};
+const fmt = (n,d=0)=>n.toLocaleString("cs-CZ",{minimumFractionDigits:d,maximumFractionDigits:d});
+
+function dataHtml(){
+  return `<section class="chapter" aria-labelledby="h">
+   <div class="ch-banner"><img src="assets/strategie/porazky.webp" alt=""><div class="t"><span>Analytická část v kostce</span><h2 id="h">Území v číslech</h2></div></div>
+   <p class="intro">Interaktivní přehled toho, z čeho strategie vychází: příroda, obyvatelé, obce, problémy a SWOT. Klikejte, filtrujte a najděte svou obec.</p>
+   <div class="subnav" role="group" aria-label="Části přehledu">${[["d-priroda","Příroda"],["d-lide","Obyvatelé"],["d-obce","Najděte svou obec"],["d-problemy","15 problémů"],["d-swot","SWOT"]].map(x=>`<button type="button" data-go="${x[0]}">${x[1]}</button>`).join("")}</div>
+
+   <div class="dsec" id="d-priroda"><h3><span class="ic">🌸</span>Příroda</h3>
+    <div class="tiles">
+     <div class="tile y"><div class="n">82</div><div class="l">druhů rostlin na 1 m² louky (až 112 na 16 m²)</div></div>
+     <div class="tile"><div class="n">1 500+</div><div class="l">druhů rostlin na české straně; ≈ 1 200 vyšších rostlin na slovenské</div></div>
+     <div class="tile"><div class="n">20 000+</div><div class="l">druhů živočichů, z toho nejméně 16 000 druhů hmyzu</div></div>
+     <div class="tile"><div class="n">66 %</div><div class="l">české fauny denních motýlů (mapování 2022–2023)</div></div>
+     <div class="tile"><div class="n">176</div><div class="l">zvláště chráněných druhů živočichů v CHKO Bílé Karpaty</div></div>
+     <div class="tile"><div class="n">52</div><div class="l">maloplošných chráněných území, 1 554 ha (2,1 % CHKO)</div></div>
+     <div class="tile"><div class="n">17 + 28</div><div class="l">evropsky významných lokalit (CZ) a území evropského významu (SK)</div></div>
+     <div class="tile"><div class="n">67 %</div><div class="l">lesnatost CHKO Biele Karpaty</div></div>
+    </div>
+    <div class="panel"><h4>Stanoviště a co potřebují</h4><div class="filters" id="habs" role="group" aria-label="Typ stanoviště">${HAB.map((h,i)=>`<button type="button" data-h="${i}" aria-pressed="${i===dState.hab}">${h[0]}</button>`).join("")}</div><div class="hab-detail" id="habd"></div></div>
+    <p class="src">Zdroj: kap. 3 strategie; Plán péče o CHKO Bílé Karpaty 2022–2031; ŠOP SR.</p>
+   </div>
+
+   <div class="dsec" id="d-lide"><h3><span class="ic">👪</span>Obyvatelé české strany</h3>
+    <div class="tiles">
+     <div class="tile y"><div class="n">78 736</div><div class="l">obyvatel v 61 obcích</div></div>
+     <div class="tile"><div class="n">44,3</div><div class="l">let průměrný věk (ČR 43,3)</div></div>
+     <div class="tile"><div class="n">159</div><div class="l">seniorů na 100 dětí (ČR 138)</div></div>
+     <div class="tile"><div class="n">58 z 61</div><div class="l">obcí má víc seniorů než dětí</div></div>
+     <div class="tile"><div class="n">18</div><div class="l">obcí pod 500 obyvatel; medián obce 807</div></div>
+     <div class="tile"><div class="n">26</div><div class="l">obcí s méně než 100 dětmi do 14 let</div></div>
+    </div>
+    <div class="two">
+     <div class="panel"><h4>Věková struktura: území vs. Česko</h4>
+      <div class="stack">${[["Bílé Karpaty (CZ)",14.4,62.6,23.0],["Česko",15.1,64.1,20.8]].map(r=>`<div><div class="lbl">${r[0]}</div><div class="sbar" role="img" aria-label="${r[0]}: děti ${fmt(r[1],1)} %, 15–64 let ${fmt(r[2],1)} %, 65+ ${fmt(r[3],1)} %">${[r[1],r[2],r[3]].map((v,i)=>`<span style="width:${v}%;background:${AGEC[i]}" title="${["0–14 let","15–64 let","65+ let"][i]}: ${fmt(v,1)} %">${fmt(v,1)} %</span>`).join("")}</div></div>`).join("")}</div>
+      <div class="legend"><span><i style="background:${AGEC[0]}"></i>děti 0–14</span><span><i style="background:${AGEC[1]}"></i>15–64 let</span><span><i style="background:${AGEC[2]}"></i>senioři 65+</span></div>
+     </div>
+     <div class="panel"><div class="row" style="justify-content:space-between"><h4>Okresní části území</h4>
+      <div class="seg" role="group" aria-label="Ukazatel">${[["ps","Podíl 65+"],["pd","Podíl dětí"],["age","Průměrný věk"]].map(m=>`<button type="button" data-m="${m[0]}" aria-pressed="${dState.okMetric===m[0]}">${m[1]}</button>`).join("")}</div></div>
+      <div class="hb" id="okb"></div><div class="legend"><span><i style="background:var(--text-body);width:3px"></i>průměr Česka</span></div></div>
+    </div>
+    <div class="panel"><h4>Muži a ženy podle věku</h4><p style="margin:0;font-size:15px">Celkově vyrovnané (1 008 žen na 1 000 mužů), ale v produktivním věku žije o více než 2 000 mužů víc než žen (index 914) a mezi seniory tvoří ženy 57,7 % (index 1 361). Ženy-seniorky jsou hlavními nositelkami znalostí o sadech a bylinách; hospodáři jsou převážně muži v produktivním věku.</p></div>
+    <p class="src">Zdroj: ČSÚ – Veřejná databáze, export UD-1784727080364, stav k 1. 1. 2026; kap. 4 strategie. Data za slovenskou stranu se zpracovávají se slovenskými partnery.</p>
+   </div>
+
+   <div class="dsec" id="d-obce"><h3><span class="ic">🏡</span>Najděte svou obec</h3>
+    <div class="panel">
+     <div class="row" style="justify-content:space-between;gap:10px">
+      <label class="f" style="flex:1;min-width:200px">Hledat obec<input type="text" id="oq" list="ol" placeholder="např. Strání" value="${esc(dState.q)}"><datalist id="ol">${OBCE.map(o=>`<option value="${esc(o.n)}">`).join("")}</datalist></label>
+      <div class="seg" role="group" aria-label="Okres"><button type="button" data-ok="" aria-pressed="${!dState.okFilter}">Vše</button>${Object.entries(OKRES).map(([k,v])=>`<button type="button" data-ok="${k}" aria-pressed="${dState.okFilter===k}">${v}</button>`).join("")}</div>
+     </div>
+     <div id="ocard"></div>
+     <h4>Děti vs. senioři v každé obci</h4>
+     <div class="chart" id="sc"></div>
+     <div class="legend">${["do 18 %","18–22 %","22–26 %","26 % a víc"].map((t,i)=>`<span><i style="background:${SEQ[i]}"></i>podíl 65+ ${t}</span>`).join("")}<span>· velikost bubliny = počet obyvatel</span></div>
+     <p class="src" style="margin-top:-4px">Obce nad přerušovanou čarou mají víc seniorů než dětí. Míra stárnutí téměř nezávisí na velikosti obce (korelace 0,10), rozhoduje spíš poloha.</p>
+     <div class="otbl"><table><thead><tr>${[["n","Obec"],["pop","Obyvatel"],["pd","Děti %"],["ps","65+ %"],["age","Prům. věk"]].map(c=>`<th data-sort="${c[0]}"${dState.sort[0]===c[0]?` aria-sort="${dState.sort[1]>0?"ascending":"descending"}"`:""}>${c[1]}</th>`).join("")}</tr></thead><tbody id="otb"></tbody></table></div>
+    </div>
+   </div>
+
+   <div class="dsec" id="d-problemy"><h3><span class="ic">⚠️</span>15 problémových okruhů</h3>
+    <p class="intro" style="font-size:16px">Analýza je sdružuje do tří pilířů. Napříč všemi stojí datová a znalostní bariéra. Klikněte na okruh pro vysvětlení.</p>
+    <div class="pillars3">${PROB.map(p=>`<div class="pillar"><h4>${p[0]}</h4>${p[1].map(x=>`<details><summary><span class="n">${x[0]}</span>${x[1]}</summary><p>${x[2]}</p></details>`).join("")}</div>`).join("")}
+     <div class="pillar x"><h4>Průřezově: datová a znalostní bariéra</h4><p style="margin:0;font-size:14.5px;color:#dfe6dc">Odborná data o území existují, ale jsou roztříštěná a nejsou ve formě použitelné pro obce, školy a veřejnost. Na tento problém míří mapový portál a QR aktivity.</p></div>
+    </div>
+   </div>
+
+   <div class="dsec" id="d-swot"><h3><span class="ic">🧭</span>SWOT v kostce</h3>
+    <div class="swot">${[["s","Silné stránky"],["w","Slabé stránky"],["o","Příležitosti"],["t","Hrozby"]].map(q=>`<div class="q ${q[0]}"><h4>${q[1]}</h4><ul>${SWOT[q[0]].map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("")}</div>
+    <p class="src">Výběr hlavních položek z tab. 7 strategie; úplná SWOT analýza je v kap. 9.2.</p>
+   </div>
+
+   ${karpikHtml(D)}
+   <div class="pager"><a class="btn btn-outline" href="#uvod">← Úvod</a><a class="btn btn-primary" href="#${(S.find(s=>!seen.has(s.id))||S[0]).id}">Pokračovat na kapitoly strategie →</a></div>
+  </section>`;
+}
+
+function bindData(){
+  document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>document.getElementById(b.dataset.go).scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
+  const drawHab=()=>{const h=HAB[dState.hab];document.getElementById("habd").innerHTML=`<h4 style="margin:0;color:var(--dark-green)">${h[0]}</h4><p><b>Kdo tu žije:</b> ${h[1]}</p><p><b>Co potřebuje:</b> ${h[2]}</p>`;};
+  drawHab();
+  document.querySelectorAll("[data-h]").forEach(b=>b.onclick=()=>{dState.hab=+b.dataset.h;document.querySelectorAll("[data-h]").forEach(x=>x.setAttribute("aria-pressed",x===b));drawHab()});
+  const drawOk=()=>{const m=dState.okMetric, idx={pd:3,ps:4,age:5}[m], max=m==="age"?50:30, ref=CR[m], unit=m==="age"?" let":" %";
+    document.getElementById("okb").innerHTML=OKS.map(o=>`<div class="r"><span>${o[0]}</span><div class="track"><i style="width:${o[idx]/max*100}%"></i><b style="left:${ref/max*100}%" title="Česko ${fmt(ref,1)}${unit}"></b></div><span class="v">${fmt(o[idx],1)}${m==="age"?"":" %"}</span></div>`).join("")+`<div class="r" style="color:var(--text-muted)"><span>Území celkem</span><div class="track"><i style="width:${TOTAL[m]/max*100}%;background:var(--mid-green)"></i><b style="left:${ref/max*100}%"></b></div><span class="v">${fmt(TOTAL[m],1)}${m==="age"?"":" %"}</span></div>`;};
+  drawOk();
+  document.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>{dState.okMetric=b.dataset.m;document.querySelectorAll("[data-m]").forEach(x=>x.setAttribute("aria-pressed",x===b));drawOk()});
+  document.querySelectorAll("[data-ok]").forEach(b=>b.onclick=()=>{dState.okFilter=b.dataset.ok;document.querySelectorAll("[data-ok]").forEach(x=>x.setAttribute("aria-pressed",x===b));drawObce()});
+  const oq=document.getElementById("oq");
+  oq.oninput=()=>{dState.q=oq.value;const hit=OBCE.find(o=>o.n.toLowerCase()===oq.value.trim().toLowerCase());if(hit){dState.sel=hit.n}drawObce()};
+  document.querySelectorAll("[data-sort]").forEach(th=>th.onclick=()=>{const k=th.dataset.sort;dState.sort=[k,dState.sort[0]===k?-dState.sort[1]:(k==="n"?1:-1)];document.querySelectorAll("[data-sort]").forEach(x=>x.removeAttribute("aria-sort"));th.setAttribute("aria-sort",dState.sort[1]>0?"ascending":"descending");drawObce()});
+  drawObce();
+}
+
+function drawObce(){
+  let q=dState.q.trim().toLowerCase(); if(OBCE.some(o=>o.n.toLowerCase()===q)) q="";
+  const list=OBCE.filter(o=>(!dState.okFilter||o.o===dState.okFilter)&&(!q||o.n.toLowerCase().includes(q)));
+  const [k,dir]=dState.sort; list.sort((a,b)=>k==="n"?a.n.localeCompare(b.n,"cs")*dir:(a[k]-b[k])*dir);
+  document.getElementById("otb").innerHTML=list.map(o=>`<tr data-o="${esc(o.n)}" class="${o.n===dState.sel?"sel":""}"><td>${esc(o.n)} <span class="status">${OKRES[o.o]}</span></td><td class="c">${fmt(o.pop)}</td><td class="c">${fmt(o.pd,1)}</td><td class="c">${fmt(o.ps,1)}<span class="sw"><i style="width:${o.ps/30*100}%;background:${SEQ[band(o.ps)]}"></i></span></td><td class="c">${fmt(o.age,1)}</td></tr>`).join("")||`<tr><td colspan="5" class="status">Žádná obec neodpovídá hledání.</td></tr>`;
+  document.querySelectorAll("#otb tr[data-o]").forEach(tr=>tr.onclick=()=>{dState.sel=tr.dataset.o;drawObce()});
+  // detail
+  const s=OBCE.find(o=>o.n===dState.sel);
+  document.getElementById("ocard").innerHTML = s ? (()=>{const dS=s.ps-TOTAL.ps, dD=s.pd-TOTAL.pd, rank=[...OBCE].sort((a,b)=>b.ps-a.ps).findIndex(o=>o===s)+1;
+    return `<div class="obec-card"><div class="row" style="justify-content:space-between"><h4>${esc(s.n)}</h4><span class="status">okres ${OKRES[s.o]}</span></div>
+     <div class="kv"><div><b>${fmt(s.pop)}</b><span>obyvatel</span></div><div><b>${fmt(s.d)}</b><span>dětí do 14 let</span></div><div><b>${fmt(s.s)}</b><span>seniorů 65+</span></div><div><b>${fmt(s.age,1)}</b><span>průměrný věk</span></div></div>
+     <p style="margin:0;font-size:14.5px">Podíl seniorů ${fmt(s.ps,1)} % je ${Math.abs(dS)<0.3?"na úrovni":dS>0?`o ${fmt(dS,1)} p. b. nad`:`o ${fmt(-dS,1)} p. b. pod`} průměrem území (23,0 %); podíl dětí ${fmt(s.pd,1)} % je ${Math.abs(dD)<0.3?"na úrovni":dD>0?`o ${fmt(dD,1)} p. b. nad`:`o ${fmt(-dD,1)} p. b. pod`} průměrem. ${rank}. nejstarší z 61 obcí podle podílu seniorů.${s.d<100?" Obec má méně než 100 dětí – vhodné jsou aktivity pro rodiny bez organizované skupiny (QR stanoviště, trasy).":""}</p></div>`})()
+   : `<div class="hint">Vyberte obec v grafu, v tabulce nebo ji vyhledejte.</div>`;
+  drawScatter(list);
+}
+
+function drawScatter(list){
+  const el=document.getElementById("sc"); const W=760,H=380,L=64,R=14,T=14,B=40;
+  const x0=7,x1=22,y0=12,y1=30; const X=v=>L+(v-x0)/(x1-x0)*(W-L-R), Y=v=>H-B-(v-y0)/(y1-y0)*(H-T-B);
+  const vis=new Set(list.map(o=>o.n));
+  const pts=[...OBCE].sort((a,b)=>b.pop-a.pop);
+  let g=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Bodový graf: podíl dětí a seniorů v 61 obcích">`;
+  for(let v=8;v<=22;v+=2) g+=`<line x1="${X(v)}" x2="${X(v)}" y1="${T}" y2="${H-B}" stroke="#eee8d8"/><text x="${X(v)}" y="${H-B+16}" text-anchor="middle">${v} %</text>`;
+  for(let v=12;v<=30;v+=3) g+=`<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="#eee8d8"/><text x="${L-6}" y="${Y(v)+4}" text-anchor="end">${v} %</text>`;
+  g+=`<line x1="${X(12)}" y1="${Y(12)}" x2="${X(22)}" y2="${Y(22)}" stroke="#55584f" stroke-dasharray="5 4"/>`;
+  g+=`<text x="${(L+W-R)/2}" y="${H-4}" text-anchor="middle" style="font-weight:700">Podíl dětí do 14 let</text><text transform="translate(12 ${(T+H-B)/2}) rotate(-90)" text-anchor="middle" style="font-weight:700">Podíl seniorů 65+</text>`;
+  pts.forEach(o=>{const r=3.5+Math.sqrt(o.pop)/11, on=vis.has(o.n), sel=o.n===dState.sel;
+    g+=`<circle data-o="${esc(o.n)}" cx="${X(o.pd).toFixed(1)}" cy="${Y(o.ps).toFixed(1)}" r="${r.toFixed(1)}" fill="${SEQ[band(o.ps)]}" fill-opacity="${on?0.9:0.15}" stroke="${sel?"#2f4830":"#ffffff"}" stroke-width="${sel?3:2}" style="cursor:pointer"/>`;});
+  const s=OBCE.find(o=>o.n===dState.sel);
+  if(s) g+=`<text x="${X(s.pd)}" y="${Y(s.ps)-(3.5+Math.sqrt(s.pop)/11)-6}" text-anchor="middle" style="font-weight:800;fill:#2f4830;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round">${esc(s.n)}</text>`;
+  g+=`</svg><div class="tip" id="stip" hidden></div>`;
+  el.innerHTML=g;
+  const tip=document.getElementById("stip"), svg=el.querySelector("svg");
+  el.querySelectorAll("circle").forEach(c=>{
+    c.onmouseenter=()=>{const o=OBCE.find(x=>x.n===c.dataset.o);const bb=svg.getBoundingClientRect(),sc=bb.width/W;tip.innerHTML=`<b>${esc(o.n)}</b> · ${fmt(o.pop)} obyv.<br>děti ${fmt(o.pd,1)} % · 65+ ${fmt(o.ps,1)} % · věk ${fmt(o.age,1)}`;tip.style.left=Math.min(Math.max(+c.getAttribute("cx")*sc,130),bb.width-130)+"px";tip.style.top=(+c.getAttribute("cy")*sc-(+c.getAttribute("r"))*sc)+"px";tip.hidden=false};
+    c.onmouseleave=()=>tip.hidden=true;
+    c.onclick=()=>{dState.sel=c.dataset.o;drawObce()};
+  });
+}
+
+/* ---------- doporučení pro cílové skupiny ---------- */
+const G = [
+ {id:"pro-obce", pro:"obce", t:"Obce", ico:"🏛️", img:"hostetin", lead:"Starostové, zastupitelé a pracovníci obcí",
+  why:"Obce spravují pozemky, rozhodují o území a jsou nejbližším partnerem škol i obyvatel. Malé obce přitom nemají vlastní odborné kapacity – proto strategie nabízí praktické karty, podklady a sdílenou pomoc přes SMOVM.",
+  groups:[["Péče o obecní pozemky",["Kosit obecní louky jednou až dvakrát ročně, nehnojit a posečenou hmotu odklidit (nemulčovat)","Ponechat při seči nepokosený pás a každý rok měnit jeho místo","Část zeleně v obci nechat kvést a na nové plochy použít osivo regionálního původu","Staré stromy ošetřovat odborně, vysazovat krajové odrůdy a původní dřeviny","Prameniště a mokřady nezavážet ani neodvodňovat; na vhodných pozemcích založit tůň"]],
+   ["Rozhodování o území",["Při změnách územního plánu využít podklad o přírodních hodnotách katastru","Před změnou využití pozemku ověřit v mapovém portálu, zda na něm nejsou cenné biotopy","Záměry v CHKO včas konzultovat se správou CHKO","Zmapovat problémové úseky cest a dohodnout s vlastníky jejich údržbu a obnovu po těžbě"]],
+   ["Invazní druhy",["Zmapovat ohniska invazních rostlin na obecních pozemcích a podél toků","Zasáhnout včas, zásah opakovat a koordinovat ho s vlastníky okolních pozemků","Upozornit obyvatele, aby nevyváželi zahradní odpad do krajiny"]],
+   ["Lidé a vzdělávání",["Nabídnout škole a spolkům obecní pozemek pro výuku venku","Podpořit umístění QR stanoviště a propagovat rodinné okruhy","Vysvětlovat změny péče o zeleň ve zpravodaji, na webu a v rozhlase","Pořádat dobrovolnické akce – kosení, výsadby, odstraňování náletů"]]],
+  help:[["Seminář pro obce","vysvětlení podkladu o přírodních hodnotách katastru a karet doporučení – na podzim"],["Kontaktní místo SMOVM","pomoc s dotacemi a s koordinací zásahů pro malé obce"],["Správa CHKO","konzultace záměrů a odborné stanovisko"],["Mapový portál","katastr, chráněná území, biotopy a Natura 2000 na jednom místě"]],
+  measures:["3.2","4.1","4.2","4.3","4.4","4.5","4.6"]},
+ {id:"pro-skoly", pro:"školy", t:"Školy", ico:"🎒", img:"zahrady", lead:"Učitelé 1. a 2. stupně ZŠ, střední školy a vzdělávací centra",
+  why:"Školy jsou primární cílovou skupinou strategie. Vztah k přírodě vzniká nejsilněji přímou zkušeností, proto má výuka o místní přírodě probíhat venku – a začínat už na 1. stupni ZŠ. Aktivity navazují na RVP ZV (Člověk a jeho svět, Člověk a příroda, Environmentální výchova).",
+  groups:[["Výuka venku",["Využít QR stanoviště v dosahu školy – obsah je pro 1. stupeň, 2. stupeň i starší","Zařadit aktivity do výuky podle metodických listů s vazbou na RVP ZV","Přihlásit se na seminář pro učitele v terénu (na jaře)","Objednat exkurzi s lektorem; malé školy mohou jet na společnou exkurzi"]],
+   ["Pozorování a péče",["Zapojit žáky do školního pozorování přírody a zápisu na platformu občanské vědy","Využít obecní pozemek nebo přírodní zahradu jako venkovní učebnu","Zapojit se s žáky do výsadby krajových odrůd nebo obnovy aleje"]],
+   ["Generace a tradice",["Pozvat pamětníky, aby dětem vyprávěli o tradičním hospodaření","Uspořádat akci pro prarodiče s vnoučaty","Navázat výuku na místní tradice – kosení luk, ovocnářství, kopanice"]],
+   ["Pravidla v terénu",["V národních přírodních rezervacích chodit jen po vyznačených cestách","Nic netrhat a nesbírat; rostliny poznávat na místě","Polohy vzácných druhů nezveřejňovat, fotky sdílet bez údajů o poloze"]]],
+  help:[["Metodické listy","aktivity s vazbou na RVP ZV pro jednotlivé stupně"],["Seminář pro učitele","v terénu, na jaře"],["Nabídka exkurzí","s lektorem a certifikovanými průvodci – nabídka do září"],["Vzdělávací centra","partneři pro programy a lektory"]],
+  measures:["3.3","4.2","5.1","5.2","5.3","5.4","5.6"]},
+ {id:"pro-odborniky", pro:"odborné organizace", t:"Odborné organizace", ico:"🔬", img:"certoryje", lead:"Správy CHKO, ekocentra, spolky ochrany přírody a odborníci",
+  why:"Odborný management chráněných území zůstává na správách CHKO a strategie ho nenahrazuje. Potřebuje ale odbornou garanci obsahu, sdílená data a partnery, kteří zapojí veřejnost – na obou stranách hranice podle stejných pravidel.",
+  groups:[["Obsah a data",["Odborně zkontrolovat obsah QR stanovišť a vzdělávacích aktivit","Sdílet data s mapovým portálem a mapovými vrstvami koncepcí práce s návštěvníky","Pomoci s metodikou školního pozorování a občanské vědy","Připravit s obcemi podklad o přírodních hodnotách katastru"]],
+   ["Ochrana citlivých míst",["Posoudit citlivost lokalit: široká návštěvnost / jen řízené exkurze / jen odborný monitoring","Hlídat, aby se nezveřejňovaly přesné polohy citlivých druhů","Koordinovat dronové snímkování s ohledem na hnízdění a pravidla CHKO"]],
+   ["Zapojení veřejnosti",["Lektorovat exkurze a výuku v terénu","Organizovat ukázkové kosení navázané na tradiční komunitní akce","Vést dobrovolnické akce – kosení, výsadby, odstraňování náletů","Informovat hospodáře o mozaikové seči a dotacích (na jaře před sezónou)"]],
+   ["Spolupráce přes hranici",["Zapojit se do přeshraniční pracovní skupiny partnerů","Sdílet výsledky na odborných setkáních a v časopise Bílé–Biele Karpaty"]]],
+  help:[["Pracovní skupina","společná pravidla pro stanoviště, data a návštěvnost na obou stranách"],["Pravidla pro citlivé údaje","kategorie lokalit, polohy druhů, fotografie, drony (kap. 13.3)"],["Odborná setkání","předávání dat a výsledků monitoringu"]],
+  measures:["2.1","2.4","3.1","3.3","5.2","6.1","6.2"]},
+ {id:"pro-obyvatele", pro:"obyvatele Bílých Karpat", t:"Obyvatelé", ico:"🏡", img:"sad", lead:"Místní rodiny, vlastníci pozemků, hospodáři a senioři",
+  why:"Bílé Karpaty jsou výjimečné díky lidem. Nejcennější louky a sady vznikly péčí místních hospodářů a jen jejich péčí se udrží. Každý může pomoci – na vlastní zahradě, louce i tím, že vezme děti ven.",
+  groups:[["Na zahradě a pozemku",["Nevyvážet zahradní odpad do krajiny – šíří invazní druhy","Nechat kus trávníku rozkvést a kosit ho méně často","Pečovat o staré ovocné stromy a sázet krajové odrůdy","Nechat staré a doupné stromy, kde to bezpečnost dovolí"]],
+   ["Pro hospodáře a vlastníky luk",["Kosit mozaikovitě – v různých termínech a s nepokosenou částí","Udržet extenzivní pastvu a odstraňovat nálety","Zjistit si možnosti plateb za péči o travní porosty (agroenvironmentální opatření)"]],
+   ["S rodinou venku",["Projít s dětmi rodinný okruh nebo QR stanoviště v okolí","Zapsat zajímavé pozorování na platformu občanské vědy","Přijít na místní akci – tradiční kosení, hrabání luk, ovocnářské slavnosti"]],
+   ["Zapojit se",["Přidat se k dobrovolnické akci – kosení, výsadby, odstraňování náletů","Sdílet jako pamětník vzpomínky na tradiční hospodaření","Nahlásit obci ohnisko invazních rostlin"]]],
+  help:[["Obecní zpravodaj a rozhlas","kde jsou stanoviště, okruhy a akce"],["Kalendář akcí","dobrovolnické akce v mapovém portálu"],["Kluby seniorů","zapojení pamětníků a akce s vnoučaty"],["Setkání s hospodáři","mozaiková seč a dotace – na jaře"]],
+  measures:["2.1","2.2","2.4","3.3","5.5","5.6"]},
+ {id:"pro-navstevniky", pro:"návštěvníky", t:"Návštěvníci", ico:"🥾", img:"hreben", lead:"Turisté, cyklisté a rodiny na výletě",
+  why:"Návštěvníci přinášejí obcím příjmy, ale když se soustředí na citlivých místech, přírodě škodí – sešlapem, rušením, pohybem mimo cesty nebo sběrem rostlin. Chraňte, co poznáte.",
+  groups:[["Na cestě",["Zůstat na značených cestách – v národních přírodních rezervacích je to povinné","Nic netrhat ani nesbírat; vstavače nechat růst na louce","Nevjíždět autem do krajiny mimo určená místa","Na kole jezdit po cyklotrasách"]],
+   ["Plánování výletu",["Vybrat doporučenou trasu nebo rodinný okruh v mapovém portálu","Zastavit se u QR stanovišť – aktivity fungují i při slabém signálu","Zeptat se v turistickém informačním centru na méně vytížené cíle"]],
+   ["Fotky a drony",["Nezveřejňovat polohu vzácných rostlin a živočichů, fotky sdílet bez polohy","Létat s dronem jen po dohodě; na slovenské straně v CHKO platí zákaz letů"]],
+   ["Podpořit region",["Využít místní ubytování, služby a regionální produkty","Přijet na místní slavnost nebo jarmark"]]],
+  help:[["Mapový portál","doporučené trasy, okruhy a zajímavosti na obou stranách hranice"],["QR stanoviště","u tras, s obsahem pro děti i dospělé"],["Turistická informační centra a KČT","tipy na šetrné výlety"]],
+  measures:["5.1","5.5","6.1","6.3"]}
+];
+const GS = G.map(g=>({id:g.id,t:"Pro: "+g.t,items:g.groups.map(x=>x[0])}));
+const tipKey = g => "tip-"+g.id;
+
+function tipCount(g,key){ if(!online) return 0; return moods.filter(m=>!m.mine && Array.isArray(m.a?.[tipKey(g)]) && m.a[tipKey(g)].includes(key)).length; }
+
+function hubHtml(){
+  return `<section class="chapter" aria-labelledby="h">
+   <div class="ch-banner"><img src="assets/strategie/kopanice.webp" alt=""><div class="t"><span>Doporučení podle cílových skupin</span><h2 id="h">Co můžete pro Bílé Karpaty udělat vy</h2></div></div>
+   ${recoHtml()}
+   <p class="intro">Ochrana přírody tady nestojí jen na správcích chráněných území. Vyberte, kdo jste, a najděte konkrétní kroky. U každého můžete kliknout „Zkusím to“ a uvidíte, kolik lidí se přidalo.</p>
+   <div class="grid2">${[["Bílé Karpaty jsou výjimečné díky lidem.","Nejcennější louky a sady vznikly péčí místních hospodářů."],["Pojďte ven.","Přírodu nejlépe poznáte na místě – QR stanoviště vás provedou."],["Chraňte, co poznáte.","Zůstaňte na značených cestách, nic netrhejte a nerušte."],["Každý může pomoci.","Obec, škola, rodina i jednotlivec – každý má svůj díl."]].map(k=>`<div class="card" style="background:var(--yellow-soft);border-color:var(--yellow-soft)"><h3>${k[0]}</h3><p class="sub">${k[1]}</p></div>`).join("")}</div>
+   <div class="ch-grid">${G.map(g=>{const n=(quick[tipKey(g)]||[]).length;return `<a class="ch-card" href="#${g.id}"><div class="ph"><img src="assets/strategie/${g.img}.webp" alt="" loading="lazy"><span class="no">${g.ico} ${g.t}</span>${n?`<span class="done">✓ ${n}</span>`:""}</div><div class="b"><h3>Pro ${g.pro}</h3><p>${esc(g.lead)}</p></div></a>`}).join("")}</div>
+   <p class="src">Zpracováno podle kap. 11, 12, 13.3 a 15 strategie. Čtyři klíčová sdělení vycházejí z interpretačního plánu CHKO Bílé Karpaty.</p>
+   <div class="pager"><a class="btn btn-outline" href="#uvod">← Úvod</a><a class="btn btn-primary" href="#hodnoceni">Ohodnotit strategii →</a></div>
+  </section>`;
+}
+
+function groupHtml(g){
+  const gi=G.indexOf(g), mine=quick[tipKey(g)]||[], total=g.groups.reduce((a,x)=>a+x[1].length,0);
+  return `<section class="chapter" aria-labelledby="h">
+   <div class="ch-banner"><img src="assets/strategie/${g.img}.webp" alt=""><div class="t"><span>${g.ico} ${esc(g.lead)}</span><h2 id="h">Doporučení pro ${g.pro}</h2></div></div>
+   <div class="filters" role="group" aria-label="Cílové skupiny">${G.map(x=>`<a class="btn ${x===g?"btn-primary":"btn-outline"}" style="padding:7px 14px;font-size:14px" href="#${x.id}"${x===g?' aria-current="page"':""}>${x.ico} ${x.t}</a>`).join("")}</div>
+   <div class="card" style="background:var(--green-soft);border-color:var(--green-soft)"><div class="k">Proč na vás záleží</div><p style="font-size:17px">${esc(g.why)}</p></div>
+   <div class="row" style="justify-content:space-between"><h3 style="font-size:22px">Co můžete udělat</h3><span class="progress" id="tipprog">${mine.length}/${total} zkusím</span></div>
+   <div class="list">${g.groups.map((grp,ci)=>`<div class="card"><h3>${grp[0]}</h3><div class="tips">${grp[1].map((tip,ti)=>{const key=ci+"-"+ti, on=mine.includes(key), c=tipCount(g,key);return `<div class="tip-row${on?" on":""}"><span class="tt">${esc(tip)}</span><button type="button" class="tbtn" data-tip="${key}" aria-pressed="${on}">${on?"✓ Zkusím":"Zkusím to"}</button><span class="tc" data-tc="${key}">${c?`+${c} ${c===1?"další":"dalších"}`:""}</span></div>`}).join("")}</div></div>`).join("")}</div>
+   <div class="two">
+    <div class="panel"><h4>S čím vám pomůže projekt</h4>${g.help.map(h=>`<div class="ov-c" style="padding:6px 0"><b>${h[0]}</b><span class="status">${h[1]}</span></div>`).join("")}</div>
+    <div class="panel"><h4>Související opatření strategie</h4><div class="filters">${g.measures.map(id=>{const m=M.find(x=>x[0]===id);return `<a class="chip ${m[4]==="vysoká"?"vys":"str"}" style="text-decoration:none;font-size:13px;padding:5px 11px" href="#opatreni">${m[0]} ${m[1]}</a>`}).join("")}</div>${g.id==="pro-obce"?`<p class="src" style="margin-top:6px">Podrobné karty pro obce najdete v kapitole <a href="#obce">Pro obce</a>, zdroje v kapitole <a href="#financovani">Financování</a>.</p>`:""}</div>
+   </div>
+   ${fbHtml(GS[gi])}
+   <div class="pager"><a class="btn btn-outline" href="#pro-koho">← Všechny skupiny</a>${gi<G.length-1?`<a class="btn btn-primary" href="#${G[gi+1].id}">Další: ${G[gi+1].ico} ${G[gi+1].t} →</a>`:`<a class="btn btn-primary" href="#hodnoceni">Ohodnotit strategii →</a>`}</div>
+  </section>`;
+}
+
+function bindGroup(g){
+  document.querySelectorAll("[data-tip]").forEach(b=>b.onclick=()=>{
+    const k=b.dataset.tip; let a=Array.isArray(quick[tipKey(g)])?[...quick[tipKey(g)]]:[];
+    a=a.includes(k)?a.filter(x=>x!==k):[...a,k]; quick[tipKey(g)]=a; ls.set("bk-quick",quick);
+    const on=a.includes(k); b.setAttribute("aria-pressed",on); b.textContent=on?"✓ Zkusím":"Zkusím to"; b.closest(".tip-row").classList.toggle("on",on);
+    const total=g.groups.reduce((s,x)=>s+x[1].length,0); document.getElementById("tipprog").textContent=`${a.length}/${total} zkusím`;
+    persistQuick();
+  });
+}
+
+const ROLE2G = {"Obec / samospráva":"pro-obce","Škola / pedagog":"pro-skoly","Ochrana přírody / správa CHKO":"pro-odborniky","Vzdělávací či ekocentrum":"pro-odborniky","Spolek / místní aktér":"pro-odborniky","Odborník":"pro-odborniky","Obyvatel Bílých Karpat":"pro-obyvatele","Veřejnost":"pro-obyvatele","Návštěvník / turista":"pro-navstevniky"};
+const Q2G = {"Bydlím tady":"pro-obyvatele","Jezdím sem rád/a":"pro-navstevniky","Byl/a jsem tu párkrát":"pro-navstevniky","Znám je zatím z mapy":"pro-navstevniky"};
+function myGroup(){ const id = ROLE2G[me.role] || me.skupina || Q2G[quick.uzemi]; return G.find(g=>g.id===id)||null; }
+function recoHtml(){
+  const g=myGroup(), done=S.filter(s=>seen.has(s.id)).length;
+  if(g){ const n=(quick[tipKey(g)]||[]).length, why = ROLE2G[me.role]?`Podle toho, že se díváte jako „${esc(me.role)}“`:me.skupina?"Podle skupiny, kterou jste si vybrali":"Podle vaší odpovědi Karpíkovi";
+    return `<div class="reco"><img src="assets/strategie/karpik-rozcestnik.webp" alt=""><div><div class="k">Doporučení pro vás</div><h3>${g.ico} Co můžete udělat jako ${g.t==="Obce"?"obec":g.t==="Školy"?"škola":g.t==="Odborné organizace"?"odborná organizace":g.t==="Obyvatelé"?"obyvatel Bílých Karpat":"návštěvník"}</h3><p>${why}${done?` a ${done} prošlých kapitol`:""} jsme pro vás vybrali ${g.groups.reduce((a,x)=>a+x[1].length,0)} konkrétních kroků.${n?` Už jste si jich označili ${n}.`:""}</p><div class="row"><a class="btn btn-accent" href="#${g.id}">Zobrazit moje doporučení →</a><button type="button" class="btn btn-outline" data-reco-pick="">Jsem někdo jiný</button></div><div class="filters" id="recopick" hidden style="margin-top:10px">${G.map(x=>`<button type="button" data-skupina="${x.id}" aria-pressed="${x===g}">${x.ico} ${x.t}</button>`).join("")}</div></div></div>`; }
+  return `<div class="reco"><img src="assets/strategie/karpik-rozcestnik.webp" alt=""><div><div class="k">Doporučení pro vás</div><h3>Kdo jste? Karpík vám ukáže, co můžete udělat</h3><p>Vyberte svou skupinu a dostanete konkrétní kroky na míru.</p><div class="filters">${G.map(x=>`<button type="button" data-skupina="${x.id}" aria-pressed="false">${x.ico} ${x.t}</button>`).join("")}</div></div></div>`;
+}
+function bindReco(){
+  document.querySelectorAll("[data-reco-pick]").forEach(b=>b.onclick=()=>{const p=document.getElementById("recopick");p.hidden=!p.hidden});
+  document.querySelectorAll("[data-skupina]").forEach(b=>b.onclick=()=>{me.skupina=b.dataset.skupina; if(ROLE2G[me.role]&&ROLE2G[me.role]!==me.skupina){me.role="";} persist(); location.hash=me.skupina;});
+}
+
+/* ---------- vykreslení ---------- */
+function render(){
+  let id = location.hash.slice(1)||"uvod";
+  if(id==="prehled" && !isAdmin) id="uvod";
+  if(!S.find(s=>s.id===id) && !["prehled","data","pro-koho"].includes(id) && !G.find(g=>g.id===id)) id="uvod";
+  document.getElementById("tabs").innerHTML = tabsHtml(id);
+  document.getElementById("prog").innerHTML = progHtml();
+  const cur = document.querySelector('.tabs a[aria-current]'); if(cur) cur.scrollIntoView({block:"nearest",inline:"nearest"});
+  const v = document.getElementById("view");
+  if(id==="uvod"){ v.innerHTML = homeHtml(); bindReco(); return; }
+  if(id==="data"){ v.innerHTML = dataHtml(); bindData(); bind("data"); return; }
+  if(id==="pro-koho"){ v.innerHTML = hubHtml(); bindReco(); return; }
+  const g=G.find(x=>x.id===id); if(g){ v.innerHTML = groupHtml(g); bindGroup(g); bind(id); return; }
+  if(id==="prehled"){ v.innerHTML = overviewHtml(); bindOverview(); return; }
+  const i = S.findIndex(s=>s.id===id), s=S[i];
+  if(!seen.has(id)){ seen.add(id); ls.set("bk-seen",[...seen]); document.getElementById("tabs").innerHTML = tabsHtml(id); document.getElementById("prog").innerHTML = progHtml(); }
+  v.innerHTML = `<section class="chapter" aria-labelledby="h">
+    <div class="ch-banner"><img src="assets/strategie/${s.img}.webp" alt=""><div class="t"><span>Kapitola ${i+1} z ${S.length}</span><h2 id="h">${esc(s.h)}</h2></div></div>
+    <p class="intro">${esc(s.intro)}</p>
+    ${i===0?whoHtml():""}
+    ${body(id)}
+    ${karpikHtml(s)}
+    ${id!=="hodnoceni"?fbHtml(s):""}
+    ${id==="financovani"||id==="hodnoceni"?recoHtml():""}
+    <div class="pager">${i>0?`<a class="btn btn-outline" href="#${S[i-1].id}">← ${esc(S[i-1].t)}</a>`:`<a class="btn btn-outline" href="#uvod">← Úvod</a>`}${i<S.length-1?`<a class="btn btn-primary" href="#${S[i+1].id}">Další: ${esc(S[i+1].t)} →</a>`:""}</div>
+  </section>`;
+  bind(id); bindReco();
+}
+
+function bind(id){
+  const role=document.getElementById("w-role"), org=document.getElementById("w-org");
+  if(role){ role.onchange=()=>{me.role=role.value;persist()}; let t; org.oninput=()=>{clearTimeout(t);t=setTimeout(()=>{me.org=org.value.trim();persist()},800)}; }
+  if(id==="opatreni"){
+    const draw=a=>{document.getElementById("mt").innerHTML=M.filter(m=>!a||(a==="vys"?m[4]==="vysoká":m[2]===a)).map(m=>`<tr><td class="c">${m[0]}</td><td>${m[1]}</td><td>${AREAS[m[2]]}</td><td class="c">${m[3]}</td><td><span class="chip ${m[4]==="vysoká"?"vys":"str"}">${m[4]}</span></td></tr>`).join("")};
+    draw("");
+    document.querySelectorAll(".filters button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".filters button").forEach(x=>x.setAttribute("aria-pressed",x===b));draw(b.dataset.a)});
+  }
+  const s=S.find(x=>x.id===id)||(id==="data"?D:null);
+  const kq=document.getElementById("kq");
+  if(kq) kq.querySelectorAll("[data-o]").forEach(b=>b.onclick=()=>{
+    const o=b.dataset.o;
+    if(s.q.multi){ let a=Array.isArray(quick[id])?[...quick[id]]:[]; a=a.includes(o)?a.filter(x=>x!==o):[...a,o]; quick[id]=a; }
+    else quick[id] = quick[id]===o ? null : o;
+    ls.set("bk-quick",quick);
+    kq.querySelectorAll("[data-o]").forEach(x=>{const v=x.dataset.o;x.setAttribute("aria-pressed",String(Array.isArray(quick[id])?quick[id].includes(v):quick[id]===v))});
+    const answered = quick[id]!=null && (!Array.isArray(quick[id])||quick[id].length);
+    document.getElementById("kres").innerHTML = answered?resultsHtml(s):'<div class="hint">Klikněte na odpověď a uvidíte, jak odpověděli ostatní.</div>';
+    persistQuick();
+  });
+  const fbd=document.getElementById("fbd");
+  if(fbd) fbd.ontoggle=()=>{openFb=fbd.open?id:null};
+  const fb=document.getElementById("fb");
+  if(fb){
+    const tx=document.getElementById("fb-text"); const dk="bk-draft-"+id; tx.value=ls.get(dk,"");
+    tx.oninput=()=>ls.set(dk,tx.value);
+    fb.onsubmit=e=>{e.preventDefault(); const text=tx.value.trim(); const st=document.getElementById("fb-st");
+      if(!text){st.textContent="Napište prosím text připomínky.";st.className="status err";tx.focus();return}
+      me.comments.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),section:id,item:document.getElementById("fb-item")?.value||"",typ:fb.typ.value,text,at:new Date().toISOString()});
+      ls.set(dk,""); saveState="Připomínka přidána, díky!"; openFb=id; persist(); render(); document.getElementById("fbd")?.scrollIntoView({block:"nearest"});
+    };
+    fb.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{me.comments=me.comments.filter(c=>c.id!==b.dataset.del);saveState="Připomínka odebrána.";openFb=id;persist();render()});
+  }
+  const sv=document.getElementById("sv");
+  if(sv){ const pc=document.getElementById("sv-pdf"), kt=document.getElementById("sv-kontakt"); const gd=()=>{document.getElementById("sv-gdpr-w").hidden=!(pc.checked||kt.value.trim())}; pc.onchange=()=>{document.getElementById("sv-mail-w").hidden=!pc.checked; gd(); if(pc.checked) document.getElementById("sv-mail").focus();}; kt.oninput=gd; }
+  document.querySelectorAll("[data-gdpr]").forEach(a=>a.onclick=e=>{e.preventDefault();const d=document.getElementById("gdpr");d.open=true;d.scrollIntoView({block:"start"})});
+  if(sv) sv.onsubmit=e=>{e.preventDefault();
+    const chcePdf=document.getElementById("sv-pdf").checked, email=document.getElementById("sv-mail").value.trim();
+    const kontakt=document.getElementById("sv-kontakt").value.trim(), souhlas=document.getElementById("sv-gdpr").checked;
+    if((chcePdf||kontakt) && !souhlas){const st=document.getElementById("sv-st");st.textContent="Pro zaslání strategie nebo kontakt potřebujeme váš souhlas se zpracováním údajů (zaškrtněte políčko výše).";st.className="status err";return}
+    if(chcePdf && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){const st=document.getElementById("sv-st");st.textContent="Zadejte prosím platný e-mail, kam máme strategii poslat.";st.className="status err";document.getElementById("sv-mail").focus();return}
+    me.survey={uzitecnost:+(sv.uz.value||0)||null,casti:[...sv.querySelectorAll('[name=parts]:checked')].map(x=>x.value),vyuziti:sv.vyuziti.value||"",co:document.getElementById("sv-co").value.trim(),zapojeni:[...sv.querySelectorAll('[name=join]:checked')].map(x=>x.value),chybi:document.getElementById("sv-chybi").value.trim(),chcePdf,email:chcePdf?email:"",souhlas:(chcePdf||kontakt)?souhlas:false,souhlasAt:(chcePdf||kontakt)&&souhlas?new Date().toISOString():null,at:new Date().toISOString()};
+    me.contact=souhlas?kontakt:"";
+    persist(true);
+    const st0=document.getElementById("sv-st"); st0.className="status"; st0.textContent = online? "Odesílám…" : "Uloženo ve vašem prohlížeči – odeslání viz nahoře.";
+  };
+}
+
+/* ---------- ukládání (Supabase) ---------- */
+const SB_URL="https://wbpjwfoczzfcmridgcsi.supabase.co", SB_KEY="sb_publishable_jiU2MwCU4026VU2jCgLQnQ_conRVrjK";
+let clientId = ls.get("bk-client", null);
+if(!clientId){ clientId = (crypto.randomUUID ? crypto.randomUUID() : "10000000-1000-4000-8000-100000000000".replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15>>c/4).toString(16))); ls.set("bk-client", clientId); }
+async function rpc(fn, args){
+  const r = await fetch(SB_URL+"/rest/v1/rpc/"+fn,{method:"POST",headers:{"apikey":SB_KEY,"Authorization":"Bearer "+SB_KEY,"Content-Type":"application/json"},body:JSON.stringify(args)});
+  if(!r.ok) throw new Error("rpc "+fn+" "+r.status);
+  const t = await r.text(); return t ? JSON.parse(t) : null;
+}
+function payload(){ return {...JSON.parse(JSON.stringify(me)), skupina: myGroup()?.id||""}; }
+function persist(fromSurvey){
+  me.updatedAt=new Date().toISOString(); ls.set("bk-me",me);
+  if(!online){ showOffline(); return; }
+  const data=payload();
+  saving = saving.then(()=>rpc("innomethod_save_odpoved",{p_client:clientId,p_data:data})).then(()=>{
+    if(fromSurvey){const st=document.getElementById("sv-st"); if(st) st.textContent="Děkujeme, hodnocení je odesláno."+(me.survey?.chcePdf?" Strategii v PDF pošleme na "+me.survey.email+".":"")+" Můžete ho kdykoli upravit."}
+  }).catch(()=>{ online=false; showOffline(); if(fromSurvey){const st=document.getElementById("sv-st"); if(st){st.textContent="Odeslání se nepodařilo – odpovědi jsou uložené v prohlížeči, zkopírujte je nahoře.";st.className="status err"}} });
+}
+let qTimer;
+function persistQuick(){
+  if(!online){ showOffline(); return; }
+  clearTimeout(qTimer);
+  qTimer=setTimeout(()=>{ const a=JSON.parse(JSON.stringify(quick)); savingQ=savingQ.then(()=>rpc("innomethod_save_nalada",{p_client:clientId,p_answers:a,p_role:me.role||"",p_skupina:myGroup()?.id||""})).then(loadMoods).catch(()=>{}); },600);
+}
+async function loadMoods(){
+  try{ const rows = await rpc("innomethod_get_nalady",{p_client:clientId}); moods=(rows||[]).map(r=>({a:r.answers,mine:r.mine})); refreshCounts(); }catch(e){}
+}
+function refreshCounts(){
+  const id=location.hash.slice(1); const sec=S.find(x=>x.id===id)||(id==="data"?D:null); const k=document.getElementById("kres");
+  if(k && sec && quick[id]!=null && (!Array.isArray(quick[id])||quick[id].length)) k.innerHTML=resultsHtml(sec);
+  const gg=G.find(x=>x.id===id); if(gg) document.querySelectorAll("[data-tc]").forEach(el=>{const c=tipCount(gg,el.dataset.tc);el.textContent=c?`+${c} ${c===1?"další":"dalších"}`:""});
+}
+
+function asText(){
+  const L=[`Připomínky ke strategii INNOMETHOD – Bílé Karpaty`,`Za: ${me.role||"-"} · ${me.org||"-"}`,""];
+  [D,...S,...GS].forEach(s=>{const cs=me.comments.filter(c=>c.section===s.id); const q=quick[s.id]; if(cs.length||q){L.push(`## ${s.t}`); if(q&&s.q) L.push(`Karpík: ${s.q.q} → ${Array.isArray(q)?q.join(", "):q}`); cs.forEach(c=>L.push(`- [${typeLabel(c.typ)}]${c.item?" ("+c.item+")":""} ${c.text}`));L.push("")}});
+  const v=me.survey||{}; if(v.at){L.push("## Hodnocení",`Užitečnost: ${v.uzitecnost||"-"}/5`,`Přínosné části: ${(v.casti||[]).join(", ")||"-"}`,`Využití: ${v.vyuziti||"-"} ${v.co||""}`,`Zapojení: ${(v.zapojeni||[]).join(", ")||"-"}`,`Chybí: ${v.chybi||"-"}`,`Kontakt: ${me.contact||"-"}`,`Zaslat PDF strategie: ${v.chcePdf?"ano – "+v.email:"ne"}`)}
+  return L.join("\n");
+}
+function showOffline(){
+  const b=document.getElementById("offline");
+  const has = me.comments.length || (me.survey&&me.survey.at);
+  if(!has){b.hidden=true;return}
+  b.hidden=false;
+  b.innerHTML=`<div><b>Z tohoto zobrazení se odpovědi nedají odeslat online.</b> Zůstávají uložené ve vašem prohlížeči. Zkopírujte je prosím a pošlete koordinátorovi projektu e-mailem.</div><div class="row"><button class="btn btn-outline" type="button" id="cp">Zkopírovat odpovědi</button><span class="status" id="cps"></span></div><div class="copybox" id="cpx">${esc(asText())}</div>`;
+  document.getElementById("cp").onclick=()=>{const t=asText();const s=document.getElementById("cps");
+    navigator.clipboard.writeText(t).then(()=>s.textContent="Zkopírováno.").catch(()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("cpx"));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);s.textContent="Text je označený, zkopírujte ho Ctrl+C."})};
+}
+
+/* ---------- přehled pro vlastníka a editory ---------- */
+function overviewHtml(){
+  const resp=all.filter(r=>r.comments?.length||r.survey?.at);
+  const comments=resp.flatMap(r=>(r.comments||[]).map(c=>({...c,role:r.role,org:r.org})));
+  const rated=resp.filter(r=>r.survey?.uzitecnost); const avg=rated.length?(rated.reduce((a,r)=>a+r.survey.uzitecnost,0)/rated.length).toFixed(1).replace(".",","):"–";
+  const count=arr=>{const m={};arr.forEach(x=>(Array.isArray(x)?x:x!=null?[x]:[]).forEach(v=>m[v]=(m[v]||0)+1));return m};
+  const bars=(m,labels)=>{const max=Math.max(1,...Object.values(m));return labels.map(l=>`<div class="ov-row"><span>${esc(l)}</span><div class="bar"><i style="width:${(m[l]||0)/max*100}%"></i></div><span class="pc" style="text-align:right">${m[l]||0}</span></div>`).join("")};
+  return `<section class="chapter"><div><span class="pill-badge">🔒 Vidíte jen vy a editoři</span><h2 style="font-size:30px;margin-top:10px">Přehled odpovědí</h2></div>
+   <div class="tiles"><div class="tile y"><div class="n">${moods.length}</div><div class="l">lidí odpovídalo Karpíkovi</div></div><div class="tile"><div class="n">${resp.length}</div><div class="l">respondentů s připomínkou nebo hodnocením</div></div><div class="tile"><div class="n">${comments.length}</div><div class="l">připomínek</div></div><div class="tile"><div class="n">${avg}</div><div class="l">průměrná užitečnost (1–5), ${rated.length}×</div></div></div>
+   <div class="row"><button class="btn btn-outline" type="button" id="csv">Stáhnout CSV</button><span class="status" id="csvs"></span></div>
+   ${(()=>{const pdf=resp.filter(r=>r.survey?.chcePdf&&r.survey?.email);return `<div class="card"><h3>Žádosti o PDF strategie (${pdf.length})</h3>${pdf.length?`<div class="copybox" id="pdfm">${pdf.map(r=>esc(r.survey.email)).join("; ")}</div><div class="row"><button class="btn btn-outline" type="button" id="pdfc">Zkopírovat e-maily</button><span class="status" id="pdfs"></span></div>`:'<p class="sub">Zatím nikdo nepožádal.</p>'}</div>`})()}
+   <div class="card"><h3>Přínosné části</h3>${bars(count(resp.map(r=>r.survey?.casti)),PARTS)}</div>
+   <div class="card"><h3>Zájem o zapojení</h3>${bars(count(resp.map(r=>r.survey?.zapojeni)),JOIN)}</div>
+   ${[D,...S].filter(s=>s.q).map(s=>`<div class="card"><div class="k">Karpík · ${esc(s.t)}</div><h3>${esc(s.q.q)}</h3>${bars(count(moods.map(m=>m.a?.[s.id])),s.q.o)}</div>`).join("")}
+   <div class="card"><h3>Kdo co zkusí (doporučení)</h3>${G.map(g=>{const rows=g.groups.flatMap((grp,ci)=>grp[1].map((t,ti)=>[t,moods.filter(m=>Array.isArray(m.a?.[tipKey(g)])&&m.a[tipKey(g)].includes(ci+"-"+ti)).length])).filter(r=>r[1]).sort((a,b)=>b[1]-a[1]).slice(0,5);return `<div class="k" style="margin-top:10px">${g.ico} ${g.t}</div>`+(rows.length?rows.map(r=>`<div class="ov-row"><span>${esc(r[0])}</span><div class="bar"><i style="width:${r[1]/Math.max(1,moods.length)*100}%"></i></div><span class="pc" style="text-align:right">${r[1]}</span></div>`).join(""):'<p class="sub" style="margin:0">Zatím nikdo.</p>')}).join("")}</div>
+   <div class="card"><h3>Připomínky podle kapitol</h3>${comments.length?[...S,...GS].map(s=>{const cs=comments.filter(c=>c.section===s.id);return cs.length?`<h3 style="margin-top:12px;font-size:16px">${esc(s.t)} (${cs.length})</h3>`+cs.map(c=>`<div class="ov-c"><div><b>${esc(typeLabel(c.typ))}</b>${c.item?" · "+esc(c.item):""}</div><div style="overflow-wrap:anywhere">${esc(c.text)}</div><div class="m">${esc(c.role||"bez uvedení")} · ${esc(c.org||"")} · ${new Date(c.at).toLocaleDateString("cs-CZ")}</div></div>`).join(""):""}).join(""):'<p class="sub">Zatím žádné připomínky. Jakmile je respondenti přidají, objeví se tady.</p>'}</div>
+   <div class="card"><h3>Co využijí / co chybí</h3>${resp.filter(r=>r.survey?.chybi||r.survey?.co).map(r=>`<div class="ov-c"><div>${r.survey.co?"<b>Využijí:</b> "+esc(r.survey.co)+"<br>":""}${r.survey.chybi?"<b>Chybí:</b> "+esc(r.survey.chybi):""}</div><div class="m">${esc(r.role||"bez uvedení")} · ${esc(r.org||"")}${r.contact?" · kontakt: "+esc(r.contact):""}</div></div>`).join("")||'<p class="sub">Zatím bez odpovědí.</p>'}</div>
+  </section>`;
+}
+function csvText(){
+  const q=v=>'"'+String(v??"").replace(/"/g,'""')+'"'; const rows=[["typ_zaznamu","role","organizace","kontakt","kapitola","tyka_se","typ","text","uzitecnost","vyuziti","datum"]];
+  all.forEach(r=>{(r.comments||[]).forEach(c=>rows.push(["pripominka",r.role,r.org,r.contact,([D,...S,...GS].find(s=>s.id===c.section)||{}).t,c.item,typeLabel(c.typ),c.text,"","",c.at]));
+    if(r.survey?.at) rows.push(["hodnoceni",r.role,r.org,r.contact,"","","",["Přínosné: "+(r.survey.casti||[]).join("; "),"Zapojení: "+(r.survey.zapojeni||[]).join("; "),"Využijí: "+(r.survey.co||""),"Chybí: "+(r.survey.chybi||""),"Zaslat PDF: "+(r.survey.chcePdf?r.survey.email:"ne")].join(" | "),r.survey.uzitecnost,r.survey.vyuziti,r.survey.at])});
+  moods.forEach(m=>[D,...S].forEach(s=>{const a=m.a?.[s.id]; if(s.q&&a!=null&&(!Array.isArray(a)||a.length)) rows.push(["karpik",m.role,"","",s.t,s.q.q,"",Array.isArray(a)?a.join("; "):a,"","",m.at])}));
+  return "﻿"+rows.map(r=>r.map(q).join(";")).join("\r\n");
+}
+async function bindOverview(){
+  const pc=document.getElementById("pdfc"); if(pc) pc.onclick=()=>{const t=document.getElementById("pdfm").textContent, s=document.getElementById("pdfs"); navigator.clipboard.writeText(t).then(()=>s.textContent="Zkopírováno.").catch(()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("pdfm"));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);s.textContent="Označeno, zkopírujte Ctrl+C."})};
+  const b=document.getElementById("csv"); if(!b) return;
+  const dl=await claude.use("downloads").catch(()=>null);
+  if(!dl){b.hidden=true;return}
+  b.onclick=()=>dl.save({filename:"pripominky-strategie-bile-karpaty.csv",data:csvText()}).then(()=>document.getElementById("csvs").textContent="Soubor připraven.").catch(()=>document.getElementById("csvs").textContent="Stažení se nepodařilo nebo bylo zrušeno.");
+}
+
+window.addEventListener("hashchange",()=>{saveState="";render();window.scrollTo({top:0})});
+render();
+
+(async()=>{
+  try{
+    const d = await rpc("innomethod_get_odpoved",{p_client:clientId}); online=true;
+    if(d){ if(!d.comments) d.comments=[];
+      if(me.updatedAt && (!d.updatedAt || me.updatedAt>d.updatedAt)) persist(); else { me={...me,...d}; ls.set("bk-me",me); } }
+    else if(me.comments.length || me.survey?.at) persist();
+  }catch(e){ online=false; showOffline(); }
+  if(online){ await loadMoods(); if(Object.keys(quick).length && !moods.some(m=>m.mine)) persistQuick(); setInterval(()=>{ if(document.visibilityState==="visible") loadMoods(); },60000); }
+  render();
+})();
+</script>
+
+</body>
+</html>
