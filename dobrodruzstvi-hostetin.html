@@ -7,7 +7,7 @@
 <meta name="description" content="Rodinná výprava s Karpíkem v Hostětíně: od soch v krajině až do přírodní zahrady Centra Veronica. 5 zastavení, 2,4 km, přibližně 1 hodina.">
 <link rel="stylesheet" href="assets/site.css?v=20261021c">
 <script src="assets/i18n.js?v=20261029a"></script>
-<link rel="stylesheet" href="assets/dobrodruzstvi.css?v=20261029b">
+<link rel="stylesheet" href="assets/dobrodruzstvi.css?v=20261029c">
 </head>
 <body>
 
@@ -81,7 +81,7 @@
       </dl>
     </section>
 
-    <section>
+    <section id="start">
       <h2>Start dobrodružství s Karpíkem</h2>
       <div class="start-note" id="qr-instruction">
         <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 17h3v3"/></svg></span>
@@ -131,10 +131,15 @@
 
   <script>
     // Úkoly jsou skryté – ukáže je jen odkaz z QR kódu na trase (?qr=hostetin).
-    if (new URLSearchParams(location.search).get('qr') === 'hostetin') {
+    // Velikost písmen ani diakritika nehrají roli; po příchodu z QR se úkoly přesunou hned pod nadpis.
+    (function () {
+      var raw = new URLSearchParams(location.search).get('qr') || (location.hash.match(/qr=([^&]+)/) || [])[1] || '';
+      var code = decodeURIComponent(raw).normalize('NFD').replace(/[̀-ͯ]/g, '').trim().toLowerCase();
+      if (code !== 'hostetin') return;
       document.getElementById('qr-instruction').hidden = true;
       document.getElementById('task-panel').hidden = false;
-    }
+      document.querySelector('.detail-head').after(document.getElementById('start'));
+    })();
   </script>
   <script src="assets/site.js?v=20261021c"></script>
 </body>
