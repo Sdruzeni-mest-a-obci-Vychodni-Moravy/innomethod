@@ -133,8 +133,9 @@
     // Úkoly jsou skryté – ukáže je jen odkaz z QR kódu na trase (?qr=hostetin).
     // Velikost písmen ani diakritika nehrají roli; po příchodu z QR se úkoly přesunou hned pod nadpis.
     (function () {
-      var raw = new URLSearchParams(location.search).get('qr') || (location.hash.match(/qr=([^&]+)/) || [])[1] || '';
-      var code = decodeURIComponent(raw).normalize('NFD').replace(/[̀-ͯ]/g, '').trim().toLowerCase();
+      var raw = (location.href.match(/[?&#]qr=([^&#?\/]*)/i) || [])[1] || '';
+      try { raw = decodeURIComponent(raw); } catch (e) {}
+      var code = raw.normalize('NFD').replace(/[̀-ͯ]/g, '').trim().toLowerCase();
       if (code !== 'hostetin') return;
       document.getElementById('qr-instruction').hidden = true;
       document.getElementById('task-panel').hidden = false;
