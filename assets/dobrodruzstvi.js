@@ -3,7 +3,6 @@
   // Presentation attributes keep the trail looking right even if the stylesheet is stale or missing.
   var MARK = { 'class': 'trail-mark', fill: 'none', stroke: '#b9c7b2', 'stroke-width': 2.2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' };
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var touchOnly = window.matchMedia('(hover: none)');
 
   function svgEl(name, attrs, parent) {
     var e = document.createElementNS(NS, name);
@@ -150,42 +149,33 @@
     build();
   }
 
-  /* ---------- 2. Route cards: the route line draws on hover, or on tap before leaving ---------- */
+  /* ---------- 2. Route cards: the route line draws left to right once the card scrolls into view ---------- */
 
-  var cards = Array.prototype.slice.call(document.querySelectorAll('.route-card'));
+  var drawCards = Array.prototype.slice.call(document.querySelectorAll('.route-card'))
+    .filter(function (c) { return c.querySelector('.route-line-ink'); });
+  var drawObserver = null;
 
-  cards.forEach(function (card) {
-    var ink = card.querySelector('.route-line-ink');
-    if (!ink) return;
-
-    card.addEventListener('click', function (e) {
-      if (!touchOnly.matches) return;
-      var isLink = card.tagName === 'A';
-      if (isLink && (reduceMotion.matches || card.dataset.drawn === '1')) return;
-
-      e.preventDefault();
-      cards.forEach(function (c) { if (c !== card) { c.classList.remove('is-drawing'); delete c.dataset.drawn; } });
-      if (card.classList.contains('is-drawing')) return;
-      card.classList.add('is-drawing');
-
-      var done = false;
-      var finish = function () {
-        if (done) return;
-        done = true;
-        card.dataset.drawn = '1';
-        if (isLink) window.location.href = card.href;
-      };
-      ink.addEventListener('transitionend', function onEnd(ev) {
-        if (ev.propertyName !== 'clip-path') return;
-        ink.removeEventListener('transitionend', onEnd);
-        finish();
+  var observeCards = function () {
+    if (!('IntersectionObserver' in window)) {
+      drawCards.forEach(function (c) { c.classList.add('is-drawing'); });
+      return;
+    }
+    if (drawObserver) drawObserver.disconnect();
+    drawObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-drawing');
+        drawObserver.unobserve(entry.target);
       });
-      setTimeout(finish, reduceMotion.matches ? 0 : 1000);
-    });
-  });
+    }, { threshold: 0.6 });
+    drawCards.forEach(function (c) { drawObserver.observe(c); });
+  };
+  observeCards();
 
-  // Coming back via the browser's Back button should show the cards un-drawn again.
-  window.addEventListener('pageshow', function () {
-    cards.forEach(function (c) { c.classList.remove('is-drawing'); delete c.dataset.drawn; });
+  // Coming back via the browser's Back button: draw the lines again as the cards come into view.
+  window.addEventListener('pageshow', function (e) {
+    if (!e.persisted) return;
+    drawCards.forEach(function (c) { c.classList.remove('is-drawing'); });
+    observeCards();
   });
 })();
