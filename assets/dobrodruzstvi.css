@@ -351,7 +351,7 @@ a.route-card:focus-visible { outline: 3px solid var(--dark-green); outline-offse
 .bonus-trip { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 36px; align-items: center; margin-top: 48px; padding: 20px; background: var(--white); border: 1px solid var(--cream-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); }
 .bonus-trip-art { position: relative; margin: 0 0 0 0; }
 .bonus-trip-photo { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-md); }
-.bonus-trip-karpik { position: absolute; left: -14px; bottom: -18px; width: 30%; max-width: 150px; filter: drop-shadow(0 6px 10px rgba(40, 55, 35, 0.25)); }
+.bonus-trip-karpik { position: absolute; left: 4%; bottom: 3%; width: 27%; max-width: 160px; filter: drop-shadow(0 4px 6px rgba(40, 55, 35, 0.3)); }
 .bonus-trip-text { padding: 8px 12px 8px 0; }
 .adv .bonus-trip-kicker { display: inline-block; margin: 0 0 12px; padding: 5px 14px; border-radius: var(--radius-full); background: var(--yellow); color: var(--dark-green); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
 .adv .bonus-trip h2 { margin: 0 0 8px; font-size: clamp(1.4rem, 2.6vw, 1.85rem); }
@@ -363,6 +363,6 @@ a.route-card:focus-visible { outline: 3px solid var(--dark-green); outline-offse
 .bonus-trip-list li::before { content: ""; position: absolute; left: 4px; top: 0.3em; width: 14px; height: 14px; border-radius: 50%; background: var(--yellow); box-shadow: inset 0 0 0 3px var(--white), 0 0 0 2px var(--mid-green); }
 @media (max-width: 760px) {
   .bonus-trip { grid-template-columns: 1fr; gap: 26px; padding: 14px; }
-  .bonus-trip-karpik { width: 26%; left: -6px; bottom: -14px; }
+  .bonus-trip-karpik { width: 26%; }
   .bonus-trip-text { padding: 4px 6px 8px; }
 }
