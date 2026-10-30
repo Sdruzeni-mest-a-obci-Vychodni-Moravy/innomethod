@@ -73,7 +73,7 @@
     <section class="detail-route detail-route-map">
       <h2>Trasa dobrodružství</h2>
       <div class="route-main">
-        <a class="route-nav" href="https://mapy.com/fnc/v1/route?mapset=outdoor&amp;end=17.8000018,48.9936756&amp;routeType=foot_hiking&amp;navigate=true" target="_blank" rel="noopener">
+        <a class="route-nav" href="https://mapy.com/fnc/v1/route?mapset=outdoor&amp;end=17.8000018,48.9936756&amp;routeType=foot_hiking&amp;navigate=true" data-end="17.8000018,48.9936756" target="_blank" rel="noopener">
           <span class="route-line-draw" aria-hidden="true">
             <img class="route-line" src="assets/dobrodruzstvi/trasa.webp" width="900" height="300" alt="">
             <img class="route-line route-line-ink" src="assets/dobrodruzstvi/trasa.webp" width="900" height="300" alt="">
@@ -136,35 +136,59 @@
   </footer>
 
   <script>
-    // Trasa na kartě navigace se nakreslí zleva doprava stejně jako na přehledu výprav:
-    // na počítači při najetí kurzorem (CSS), na dotykovém zařízení po ťuknutí – nejdřív animace, pak otevření navigace.
+    // Karta navigace: na počítači se trasa nakreslí při najetí kurzorem (CSS), na dotykovém zařízení po ťuknutí.
+    // Po kliknutí stránka zjistí polohu návštěvníka a otevře Mapy.com s vyplněným startem (poloha) i cílem –
+    // Mapy.com samy „moji polohu“ z odkazu doplnit neumí. Bez povolení polohy se otevře trasa jen s cílem.
     (function () {
       var card = document.querySelector('.route-nav');
-      var ink = card && card.querySelector('.route-line-ink');
-      if (!ink) return;
+      if (!card || !card.dataset.end) return;
+      var ink = card.querySelector('.route-line-ink');
+      var btn = card.querySelector('.btn');
+      var btnText = btn ? btn.textContent : '';
       var touchOnly = window.matchMedia('(hover: none)');
       var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      card.addEventListener('click', function (e) {
-        if (!touchOnly.matches || reduceMotion.matches || card.dataset.drawn === '1') return;
-        e.preventDefault();
-        if (card.classList.contains('is-drawing')) return;
-        card.classList.add('is-drawing');
-        var done = false;
-        var finish = function () {
-          if (done) return;
-          done = true;
-          card.dataset.drawn = '1';
-          window.location.href = card.href;
-        };
-        ink.addEventListener('transitionend', function onEnd(ev) {
-          if (ev.propertyName !== 'clip-path') return;
-          ink.removeEventListener('transitionend', onEnd);
-          finish();
+      var end = card.dataset.end.split(',').map(Number);
+      var busy = false;
+
+      var km = function (lon1, lat1, lon2, lat2) {
+        var r = Math.PI / 180, dLat = (lat2 - lat1) * r, dLon = (lon2 - lon1) * r;
+        var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1 * r) * Math.cos(lat2 * r) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        return 12742 * Math.asin(Math.sqrt(a));
+      };
+      var routeUrl = function (pos) {
+        var url = 'https://mapy.com/fnc/v1/route?mapset=outdoor&end=' + end.join(',') + '&navigate=true';
+        if (!pos) return url + '&routeType=foot_hiking';
+        var lon = pos.coords.longitude, lat = pos.coords.latitude;
+        // Z větší dálky autem, v okolí startu pěšky.
+        var type = km(lon, lat, end[0], end[1]) > 3 ? 'car_fast' : 'foot_hiking';
+        return url + '&start=' + lon.toFixed(6) + ',' + lat.toFixed(6) + '&routeType=' + type;
+      };
+      var locate = function () {
+        return new Promise(function (resolve) {
+          if (!navigator.geolocation) { resolve(null); return; }
+          navigator.geolocation.getCurrentPosition(resolve, function () { resolve(null); },
+            { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 });
         });
-        setTimeout(finish, 1000);
+      };
+      var wait = function (ms) { return new Promise(function (resolve) { setTimeout(resolve, ms); }); };
+
+      card.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (busy) return;
+        busy = true;
+        var animate = touchOnly.matches && !reduceMotion.matches && ink;
+        if (animate) card.classList.add('is-drawing');
+        if (btn) btn.textContent = document.documentElement.lang === 'sk' ? 'Zisťujem polohu…' : 'Zjišťuji polohu…';
+        Promise.all([locate(), wait(animate ? 950 : 0)]).then(function (res) {
+          window.location.href = routeUrl(res[0]);
+        });
       });
-      // Po návratu tlačítkem Zpět je trasa znovu nenakreslená.
-      window.addEventListener('pageshow', function () { card.classList.remove('is-drawing'); delete card.dataset.drawn; });
+      // Po návratu tlačítkem Zpět je karta zase v původním stavu.
+      window.addEventListener('pageshow', function () {
+        busy = false;
+        card.classList.remove('is-drawing');
+        if (btn) btn.textContent = btnText;
+      });
     })();
   </script>
   <script src="assets/site.js?v=20261021c"></script>
