@@ -334,6 +334,9 @@
     'Polní cesta nad Hostětínem s výhledem na obec a kopce Bílých Karpat': 'Poľná cesta nad Hostětínom s výhľadom na obec a kopce Bielych Karpát',
     'Dřevěná socha pastýře s holí v lese u Hostětína': 'Drevená socha pastiera s palicou v lese pri Hostětíne',
     'Mapa trasy Hostětín – Sochy v krajině': 'Mapa trasy Hostětín – Sochy v krajine',
+    'Objevte tajemství Masarykova dubu': 'Objavte tajomstvo Masarykovho duba',
+    'Láká vás příběh starého stromu? Vydejte se s Karpíkem na Hradskou nivu u Bojkovic. Zavede vás na místo, kde kdysi šuměl rozlehlý dubový háj, a přiblíží, co ukrývají mohyly dávných Slovanů, kdo sedával pod korunou obrovského dubu nebo co se starému stromu stalo za velké bouřky.':
+      'Láka vás príbeh starého stromu? Vydajte sa s Karpíkom na Hradskú nivu pri Bojkoviciach. Zavedie vás na miesto, kde kedysi šumel rozľahlý dubový háj, a priblíži, čo ukrývajú mohyly dávnych Slovanov, kto sedával pod korunou obrovského duba alebo čo sa so starým stromom stalo počas veľkej búrky.',
     'Start dobrodružství s Karpíkem': 'Štart dobrodružstva s Karpíkom',
     'Naskenujte QR kód na informační tabuli u autobusové zastávky.': 'Naskenujte QR kód na informačnej tabuli pri autobusovej zastávke.',
     'Kód je označen logem Innomethod.': 'Kód je označený logom Innomethod.',

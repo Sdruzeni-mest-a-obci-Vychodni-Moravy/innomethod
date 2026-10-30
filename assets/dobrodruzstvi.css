@@ -346,3 +346,14 @@ a.route-card:focus-visible { outline: 3px solid var(--dark-green); outline-offse
   .route-line-draw .route-line-ink { transition: none; }
   .trail-node .ring, .trail-node .num, .trail-mark, .how-steps li { transition: none; }
 }
+
+/* ---------- Bonusová výprava – teaser at the bottom of every public route page ---------- */
+.bonus-trip { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 28px; align-items: center; margin-top: 40px; padding: 26px 28px; background: var(--cream-soft, #f6f3ea); border: 2px dashed var(--cream-border); border-radius: var(--radius-lg); }
+.bonus-trip-art svg { display: block; width: 100%; height: auto; }
+.adv .bonus-trip h2 { display: inline-block; margin: 0 0 10px; padding: 4px 12px; border-radius: var(--radius-full); background: var(--yellow); color: var(--dark-green); font-size: 0.95rem; letter-spacing: 0.02em; text-transform: uppercase; }
+.bonus-trip h3 { margin: 0 0 10px; color: var(--dark-green); font-size: clamp(1.25rem, 2.4vw, 1.5rem); line-height: 1.25; }
+.bonus-trip p { margin: 0; line-height: 1.6; }
+@media (max-width: 640px) {
+  .bonus-trip { grid-template-columns: 1fr; gap: 14px; padding: 20px; }
+  .bonus-trip-art { max-width: 220px; }
+}
