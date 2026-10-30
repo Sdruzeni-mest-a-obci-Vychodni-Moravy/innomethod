@@ -75,6 +75,7 @@ h1,h2,h3{color:var(--dark-green);line-height:1.18;text-wrap:balance;margin:0}
 .tabs a .ck{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--cream-border);display:inline-flex;align-items:center;justify-content:center;font-size:10px;line-height:1}
 .tabs a.seen .ck{background:var(--yellow);border-color:var(--yellow);color:var(--dark-green-2)}
 .tabs a.owner{color:#7a3a86}
+.tabs a.ztab{background:var(--yellow);color:var(--dark-green-2)} .tabs a.ztab[aria-current="page"]{background:var(--dark-green);color:var(--white)}
 
 main{padding-block:28px 40px}
 .pill-badge{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--cream-border);color:var(--text-muted);font-size:13px;font-weight:600;padding:6px 14px;border-radius:var(--radius-full)}
@@ -201,7 +202,7 @@ details.fb > summary .cnt{margin-left:auto;font-size:13px;color:var(--text-muted
 .types input:checked+span{background:var(--dark-green);border-color:var(--dark-green);color:var(--white)}
 .types input:focus-visible+span{outline:3px solid var(--yellow-dark);outline-offset:2px}
 label.f{display:grid;gap:5px;font-size:14px;font-weight:700;color:var(--text-muted)}
-select,textarea,input[type=text]{font:400 16px var(--font);color:var(--text-body);background:var(--cream-soft);border:1px solid var(--cream-border);border-radius:var(--radius-md);padding:10px 12px;width:100%}
+select,textarea,input[type=text],input[type=email],input[type=tel]{font:400 16px var(--font);color:var(--text-body);background:var(--cream-soft);border:1px solid var(--cream-border);border-radius:var(--radius-md);padding:10px 12px;width:100%}
 textarea{min-height:90px;resize:vertical}
 .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .status{font-size:14px;color:var(--text-muted)} .status.err{color:var(--warn)}
@@ -226,6 +227,31 @@ legend{font-weight:800;color:var(--dark-green);margin-bottom:8px;padding:0;font-
 .cta-band{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--dark-green);color:var(--white);border-radius:var(--radius-lg);padding:30px 34px;flex-wrap:wrap}
 .cta-band h2{color:var(--white);font-size:23px;margin-bottom:6px}
 .cta-band p{margin:0;color:#dfe6dc;max-width:480px}
+
+/* záměry obcí */
+.zcta{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:20px;align-items:center;background:var(--yellow);color:var(--dark-green-2);border-radius:var(--radius-lg);padding:18px 24px 0 18px;overflow:hidden;box-shadow:var(--shadow-soft-lg)}
+.zcta img{width:120px;align-self:end}
+.zcta .k{font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.zcta h3{font-size:22px;color:var(--dark-green-2);margin:4px 0 6px;line-height:1.25}
+.zcta p{margin:0 0 8px;font-size:15.5px}
+.zcta .ob{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.zcta .ob span{background:var(--white);border-radius:var(--radius-full);padding:4px 11px;font-size:13.5px;font-weight:700}
+.zcta .go{align-self:center;margin-bottom:18px}
+.zcta .btn{background:var(--dark-green);color:var(--white);white-space:nowrap}
+.zcta.done{background:var(--green-soft)}
+.zcta.slim{grid-template-columns:90px minmax(0,1fr) auto}.zcta.slim img{width:90px}.zcta.slim h3{font-size:19px}
+@media (max-width:700px){.zcta,.zcta.slim{grid-template-columns:1fr;padding:18px 18px 0}.zcta img{order:3;width:90px;justify-self:end;margin-top:-30px}.zcta .go{margin-bottom:0}}
+.obl{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.obl label{cursor:pointer;display:block}
+.obl input{position:absolute;opacity:0;pointer-events:none}
+.obl .c{display:grid;gap:4px;height:100%;border:2px solid var(--cream-border);background:var(--cream-soft);border-radius:var(--radius-lg);padding:14px 16px;transition:border-color .15s,background .15s}
+.obl .c b{font-size:16.5px;color:var(--dark-green)} .obl .c small{font-size:13.5px;color:var(--text-muted);line-height:1.4}
+.obl .c .i{font-size:26px;line-height:1}
+.obl input:checked+.c{border-color:var(--dark-green);background:var(--green-soft)}
+.obl input:checked+.c b::after{content:" ✓"}
+.obl input:focus-visible+.c{outline:3px solid var(--yellow-dark);outline-offset:2px}
+.helpbox{background:var(--yellow-soft);border:2px solid var(--yellow);border-radius:var(--radius-lg);padding:18px 20px;display:grid;gap:12px}
+.zthanks{background:var(--green-soft);border-radius:var(--radius-lg);padding:18px 20px;display:grid;gap:6px}
 
 /* přehled */
 .ov-row{display:grid;grid-template-columns:minmax(0,1fr) 120px 34px;gap:10px;align-items:center;font-size:14.5px}
@@ -359,7 +385,7 @@ footer{border-top:1px solid var(--cream-border);margin-top:30px;padding-block:28
 <footer class="wrap">
   <div class="partners"><img src="assets/logos/smovm-color.png" alt="Sdružení měst a obcí Východní Moravy"><img src="assets/logos/tuc.png" alt="Trnavské umenovedné centrum"><img src="assets/logos/dum-prirody.png" alt="Dům přírody Bílých Karpat"></div>
   <details id="gdpr" class="fine" style="text-align:left;margin:0 auto 14px;max-width:620px"><summary style="cursor:pointer;font-weight:700;color:var(--dark-green);text-align:center">Ochrana osobních údajů</summary>
-   <p>Správcem osobních údajů je Sdružení měst a obcí Východní Moravy (SMOVM), řešitel projektu INNOMETHOD. Připomínky, odpovědi a hodnocení sbíráme anonymně; váš prohlížeč dostane náhodný identifikátor, abyste mohli své odpovědi později upravit. E-mail a kontakt zpracováváme jen s vaším souhlasem, a to za účelem zaslání strategie v PDF a případného kontaktu k vašim připomínkám, po dobu realizace projektu. Souhlas můžete kdykoli odvolat a požádat o výmaz nebo přístup k údajům na e-mailu prudil@rravm.cz. Data jsou uložena na serverech Supabase v EU (Frankfurt).</p></details>
+   <p>Správcem osobních údajů je Sdružení měst a obcí Východní Moravy (SMOVM), řešitel projektu INNOMETHOD. Připomínky, odpovědi a hodnocení sbíráme anonymně; váš prohlížeč dostane náhodný identifikátor, abyste mohli své odpovědi později upravit. E-mail a kontakt zpracováváme jen s vaším souhlasem, a to za účelem zaslání strategie v PDF, případného kontaktu k vašim připomínkám a – u záměrů obcí – kontaktu a nabídky pomoci s přípravou projektu, po dobu realizace projektu. Souhlas můžete kdykoli odvolat a požádat o výmaz nebo přístup k údajům na e-mailu prudil@rravm.cz. Data jsou uložena na serverech Supabase v EU (Frankfurt).</p></details>
   <p class="fine">Projekt INNOMETHOD – Inovativní metody a technologie v oblasti přeshraniční ochrany a zachování biodiverzity je spolufinancován Evropskou unií z programu Interreg Slovensko – Česko. Pracovní verze strategie, říjen 2026.</p>
 </footer>
 
@@ -437,10 +463,23 @@ const ROLES = ["Obec / samospráva","Škola / pedagog","Ochrana přírody / spr�
 const PARTS = ["Analýza území a zjištění","Vize a cíle","Opatření","Doporučení pro obce","Přehled financování","Mapový portál a QR stanoviště"];
 const JOIN = ["QR stanoviště v naší obci / u školy","Seminář pro obce","Výuka v terénu a exkurze","Dobrovolnické akce v krajině","Podklad o přírodních hodnotách za katastr obce"];
 
+const OBL = [["krajina","🌾","Péče o krajinu","louky, sady, aleje, meze, remízky, polní cesty"],
+ ["voda","💧","Zelené hospodaření s vodou","tůně, mokřady, revitalizace potoků, zasakování a zadržení dešťové vody"],
+ ["sucho","☀️","Řešení sucha a jeho následků","stínící zeleň v obci, náhrada uschlých porostů, protierozní opatření"],
+ ["bio","🦋","Podpora biodiverzity","květnaté plochy, likvidace invazních rostlin, úkryty pro živočichy, staré odrůdy"]];
+const ZPLAN = ["Ano, máme konkrétní záměr","Zvažujeme to","Zatím ne, ale rádi se inspirujeme","Ne"];
+const ZSTAV = ["Jen nápad","Máme vytipovaný pozemek","Máme studii nebo záměr","Máme projektovou dokumentaci","Žádost je podaná / realizujeme"];
+const ZKDY = ["Ještě letos nebo v roce 2027","2028–2029","Později / zatím nevíme"];
+const ZROZ = ["do 500 tis. Kč","0,5–2 mil. Kč","2–10 mil. Kč","nad 10 mil. Kč","Zatím nevíme"];
+const ZPOM = ["Ano, rádi","Spíš jen konzultaci","Ne, zvládneme sami"];
+const ZPOMS = ["Najít vhodnou dotaci","Napsat žádost o dotaci","Studie nebo projektová dokumentace","Posouzení přírodních hodnot lokality","Administrace projektu a veřejná zakázka","Zapojení školy a veřejnosti"];
+const ZFUN = ["Starosta / starostka","Místostarosta / místostarostka","Zastupitel / zastupitelka","Pracovník / pracovnice úřadu","Jiné"];
+
 const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const ls = { get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}, set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}} };
 
-let me = ls.get("bk-me",{role:"",org:"",contact:"",comments:[],survey:{}});
+let me = ls.get("bk-me",{role:"",org:"",contact:"",comments:[],survey:{},zamer:{}});
+if(!me.zamer) me.zamer={};
 let quick = ls.get("bk-quick",{});           // {sectionId: string | string[]}
 let seen = new Set(ls.get("bk-seen",[]));
 let db=null, user=null, uid=null, isAdmin=false, online=false, all=[], moods=[];
@@ -450,7 +489,8 @@ let saving=Promise.resolve(), savingQ=Promise.resolve(), saveState="", openFb=nu
 function tabsHtml(cur){
   const tab=(s,i)=>`<a href="#${s.id}" class="${seen.has(s.id)?"seen":""}" ${cur===s.id?'aria-current="page"':""}><span class="ck">${seen.has(s.id)?"✓":i+1}</span>${esc(s.t)}</a>`;
   let h = `<a href="#uvod" ${cur==="uvod"?'aria-current="page"':""}>Úvod</a><a href="#data" ${cur==="data"?'aria-current="page"':""}>📊 Území v číslech</a>` + S.slice(0,7).map(tab).join("")
-    + `<a href="#pro-koho" ${cur.startsWith("pro-")?'aria-current="page"':""}>🤝 Co můžete udělat</a>` + tab(S[7],7);
+    + `<a href="#pro-koho" ${cur.startsWith("pro-")?'aria-current="page"':""}>🤝 Co můžete udělat</a>`
+    + `<a href="#zamery" class="ztab" ${cur==="zamery"?'aria-current="page"':""}>🏛️ Projekty obcí${me.zamer?.at?" ✓":""}</a>` + tab(S[7],7);
   if(isAdmin) h += `<a href="#prehled" class="owner" ${cur==="prehled"?'aria-current="page"':""}>Přehled odpovědí</a>`;
   return h;
 }
@@ -473,10 +513,89 @@ function homeHtml(){
     <div class="hero-visual"><div class="frame"><img src="assets/strategie/hreben.webp" alt="Hřeben Bílých Karpat při východu slunce"></div>
       <div class="stat-card"><div class="n">10 min</div><div class="l">celé projití strategie</div><hr><div class="s">8 kapitol · 108 obcí na obou stranách hranice · vize do roku 2035</div></div></div>
   </section>
+  ${zctaHtml()}
   ${recoHtml()}
   <div class="sec-head"><span class="pill-badge">🗺️ Kapitoly</span><h2>Vyberte, kde začít</h2><p>Kapitoly na sebe navazují, ale můžete přeskakovat. Prošlé kapitoly označíme žlutě.</p></div>
   <div class="ch-grid">${S.map((s,i)=>`<a class="ch-card" href="#${s.id}"><div class="ph"><img src="assets/strategie/${s.img}.webp" alt="" loading="lazy"><span class="no">${i+1}</span>${seen.has(s.id)?'<span class="done">✓ prošlo</span>':""}</div><div class="b"><h3>${esc(s.h)}</h3><p>${esc(s.teaser)}</p></div></a>`).join("")}</div>
   <div class="data-teaser"><div><h3>📊 Území v číslech</h3><p>Interaktivní přehled analytické části: druhová bohatost, obyvatelé obou stran hranice, 15 problémů a SWOT. Najděte i svou obec.</p></div><a class="btn btn-accent" href="#data">Otevřít přehled →</a></div>`;
+}
+
+function zctaHtml(slim){
+  const z=me.zamer||{};
+  if(z.at) return `<div class="zcta done${slim?" slim":""}"><img src="assets/strategie/karpik-ahoj.webp" alt=""><div><div class="k">🏛️ Projekty obcí</div><h3>Děkujeme, záměr ${z.obec?"obce "+esc(z.obec):"vaší obce"} máme</h3><p>${z.pomoc&&z.pomoc!==ZPOM[2]?"Ozveme se vám kvůli pomoci s přípravou projektu.":"Údaje můžete kdykoli doplnit nebo upravit."}</p></div><div class="go"><a class="btn" href="#zamery">Upravit záměr</a></div></div>`;
+  return `<div class="zcta${slim?" slim":""}"><img src="assets/strategie/karpik-rozcestnik.webp" alt=""><div><div class="k">🏛️ Pro starosty a obce · 2 minuty</div><h3>Chystá vaše obec projekt pro krajinu, vodu nebo přírodu?</h3>${slim?"":`<div class="ob">${OBL.map(o=>`<span>${o[1]} ${o[2]}</span>`).join("")}</div>`}<p>Napište nám o něm. <b>Pomůžeme vám s přípravou projektu i s dotací.</b></p></div><div class="go"><a class="btn" href="#zamery">Přihlásit záměr obce →</a></div></div>`;
+}
+
+function zamerHtml(){
+  const z=me.zamer||{}, ch=(a,v)=>(a||[]).includes(v)?" checked":"";
+  const obec = z.obec ?? (me.role==="Obec / samospráva"?me.org:"");
+  const radio=(name,opts,cur)=>`<div class="types" role="radiogroup">${opts.map(o=>`<label><input type="radio" name="${name}" value="${esc(o)}"${cur===o?" checked":""}><span>${esc(o)}</span></label>`).join("")}</div>`;
+  const noPlan = z.planuje===ZPLAN[3];
+  return `<section class="chapter" aria-labelledby="h">
+   <div class="ch-banner"><img src="assets/strategie/hostetin.webp" alt=""><div class="t"><span>🏛️ Pro starosty a obce</span><h2 id="h">Chystá vaše obec projekt pro krajinu, vodu nebo přírodu?</h2></div></div>
+   <p class="intro">Strategie počítá s tím, že nejvíc se v krajině dá udělat v obcích. Rádi bychom věděli, co v obcích Bílých Karpat chystáte, a nabídli pomoc tam, kde ji potřebujete – od výběru dotace po žádost. Vyplnění zabere asi dvě minuty.</p>
+   ${z.at?`<div class="zthanks"><b style="color:var(--dark-green)">✓ Záměr ${z.obec?"obce "+esc(z.obec)+" ":""}jsme přijali ${new Date(z.at).toLocaleDateString("cs-CZ")}.</b><span>${z.pomoc&&z.pomoc!==ZPOM[2]?"Ozveme se vám na uvedený kontakt.":"Děkujeme."} Níže ho můžete kdykoli upravit.</span></div>`:""}
+   <form class="survey" id="zf" novalidate>
+    <div class="who-box" style="background:var(--cream-soft)"><div class="g">
+     <label class="f">Obec *<input type="text" id="z-obec" value="${esc(obec)}" placeholder="např. Strání nebo Bošáca" autocomplete="address-level2"></label>
+     <label class="f">Vaše funkce<select id="z-fun"><option value="">— vyberte —</option>${ZFUN.map(f=>`<option${z.funkce===f?" selected":""}>${f}</option>`).join("")}</select></label>
+    </div></div>
+    <fieldset><legend>1. Plánuje obec v příštích letech nějaký projekt v těchto oblastech?</legend>${radio("planuje",ZPLAN,z.planuje)}</fieldset>
+    <fieldset id="z-detail"${noPlan?" hidden":""}><legend>2. Kterých oblastí se záměr týká?</legend><div class="hint">Můžete vybrat více.</div>
+     <div class="obl">${OBL.map(o=>`<label><input type="checkbox" name="obl" value="${o[0]}"${ch(z.oblasti,o[0])}><span class="c"><span class="i">${o[1]}</span><b>${o[2]}</b><small>${o[3]}</small></span></label>`).join("")}</div>
+     <label class="f" style="margin-top:6px">Stručně popište záměr<textarea id="z-popis" placeholder="Co a kde chcete udělat? Např. obnova obecního sadu nad školou, tůně v nivě potoka, výsadba aleje k hřbitovu…">${esc(z.popis)}</textarea></label>
+     <div class="who-box"><div class="g" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+      <label class="f">Jak daleko jste<select id="z-stav"><option value="">— vyberte —</option>${ZSTAV.map(o=>`<option${z.stav===o?" selected":""}>${o}</option>`).join("")}</select></label>
+      <label class="f">Kdy chcete realizovat<select id="z-kdy"><option value="">— vyberte —</option>${ZKDY.map(o=>`<option${z.kdy===o?" selected":""}>${o}</option>`).join("")}</select></label>
+      <label class="f">Odhad nákladů<select id="z-roz"><option value="">— vyberte —</option>${ZROZ.map(o=>`<option${z.rozpocet===o?" selected":""}>${o}</option>`).join("")}</select></label>
+     </div></div>
+    </fieldset>
+    <div class="helpbox">
+     <fieldset><legend style="font-size:19px">${noPlan?"2":"3"}. Potřebujete pomoct s přípravou projektu?</legend>
+      <div class="hint">Projekt INNOMETHOD a Sdružení měst a obcí Východní Moravy nabízejí obcím podporu zdarma.</div>${radio("pomoc",ZPOM,z.pomoc)}</fieldset>
+     <fieldset id="z-pomoc-s"${z.pomoc&&z.pomoc!==ZPOM[2]?"":" hidden"}><legend>S čím nejvíc?</legend><div class="checks">${ZPOMS.map(o=>`<label><input type="checkbox" name="poms" value="${esc(o)}"${ch(z.pomocS,o)}> ${esc(o)}</label>`).join("")}</div></fieldset>
+    </div>
+    <fieldset><legend>Kontakt</legend><div class="hint" id="z-kh">${z.pomoc&&z.pomoc!==ZPOM[2]?"Abychom se vám mohli ozvat, vyplňte prosím jméno a e-mail nebo telefon.":"Nepovinné – vyplňte, pokud se vám máme ozvat."}</div>
+     <div class="g" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+      <label class="f">Jméno a příjmení<input type="text" id="z-jm" value="${esc(z.jmeno)}" autocomplete="name"></label>
+      <label class="f">E-mail<input type="email" id="z-mail" value="${esc(z.email)}" autocomplete="email" placeholder="starosta@obec.cz"></label>
+      <label class="f">Telefon<input type="tel" id="z-tel" value="${esc(z.telefon)}" autocomplete="tel"></label>
+     </div></fieldset>
+    <div class="checks" id="z-gdpr-w"${(z.jmeno||z.email||z.telefon)?"":" hidden"}><label><input type="checkbox" id="z-gdpr"${z.souhlas?" checked":""}> <span style="font-size:14.5px">Souhlasím, aby Sdružení měst a obcí Východní Moravy zpracovalo uvedené kontaktní údaje za účelem kontaktu k záměru obce a nabídky pomoci s přípravou projektu. <a href="#gdpr" data-gdpr>Více o zpracování údajů</a></span></label></div>
+    <div class="row"><button class="btn btn-accent" type="submit">${z.at?"Uložit změny":"Odeslat záměr obce"}</button><span class="status" id="z-st"></span></div>
+   </form>
+   <div class="pager"><a class="btn btn-outline" href="#obce">← Doporučení pro obce</a><a class="btn btn-primary" href="#hodnoceni">Ohodnotit strategii →</a></div>
+  </section>`;
+}
+
+function bindZamer(){
+  const f=document.getElementById("zf"); if(!f) return;
+  const st=document.getElementById("z-st"), err=(t,el)=>{st.textContent=t;st.className="status err";el?.focus()};
+  const needContact=()=>{const p=f.pomoc.value; return p && p!==ZPOM[2];};
+  const upd=()=>{
+    const no=f.planuje.value===ZPLAN[3]; document.getElementById("z-detail").hidden=no;
+    f.querySelector(".helpbox legend").textContent=(no?"2":"3")+". Potřebujete pomoct s přípravou projektu?";
+    document.getElementById("z-pomoc-s").hidden=!needContact();
+    document.getElementById("z-kh").textContent=needContact()?"Abychom se vám mohli ozvat, vyplňte prosím jméno a e-mail nebo telefon.":"Nepovinné – vyplňte, pokud se vám máme ozvat.";
+    document.getElementById("z-gdpr-w").hidden=!(needContact()||["z-jm","z-mail","z-tel"].some(i=>document.getElementById(i).value.trim()));
+  };
+  f.querySelectorAll("input,select").forEach(el=>el.addEventListener("change",upd));
+  ["z-jm","z-mail","z-tel"].forEach(i=>document.getElementById(i).addEventListener("input",upd));
+  f.onsubmit=e=>{e.preventDefault();
+    const v=id=>document.getElementById(id).value.trim();
+    const obec=v("z-obec"), jm=v("z-jm"), mail=v("z-mail"), tel=v("z-tel"), souhlas=document.getElementById("z-gdpr").checked;
+    if(!obec) return err("Napište prosím, za kterou obec záměr posíláte.",document.getElementById("z-obec"));
+    if(!f.planuje.value) return err("Odpovězte prosím na otázku 1.",f.querySelector('[name=planuje]'));
+    if(needContact() && !(jm && (mail||tel))) return err("Abychom vám mohli pomoci, vyplňte prosím jméno a e-mail nebo telefon.",document.getElementById(jm?"z-mail":"z-jm"));
+    if(mail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) return err("Zkontrolujte prosím e-mail.",document.getElementById("z-mail"));
+    if((jm||mail||tel) && !souhlas) return err("Pro uložení kontaktu potřebujeme váš souhlas se zpracováním údajů (zaškrtněte políčko výše).",document.getElementById("z-gdpr"));
+    const no=f.planuje.value===ZPLAN[3];
+    me.zamer={obec,funkce:v("z-fun"),planuje:f.planuje.value,oblasti:no?[]:[...f.querySelectorAll('[name=obl]:checked')].map(x=>x.value),popis:no?"":v("z-popis"),stav:no?"":v("z-stav"),kdy:no?"":v("z-kdy"),rozpocet:no?"":v("z-roz"),
+      pomoc:f.pomoc.value||"",pomocS:needContact()?[...f.querySelectorAll('[name=poms]:checked')].map(x=>x.value):[],jmeno:jm,email:mail,telefon:tel,souhlas:(jm||mail||tel)?souhlas:false,souhlasAt:(jm||mail||tel)&&souhlas?new Date().toISOString():null,at:new Date().toISOString()};
+    if(!me.org && obec){ me.org=obec; if(!me.role) me.role="Obec / samospráva"; }
+    persist(false,true);
+    st.className="status"; st.textContent=online?"Odesílám…":"Uloženo ve vašem prohlížeči – odeslání viz nahoře.";
+  };
 }
 
 function body(id){
@@ -527,9 +646,10 @@ function body(id){
    <div class="filters" role="group" aria-label="Filtr oblastí"><button type="button" data-a="" aria-pressed="true">Vše</button>${Object.entries(AREAS).map(([k,v])=>`<button type="button" data-a="${k}" aria-pressed="false">${v}</button>`).join("")}<button type="button" data-a="vys" aria-pressed="false">★ Vysoká priorita</button></div>
    <div class="tbl"><table><thead><tr><th>Č.</th><th>Opatření</th><th>Oblast</th><th>Cíl</th><th>Priorita</th></tr></thead><tbody id="mt"></tbody></table></div>
    <p class="note">Lesní hospodaření, fragmentaci krajiny a tlak výstavby řeší hlavně jiné nástroje (plány péče, lesní hospodářské plány, územní plánování); strategie k nim přispívá podklady pro obce a osvětou.</p>`;
-  if(id==="obce") return `<div class="cards">${R.map(r=>`<div class="card"><h3>${r[0]}</h3><p class="sub">${r[1]}</p><ul>${r[2].map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("")}</div>
+  if(id==="obce") return `${zctaHtml(true)}<div class="cards">${R.map(r=>`<div class="card"><h3>${r[0]}</h3><p class="sub">${r[1]}</p><ul>${r[2].map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("")}</div>
    <p class="note">Ve zvláště chráněných územích je vždy vhodné postup předem konzultovat se správou CHKO. Se všemi tématy poradí správa CHKO a SMOVM.</p>`;
   if(id==="financovani") return `<div class="tbl"><table><thead><tr><th>Zdroj</th><th>Co lze financovat</th></tr></thead><tbody>${F.map(f=>`<tr><td><b>${f[0]}</b></td><td>${f[1]}</td></tr>`).join("")}</tbody></table></div>
+   ${zctaHtml(true)}
    <p class="note">Rozcestníkem je portál Finance pro přírodu a krajinu AOPK ČR (dotace.aopk.gov.cz). Na slovenské straně chybí systémový program obdobný Programu péče o krajinu; zdroje se řeší se slovenskými partnery.</p>`;
   if(id==="hodnoceni") return surveyHtml();
   return "";
@@ -578,7 +698,7 @@ const typeLabel = t => (TYPES.find(x=>x[0]===t)||[0,t])[1];
 function surveyHtml(){
   const v=me.survey||{};
   const qn = Object.keys(quick).filter(k=>quick[k]!=null&&(!Array.isArray(quick[k])||quick[k].length)).length, cn=me.comments.length;
-  return `<div class="tiles"><div class="tile y"><div class="n">${seen.size}/${S.length}</div><div class="l">prošlých kapitol</div></div><div class="tile"><div class="n">${qn}</div><div class="l">odpovědí Karpíkovi</div></div><div class="tile"><div class="n">${cn}</div><div class="l">vašich připomínek</div></div></div>
+  return `${me.role==="Obec / samospráva"||me.skupina==="pro-obce"?zctaHtml(true):""}<div class="tiles"><div class="tile y"><div class="n">${seen.size}/${S.length}</div><div class="l">prošlých kapitol</div></div><div class="tile"><div class="n">${qn}</div><div class="l">odpovědí Karpíkovi</div></div><div class="tile"><div class="n">${cn}</div><div class="l">vašich připomínek</div></div></div>
   <form class="survey" id="sv" novalidate>
    <fieldset><legend>1. Jak užitečná je pro vás strategie?</legend><div class="hint">1 = vůbec, 5 = velmi</div>
     <div class="types scale">${[1,2,3,4,5].map(n=>`<label><input type="radio" name="uz" value="${n}"${v.uzitecnost==n?" checked":""}><span>${n}</span></label>`).join("")}</div></fieldset>
@@ -877,6 +997,7 @@ function groupHtml(g){
    <div class="ch-banner"><img src="assets/strategie/${g.img}.webp" alt=""><div class="t"><span>${g.ico} ${esc(g.lead)}</span><h2 id="h">Doporučení pro ${g.pro}</h2></div></div>
    <div class="filters" role="group" aria-label="Cílové skupiny">${G.map(x=>`<a class="btn ${x===g?"btn-primary":"btn-outline"}" style="padding:7px 14px;font-size:14px" href="#${x.id}"${x===g?' aria-current="page"':""}>${x.ico} ${x.t}</a>`).join("")}</div>
    <div class="card" style="background:var(--green-soft);border-color:var(--green-soft)"><div class="k">Proč na vás záleží</div><p style="font-size:17px">${esc(g.why)}</p></div>
+   ${g.id==="pro-obce"?zctaHtml():""}
    <div class="row" style="justify-content:space-between"><h3 style="font-size:22px">Co můžete udělat</h3><span class="progress" id="tipprog">${mine.length}/${total} zkusím</span></div>
    <div class="list">${g.groups.map((grp,ci)=>`<div class="card"><h3>${grp[0]}</h3><div class="tips">${grp[1].map((tip,ti)=>{const key=ci+"-"+ti, on=mine.includes(key), c=tipCount(g,key);return `<div class="tip-row${on?" on":""}"><span class="tt">${esc(tip)}</span><button type="button" class="tbtn" data-tip="${key}" aria-pressed="${on}">${on?"✓ Zkusím":"Zkusím to"}</button><span class="tc" data-tc="${key}">${c?`+${c} ${c===1?"další":"dalších"}`:""}</span></div>`}).join("")}</div></div>`).join("")}</div>
    <div class="two">
@@ -916,7 +1037,7 @@ function bindReco(){
 function render(){
   let id = location.hash.slice(1)||"uvod";
   if(id==="prehled" && !isAdmin) id="uvod";
-  if(!S.find(s=>s.id===id) && !["prehled","data","pro-koho"].includes(id) && !G.find(g=>g.id===id)) id="uvod";
+  if(!S.find(s=>s.id===id) && !["prehled","data","pro-koho","zamery"].includes(id) && !G.find(g=>g.id===id)) id="uvod";
   document.getElementById("tabs").innerHTML = tabsHtml(id);
   document.getElementById("prog").innerHTML = progHtml();
   const cur = document.querySelector('.tabs a[aria-current]'); if(cur) cur.scrollIntoView({block:"nearest",inline:"nearest"});
@@ -924,6 +1045,7 @@ function render(){
   if(id==="uvod"){ v.innerHTML = homeHtml(); bindReco(); return; }
   if(id==="data"){ v.innerHTML = dataHtml(); bindData(); bind("data"); return; }
   if(id==="pro-koho"){ v.innerHTML = hubHtml(); bindReco(); return; }
+  if(id==="zamery"){ v.innerHTML = zamerHtml(); bindZamer(); bind("zamery"); return; }
   const g=G.find(x=>x.id===id); if(g){ v.innerHTML = groupHtml(g); bindGroup(g); bind(id); return; }
   if(id==="prehled"){ v.innerHTML = overviewHtml(); bindOverview(); return; }
   const i = S.findIndex(s=>s.id===id), s=S[i];
@@ -999,13 +1121,14 @@ async function rpc(fn, args){
   const t = await r.text(); return t ? JSON.parse(t) : null;
 }
 function payload(){ return {...JSON.parse(JSON.stringify(me)), skupina: myGroup()?.id||""}; }
-function persist(fromSurvey){
+function persist(fromSurvey,fromZamer){
   me.updatedAt=new Date().toISOString(); ls.set("bk-me",me);
   if(!online){ showOffline(); return; }
   const data=payload();
   saving = saving.then(()=>rpc("innomethod_save_odpoved",{p_client:clientId,p_data:data})).then(()=>{
     if(fromSurvey){const st=document.getElementById("sv-st"); if(st) st.textContent="Děkujeme, hodnocení je odesláno."+(me.survey?.chcePdf?" Strategii v PDF pošleme na "+me.survey.email+".":"")+" Můžete ho kdykoli upravit."}
-  }).catch(()=>{ online=false; showOffline(); if(fromSurvey){const st=document.getElementById("sv-st"); if(st){st.textContent="Odeslání se nepodařilo – odpovědi jsou uložené v prohlížeči, zkopírujte je nahoře.";st.className="status err"}} });
+    if(fromZamer){ render(); const st=document.getElementById("z-st"); if(st) st.textContent="Děkujeme, záměr je odeslán."; document.querySelector(".zthanks")?.scrollIntoView({block:"center",behavior:"smooth"}); }
+  }).catch(()=>{ online=false; showOffline(); if(fromZamer){const st=document.getElementById("z-st"); if(st){st.textContent="Odeslání se nepodařilo – údaje jsou uložené v prohlížeči, zkopírujte je nahoře.";st.className="status err"}} if(fromSurvey){const st=document.getElementById("sv-st"); if(st){st.textContent="Odeslání se nepodařilo – odpovědi jsou uložené v prohlížeči, zkopírujte je nahoře.";st.className="status err"}} });
 }
 let qTimer;
 function persistQuick(){
@@ -1026,11 +1149,12 @@ function asText(){
   const L=[`Připomínky ke strategii INNOMETHOD – Bílé Karpaty`,`Za: ${me.role||"-"} · ${me.org||"-"}`,""];
   [D,...S,...GS].forEach(s=>{const cs=me.comments.filter(c=>c.section===s.id); const q=quick[s.id]; if(cs.length||q){L.push(`## ${s.t}`); if(q&&s.q) L.push(`Karpík: ${s.q.q} → ${Array.isArray(q)?q.join(", "):q}`); cs.forEach(c=>L.push(`- [${typeLabel(c.typ)}]${c.item?" ("+c.item+")":""} ${c.text}`));L.push("")}});
   const v=me.survey||{}; if(v.at){L.push("## Hodnocení",`Užitečnost: ${v.uzitecnost||"-"}/5`,`Přínosné části: ${(v.casti||[]).join(", ")||"-"}`,`Využití: ${v.vyuziti||"-"} ${v.co||""}`,`Zapojení: ${(v.zapojeni||[]).join(", ")||"-"}`,`Chybí: ${v.chybi||"-"}`,`Kontakt: ${me.contact||"-"}`,`Zaslat PDF strategie: ${v.chcePdf?"ano – "+v.email:"ne"}`)}
+  const z=me.zamer||{}; if(z.at){L.push("","## Záměr obce",`Obec: ${z.obec} (${z.funkce||"-"})`,`Plánuje projekt: ${z.planuje}`,`Oblasti: ${(z.oblasti||[]).map(k=>(OBL.find(o=>o[0]===k)||[,,k])[2]).join(", ")||"-"}`,`Záměr: ${z.popis||"-"}`,`Připravenost: ${z.stav||"-"} · realizace: ${z.kdy||"-"} · náklady: ${z.rozpocet||"-"}`,`Pomoc s přípravou: ${z.pomoc||"-"}${(z.pomocS||[]).length?" – "+z.pomocS.join(", "):""}`,`Kontakt: ${[z.jmeno,z.email,z.telefon].filter(Boolean).join(", ")||"-"}`)}
   return L.join("\n");
 }
 function showOffline(){
   const b=document.getElementById("offline");
-  const has = me.comments.length || (me.survey&&me.survey.at);
+  const has = me.comments.length || (me.survey&&me.survey.at) || me.zamer?.at;
   if(!has){b.hidden=true;return}
   b.hidden=false;
   b.innerHTML=`<div><b>Z tohoto zobrazení se odpovědi nedají odeslat online.</b> Zůstávají uložené ve vašem prohlížeči. Zkopírujte je prosím a pošlete koordinátorovi projektu e-mailem.</div><div class="row"><button class="btn btn-outline" type="button" id="cp">Zkopírovat odpovědi</button><span class="status" id="cps"></span></div><div class="copybox" id="cpx">${esc(asText())}</div>`;
@@ -1041,6 +1165,7 @@ function showOffline(){
 /* ---------- přehled pro vlastníka a editory ---------- */
 function overviewHtml(){
   const resp=all.filter(r=>r.comments?.length||r.survey?.at);
+  const zam=all.filter(r=>r.zamer?.at);
   const comments=resp.flatMap(r=>(r.comments||[]).map(c=>({...c,role:r.role,org:r.org})));
   const rated=resp.filter(r=>r.survey?.uzitecnost); const avg=rated.length?(rated.reduce((a,r)=>a+r.survey.uzitecnost,0)/rated.length).toFixed(1).replace(".",","):"–";
   const count=arr=>{const m={};arr.forEach(x=>(Array.isArray(x)?x:x!=null?[x]:[]).forEach(v=>m[v]=(m[v]||0)+1));return m};
@@ -1049,6 +1174,7 @@ function overviewHtml(){
    <div class="tiles"><div class="tile y"><div class="n">${moods.length}</div><div class="l">lidí odpovídalo Karpíkovi</div></div><div class="tile"><div class="n">${resp.length}</div><div class="l">respondentů s připomínkou nebo hodnocením</div></div><div class="tile"><div class="n">${comments.length}</div><div class="l">připomínek</div></div><div class="tile"><div class="n">${avg}</div><div class="l">průměrná užitečnost (1–5), ${rated.length}×</div></div></div>
    <div class="row"><button class="btn btn-outline" type="button" id="csv">Stáhnout CSV</button><span class="status" id="csvs"></span></div>
    ${(()=>{const pdf=resp.filter(r=>r.survey?.chcePdf&&r.survey?.email);return `<div class="card"><h3>Žádosti o PDF strategie (${pdf.length})</h3>${pdf.length?`<div class="copybox" id="pdfm">${pdf.map(r=>esc(r.survey.email)).join("; ")}</div><div class="row"><button class="btn btn-outline" type="button" id="pdfc">Zkopírovat e-maily</button><span class="status" id="pdfs"></span></div>`:'<p class="sub">Zatím nikdo nepožádal.</p>'}</div>`})()}
+   <div class="card"><h3>Záměry obcí (${zam.length})</h3>${zam.length?zam.map(r=>{const z=r.zamer;return `<div class="ov-c"><div><b>${esc(z.obec)}</b> · ${esc(z.planuje)}${(z.oblasti||[]).length?" · "+z.oblasti.map(k=>(OBL.find(o=>o[0]===k)||[,k])[1]).join(" "):""}</div>${z.popis?`<div style="overflow-wrap:anywhere">${esc(z.popis)}</div>`:""}<div class="m">${esc([z.stav,z.kdy,z.rozpocet].filter(Boolean).join(" · "))}</div><div>${z.pomoc&&z.pomoc!==ZPOM[2]?`<b style="color:var(--warn)">Chce pomoc:</b> ${esc(z.pomoc)}${(z.pomocS||[]).length?" – "+esc(z.pomocS.join(", ")):""}`:esc(z.pomoc||"")}</div><div class="m">${esc([z.jmeno,z.funkce,z.email,z.telefon].filter(Boolean).join(" · "))}</div></div>`}).join(""):'<p class="sub">Zatím žádný záměr.</p>'}</div>
    <div class="card"><h3>Přínosné části</h3>${bars(count(resp.map(r=>r.survey?.casti)),PARTS)}</div>
    <div class="card"><h3>Zájem o zapojení</h3>${bars(count(resp.map(r=>r.survey?.zapojeni)),JOIN)}</div>
    ${[D,...S].filter(s=>s.q).map(s=>`<div class="card"><div class="k">Karpík · ${esc(s.t)}</div><h3>${esc(s.q.q)}</h3>${bars(count(moods.map(m=>m.a?.[s.id])),s.q.o)}</div>`).join("")}
@@ -1060,6 +1186,7 @@ function overviewHtml(){
 function csvText(){
   const q=v=>'"'+String(v??"").replace(/"/g,'""')+'"'; const rows=[["typ_zaznamu","role","organizace","kontakt","kapitola","tyka_se","typ","text","uzitecnost","vyuziti","datum"]];
   all.forEach(r=>{(r.comments||[]).forEach(c=>rows.push(["pripominka",r.role,r.org,r.contact,([D,...S,...GS].find(s=>s.id===c.section)||{}).t,c.item,typeLabel(c.typ),c.text,"","",c.at]));
+    if(r.zamer?.at){const z=r.zamer; rows.push(["zamer_obce",z.funkce,z.obec,[z.jmeno,z.email,z.telefon].filter(Boolean).join(", "),"","",z.planuje,["Oblasti: "+(z.oblasti||[]).join("; "),"Záměr: "+(z.popis||""),"Připravenost: "+(z.stav||""),"Realizace: "+(z.kdy||""),"Náklady: "+(z.rozpocet||""),"Pomoc: "+(z.pomoc||"")+" "+(z.pomocS||[]).join("; ")].join(" | "),"","",z.at]);}
     if(r.survey?.at) rows.push(["hodnoceni",r.role,r.org,r.contact,"","","",["Přínosné: "+(r.survey.casti||[]).join("; "),"Zapojení: "+(r.survey.zapojeni||[]).join("; "),"Využijí: "+(r.survey.co||""),"Chybí: "+(r.survey.chybi||""),"Zaslat PDF: "+(r.survey.chcePdf?r.survey.email:"ne")].join(" | "),r.survey.uzitecnost,r.survey.vyuziti,r.survey.at])});
   moods.forEach(m=>[D,...S].forEach(s=>{const a=m.a?.[s.id]; if(s.q&&a!=null&&(!Array.isArray(a)||a.length)) rows.push(["karpik",m.role,"","",s.t,s.q.q,"",Array.isArray(a)?a.join("; "):a,"","",m.at])}));
   return "﻿"+rows.map(r=>r.map(q).join(";")).join("\r\n");
@@ -1079,8 +1206,8 @@ render();
   try{
     const d = await rpc("innomethod_get_odpoved",{p_client:clientId}); online=true;
     if(d){ if(!d.comments) d.comments=[];
-      if(me.updatedAt && (!d.updatedAt || me.updatedAt>d.updatedAt)) persist(); else { me={...me,...d}; ls.set("bk-me",me); } }
-    else if(me.comments.length || me.survey?.at) persist();
+      if(me.updatedAt && (!d.updatedAt || me.updatedAt>d.updatedAt)) persist(); else { me={...me,...d}; if(!me.zamer||!Object.keys(me.zamer).length) me.zamer=me.zamer||{}; ls.set("bk-me",me); } }
+    else if(me.comments.length || me.survey?.at || me.zamer?.at) persist();
   }catch(e){ online=false; showOffline(); }
   if(online){ await loadMoods(); if(Object.keys(quick).length && !moods.some(m=>m.mine)) persistQuick(); setInterval(()=>{ if(document.visibilityState==="visible") loadMoods(); },60000); }
   render();
