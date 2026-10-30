@@ -476,7 +476,7 @@ function homeHtml(){
   ${recoHtml()}
   <div class="sec-head"><span class="pill-badge">🗺️ Kapitoly</span><h2>Vyberte, kde začít</h2><p>Kapitoly na sebe navazují, ale můžete přeskakovat. Prošlé kapitoly označíme žlutě.</p></div>
   <div class="ch-grid">${S.map((s,i)=>`<a class="ch-card" href="#${s.id}"><div class="ph"><img src="assets/strategie/${s.img}.webp" alt="" loading="lazy"><span class="no">${i+1}</span>${seen.has(s.id)?'<span class="done">✓ prošlo</span>':""}</div><div class="b"><h3>${esc(s.h)}</h3><p>${esc(s.teaser)}</p></div></a>`).join("")}</div>
-  <div class="data-teaser"><div><h3>📊 Území v číslech</h3><p>Interaktivní přehled analytické části: druhová bohatost, stárnutí obcí, 15 problémů a SWOT. Najděte i svou obec.</p></div><a class="btn btn-accent" href="#data">Otevřít přehled →</a></div>`;
+  <div class="data-teaser"><div><h3>📊 Území v číslech</h3><p>Interaktivní přehled analytické části: druhová bohatost, obyvatelé obou stran hranice, 15 problémů a SWOT. Najděte i svou obec.</p></div><a class="btn btn-accent" href="#data">Otevřít přehled →</a></div>`;
 }
 
 function body(id){
@@ -487,7 +487,7 @@ function body(id){
     <div class="tile"><div class="n">44 568 ha</div><div class="l">CHKO Biele Karpaty (od 1979)</div></div>
     <div class="tile"><div class="n">1996</div><div class="l">biosférická rezervace UNESCO; v roce 2000 Evropský diplom</div></div>
     <div class="tile"><div class="n">≈ 79 tis.</div><div class="l">obyvatel slovenských obcí v CHKO</div></div>
-    <div class="tile"><div class="n">11 359</div><div class="l">dětí do 14 let na české straně</div></div>
+    <div class="tile"><div class="n">≈ 31 400</div><div class="l">dětí do 14 let v obcích obou stran (11 359 CZ + 20 064 SK)</div></div>
    </div>
    <div class="list">
     <div class="card"><div class="k">Pro koho</div><p>Primárně pro školy a vzdělávací instituce. Dále pro obce, pedagogy, správy CHKO, odborníky, ekocentra, rodiny s dětmi, turisty, spolky a veřejnost.</p></div>
@@ -602,16 +602,30 @@ function surveyHtml(){
 /* ---------- dashboard „Území v číslech“ ---------- */
 const D = {id:"data", t:"Území v číslech", q:{q:"Co vás v číslech nejvíc překvapilo?",o:["82 druhů rostlin na 1 m²","Stárnutí obcí","Málo dětí v malých obcích","Kolik je chráněných území","Nic, znám to"]}};
 KARPIK.data = "karpik-ahoj";
-// [obec, okres, obyvatel, 0–14, 15–64, 65+, průměrný věk] – ČSÚ, stav k 1. 1. 2026
+// SK: [obec, okres, obyvatel, 0–14, 15–64, 65+] – Štatistický úrad SR (kap. 4.8, příloha 2)
+const SK_ROWS = [
+["Chropov","SKA",362,54,238,70],["Koválovec","SKA",142,18,98,28],["Radošovce","SKA",1722,250,1146,326],["Skalica","SKA",15399,2312,9978,3108],
+["Častkov","SEN",556,85,362,110],["Podbranč","SEN",600,90,353,156],["Sobotište","SEN",1488,214,954,320],
+["Brestovec","MY",956,111,621,224],["Chvojnica","MY",323,40,207,76],["Myjava","MY",10384,1267,6519,2598],["Poriadie","MY",706,94,481,131],["Stará Myjava","MY",764,114,490,160],["Vrbovce","MY",1403,176,894,332],
+["Bošáca","NM",1310,182,846,281],["Bzince pod Javorinou","NM",2011,301,1279,431],["Lubina","NM",1514,243,978,294],["Moravské Lieskové","NM",2530,333,1675,522],["Nová Bošáca","NM",990,132,636,222],["Stará Turá","NM",8213,926,5147,2140],["Zemianske Podhradie","NM",776,114,499,164],
+["Adamovské Kochanovce","TN",874,145,574,155],["Dolná Súča","TN",3037,513,1964,560],["Drietoma","TN",2176,302,1439,435],["Horná Súča","TN",3278,510,2222,545],["Horné Srnie","TN",2664,396,1720,548],["Hrabovka","TN",436,60,292,84],["Chocholná-Velčice","TN",1657,232,1052,373],["Ivanovce","TN",1082,221,678,182],["Melčice-Lieskové","TN",1722,316,1097,309],["Nemšová","TN",6152,964,4012,1176],["Trenčín","TN",54117,7412,34028,12676],
+["Bohunice","IL",780,158,470,152],["Bolešov","IL",1601,268,1048,284],["Borčice","IL",757,169,496,92],["Červený Kameň","IL",634,96,405,133],["Kameničany","IL",552,82,357,112],["Krivoklát","IL",218,26,162,30],["Mikušovce","IL",1046,164,730,152],["Pruské","IL",2292,408,1498,388],["Sedmerovec","IL",418,58,289,70],["Slavnica","IL",866,110,576,180],["Tuchyňa","IL",875,154,569,152],["Vršatské Podhradie","IL",215,34,142,40],
+["Kvašov","PU",634,82,442,110],["Lednica","PU",894,132,609,153]
+];
+// CZ: [obec, okres, obyvatel, 0–14, 15–64, 65+, průměrný věk] – ČSÚ, stav k 1. 1. 2026
 const OBCE = [
 ["Blatnice pod Svatým Antonínkem","HO",1870,227,1101,542,47.7],["Blatnička","HO",440,62,269,109,45.9],["Hroznová Lhota","HO",1153,166,693,294,44.9],["Hrubá Vrbka","HO",601,92,362,147,44.8],["Javorník","HO",654,89,413,152,43.9],["Kněždub","HO",1044,150,652,242,44.7],["Kuželov","HO",415,61,275,79,42.9],["Lipov","HO",1394,194,858,342,45.1],["Louka","HO",921,116,575,230,45.6],["Malá Vrbka","HO",172,14,109,49,47.7],["Nová Lhota","HO",610,82,386,142,44.3],["Petrov","HO",1302,191,843,268,43.4],["Radějov","HO",845,116,507,222,45.5],["Strážnice","HO",5282,667,3308,1307,45.7],["Suchov","HO",472,57,287,128,47.3],["Sudoměřice","HO",1247,186,793,268,43.3],["Tasov","HO",502,68,331,103,43.3],["Tvarožná Lhota","HO",921,125,595,201,44.0],["Velká nad Veličkou","HO",2778,354,1716,708,45.7],
 ["Bojkovice","UH",4395,674,2720,1001,43.8],["Boršice u Blatnice","UH",815,132,505,178,43.2],["Bystřice pod Lopeníkem","UH",857,151,495,211,43.8],["Bánov","UH",2164,338,1382,444,43.0],["Březová","UH",961,127,572,262,45.6],["Dolní Němčí","UH",2847,410,1782,655,44.3],["Horní Němčí","UH",807,98,505,204,45.7],["Hostětín","UH",216,31,135,50,46.2],["Komňa","UH",499,60,327,112,45.3],["Korytná","UH",894,112,546,236,46.2],["Lopeník","UH",228,36,143,49,44.2],["Nezdenice","UH",708,102,413,193,46.6],["Nivnice","UH",3347,531,2119,697,43.0],["Pitín","UH",892,132,582,178,42.6],["Rudice","UH",420,43,264,113,47.4],["Slavkov","UH",696,104,423,169,44.3],["Starý Hrozenkov","UH",774,99,484,191,45.3],["Strání","UH",3330,452,2092,786,44.9],["Suchá Loz","UH",1165,216,735,214,40.8],["Vyškovec","UH",187,39,124,24,38.5],["Vápenice","UH",189,27,117,45,45.5],["Záhorovice","UH",1037,164,662,211,43.1],["Šumice","UH",1598,241,992,365,44.6],["Žítková","UH",175,26,111,38,42.1],
 ["Bohuslavice nad Vláří","ZL",349,51,228,70,45.6],["Brumov-Bylnice","ZL",5372,810,3372,1190,43.7],["Jestřabí","ZL",272,46,164,62,43.8],["Lipová","ZL",358,53,232,73,42.0],["Nedašov","ZL",1332,241,849,242,40.6],["Nedašova Lhota","ZL",676,102,458,116,42.0],["Návojná","ZL",683,119,427,137,42.2],["Petrůvka","ZL",318,49,193,76,44.6],["Poteč","ZL",746,103,487,156,42.6],["Rokytnice","ZL",587,83,377,127,44.9],["Slavičín","ZL",6168,842,3791,1535,45.5],["Valašské Klobouky","ZL",4864,750,3064,1050,43.3],["Valašské Příkazy","ZL",313,53,212,48,40.6],["Šanov","ZL",473,64,293,116,45.2],["Študlov","ZL",478,71,317,90,44.1],["Štítná nad Vláří-Popov","ZL",2067,319,1265,483,43.6],
 ["Horní Lideč","VS",1317,181,882,254,43.0],["Střelná","VS",539,60,359,120,45.3]
-].map(r=>({n:r[0],o:r[1],pop:r[2],d:r[3],p:r[4],s:r[5],age:r[6],pd:r[3]/r[2]*100,ps:r[5]/r[2]*100}));
-const OKRES = {HO:"Hodonín",UH:"Uherské Hradiště",ZL:"Zlín",VS:"Vsetín"};
-const OKS = [["okres Hodonín",19,22623,13.3,24.5,45.2],["okres Uherské Hradiště",24,29201,14.9,22.7,44.0],["okres Zlín",16,25056,15.0,22.2,43.8],["okres Vsetín (2 obce)",2,1856,13.0,20.2,43.7]];
-const TOTAL = {pop:78736,pd:14.4,ps:23.0,age:44.3}, CR = {pd:15.1,ps:20.8,age:43.3};
+].map(r=>({n:r[0],o:r[1],pop:r[2],d:r[3],p:r[4],s:r[5],age:r[6],side:"CZ"})).concat(SK_ROWS.map(r=>({n:r[0],o:r[1],pop:r[2],d:r[3],p:r[4],s:r[5],age:null,side:"SK"}))).map(o=>({...o,pd:o.d/o.pop*100,ps:o.s/o.pop*100,ix:Math.round(o.s/o.d*100)}));
+const OKRES = {HO:"Hodonín",UH:"Uherské Hradiště",ZL:"Zlín",VS:"Vsetín",SKA:"Skalica",SEN:"Senica",MY:"Myjava",NM:"Nové Mesto n. V.",TN:"Trenčín",IL:"Ilava",PU:"Púchov"};
+const SIDE_OK = {CZ:["HO","UH","ZL","VS"],SK:["SKA","SEN","MY","NM","TN","IL","PU"]};
+// [okres, obcí, obyvatel, děti %, 65+ %, index stáří]
+const OKS = {CZ:[["okres Hodonín",19,22623,13.3,24.5,183],["okres Uherské Hradiště",24,29201,14.9,22.7,152],["okres Zlín",16,25056,15.0,22.2,148],["okres Vsetín (2 obce)",2,1856,13.0,20.2,155]],
+ SK:[["okres Skalica",4,17626,14.9,20.0,134],["okres Senica",3,2644,14.7,22.2,150],["okres Myjava",6,14536,12.4,24.2,196],["okres Nové Mesto n. V.",7,17344,12.9,23.4,182],["okres Trenčín",11,77194,14.3,22.1,154],["okres Ilava",12,10254,16.8,17.4,104],["okres Púchov",2,1528,13.9,17.3,124]]};
+const TOT = {CZ:{pd:14.4,ps:23.0,ix:159,lbl:"Česká strana celkem"}, SK:{pd:14.2,ps:21.8,ix:153,lbl:"Slovenská strana celkem"}};
+const NAT = {CZ:{pd:15.1,ps:20.8,ix:138,lbl:"průměr Česka"}, SK:{pd:15.7,ps:19.0,ix:121,lbl:"průměr Slovenska"}};
 const SEQ = ["#b9cdb0","#87a87c","#5a7d52","#2f4830"]; // podíl 65+: do 18 %, 18–22, 22–26, 26+
 const band = ps => ps<18?0:ps<22?1:ps<26?2:3;
 const AGEC = ["#d08a0e","#3d8b3d","#3b7dd8"];
@@ -632,17 +646,17 @@ const PROB = [
 ];
 const SWOT = {
  s:["mimořádná druhová bohatost, UNESCO a Evropský diplom, Natura 2000 na obou stranách","jedno z botanicky nejlépe prozkoumaných území střední Evropy","síť značených tras, naučných stezek a rozhleden bez potřeby nové infrastruktury","živá kulturní tradice – kopanice, sady, louky","mapový portál, interaktivní aktivity a dronová dokumentace projektu"],
- w:["poznatky se do výuky dostávají omezeně, chybí materiály k lokalitám","roztříštěná data mezi institucemi a dvěma státy","stárnutí a rozdrobené osídlení; 26 obcí má méně než 100 dětí","omezené kapacity správ chráněných území","nekoordinované, místy zastaralé naučné stezky"],
+ w:["poznatky se do výuky dostávají omezeně, chybí materiály k lokalitám","roztříštěná data mezi institucemi a dvěma státy","stárnutí a rozdrobené osídlení; na české straně má 26 obcí méně než 100 dětí, na slovenské stárne hlavně jihozápad","omezené kapacity správ chráněných území","nekoordinované, místy zastaralé naučné stezky"],
  o:["QR aktivity bez staveb, obsah lze měnit bez zásahu v terénu","výuka venku navázaná na RVP ZV","mezigenerační formáty – senioři jako nositelé znalosti krajiny","šetrná turistika a cykloturistika pro místní služby","dotace na péči o krajinu a vodu (OPŽP, PPK, CLLD, Interreg)"],
  t:["odchod mladých z malých obcí, zužování produktivní složky","opouštění tradičního hospodaření a zarůstání luk","invazní druhy, sucho a eroze","nedůvěra části obyvatel k omezením ochrany přírody","nejistá udržitelnost výstupů po skončení projektu"]
 };
-let dState = {hab:0, okMetric:"ps", okFilter:"", sel:"", sort:["ps",-1], q:""};
+let dState = {hab:0, okMetric:"ps", okFilter:"", sel:"", sort:["ps",-1], q:"", side:"CZ", oside:""};
 const fmt = (n,d=0)=>n.toLocaleString("cs-CZ",{minimumFractionDigits:d,maximumFractionDigits:d});
 
 function dataHtml(){
   return `<section class="chapter" aria-labelledby="h">
    <div class="ch-banner"><img src="assets/strategie/porazky.webp" alt=""><div class="t"><span>Analytická část v kostce</span><h2 id="h">Území v číslech</h2></div></div>
-   <p class="intro">Interaktivní přehled toho, z čeho strategie vychází: příroda, obyvatelé, obce, problémy a SWOT. Klikejte, filtrujte a najděte svou obec.</p>
+   <p class="intro">Interaktivní přehled toho, z čeho strategie vychází: příroda, obyvatelé obou stran hranice, obce, problémy a SWOT. Klikejte, filtrujte a najděte svou obec – českou i slovenskou.</p>
    <div class="subnav" role="group" aria-label="Části přehledu">${[["d-priroda","Příroda"],["d-lide","Obyvatelé"],["d-obce","Najděte svou obec"],["d-problemy","15 problémů"],["d-swot","SWOT"]].map(x=>`<button type="button" data-go="${x[0]}">${x[1]}</button>`).join("")}</div>
 
    <div class="dsec" id="d-priroda"><h3><span class="ic">🌸</span>Příroda</h3>
@@ -660,40 +674,36 @@ function dataHtml(){
     <p class="src">Zdroj: kap. 3 strategie; Plán péče o CHKO Bílé Karpaty 2022–2031; ŠOP SR.</p>
    </div>
 
-   <div class="dsec" id="d-lide"><h3><span class="ic">👪</span>Obyvatelé české strany</h3>
-    <div class="tiles">
-     <div class="tile y"><div class="n">78 736</div><div class="l">obyvatel v 61 obcích</div></div>
-     <div class="tile"><div class="n">44,3</div><div class="l">let průměrný věk (ČR 43,3)</div></div>
-     <div class="tile"><div class="n">159</div><div class="l">seniorů na 100 dětí (ČR 138)</div></div>
-     <div class="tile"><div class="n">58 z 61</div><div class="l">obcí má víc seniorů než dětí</div></div>
-     <div class="tile"><div class="n">18</div><div class="l">obcí pod 500 obyvatel; medián obce 807</div></div>
-     <div class="tile"><div class="n">26</div><div class="l">obcí s méně než 100 dětmi do 14 let</div></div>
-    </div>
+   <div class="dsec" id="d-lide"><h3><span class="ic">👪</span>Obyvatelé na obou stranách hranice</h3>
+    <div class="seg" role="group" aria-label="Strana hranice">${[["CZ","🇨🇿 Česká strana"],["SK","🇸🇰 Slovenská strana"]].map(x=>`<button type="button" data-side="${x[0]}" aria-pressed="${dState.side===x[0]}">${x[1]}</button>`).join("")}</div>
+    <div id="lide-side"></div>
     <div class="two">
-     <div class="panel"><h4>Věková struktura: území vs. Česko</h4>
-      <div class="stack">${[["Bílé Karpaty (CZ)",14.4,62.6,23.0],["Česko",15.1,64.1,20.8]].map(r=>`<div><div class="lbl">${r[0]}</div><div class="sbar" role="img" aria-label="${r[0]}: děti ${fmt(r[1],1)} %, 15–64 let ${fmt(r[2],1)} %, 65+ ${fmt(r[3],1)} %">${[r[1],r[2],r[3]].map((v,i)=>`<span style="width:${v}%;background:${AGEC[i]}" title="${["0–14 let","15–64 let","65+ let"][i]}: ${fmt(v,1)} %">${fmt(v,1)} %</span>`).join("")}</div></div>`).join("")}</div>
+     <div class="panel"><h4>Věková struktura: obě strany a oba státy</h4>
+      <div class="stack">${[["Česká strana Bílých Karpat",14.4,62.6,23.0],["Česko",15.1,64.1,20.8],["Slovenská strana Bielych Karpat",14.2,64.0,21.8],["Slovensko",15.7,65.3,19.0]].map(r=>`<div><div class="lbl">${r[0]}</div><div class="sbar" role="img" aria-label="${r[0]}: děti ${fmt(r[1],1)} %, 15–64 let ${fmt(r[2],1)} %, 65+ ${fmt(r[3],1)} %">${[r[1],r[2],r[3]].map((v,i)=>`<span style="width:${v}%;background:${AGEC[i]}" title="${["0–14 let","15–64 let","65+ let"][i]}: ${fmt(v,1)} %">${fmt(v,1)} %</span>`).join("")}</div></div>`).join("")}</div>
       <div class="legend"><span><i style="background:${AGEC[0]}"></i>děti 0–14</span><span><i style="background:${AGEC[1]}"></i>15–64 let</span><span><i style="background:${AGEC[2]}"></i>senioři 65+</span></div>
+      <p class="src">Slovenská strana je starší než Slovensko jako celek, ale mladší než česká strana území. Srovnání je orientační.</p>
      </div>
-     <div class="panel"><div class="row" style="justify-content:space-between"><h4>Okresní části území</h4>
-      <div class="seg" role="group" aria-label="Ukazatel">${[["ps","Podíl 65+"],["pd","Podíl dětí"],["age","Průměrný věk"]].map(m=>`<button type="button" data-m="${m[0]}" aria-pressed="${dState.okMetric===m[0]}">${m[1]}</button>`).join("")}</div></div>
-      <div class="hb" id="okb"></div><div class="legend"><span><i style="background:var(--text-body);width:3px"></i>průměr Česka</span></div></div>
+     <div class="panel"><div class="row" style="justify-content:space-between"><h4 id="ok-title">Okresní části území</h4>
+      <div class="seg" role="group" aria-label="Ukazatel">${[["ps","Podíl 65+"],["pd","Podíl dětí"],["ix","Index stáří"]].map(m=>`<button type="button" data-m="${m[0]}" aria-pressed="${dState.okMetric===m[0]}">${m[1]}</button>`).join("")}</div></div>
+      <div class="hb" id="okb"></div><div class="legend"><span><i style="background:var(--text-body);width:3px"></i><span id="ok-ref">průměr státu</span></span><span>· index stáří = seniorů na 100 dětí</span></div></div>
     </div>
-    <div class="panel"><h4>Muži a ženy podle věku</h4><p style="margin:0;font-size:15px">Celkově vyrovnané (1 008 žen na 1 000 mužů), ale v produktivním věku žije o více než 2 000 mužů víc než žen (index 914) a mezi seniory tvoří ženy 57,7 % (index 1 361). Ženy-seniorky jsou hlavními nositelkami znalostí o sadech a bylinách; hospodáři jsou převážně muži v produktivním věku.</p></div>
-    <p class="src">Zdroj: ČSÚ – Veřejná databáze, export UD-1784727080364, stav k 1. 1. 2026; kap. 4 strategie. Data za slovenskou stranu se zpracovávají se slovenskými partnery.</p>
+    <div class="panel" id="lide-note"></div>
+    <p class="src" id="lide-src"></p>
    </div>
 
    <div class="dsec" id="d-obce"><h3><span class="ic">🏡</span>Najděte svou obec</h3>
     <div class="panel">
      <div class="row" style="justify-content:space-between;gap:10px">
-      <label class="f" style="flex:1;min-width:200px">Hledat obec<input type="text" id="oq" list="ol" placeholder="např. Strání" value="${esc(dState.q)}"><datalist id="ol">${OBCE.map(o=>`<option value="${esc(o.n)}">`).join("")}</datalist></label>
-      <div class="seg" role="group" aria-label="Okres"><button type="button" data-ok="" aria-pressed="${!dState.okFilter}">Vše</button>${Object.entries(OKRES).map(([k,v])=>`<button type="button" data-ok="${k}" aria-pressed="${dState.okFilter===k}">${v}</button>`).join("")}</div>
+      <label class="f" style="flex:1;min-width:200px">Hledat obec<input type="text" id="oq" list="ol" placeholder="např. Strání nebo Bošáca" value="${esc(dState.q)}"><datalist id="ol">${OBCE.map(o=>`<option value="${esc(o.n)}">`).join("")}</datalist></label>
+      <div class="seg" role="group" aria-label="Strana hranice">${[["","Obě strany"],["CZ","Česká"],["SK","Slovenská"]].map(x=>`<button type="button" data-oside="${x[0]}" aria-pressed="${dState.oside===x[0]}">${x[1]}</button>`).join("")}</div>
      </div>
+     <div class="filters" id="okseg" role="group" aria-label="Okres"></div>
      <div id="ocard"></div>
      <h4>Děti vs. senioři v každé obci</h4>
      <div class="chart" id="sc"></div>
-     <div class="legend">${["do 18 %","18–22 %","22–26 %","26 % a víc"].map((t,i)=>`<span><i style="background:${SEQ[i]}"></i>podíl 65+ ${t}</span>`).join("")}<span>· velikost bubliny = počet obyvatel</span></div>
-     <p class="src" style="margin-top:-4px">Obce nad přerušovanou čarou mají víc seniorů než dětí. Míra stárnutí téměř nezávisí na velikosti obce (korelace 0,10), rozhoduje spíš poloha.</p>
-     <div class="otbl"><table><thead><tr>${[["n","Obec"],["pop","Obyvatel"],["pd","Děti %"],["ps","65+ %"],["age","Prům. věk"]].map(c=>`<th data-sort="${c[0]}"${dState.sort[0]===c[0]?` aria-sort="${dState.sort[1]>0?"ascending":"descending"}"`:""}>${c[1]}</th>`).join("")}</tr></thead><tbody id="otb"></tbody></table></div>
+     <div class="legend">${["do 18 %","18–22 %","22–26 %","26 % a víc"].map((t,i)=>`<span><i style="background:${SEQ[i]}"></i>podíl 65+ ${t}</span>`).join("")}<span>· ● česká obec · ■ slovenská obec · velikost = počet obyvatel</span></div>
+     <p class="src" style="margin-top:-4px">Obce nad přerušovanou čarou mají víc seniorů než dětí. Stárnutí jen slabě souvisí s velikostí obce (korelace 0,10 na české a 0,27 na slovenské straně). Na Slovensku stárnou spíš města (Stará Turá, Myjava), na české straně rozhoduje poloha.</p>
+     <div class="otbl"><table><thead><tr>${[["n","Obec"],["pop","Obyvatel"],["pd","Děti %"],["ps","65+ %"],["ix","Index stáří"]].map(c=>`<th data-sort="${c[0]}"${dState.sort[0]===c[0]?` aria-sort="${dState.sort[1]>0?"ascending":"descending"}"`:""}>${c[1]}</th>`).join("")}</tr></thead><tbody id="otb"></tbody></table></div>
     </div>
    </div>
 
@@ -719,11 +729,41 @@ function bindData(){
   const drawHab=()=>{const h=HAB[dState.hab];document.getElementById("habd").innerHTML=`<h4 style="margin:0;color:var(--dark-green)">${h[0]}</h4><p><b>Kdo tu žije:</b> ${h[1]}</p><p><b>Co potřebuje:</b> ${h[2]}</p>`;};
   drawHab();
   document.querySelectorAll("[data-h]").forEach(b=>b.onclick=()=>{dState.hab=+b.dataset.h;document.querySelectorAll("[data-h]").forEach(x=>x.setAttribute("aria-pressed",x===b));drawHab()});
-  const drawOk=()=>{const m=dState.okMetric, idx={pd:3,ps:4,age:5}[m], max=m==="age"?50:30, ref=CR[m], unit=m==="age"?" let":" %";
-    document.getElementById("okb").innerHTML=OKS.map(o=>`<div class="r"><span>${o[0]}</span><div class="track"><i style="width:${o[idx]/max*100}%"></i><b style="left:${ref/max*100}%" title="Česko ${fmt(ref,1)}${unit}"></b></div><span class="v">${fmt(o[idx],1)}${m==="age"?"":" %"}</span></div>`).join("")+`<div class="r" style="color:var(--text-muted)"><span>Území celkem</span><div class="track"><i style="width:${TOTAL[m]/max*100}%;background:var(--mid-green)"></i><b style="left:${ref/max*100}%"></b></div><span class="v">${fmt(TOTAL[m],1)}${m==="age"?"":" %"}</span></div>`;};
-  drawOk();
+  const drawLide=()=>{const sd=dState.side;
+    document.getElementById("lide-side").innerHTML = sd==="CZ" ? `<div class="tiles">
+     <div class="tile y"><div class="n">78 736</div><div class="l">obyvatel v 61 obcích</div></div>
+     <div class="tile"><div class="n">159</div><div class="l">seniorů na 100 dětí (ČR 138)</div></div>
+     <div class="tile"><div class="n">44,3</div><div class="l">let průměrný věk (ČR 43,3)</div></div>
+     <div class="tile"><div class="n">58 z 61</div><div class="l">obcí má víc seniorů než dětí</div></div>
+     <div class="tile"><div class="n">807</div><div class="l">obyvatel má mediánová obec; 18 obcí pod 500</div></div>
+     <div class="tile"><div class="n">26</div><div class="l">obcí s méně než 100 dětmi do 14 let</div></div></div>`
+     : `<div class="tiles">
+     <div class="tile y"><div class="n">141 124</div><div class="l">obyvatel ve 45 obcích (celé obce včetně Trenčína)</div></div>
+     <div class="tile"><div class="n">153</div><div class="l">seniorů na 100 dětí (SR 121; bez Trenčína 143)</div></div>
+     <div class="tile"><div class="n">38 z 45</div><div class="l">obcí má víc seniorů než dětí</div></div>
+     <div class="tile"><div class="n">990</div><div class="l">obyvatel má mediánová obec; 7 obcí pod 500</div></div>
+     <div class="tile"><div class="n">66,8 %</div><div class="l">obyvatel žije v pěti městech nad 5 000 obyvatel</div></div>
+     <div class="tile"><div class="n">≈ 13 000</div><div class="l">dětí do 14 let jen v pěti městech – široká cílová skupina pro výuku venku</div></div></div>`;
+    document.getElementById("lide-note").innerHTML = sd==="CZ"
+     ? `<h4>Muži a ženy podle věku</h4><p style="margin:0;font-size:15px">Celkově vyrovnané (1 008 žen na 1 000 mužů), ale v produktivním věku žije o více než 2 000 mužů víc než žen (index 914) a mezi seniory tvoří ženy 57,7 % (index 1 361). Ženy-seniorky jsou hlavními nositelkami znalostí o sadech a bylinách; hospodáři jsou převážně muži v produktivním věku.</p>`
+     : `<h4>Co to znamená pro strategii</h4>
+        <div class="ov-c" style="padding:6px 0"><b>Stárnoucí jihozápad</b><span class="status">Obce okresů Skalica, Senica, Myjava a Nové Mesto n. V. (20 obcí) mají index stáří 166 – kopaničářské obce stárnou podobně jako Horňácko. Důraz na mezigenerační přenos znalostí a sdílenou péči o louky a sady.</span></div>
+        <div class="ov-c" style="padding:6px 0"><b>Mladší severovýchod</b><span class="status">Obce okresů Trenčín (bez města), Ilava a Púchov (24 obcí) mají index stáří 115. Leží zde všech 7 obcí, kde dětí není méně než seniorů – nejvíce Borčice (index 55).</span></div>
+        <div class="ov-c" style="padding:6px 0;border:0"><b>Blízkost měst</b><span class="status">Města v dosahu CHKO jsou zdrojem škol i návštěvníků a zároveň zvyšují návštěvnický tlak na blízké lokality.</span></div>
+        <p class="src" style="margin:4px 0 0">Údaje jsou za celé obce. U Trenčína, Myjavy a Nemšové, kam CHKO zasahuje jen částí, jsou započteni i obyvatelé vzdálenějších částí; přímo v CHKO žije odhadem asi 50 tisíc lidí. Bez obcí Haluzice a Skalka nad Váhom.</p>`;
+    document.getElementById("lide-src").textContent = sd==="CZ" ? "Zdroj: ČSÚ – Veřejná databáze, export UD-1784727080364, stav k 1. 1. 2026; kap. 4.1–4.7 strategie." : "Zdroj: Štatistický úrad SR; kap. 4.8 a příloha 2 strategie.";
+    document.getElementById("ok-ref").textContent = NAT[sd].lbl;
+    drawOk(); };
+  const drawOk=()=>{const sd=dState.side, m=dState.okMetric, idx={pd:3,ps:4,ix:5}[m], max=m==="ix"?250:30, ref=NAT[sd][m], suf=m==="ix"?"":" %", f=v=>m==="ix"?fmt(v):fmt(v,1)+suf;
+    document.getElementById("okb").innerHTML=OKS[sd].map(o=>`<div class="r"><span>${o[0]}</span><div class="track"><i style="width:${o[idx]/max*100}%"></i><b style="left:${ref/max*100}%" title="${NAT[sd].lbl}: ${f(ref)}"></b></div><span class="v">${f(o[idx])}</span></div>`).join("")+`<div class="r" style="color:var(--text-muted)"><span>${TOT[sd].lbl}</span><div class="track"><i style="width:${TOT[sd][m]/max*100}%;background:var(--mid-green)"></i><b style="left:${ref/max*100}%"></b></div><span class="v">${f(TOT[sd][m])}</span></div>`;};
+  drawLide();
+  document.querySelectorAll("[data-side]").forEach(b=>b.onclick=()=>{dState.side=b.dataset.side;document.querySelectorAll("[data-side]").forEach(x=>x.setAttribute("aria-pressed",x===b));drawLide()});
   document.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>{dState.okMetric=b.dataset.m;document.querySelectorAll("[data-m]").forEach(x=>x.setAttribute("aria-pressed",x===b));drawOk()});
-  document.querySelectorAll("[data-ok]").forEach(b=>b.onclick=()=>{dState.okFilter=b.dataset.ok;document.querySelectorAll("[data-ok]").forEach(x=>x.setAttribute("aria-pressed",x===b));drawObce()});
+  const drawOkSeg=()=>{const keys=dState.oside?SIDE_OK[dState.oside]:[...SIDE_OK.CZ,...SIDE_OK.SK];
+    document.getElementById("okseg").innerHTML=`<button type="button" data-ok="" aria-pressed="${!dState.okFilter}">Všechny okresy</button>`+keys.map(k=>`<button type="button" data-ok="${k}" aria-pressed="${dState.okFilter===k}">${OKRES[k]}</button>`).join("");
+    document.querySelectorAll("[data-ok]").forEach(b=>b.onclick=()=>{dState.okFilter=b.dataset.ok;document.querySelectorAll("[data-ok]").forEach(x=>x.setAttribute("aria-pressed",x===b));drawObce()});};
+  drawOkSeg();
+  document.querySelectorAll("[data-oside]").forEach(b=>b.onclick=()=>{dState.oside=b.dataset.oside;dState.okFilter="";document.querySelectorAll("[data-oside]").forEach(x=>x.setAttribute("aria-pressed",x===b));drawOkSeg();drawObce()});
   const oq=document.getElementById("oq");
   oq.oninput=()=>{dState.q=oq.value;const hit=OBCE.find(o=>o.n.toLowerCase()===oq.value.trim().toLowerCase());if(hit){dState.sel=hit.n}drawObce()};
   document.querySelectorAll("[data-sort]").forEach(th=>th.onclick=()=>{const k=th.dataset.sort;dState.sort=[k,dState.sort[0]===k?-dState.sort[1]:(k==="n"?1:-1)];document.querySelectorAll("[data-sort]").forEach(x=>x.removeAttribute("aria-sort"));th.setAttribute("aria-sort",dState.sort[1]>0?"ascending":"descending");drawObce()});
@@ -732,39 +772,40 @@ function bindData(){
 
 function drawObce(){
   let q=dState.q.trim().toLowerCase(); if(OBCE.some(o=>o.n.toLowerCase()===q)) q="";
-  const list=OBCE.filter(o=>(!dState.okFilter||o.o===dState.okFilter)&&(!q||o.n.toLowerCase().includes(q)));
+  const list=OBCE.filter(o=>(!dState.oside||o.side===dState.oside)&&(!dState.okFilter||o.o===dState.okFilter)&&(!q||o.n.toLowerCase().includes(q)));
   const [k,dir]=dState.sort; list.sort((a,b)=>k==="n"?a.n.localeCompare(b.n,"cs")*dir:(a[k]-b[k])*dir);
-  document.getElementById("otb").innerHTML=list.map(o=>`<tr data-o="${esc(o.n)}" class="${o.n===dState.sel?"sel":""}"><td>${esc(o.n)} <span class="status">${OKRES[o.o]}</span></td><td class="c">${fmt(o.pop)}</td><td class="c">${fmt(o.pd,1)}</td><td class="c">${fmt(o.ps,1)}<span class="sw"><i style="width:${o.ps/30*100}%;background:${SEQ[band(o.ps)]}"></i></span></td><td class="c">${fmt(o.age,1)}</td></tr>`).join("")||`<tr><td colspan="5" class="status">Žádná obec neodpovídá hledání.</td></tr>`;
+  document.getElementById("otb").innerHTML=list.map(o=>`<tr data-o="${esc(o.n)}" class="${o.n===dState.sel?"sel":""}"><td>${esc(o.n)} <span class="status">${o.side} · ${OKRES[o.o]}</span></td><td class="c">${fmt(o.pop)}</td><td class="c">${fmt(o.pd,1)}</td><td class="c">${fmt(o.ps,1)}<span class="sw"><i style="width:${o.ps/30*100}%;background:${SEQ[band(o.ps)]}"></i></span></td><td class="c">${fmt(o.ix)}</td></tr>`).join("")||`<tr><td colspan="5" class="status">Žádná obec neodpovídá hledání.</td></tr>`;
   document.querySelectorAll("#otb tr[data-o]").forEach(tr=>tr.onclick=()=>{dState.sel=tr.dataset.o;drawObce()});
   // detail
   const s=OBCE.find(o=>o.n===dState.sel);
-  document.getElementById("ocard").innerHTML = s ? (()=>{const dS=s.ps-TOTAL.ps, dD=s.pd-TOTAL.pd, rank=[...OBCE].sort((a,b)=>b.ps-a.ps).findIndex(o=>o===s)+1;
-    return `<div class="obec-card"><div class="row" style="justify-content:space-between"><h4>${esc(s.n)}</h4><span class="status">okres ${OKRES[s.o]}</span></div>
-     <div class="kv"><div><b>${fmt(s.pop)}</b><span>obyvatel</span></div><div><b>${fmt(s.d)}</b><span>dětí do 14 let</span></div><div><b>${fmt(s.s)}</b><span>seniorů 65+</span></div><div><b>${fmt(s.age,1)}</b><span>průměrný věk</span></div></div>
-     <p style="margin:0;font-size:14.5px">Podíl seniorů ${fmt(s.ps,1)} % je ${Math.abs(dS)<0.3?"na úrovni":dS>0?`o ${fmt(dS,1)} p. b. nad`:`o ${fmt(-dS,1)} p. b. pod`} průměrem území (23,0 %); podíl dětí ${fmt(s.pd,1)} % je ${Math.abs(dD)<0.3?"na úrovni":dD>0?`o ${fmt(dD,1)} p. b. nad`:`o ${fmt(-dD,1)} p. b. pod`} průměrem. ${rank}. nejstarší z 61 obcí podle podílu seniorů.${s.d<100?" Obec má méně než 100 dětí – vhodné jsou aktivity pro rodiny bez organizované skupiny (QR stanoviště, trasy).":""}</p></div>`})()
+  document.getElementById("ocard").innerHTML = s ? (()=>{const T=TOT[s.side], same=OBCE.filter(o=>o.side===s.side), dS=s.ps-T.ps, dD=s.pd-T.pd, rank=[...same].sort((a,b)=>b.ps-a.ps).findIndex(o=>o===s)+1, sideTxt=s.side==="CZ"?"české":"slovenské";
+    return `<div class="obec-card"><div class="row" style="justify-content:space-between"><h4>${esc(s.n)}</h4><span class="status">${s.side==="CZ"?"🇨🇿":"🇸🇰"} okres ${OKRES[s.o]}</span></div>
+     <div class="kv"><div><b>${fmt(s.pop)}</b><span>obyvatel</span></div><div><b>${fmt(s.d)}</b><span>dětí do 14 let</span></div><div><b>${fmt(s.s)}</b><span>seniorů 65+</span></div><div><b>${s.age!=null?fmt(s.age,1):fmt(s.ix)}</b><span>${s.age!=null?"průměrný věk":"seniorů na 100 dětí"}</span></div></div>
+     <p style="margin:0;font-size:14.5px">Podíl seniorů ${fmt(s.ps,1)} % je ${Math.abs(dS)<0.3?"na úrovni":dS>0?`o ${fmt(dS,1)} p. b. nad`:`o ${fmt(-dS,1)} p. b. pod`} průměrem ${sideTxt} strany (${fmt(T.ps,1)} %); podíl dětí ${fmt(s.pd,1)} % je ${Math.abs(dD)<0.3?"na úrovni":dD>0?`o ${fmt(dD,1)} p. b. nad`:`o ${fmt(-dD,1)} p. b. pod`} průměrem. ${rank}. nejstarší z ${same.length} obcí ${sideTxt} strany podle podílu seniorů.${s.d<100?" Obec má méně než 100 dětí – vhodné jsou aktivity pro rodiny bez organizované skupiny (QR stanoviště, trasy).":""}${s.d>=s.s?" V obci je dětí stejně nebo víc než seniorů – vzácnost v celém území.":""}</p></div>`})()
    : `<div class="hint">Vyberte obec v grafu, v tabulce nebo ji vyhledejte.</div>`;
   drawScatter(list);
 }
 
+const rad=o=>3.5+Math.min(Math.sqrt(o.pop)/11,13);
 function drawScatter(list){
   const el=document.getElementById("sc"); const W=760,H=380,L=64,R=14,T=14,B=40;
-  const x0=7,x1=22,y0=12,y1=30; const X=v=>L+(v-x0)/(x1-x0)*(W-L-R), Y=v=>H-B-(v-y0)/(y1-y0)*(H-T-B);
+  const x0=7,x1=24,y0=11,y1=30; const X=v=>L+(v-x0)/(x1-x0)*(W-L-R), Y=v=>H-B-(v-y0)/(y1-y0)*(H-T-B);
   const vis=new Set(list.map(o=>o.n));
   const pts=[...OBCE].sort((a,b)=>b.pop-a.pop);
-  let g=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Bodový graf: podíl dětí a seniorů v 61 obcích">`;
-  for(let v=8;v<=22;v+=2) g+=`<line x1="${X(v)}" x2="${X(v)}" y1="${T}" y2="${H-B}" stroke="#eee8d8"/><text x="${X(v)}" y="${H-B+16}" text-anchor="middle">${v} %</text>`;
+  let g=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Bodový graf: podíl dětí a seniorů v 106 obcích na obou stranách hranice">`;
+  for(let v=8;v<=24;v+=2) g+=`<line x1="${X(v)}" x2="${X(v)}" y1="${T}" y2="${H-B}" stroke="#eee8d8"/><text x="${X(v)}" y="${H-B+16}" text-anchor="middle">${v} %</text>`;
   for(let v=12;v<=30;v+=3) g+=`<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="#eee8d8"/><text x="${L-6}" y="${Y(v)+4}" text-anchor="end">${v} %</text>`;
-  g+=`<line x1="${X(12)}" y1="${Y(12)}" x2="${X(22)}" y2="${Y(22)}" stroke="#55584f" stroke-dasharray="5 4"/>`;
+  g+=`<line x1="${X(11)}" y1="${Y(11)}" x2="${X(24)}" y2="${Y(24)}" stroke="#55584f" stroke-dasharray="5 4"/>`;
   g+=`<text x="${(L+W-R)/2}" y="${H-4}" text-anchor="middle" style="font-weight:700">Podíl dětí do 14 let</text><text transform="translate(12 ${(T+H-B)/2}) rotate(-90)" text-anchor="middle" style="font-weight:700">Podíl seniorů 65+</text>`;
-  pts.forEach(o=>{const r=3.5+Math.sqrt(o.pop)/11, on=vis.has(o.n), sel=o.n===dState.sel;
-    g+=`<circle data-o="${esc(o.n)}" cx="${X(o.pd).toFixed(1)}" cy="${Y(o.ps).toFixed(1)}" r="${r.toFixed(1)}" fill="${SEQ[band(o.ps)]}" fill-opacity="${on?0.9:0.15}" stroke="${sel?"#2f4830":"#ffffff"}" stroke-width="${sel?3:2}" style="cursor:pointer"/>`;});
+  pts.forEach(o=>{const r=rad(o), on=vis.has(o.n), sel=o.n===dState.sel, cx=X(o.pd), cy=Y(o.ps), at=`data-o="${esc(o.n)}" fill="${SEQ[band(o.ps)]}" fill-opacity="${on?0.9:0.12}" stroke="${sel?"#2f4830":"#ffffff"}" stroke-width="${sel?3:2}" style="cursor:pointer"`;
+    g+= o.side==="CZ" ? `<circle ${at} cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${r.toFixed(1)}"/>` : `<rect ${at} x="${(cx-r*0.9).toFixed(1)}" y="${(cy-r*0.9).toFixed(1)}" width="${(r*1.8).toFixed(1)}" height="${(r*1.8).toFixed(1)}" rx="2"/>`;});
   const s=OBCE.find(o=>o.n===dState.sel);
-  if(s) g+=`<text x="${X(s.pd)}" y="${Y(s.ps)-(3.5+Math.sqrt(s.pop)/11)-6}" text-anchor="middle" style="font-weight:800;fill:#2f4830;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round">${esc(s.n)}</text>`;
+  if(s) g+=`<text x="${X(s.pd)}" y="${Y(s.ps)-rad(s)-6}" text-anchor="middle" style="font-weight:800;fill:#2f4830;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round">${esc(s.n)}</text>`;
   g+=`</svg><div class="tip" id="stip" hidden></div>`;
   el.innerHTML=g;
   const tip=document.getElementById("stip"), svg=el.querySelector("svg");
-  el.querySelectorAll("circle").forEach(c=>{
-    c.onmouseenter=()=>{const o=OBCE.find(x=>x.n===c.dataset.o);const bb=svg.getBoundingClientRect(),sc=bb.width/W;tip.innerHTML=`<b>${esc(o.n)}</b> · ${fmt(o.pop)} obyv.<br>děti ${fmt(o.pd,1)} % · 65+ ${fmt(o.ps,1)} % · věk ${fmt(o.age,1)}`;tip.style.left=Math.min(Math.max(+c.getAttribute("cx")*sc,130),bb.width-130)+"px";tip.style.top=(+c.getAttribute("cy")*sc-(+c.getAttribute("r"))*sc)+"px";tip.hidden=false};
+  el.querySelectorAll("[data-o]").forEach(c=>{
+    c.onmouseenter=()=>{const o=OBCE.find(x=>x.n===c.dataset.o);const bb=svg.getBoundingClientRect(),sc=bb.width/W;tip.innerHTML=`<b>${esc(o.n)}</b> (${o.side}) · ${fmt(o.pop)} obyv.<br>děti ${fmt(o.pd,1)} % · 65+ ${fmt(o.ps,1)} % · index stáří ${fmt(o.ix)}`;tip.style.left=Math.min(Math.max(X(o.pd)*sc,140),bb.width-140)+"px";tip.style.top=((Y(o.ps)-rad(o))*sc)+"px";tip.hidden=false};
     c.onmouseleave=()=>tip.hidden=true;
     c.onclick=()=>{dState.sel=c.dataset.o;drawObce()};
   });
