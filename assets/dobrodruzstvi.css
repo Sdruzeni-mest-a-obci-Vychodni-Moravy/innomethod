@@ -315,7 +315,7 @@ a.route-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft)
 .how-steps li { transition: border-color 0.35s ease, box-shadow 0.35s ease; }
 .how-steps li.is-reached { border-color: var(--mid-green); }
 
-/* ---------- Route card + navigation card: the trail draws left to right once it scrolls into view ---------- */
+/* ---------- Route card + navigation card: the trail draws left to right on hover / tap ---------- */
 .route-line-draw { position: relative; width: 72%; margin: 14px auto 6px; }
 .route-line-draw .route-line { width: 100%; margin: 0; }
 .route-line-draw .route-line:first-child { opacity: 0.2; }
@@ -328,9 +328,11 @@ a.route-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft)
   transition: clip-path 0.9s cubic-bezier(0.45, 0.05, 0.3, 1);
 }
 @media (hover: hover) {
-  .route-card:hover .route-line-ink { clip-path: inset(0 0 0 0); }
+  .route-card:hover .route-line-ink,
+  .route-nav:hover .route-line-ink { clip-path: inset(0 0 0 0); }
 }
 .route-card:focus-visible .route-line-ink,
+.route-nav:focus-visible .route-line-ink,
 .route-card.is-drawing .route-line-ink,
 .route-nav.is-drawing .route-line-ink { clip-path: inset(0 0 0 0); }
 .route-nav .route-line-draw { width: 100%; max-width: 380px; margin: 0; }
