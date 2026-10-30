@@ -240,15 +240,17 @@ a.route-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft)
 .task-link { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 56px; padding: 13px 17px; border: 1px solid var(--cream-border); border-radius: var(--radius-md); background: var(--cream-soft); color: var(--dark-green); font-weight: 700; text-decoration: none; transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease; }
 .task-link:hover { border-color: var(--mid-green); box-shadow: var(--shadow-soft); transform: translateY(-2px); }
 .task-link::after { content: "→"; font-size: 1.15rem; line-height: 1; }
-.bonus { margin-top: 18px; }
-.bonus h3 { margin: 0 0 10px; color: var(--dark-green); font-size: 1.05rem; }
-.bonus-link { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-radius: var(--radius-md); background: var(--yellow); color: var(--dark-green-2); text-decoration: none; transition: background 0.15s ease, transform 0.15s ease; }
-.bonus-link:hover { background: var(--yellow-dark); transform: translateY(-2px); }
-.bonus-link::after { content: "→"; font-size: 1.25rem; line-height: 1; font-weight: 700; }
-.bonus-title { display: block; font-weight: 800; font-size: 1.05rem; }
-.bonus-sub { display: block; font-weight: 600; font-size: 0.9rem; }
+/* Bonusová výprava – vedlejší, nenápadná akce pod úkoly (úkoly zůstávají hlavním prvkem) */
+.bonus { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; margin-top: 16px; padding-top: 10px; border-top: 1px dashed var(--cream-border); }
+.bonus h3 { margin: 0; color: var(--text-muted); font-size: 0.85rem; font-weight: 600; }
+.bonus-link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; color: var(--dark-green); text-decoration: underline; text-decoration-color: var(--cream-border); text-decoration-thickness: 2px; text-underline-offset: 4px; transition: text-decoration-color 0.15s ease; }
+.bonus-link:hover { text-decoration-color: var(--mid-green); }
+.bonus-link:focus-visible { outline: 2px solid var(--yellow-dark); outline-offset: 2px; border-radius: 4px; }
+.bonus-link::after { content: "→"; font-size: 0.95rem; line-height: 1; }
+.bonus-title { font-weight: 700; font-size: 0.95rem; }
+.bonus-sub { margin-left: 6px; color: var(--text-muted); font-size: 0.85rem; font-weight: 400; }
 @media (max-width: 800px) { .task-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (prefers-reduced-motion: reduce) { .task-link, .bonus-link { transition: none; } .task-link:hover, .bonus-link:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .task-link, .bonus-link { transition: none; } .task-link:hover { transform: none; } }
 .extra-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .extra-card { position: relative; background: var(--white); border: 1px solid var(--cream-border); border-radius: var(--radius-lg); padding: 22px 24px 56px; }
 .extra-card h3 { margin: 0 0 12px; color: var(--mid-green); font-size: 1.1rem; }
