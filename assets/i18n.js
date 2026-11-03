@@ -674,6 +674,9 @@
   var CS = {};
   Object.keys(SK).forEach(function (cs) { CS[SK[cs]] = cs; });
 
+  // Patterns for Czech text with numbers or names inside (e.g. "Kapitola 3 z 8"); each is [RegExp, Slovak replacement].
+  var PATTERNS = [];
+
   function norm(s) { return s.replace(/\s+/g, ' ').trim(); }
 
   function valid(l) { return l === 'sk' || l === 'cs' ? l : null; }
@@ -712,7 +715,13 @@
     var n = norm(text);
     if (!n) return null;
     var cs = Object.prototype.hasOwnProperty.call(SK, n) ? n : (Object.prototype.hasOwnProperty.call(CS, n) ? CS[n] : null);
-    if (cs === null) return null;
+    if (cs === null) {
+      if (lang !== 'sk') return null;
+      for (var i = 0; i < PATTERNS.length; i++) {
+        if (PATTERNS[i][0].test(n)) return n.replace(PATTERNS[i][0], PATTERNS[i][1]);
+      }
+      return null;
+    }
     return lang === 'sk' ? SK[cs] : cs;
   }
 
@@ -728,7 +737,7 @@
     node.nodeValue = raw.match(/^\s*/)[0] + target + raw.match(/\s*$/)[0];
   }
 
-  var ATTRS = ['alt', 'title', 'aria-label'];
+  var ATTRS = ['alt', 'title', 'aria-label', 'placeholder'];
 
   function translateElement(el) {
     for (var i = 0; i < ATTRS.length; i++) {
@@ -767,7 +776,7 @@
     }
     if (root.nodeType !== 1 || root.nodeName === 'SCRIPT' || root.nodeName === 'STYLE') return;
     translateElement(root);
-    var els = root.querySelectorAll('[alt],[title],[aria-label],[data-sk-href],[data-sk-src]');
+    var els = root.querySelectorAll('[alt],[title],[aria-label],[placeholder],[data-sk-href],[data-sk-src]');
     for (var i = 0; i < els.length; i++) translateElement(els[i]);
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode: function (n) {
@@ -812,7 +821,20 @@
     document.dispatchEvent(new CustomEvent('innomethod:langchange', { detail: { lang: next } }));
   }
 
-  window.innomethodI18n = { t: t, lang: function () { return lang; }, setLang: setLang };
+  // Pages that build their content with JavaScript add their own strings with extend()
+  // and call apply() on what they have just rendered.
+  function extend(dict, patterns) {
+    Object.keys(dict || {}).forEach(function (cs) { SK[cs] = dict[cs]; CS[dict[cs]] = cs; });
+    (patterns || []).forEach(function (p) { PATTERNS.push(p); });
+  }
+
+  window.innomethodI18n = {
+    t: t,
+    lang: function () { return lang; },
+    setLang: setLang,
+    extend: extend,
+    apply: function (root) { translateTree(root || document.body); }
+  };
 
   translateHead();
 

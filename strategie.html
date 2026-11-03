@@ -10,6 +10,8 @@
 <link rel="icon" href="assets/icons/logo-innomethod.svg" type="image/svg+xml">
 <style>body{margin:0}[hidden]{display:none!important}</style>
 <title>Strategie Bílé Karpaty – INNOMETHOD</title>
+<script src="assets/i18n.js?v=20261103s"></script>
+<script src="assets/strategie-sk.js?v=20261103s"></script>
 <style>
 /* Vizuál převzatý z webu INNOMETHOD (krémová, tmavě zelená, žlutá, zaoblené karty); záměrně jen světlý vzhled jako původní web */
 :root{
@@ -51,6 +53,12 @@ h1,h2,h3{color:var(--dark-green);line-height:1.18;text-wrap:balance;margin:0}
 .site-nav-links a.nav-cta:hover{background:var(--yellow-dark);transform:translateY(-1px)}
 .nav-toggle{margin-left:auto;display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--dark-green)}
 .nav-toggle svg{width:26px;height:26px}
+.lang-switch{order:5;flex:none;display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--cream-border);border-radius:var(--radius-full);background:var(--cream-soft);font-size:.8rem;font-weight:700}
+.lang-switch button{font:inherit;line-height:1;border:0;border-radius:var(--radius-full);padding:7px 11px;background:transparent;color:var(--text-muted);cursor:pointer;transition:background .15s ease,color .15s ease}
+.lang-switch button:hover{color:var(--dark-green)}
+.lang-switch button[aria-pressed="true"]{background:var(--dark-green);color:var(--white)}
+.lang-switch button:focus-visible{outline:2px solid var(--yellow);outline-offset:1px}
+.lang-switch .lang-sep{color:var(--text-muted);opacity:.5;font-weight:600}
 @media (max-width:1000px){:root{--nav-h:128px}.nav-divider,.nav-logo-interreg{display:none}}
 @media (max-width:760px){
  .site-nav-links{position:absolute;top:100%;left:0;right:0;z-index:10;background:var(--white);flex-direction:column;align-items:flex-start;gap:4px;padding:10px 20px 18px;border-bottom:1px solid var(--cream-border);box-shadow:var(--shadow-soft);display:none}
@@ -59,20 +67,26 @@ h1,h2,h3{color:var(--dark-green);line-height:1.18;text-wrap:balance;margin:0}
  .site-nav-links a:hover,.site-nav-links a[aria-current="page"]{border-color:transparent;text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:2px;text-underline-offset:3px}
  .site-nav-links a.nav-cta{width:auto;margin-top:6px;padding:10px 18px;text-decoration:none}
  .nav-toggle{display:inline-flex}
+ .lang-switch{order:0;margin-left:auto}
+ .lang-switch + .nav-toggle{margin-left:4px}
 }
 @media (max-width:430px){:root{--nav-h:114px}.site-nav-inner{gap:8px;padding:12px 14px}.nav-left{gap:6px}.site-logo{gap:6px;font-size:.9rem}.site-logo .logo-mark{width:36px;height:36px}.site-logo .logo-mark img{width:20px;height:20px}}
 .tabs{border-top:1px solid var(--cream-border);background:var(--cream-soft)}
 .tabs .wrap{display:flex;align-items:center;gap:10px}
 .tabs-list{display:flex;gap:4px;flex:1;min-width:0;overflow-x:auto;padding-block:7px;scrollbar-width:thin}
+.tabs-list.more-r{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent)}
+.tabs-list.more-l{-webkit-mask-image:linear-gradient(90deg,transparent,#000 40px);mask-image:linear-gradient(90deg,transparent,#000 40px)}
+.tabs-list.more-l.more-r{-webkit-mask-image:linear-gradient(90deg,transparent,#000 40px,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,transparent,#000 40px,#000 calc(100% - 40px),transparent)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .progress{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--dark-green-2);background:var(--yellow-soft);padding:6px 12px;border-radius:var(--radius-full);white-space:nowrap}
 .progress .pb{width:60px;height:6px;border-radius:3px;background:var(--white);overflow:hidden}
 .progress .pb i{display:block;height:100%;background:var(--dark-green)}
 .tabs .progress{flex:none}
 @media (max-width:640px){.tabs .progress .pb{display:none}}
-.tabs a{flex:0 0 auto;text-decoration:none;color:var(--text-muted);font-weight:600;font-size:14px;padding:6px 12px;border-radius:var(--radius-full);display:flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid transparent}
+.tabs a{flex:0 0 auto;text-decoration:none;color:var(--text-muted);font-weight:600;font-size:14px;padding:6px 14px;min-height:44px;border-radius:var(--radius-full);display:flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid transparent}
 .tabs a:hover{color:var(--dark-green);border-color:var(--cream-border);background:var(--white)}
 .tabs a[aria-current="page"]{background:var(--dark-green);color:var(--white)}
-.tabs a .ck{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--cream-border);display:inline-flex;align-items:center;justify-content:center;font-size:10px;line-height:1}
+.tabs a .ck{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--cream-border);display:inline-flex;align-items:center;justify-content:center;font-size:12px;line-height:1}
 .tabs a.seen .ck{background:var(--yellow);border-color:var(--yellow);color:var(--dark-green-2)}
 .tabs a.owner{color:#7a3a86}
 .tabs a.ztab{background:var(--yellow);color:var(--dark-green-2)} .tabs a.ztab[aria-current="page"]{background:var(--dark-green);color:var(--white)}
@@ -104,7 +118,7 @@ main{padding-block:28px 40px}
 .stat-card .l{font-size:13.5px;font-weight:600;margin-top:4px}
 .stat-card hr{border:0;border-top:1px solid rgba(63,92,64,.25);margin:9px 0}
 .stat-card .s{font-size:12.5px;opacity:.9;line-height:1.4}
-@media (max-width:880px){.hero{grid-template-columns:1fr}.hero-visual{order:-1;justify-self:center;max-width:340px;margin-bottom:24px}.stat-card{left:12px}}
+@media (max-width:880px){.hero{grid-template-columns:1fr}.hero-visual{justify-self:stretch;max-width:none;margin:0 0 34px}.hero-visual .frame{aspect-ratio:16/9}.stat-card{left:12px;bottom:-22px;padding:12px 16px}.stat-card .n{font-size:26px}.stat-card hr,.stat-card .s{display:none}}
 .center{text-align:center}
 .sec-head{display:grid;gap:10px;justify-items:center;text-align:center;margin:30px 0 22px}
 .sec-head h2{font-size:clamp(23px,3vw,30px)}
@@ -129,7 +143,7 @@ main{padding-block:28px 40px}
 .ch-banner h2{color:var(--white);font-size:clamp(25px,3.6vw,36px)}
 .chapter{display:grid;gap:22px;max-width:900px;margin:0 auto}
 .intro{color:var(--text-muted);font-size:17.5px;max-width:68ch;margin:0}
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}\n@media (max-width:560px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .tile{background:var(--white);border:1px solid var(--cream-border);border-radius:var(--radius-md);padding:16px 18px}
 .tile .n{font-size:27px;font-weight:800;color:var(--dark-green);font-variant-numeric:tabular-nums;line-height:1.1}
 .tile .l{font-size:13.5px;color:var(--text-muted);line-height:1.35;margin-top:4px}
@@ -363,6 +377,11 @@ footer{border-top:1px solid var(--cream-border);margin-top:30px;padding-block:28
       <span class="nav-divider" aria-hidden="true"></span>
       <span class="nav-logo-interreg" title="Program Interreg Slovensko – Česko"><img src="assets/logos/interreg-black.png" alt="Interreg Slovensko – Česko"></span>
     </div>
+    <div class="lang-switch" role="group" aria-label="Jazyk">
+      <button type="button" data-lang="cs" aria-pressed="true" lang="cs" title="Čeština">CZ</button>
+      <span class="lang-sep" aria-hidden="true">/</span>
+      <button type="button" data-lang="sk" aria-pressed="false" lang="sk" title="Slovenčina">SK</button>
+    </div>
     <button class="nav-toggle" type="button" aria-label="Otevřít menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
@@ -391,7 +410,7 @@ footer{border-top:1px solid var(--cream-border);margin-top:30px;padding-block:28
 
 <script>
 const S = [
- {id:"uzemi", t:"Území", img:"hreben", h:"O čem strategie je a pro koho", teaser:"Kde to celé platí, pro koho dokument vznikl a jak je poskládaný.",
+ {id:"uzemi", t:"O strategii", img:"hreben", h:"O čem strategie je a pro koho", teaser:"Kde to celé platí, pro koho dokument vznikl a jak je poskládaný.",
   intro:"Strategie vytváří společný česko-slovenský rámec pro ochranu a prezentaci přírody Bílých Karpat. Propojuje péči o krajinu s monitoringem, moderními technologiemi, vzděláváním, činností obcí a zapojením veřejnosti.",
   items:["Vymezení území","Cílové skupiny","Struktura dokumentu","Postup zpracování"],
   q:{q:"Jaký máte vztah k Bílým Karpatům?",o:["Bydlím tady","Jezdím sem rád/a","Byl/a jsem tu párkrát","Znám je zatím z mapy"]}},
@@ -503,7 +522,7 @@ function homeHtml(){
       <span class="pill-badge">🌿 Projekt INNOMETHOD · Interreg Slovensko – Česko</span>
       <h1>Strategie pro přírodu Bílých Karpat — a váš názor na ni</h1>
       <p class="lead">Připravili jsme společnou česko-slovenskou strategii ochrany biodiverzity. Nemusíte číst 74 stran: projděte si osm krátkých kapitol, odpovězte Karpíkovi na pár otázek a napište nám, co vám chybí.</p>
-      <div class="hero-actions"><a class="btn btn-accent" href="#${next.id}">${started?"Pokračovat: "+esc(next.t):"Začít procházet"} →</a><a class="btn btn-outline" href="#data">📊 Nejdřív čísla o území</a></div>
+      <div class="hero-actions"><a class="btn btn-accent" href="#${next.id}">${started?"Pokračovat: "+esc(next.t):"Začít procházet"} →</a></div>
       <div class="mini">
         <div><span class="ic">1</span><div><h3>Projděte si</h3><p>To nejdůležitější z každé kapitoly na jedné obrazovce.</p></div></div>
         <div><span class="ic">2</span><div><h3>Odpovězte Karpíkovi</h3><p>Jedno kliknutí a uvidíte, jak to vidí ostatní.</p></div></div>
@@ -513,10 +532,11 @@ function homeHtml(){
     <div class="hero-visual"><div class="frame"><img src="assets/strategie/hreben.webp" alt="Hřeben Bílých Karpat při východu slunce"></div>
       <div class="stat-card"><div class="n">10 min</div><div class="l">celé projití strategie</div><hr><div class="s">8 kapitol · 108 obcí na obou stranách hranice · vize do roku 2035</div></div></div>
   </section>
-  ${zctaHtml()}
-  ${recoHtml()}
-  <div class="sec-head"><span class="pill-badge">🗺️ Kapitoly</span><h2>Vyberte, kde začít</h2><p>Kapitoly na sebe navazují, ale můžete přeskakovat. Prošlé kapitoly označíme žlutě.</p></div>
+  <div class="sec-head"><h2>Vyberte, kde začít</h2><p>Kapitoly na sebe navazují, ale můžete přeskakovat. Prošlé kapitoly označíme žlutě.</p></div>
   <div class="ch-grid">${S.map((s,i)=>`<a class="ch-card" href="#${s.id}"><div class="ph"><img src="assets/strategie/${s.img}.webp" alt="" loading="lazy"><span class="no">${i+1}</span>${seen.has(s.id)?'<span class="done">✓ prošlo</span>':""}</div><div class="b"><h3>${esc(s.h)}</h3><p>${esc(s.teaser)}</p></div></a>`).join("")}</div>
+  <h2 class="sr-only">Pro obce a další skupiny</h2>
+  ${zctaHtml(true)}
+  ${recoHtml()}
   <div class="data-teaser"><div><h3>📊 Území v číslech</h3><p>Interaktivní přehled analytické části: druhová bohatost, obyvatelé obou stran hranice, 15 problémů a SWOT. Najděte i svou obec.</p></div><a class="btn btn-accent" href="#data">Otevřít přehled →</a></div>`;
 }
 
@@ -531,23 +551,23 @@ function zamerHtml(){
   const obec = z.obec ?? (me.role==="Obec / samospráva"?me.org:"");
   const radio=(name,opts,cur)=>`<div class="types" role="radiogroup">${opts.map(o=>`<label><input type="radio" name="${name}" value="${esc(o)}"${cur===o?" checked":""}><span>${esc(o)}</span></label>`).join("")}</div>`;
   const noPlan = z.planuje===ZPLAN[3];
-  return `<section class="chapter" aria-labelledby="h">
-   <div class="ch-banner"><img src="assets/strategie/hostetin.webp" alt=""><div class="t"><span>🏛️ Pro starosty a obce</span><h2 id="h">Chystá vaše obec projekt pro krajinu, vodu nebo přírodu?</h2></div></div>
+  return `<section class="chapter" aria-labelledby="ch-h">
+   <div class="ch-banner"><img src="assets/strategie/hostetin.webp" alt=""><div class="t"><span>🏛️ Pro starosty a obce</span><h2 id="ch-h">Chystá vaše obec projekt pro krajinu, vodu nebo přírodu?</h2></div></div>
    <p class="intro">Strategie počítá s tím, že nejvíc se v krajině dá udělat v obcích. Rádi bychom věděli, co v obcích Bílých Karpat chystáte, a nabídli pomoc tam, kde ji potřebujete – od výběru dotace po žádost. Vyplnění zabere asi dvě minuty.</p>
    ${z.at?`<div class="zthanks"><b style="color:var(--dark-green)">✓ Záměr ${z.obec?"obce "+esc(z.obec)+" ":""}jsme přijali ${new Date(z.at).toLocaleDateString("cs-CZ")}.</b><span>${z.pomoc&&z.pomoc!==ZPOM[2]?"Ozveme se vám na uvedený kontakt.":"Děkujeme."} Níže ho můžete kdykoli upravit.</span></div>`:""}
    <form class="survey" id="zf" novalidate>
     <div class="who-box" style="background:var(--cream-soft)"><div class="g">
      <label class="f">Obec *<input type="text" id="z-obec" value="${esc(obec)}" placeholder="např. Strání nebo Bošáca" autocomplete="address-level2"></label>
-     <label class="f">Vaše funkce<select id="z-fun"><option value="">— vyberte —</option>${ZFUN.map(f=>`<option${z.funkce===f?" selected":""}>${f}</option>`).join("")}</select></label>
+     <label class="f">Vaše funkce<select id="z-fun"><option value="">— vyberte —</option>${ZFUN.map(f=>`<option value="${esc(f)}"${z.funkce===f?" selected":""}>${f}</option>`).join("")}</select></label>
     </div></div>
     <fieldset><legend>1. Plánuje obec v příštích letech nějaký projekt v těchto oblastech?</legend>${radio("planuje",ZPLAN,z.planuje)}</fieldset>
     <fieldset id="z-detail"${noPlan?" hidden":""}><legend>2. Kterých oblastí se záměr týká?</legend><div class="hint">Můžete vybrat více.</div>
      <div class="obl">${OBL.map(o=>`<label><input type="checkbox" name="obl" value="${o[0]}"${ch(z.oblasti,o[0])}><span class="c"><span class="i">${o[1]}</span><b>${o[2]}</b><small>${o[3]}</small></span></label>`).join("")}</div>
      <label class="f" style="margin-top:6px">Stručně popište záměr<textarea id="z-popis" placeholder="Co a kde chcete udělat? Např. obnova obecního sadu nad školou, tůně v nivě potoka, výsadba aleje k hřbitovu…">${esc(z.popis)}</textarea></label>
      <div class="who-box"><div class="g" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
-      <label class="f">Jak daleko jste<select id="z-stav"><option value="">— vyberte —</option>${ZSTAV.map(o=>`<option${z.stav===o?" selected":""}>${o}</option>`).join("")}</select></label>
-      <label class="f">Kdy chcete realizovat<select id="z-kdy"><option value="">— vyberte —</option>${ZKDY.map(o=>`<option${z.kdy===o?" selected":""}>${o}</option>`).join("")}</select></label>
-      <label class="f">Odhad nákladů<select id="z-roz"><option value="">— vyberte —</option>${ZROZ.map(o=>`<option${z.rozpocet===o?" selected":""}>${o}</option>`).join("")}</select></label>
+      <label class="f">Jak daleko jste<select id="z-stav"><option value="">— vyberte —</option>${ZSTAV.map(o=>`<option value="${esc(o)}"${z.stav===o?" selected":""}>${o}</option>`).join("")}</select></label>
+      <label class="f">Kdy chcete realizovat<select id="z-kdy"><option value="">— vyberte —</option>${ZKDY.map(o=>`<option value="${esc(o)}"${z.kdy===o?" selected":""}>${o}</option>`).join("")}</select></label>
+      <label class="f">Odhad nákladů<select id="z-roz"><option value="">— vyberte —</option>${ZROZ.map(o=>`<option value="${esc(o)}"${z.rozpocet===o?" selected":""}>${o}</option>`).join("")}</select></label>
      </div></div>
     </fieldset>
     <div class="helpbox">
@@ -678,7 +698,7 @@ function resultsHtml(s){
 
 function whoHtml(){
   return `<div class="who-box"><div><b style="color:var(--dark-green)">Za koho se díváte?</b> <span class="status">Nepovinné – pomůže nám roztřídit připomínky.</span></div>
-   <div class="g"><label class="f">Typ organizace<select id="w-role"><option value="">— vyberte —</option>${ROLES.map(r=>`<option${me.role===r?" selected":""}>${r}</option>`).join("")}</select></label>
+   <div class="g"><label class="f">Typ organizace<select id="w-role"><option value="">— vyberte —</option>${ROLES.map(r=>`<option value="${esc(r)}"${me.role===r?" selected":""}>${r}</option>`).join("")}</select></label>
    <label class="f">Obec / organizace<input type="text" id="w-org" value="${esc(me.org)}" placeholder="např. Obec Strání"></label></div></div>`;
 }
 
@@ -687,7 +707,7 @@ function fbHtml(s){
   return `<details class="fb" id="fbd"${openFb===s.id?" open":""}><summary><span class="plus">+</span>Chcete k této kapitole něco napsat?<span class="cnt">${mine.length?`${mine.length} vaše připomínk${mine.length===1?"a":mine.length<5?"y":"y"}`:"nepovinné"}</span></summary>
    <form id="fb" novalidate>
    <div class="types" role="radiogroup" aria-label="Typ připomínky">${TYPES.map((t,i)=>`<label><input type="radio" name="typ" value="${t[0]}"${i===1?" checked":""}><span>${t[1]}</span></label>`).join("")}</div>
-   ${s.items.length?`<label class="f">Týká se<select id="fb-item"><option value="">Celé kapitoly</option>${s.items.map(x=>`<option>${esc(x)}</option>`).join("")}</select></label>`:""}
+   ${s.items.length?`<label class="f">Týká se<select id="fb-item"><option value="">Celé kapitoly</option>${s.items.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("")}</select></label>`:""}
    <label class="f">Vaše připomínka<textarea id="fb-text" placeholder="Co byste upravili, doplnili nebo vysvětlili? Stačí pár slov."></textarea></label>
    <div class="row"><button class="btn btn-primary" type="submit">Přidat připomínku</button><span class="status" id="fb-st">${esc(saveState)}</span></div>
    ${mine.length?`<div class="mine">${mine.map(c=>`<div class="c"><p><b>${esc(typeLabel(c.typ))}</b>${c.item?` · ${esc(c.item)}`:""}<br>${esc(c.text)}</p><button type="button" data-del="${c.id}">Odebrat</button></div>`).join("")}</div>`:""}
@@ -698,7 +718,7 @@ const typeLabel = t => (TYPES.find(x=>x[0]===t)||[0,t])[1];
 function surveyHtml(){
   const v=me.survey||{};
   const qn = Object.keys(quick).filter(k=>quick[k]!=null&&(!Array.isArray(quick[k])||quick[k].length)).length, cn=me.comments.length;
-  return `${me.role==="Obec / samospráva"||me.skupina==="pro-obce"?zctaHtml(true):""}<div class="tiles"><div class="tile y"><div class="n">${seen.size}/${S.length}</div><div class="l">prošlých kapitol</div></div><div class="tile"><div class="n">${qn}</div><div class="l">odpovědí Karpíkovi</div></div><div class="tile"><div class="n">${cn}</div><div class="l">vašich připomínek</div></div></div>
+  return `${me.role==="Obec / samospráva"||me.skupina==="pro-obce"?zctaHtml(true):""}${whoHtml()}<div class="tiles"><div class="tile y"><div class="n">${seen.size}/${S.length}</div><div class="l">prošlých kapitol</div></div><div class="tile"><div class="n">${qn}</div><div class="l">odpovědí Karpíkovi</div></div><div class="tile"><div class="n">${cn}</div><div class="l">vašich připomínek</div></div></div>
   <form class="survey" id="sv" novalidate>
    <fieldset><legend>1. Jak užitečná je pro vás strategie?</legend><div class="hint">1 = vůbec, 5 = velmi</div>
     <div class="types scale">${[1,2,3,4,5].map(n=>`<label><input type="radio" name="uz" value="${n}"${v.uzitecnost==n?" checked":""}><span>${n}</span></label>`).join("")}</div></fieldset>
@@ -774,8 +794,8 @@ let dState = {hab:0, okMetric:"ps", okFilter:"", sel:"", sort:["ps",-1], q:"", s
 const fmt = (n,d=0)=>n.toLocaleString("cs-CZ",{minimumFractionDigits:d,maximumFractionDigits:d});
 
 function dataHtml(){
-  return `<section class="chapter" aria-labelledby="h">
-   <div class="ch-banner"><img src="assets/strategie/porazky.webp" alt=""><div class="t"><span>Analytická část v kostce</span><h2 id="h">Území v číslech</h2></div></div>
+  return `<section class="chapter" aria-labelledby="ch-h">
+   <div class="ch-banner"><img src="assets/strategie/porazky.webp" alt=""><div class="t"><span>Analytická část v kostce</span><h2 id="ch-h">Území v číslech</h2></div></div>
    <p class="intro">Interaktivní přehled toho, z čeho strategie vychází: příroda, obyvatelé obou stran hranice, obce, problémy a SWOT. Klikejte, filtrujte a najděte svou obec – českou i slovenskou.</p>
    <div class="subnav" role="group" aria-label="Části přehledu">${[["d-priroda","Příroda"],["d-lide","Obyvatelé"],["d-obce","Najděte svou obec"],["d-problemy","15 problémů"],["d-swot","SWOT"]].map(x=>`<button type="button" data-go="${x[0]}">${x[1]}</button>`).join("")}</div>
 
@@ -980,8 +1000,8 @@ const tipKey = g => "tip-"+g.id;
 function tipCount(g,key){ if(!online) return 0; return moods.filter(m=>!m.mine && Array.isArray(m.a?.[tipKey(g)]) && m.a[tipKey(g)].includes(key)).length; }
 
 function hubHtml(){
-  return `<section class="chapter" aria-labelledby="h">
-   <div class="ch-banner"><img src="assets/strategie/kopanice.webp" alt=""><div class="t"><span>Doporučení podle cílových skupin</span><h2 id="h">Co můžete pro Bílé Karpaty udělat vy</h2></div></div>
+  return `<section class="chapter" aria-labelledby="ch-h">
+   <div class="ch-banner"><img src="assets/strategie/kopanice.webp" alt=""><div class="t"><span>Doporučení podle cílových skupin</span><h2 id="ch-h">Co můžete pro Bílé Karpaty udělat vy</h2></div></div>
    ${recoHtml()}
    <p class="intro">Ochrana přírody tady nestojí jen na správcích chráněných území. Vyberte, kdo jste, a najděte konkrétní kroky. U každého můžete kliknout „Zkusím to“ a uvidíte, kolik lidí se přidalo.</p>
    <div class="grid2">${[["Bílé Karpaty jsou výjimečné díky lidem.","Nejcennější louky a sady vznikly péčí místních hospodářů."],["Pojďte ven.","Přírodu nejlépe poznáte na místě – QR stanoviště vás provedou."],["Chraňte, co poznáte.","Zůstaňte na značených cestách, nic netrhejte a nerušte."],["Každý může pomoci.","Obec, škola, rodina i jednotlivec – každý má svůj díl."]].map(k=>`<div class="card" style="background:var(--yellow-soft);border-color:var(--yellow-soft)"><h3>${k[0]}</h3><p class="sub">${k[1]}</p></div>`).join("")}</div>
@@ -993,8 +1013,8 @@ function hubHtml(){
 
 function groupHtml(g){
   const gi=G.indexOf(g), mine=quick[tipKey(g)]||[], total=g.groups.reduce((a,x)=>a+x[1].length,0);
-  return `<section class="chapter" aria-labelledby="h">
-   <div class="ch-banner"><img src="assets/strategie/${g.img}.webp" alt=""><div class="t"><span>${g.ico} ${esc(g.lead)}</span><h2 id="h">Doporučení pro ${g.pro}</h2></div></div>
+  return `<section class="chapter" aria-labelledby="ch-h">
+   <div class="ch-banner"><img src="assets/strategie/${g.img}.webp" alt=""><div class="t"><span>${g.ico} ${esc(g.lead)}</span><h2 id="ch-h">Doporučení pro ${g.pro}</h2></div></div>
    <div class="filters" role="group" aria-label="Cílové skupiny">${G.map(x=>`<a class="btn ${x===g?"btn-primary":"btn-outline"}" style="padding:7px 14px;font-size:14px" href="#${x.id}"${x===g?' aria-current="page"':""}>${x.ico} ${x.t}</a>`).join("")}</div>
    <div class="card" style="background:var(--green-soft);border-color:var(--green-soft)"><div class="k">Proč na vás záleží</div><p style="font-size:17px">${esc(g.why)}</p></div>
    ${g.id==="pro-obce"?zctaHtml():""}
@@ -1034,13 +1054,15 @@ function bindReco(){
 }
 
 /* ---------- vykreslení ---------- */
+// Fades the edge of the chapter bar when more chapters hide behind it, so it is clear the bar scrolls.
+function tabsHint(){ const l=document.getElementById("tabs"); if(!l) return; const max=l.scrollWidth-l.clientWidth; l.classList.toggle("more-l", l.scrollLeft>4); l.classList.toggle("more-r", max>4 && l.scrollLeft<max-4); }
 function render(){
   let id = location.hash.slice(1)||"uvod";
   if(id==="prehled" && !isAdmin) id="uvod";
   if(!S.find(s=>s.id===id) && !["prehled","data","pro-koho","zamery"].includes(id) && !G.find(g=>g.id===id)) id="uvod";
   document.getElementById("tabs").innerHTML = tabsHtml(id);
   document.getElementById("prog").innerHTML = progHtml();
-  const cur = document.querySelector('.tabs a[aria-current]'); if(cur) cur.scrollIntoView({block:"nearest",inline:"nearest"});
+  const cur = document.querySelector('.tabs a[aria-current]'); if(cur) cur.scrollIntoView({block:"nearest",inline:"center"}); tabsHint();
   const v = document.getElementById("view");
   if(id==="uvod"){ v.innerHTML = homeHtml(); bindReco(); return; }
   if(id==="data"){ v.innerHTML = dataHtml(); bindData(); bind("data"); return; }
@@ -1050,10 +1072,9 @@ function render(){
   if(id==="prehled"){ v.innerHTML = overviewHtml(); bindOverview(); return; }
   const i = S.findIndex(s=>s.id===id), s=S[i];
   if(!seen.has(id)){ seen.add(id); ls.set("bk-seen",[...seen]); document.getElementById("tabs").innerHTML = tabsHtml(id); document.getElementById("prog").innerHTML = progHtml(); }
-  v.innerHTML = `<section class="chapter" aria-labelledby="h">
-    <div class="ch-banner"><img src="assets/strategie/${s.img}.webp" alt=""><div class="t"><span>Kapitola ${i+1} z ${S.length}</span><h2 id="h">${esc(s.h)}</h2></div></div>
+  v.innerHTML = `<section class="chapter" aria-labelledby="ch-h">
+    <div class="ch-banner"><img src="assets/strategie/${s.img}.webp" alt=""><div class="t"><span>Kapitola ${i+1} z ${S.length}</span><h2 id="ch-h">${esc(s.h)}</h2></div></div>
     <p class="intro">${esc(s.intro)}</p>
-    ${i===0?whoHtml():""}
     ${body(id)}
     ${karpikHtml(s)}
     ${id!=="hodnoceni"?fbHtml(s):""}
@@ -1199,7 +1220,14 @@ async function bindOverview(){
   b.onclick=()=>dl.save({filename:"pripominky-strategie-bile-karpaty.csv",data:csvText()}).then(()=>document.getElementById("csvs").textContent="Soubor připraven.").catch(()=>document.getElementById("csvs").textContent="Stažení se nepodařilo nebo bylo zrušeno.");
 }
 
+// Slovak: content is rendered in Czech and translated by assets/i18n.js with the strings from assets/strategie-sk.js.
+const I18N = window.innomethodI18n;
+if(I18N){
+  new MutationObserver(rs=>{ if(I18N.lang()!=="sk") return; rs.forEach(r=>r.addedNodes.forEach(nd=>I18N.apply(nd))); }).observe(document.body,{childList:true,subtree:true});
+  document.addEventListener("innomethod:langchange",()=>render());
+}
 window.addEventListener("hashchange",()=>{saveState="";render();window.scrollTo({top:0})});
+document.getElementById("tabs").addEventListener("scroll",tabsHint,{passive:true}); window.addEventListener("resize",tabsHint);
 render();
 
 (async()=>{
