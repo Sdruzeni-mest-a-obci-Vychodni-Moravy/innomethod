@@ -128,10 +128,23 @@ a { color: inherit; }
 }
 .nav-logo-interreg img { display: block; height: 50px; width: auto; }
 
-@media (max-width: 1000px) {
+/* With the extra menu items the Interreg logo makes room first, then the menu folds into the burger. */
+@media (max-width: 1360px) {
+  .site-nav-links { gap: 18px; }
+}
+
+@media (max-width: 1200px) {
   .interreg-badge { display: none; }
   .nav-divider,
   .nav-logo-interreg { display: none; }
+}
+
+/* Separates the main sections from the pages for schools and municipalities. */
+.nav-sep {
+  flex: none;
+  width: 1px;
+  height: 22px;
+  background: var(--cream-border);
 }
 
 .site-nav-links a {
@@ -209,12 +222,12 @@ a { color: inherit; }
 .lang-switch button:focus-visible { outline: 2px solid var(--yellow); outline-offset: 1px; }
 .lang-switch .lang-sep { color: var(--text-muted); opacity: 0.5; font-weight: 600; }
 
-@media (max-width: 760px) {
+@media (max-width: 960px) {
   .lang-switch { order: 0; margin-left: auto; }
   .lang-switch + .nav-toggle { margin-left: 4px; }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 960px) {
   .site-nav-links {
     position: absolute;
     top: 100%;
@@ -231,6 +244,7 @@ a { color: inherit; }
     display: none;
   }
   .site-nav-links.open { display: flex; }
+  .nav-sep { width: 100%; height: 1px; margin: 6px 0; }
   .site-nav-links a { width: 100%; padding: 10px 0; }
   .site-nav-links a:hover,
   .site-nav-links a[aria-current="page"] {

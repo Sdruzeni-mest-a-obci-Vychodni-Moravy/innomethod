@@ -10,7 +10,7 @@
 <link rel="icon" href="assets/icons/logo-innomethod.svg" type="image/svg+xml">
 <style>body{margin:0}[hidden]{display:none!important}</style>
 <title>Strategie Bílé Karpaty – INNOMETHOD</title>
-<script src="assets/i18n.js?v=20261103s"></script>
+<script src="assets/i18n.js?v=20261103t"></script>
 <script src="assets/strategie-sk.js?v=20261103s"></script>
 <style>
 /* Vizuál převzatý z webu INNOMETHOD (krémová, tmavě zelená, žlutá, zaoblené karty); záměrně jen světlý vzhled jako původní web */
@@ -47,6 +47,7 @@ h1,h2,h3{color:var(--dark-green);line-height:1.18;text-wrap:balance;margin:0}
 .nav-logo-interreg{display:inline-flex;align-items:center;flex-shrink:0}
 .nav-logo-interreg img{display:block;height:50px;width:auto}
 .site-nav-links{display:flex;align-items:center;justify-content:flex-end;gap:28px;list-style:none;margin:0;padding:0 6px 0 0;flex:1}
+.nav-sep{flex:none;width:1px;height:22px;background:var(--cream-border)}
 .site-nav-links a{white-space:nowrap;text-decoration:none;color:var(--text-body);font-weight:600;font-size:.95rem;padding:6px 2px;border-bottom:2px solid transparent;transition:border-color .15s ease,color .15s ease}
 .site-nav-links a:hover,.site-nav-links a[aria-current="page"]{color:var(--dark-green);border-color:var(--yellow)}
 .site-nav-links a.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:var(--dark-green-2);font-weight:700;font-size:.9rem;padding:10px 18px;border:0;border-radius:var(--radius-full);transition:background .15s ease,transform .15s ease}
@@ -59,10 +60,13 @@ h1,h2,h3{color:var(--dark-green);line-height:1.18;text-wrap:balance;margin:0}
 .lang-switch button[aria-pressed="true"]{background:var(--dark-green);color:var(--white)}
 .lang-switch button:focus-visible{outline:2px solid var(--yellow);outline-offset:1px}
 .lang-switch .lang-sep{color:var(--text-muted);opacity:.5;font-weight:600}
-@media (max-width:1000px){:root{--nav-h:128px}.nav-divider,.nav-logo-interreg{display:none}}
-@media (max-width:760px){
+@media (max-width:1360px){.site-nav-links{gap:18px}}
+@media (max-width:1200px){.nav-divider,.nav-logo-interreg{display:none}}
+@media (max-width:1000px){:root{--nav-h:128px}}
+@media (max-width:960px){
  .site-nav-links{position:absolute;top:100%;left:0;right:0;z-index:10;background:var(--white);flex-direction:column;align-items:flex-start;gap:4px;padding:10px 20px 18px;border-bottom:1px solid var(--cream-border);box-shadow:var(--shadow-soft);display:none}
  .site-nav-links.open{display:flex}
+ .nav-sep{width:100%;height:1px;margin:6px 0}
  .site-nav-links a{width:100%;padding:10px 0}
  .site-nav-links a:hover,.site-nav-links a[aria-current="page"]{border-color:transparent;text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:2px;text-underline-offset:3px}
  .site-nav-links a.nav-cta{width:auto;margin-top:6px;padding:10px 18px;text-decoration:none}
@@ -390,6 +394,9 @@ footer{border-top:1px solid var(--cream-border);margin-top:30px;padding-block:28
       <li><a href="dobrodruzstvi.html">Dobrodružství</a></li>
       <li><a href="hry.html">Hry</a></li>
       <li><a href="strategie.html" aria-current="page">Strategie</a></li>
+      <li class="nav-sep" aria-hidden="true"></li>
+      <li><a href="pro-skoly.html">Pro školy</a></li>
+      <li><a href="pro-obce.html">Pro obce</a></li>
       <li><a class="nav-cta" href="quiz.html">Kvíz</a></li>
     </ul>
   </div>
