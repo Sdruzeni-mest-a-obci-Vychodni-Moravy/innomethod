@@ -16,14 +16,13 @@
 
   /* Quick links to each game under the heading */
   .game-jump { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 24px 0 0; padding: 0; list-style: none; }
-  .game-jump a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 6px 16px 6px 8px; border-radius: var(--radius-full); background: var(--white); border: 1px solid var(--cream-border); color: var(--dark-green); font-weight: 700; text-decoration: none; transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+  .game-jump a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 6px 20px; border-radius: var(--radius-full); background: var(--white); border: 1px solid var(--cream-border); color: var(--dark-green); font-weight: 700; text-decoration: none; transition: border-color 0.15s ease, box-shadow 0.15s ease; }
   .game-jump a:hover { border-color: var(--mid-green); box-shadow: var(--shadow-soft); }
-  .game-jump img { width: 32px; height: 32px; }
 
   /* One game = one section; new games are added as another .game section */
   .game { margin-top: 48px; scroll-margin-top: 90px; }
   .game-head { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 24px; align-items: center; margin-bottom: 24px; }
-  .game-icon { width: 112px; height: 112px; }
+  .game-icon { width: 112px; height: 112px; padding: 12px; box-sizing: border-box; object-fit: contain; background: var(--white); border: 1px solid var(--cream-border); border-radius: 24px; box-shadow: var(--shadow-soft); }
   .game-head h2 { color: var(--dark-green); font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 6px; }
   .game-head p { color: var(--text-muted); margin: 0; line-height: 1.6; max-width: 46em; }
   .game-count { display: inline-block; margin-top: 10px; padding: 3px 12px; border-radius: var(--radius-full); background: var(--cream-soft); border: 1px solid var(--cream-border); color: var(--mid-green); font-size: 0.85rem; font-weight: 700; }
@@ -45,7 +44,7 @@
 
   @media (max-width: 600px) {
     .game-head { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
-    .game-icon { width: 72px; height: 72px; }
+    .game-icon { width: 76px; height: 76px; padding: 8px; border-radius: 18px; }
     .variant-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .variant-card { padding: 14px 10px 16px; }
     .variant-card .icon-frame { margin-bottom: 10px; }
@@ -94,8 +93,8 @@
       <h1>Hry z Bílých Karpat</h1>
       <p>Zahrajte si s rodinou nebo kamarády a poznávejte přírodu Bílých Karpat hrou. Hry budou postupně přibývat.</p>
       <ul class="game-jump">
-        <li><a href="#dabble"><img src="assets/hry/ikona-dabble.png" width="32" height="32" alt="">Karpaty Dabble</a></li>
-        <li><a href="#pexeso"><img src="assets/hry/ikona-pexeso.png" width="32" height="32" alt="">Karpaty Pexeso</a></li>
+        <li><a href="#dabble">Karpaty Dabble</a></li>
+        <li><a href="#pexeso">Karpaty Pexeso</a></li>
       </ul>
     </div>
 
