@@ -86,6 +86,22 @@
     'Vytiskněte. Vystřihněte. Naskenujte. Objevujte.': 'Vytlačte. Vystrihnite. Naskenujte. Objavujte.',
 
     // Dabble page
+    'Hry – Bílé Karpaty': 'Hry – Biele Karpaty',
+    'Hry z Bílých Karpat – Karpaty Dabble a Karpaty Pexeso. Další hry postupně přibývají.': 'Hry z Bielych Karpát – Karpaty Dabble a Karpaty Pexeso. Ďalšie hry postupne pribúdajú.',
+    'Hry z Bílých Karpat': 'Hry z Bielych Karpát',
+    'Zahrajte si s rodinou nebo kamarády a poznávejte přírodu Bílých Karpat hrou. Hry budou postupně přibývat.': 'Zahrajte sa s rodinou alebo kamarátmi a spoznávajte prírodu Bielych Karpát hrou. Hry budú postupne pribúdať.',
+    '4 varianty': '4 varianty',
+    '3 sady': '3 sady',
+    'Otoč a najdi dvojice! Hledejte páry motýlů a ovocných stromů z Bílých Karpat a u každé dvojice se dozvíte zajímavost.': 'Otoč a nájdi dvojice! Hľadajte páry motýľov a ovocných stromov z Bielych Karpát a pri každej dvojici sa dozviete zaujímavosť.',
+    'Běžní motýli': 'Bežné motýle',
+    'Motýli, které potkáte na každé louce': 'Motýle, ktoré stretnete na každej lúke',
+    'Vzácní motýli': 'Vzácne motýle',
+    'Poklady bělokarpatských luk': 'Poklady bielokarpatských lúk',
+    'Ovocné stromy': 'Ovocné stromy',
+    'Staré odrůdy z karpatských sadů': 'Staré odrody z karpatských sadov',
+    'Hrát': 'Hrať',
+    'Další hry připravujeme': 'Ďalšie hry pripravujeme',
+    'Brzy tu přibudou nové hry z Bílých Karpat.': 'Čoskoro tu pribudnú nové hry z Bielych Karpát.',
     'Dabble – Bílé Karpaty': 'Dabble – Biele Karpaty',
     'Karpaty Dabble – hry na hledání stejných obrázků podle prostředí Bílých Karpat.':
       'Karpaty Dabble – hry na hľadanie rovnakých obrázkov podľa prostredia Bielych Karpát.',
