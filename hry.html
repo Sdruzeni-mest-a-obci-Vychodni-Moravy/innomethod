@@ -29,8 +29,7 @@
   .game-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
   .game-meta li { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: var(--radius-full); background: var(--cream-soft); border: 1px solid var(--cream-border); color: var(--mid-green); font-size: 0.85rem; font-weight: 700; }
   .game-meta svg { width: 15px; height: 15px; flex: none; }
-  .game-head { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 24px; align-items: center; margin-bottom: 24px; }
-  .game-icon { width: 112px; height: 112px; padding: 12px; box-sizing: border-box; object-fit: contain; background: var(--white); border: 1px solid var(--cream-border); border-radius: 24px; box-shadow: var(--shadow-soft); }
+  .game-head { margin-bottom: 24px; }
   .game-head h2 { color: var(--dark-green); font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 6px; }
   .game-head p { color: var(--text-muted); margin: 0; line-height: 1.6; max-width: 46em; }
 
@@ -50,8 +49,6 @@
   @media (prefers-reduced-motion: reduce) { .variant-card, .game-jump a { transition: none; } .variant-card:hover { transform: none; } }
 
   @media (max-width: 600px) {
-    .game-head { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
-    .game-icon { width: 76px; height: 76px; padding: 8px; border-radius: 18px; }
     .variant-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .variant-card { padding: 14px 10px 16px; }
     .variant-card .icon-frame { margin-bottom: 10px; }
@@ -110,7 +107,6 @@
 
     <section class="game" id="dabble" aria-labelledby="dabble-title">
       <div class="game-head">
-        <img class="game-icon" src="assets/hry/ikona-dabble.png" width="320" height="320" alt="">
         <div>
           <h2 id="dabble-title">Karpaty Dabble</h2>
           <p>Kdo první najde stejný obrázek? Čtyři varianty podle prostředí Bílých Karpat.</p>
@@ -144,7 +140,6 @@
 
     <section class="game" id="pexeso" aria-labelledby="pexeso-title">
       <div class="game-head">
-        <img class="game-icon" src="assets/hry/ikona-pexeso.png" width="320" height="320" alt="">
         <div>
           <h2 id="pexeso-title">Karpaty Pexeso</h2>
           <p>Otoč a najdi dvojice! Hledejte páry motýlů a ovocných stromů z Bílých Karpat a u každé dvojice se dozvíte zajímavost.</p>
