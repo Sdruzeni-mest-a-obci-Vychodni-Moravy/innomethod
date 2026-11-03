@@ -143,7 +143,7 @@
     '🗺️ Mapová prohlížečka': '🗺️ Mapový prehliadač',
     'Prozkoumejte krajinu na interaktivní mapě': 'Preskúmajte krajinu na interaktívnej mape',
     'Podívejte se na mapové vrstvy a lokality projektu přímo zde na stránce.': 'Pozrite si mapové vrstvy a lokality projektu priamo tu na stránke.',
-    'Mapová prohlížečka RRAVM': 'Mapový prehliadač RRAVM',
+    'Mapová prohlížečka INNOMETHOD': 'Mapový prehliadač INNOMETHOD',
     'Otevřít mapu v novém okně →': 'Otvoriť mapu v novom okne →',
     'Objevování': 'Objavovanie',
     'Příroda': 'Príroda',
