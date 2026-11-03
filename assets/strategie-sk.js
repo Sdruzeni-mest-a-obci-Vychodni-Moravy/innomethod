@@ -22,12 +22,12 @@
     'Jazyk': 'Jazyk',
     '🌿 Projekt INNOMETHOD · Interreg Slovensko – Česko': '🌿 Projekt INNOMETHOD · Interreg Slovensko – Česko',
     'Strategie pro přírodu Bílých Karpat — a váš názor na ni': 'Stratégia pre prírodu Bielych Karpát — a váš názor na ňu',
-    'Připravili jsme společnou česko-slovenskou strategii ochrany biodiverzity. Nemusíte číst 74 stran: projděte si osm krátkých kapitol, odpovězte Karpíkovi na pár otázek a napište nám, co vám chybí.':
-      'Pripravili sme spoločnú česko-slovenskú stratégiu ochrany biodiverzity. Nemusíte čítať 74 strán: prejdite si osem krátkych kapitol, odpovedzte Karpíkovi na pár otázok a napíšte nám, čo vám chýba.',
+    'Připravili jsme společnou česko-slovenskou strategii ochrany biodiverzity. Nemusíte číst 74 stran: projděte si osm krátkých kapitol, odpovězte na pár otázek a napište nám, co vám chybí.':
+      'Pripravili sme spoločnú česko-slovenskú stratégiu ochrany biodiverzity. Nemusíte čítať 74 strán: prejdite si osem krátkych kapitol, odpovedzte na pár otázok a napíšte nám, čo vám chýba.',
     'Začít procházet →': 'Začať prechádzať →',
     'Projděte si': 'Prejdite si',
     'To nejdůležitější z každé kapitoly na jedné obrazovce.': 'To najdôležitejšie z každej kapitoly na jednej obrazovke.',
-    'Odpovězte Karpíkovi': 'Odpovedzte Karpíkovi',
+    'Odpovězte na otázky': 'Odpovedzte na otázky',
     'Jedno kliknutí a uvidíte, jak to vidí ostatní.': 'Jedno kliknutie a uvidíte, ako to vidia ostatní.',
     'Připomínkujte': 'Pripomienkujte',
     'Když budete chtít, napište nám k čemukoli poznámku.': 'Keď budete chcieť, napíšte nám k čomukoľvek poznámku.',
@@ -59,7 +59,7 @@
     'Pomůžeme vám s přípravou projektu i s dotací.': 'Pomôžeme vám s prípravou projektu aj s dotáciou.',
     'Přihlásit záměr obce →': 'Prihlásiť zámer obce →',
     'Doporučení pro vás': 'Odporúčania pre vás',
-    'Kdo jste? Karpík vám ukáže, co můžete udělat': 'Kto ste? Karpík vám ukáže, čo môžete urobiť',
+    'Kdo jste? Ukážeme vám, co můžete udělat': 'Kto ste? Ukážeme vám, čo môžete urobiť',
     'Vyberte svou skupinu a dostanete konkrétní kroky na míru.': 'Vyberte si svoju skupinu a dostanete konkrétne kroky na mieru.',
     '🏛️ Obce': '🏛️ Obce',
     '🎒 Školy': '🎒 Školy',
@@ -287,9 +287,9 @@
     'Pokračovat na kapitoly strategie →': 'Pokračovať na kapitoly stratégie →',
 
     // Karpík, comments
-    'Karpík se ptá · nepovinné': 'Karpík sa pýta · nepovinné',
+    'Krátká otázka · nepovinné': 'Krátka otázka · nepovinné',
     'Klikněte na odpověď a uvidíte, jak odpověděli ostatní.': 'Kliknite na odpoveď a uvidíte, ako odpovedali ostatní.',
-    'Díky, Karpík si to zapsal!': 'Vďaka, Karpík si to zapísal!',
+    'Díky, zapsáno!': 'Vďaka, zapísané!',
     'Super, díky!': 'Super, vďaka!',
     'Zapsáno, díky!': 'Zapísané, vďaka!',
     'Jste mezi prvními – výsledky se budou doplňovat.': 'Ste medzi prvými – výsledky sa budú dopĺňať.',
@@ -608,7 +608,7 @@
     'Obec / organizace': 'Obec / organizácia',
     'např. Obec Strání': 'napr. Obec Strání',
     'prošlých kapitol': 'prejdených kapitol',
-    'odpovědí Karpíkovi': 'odpovedí Karpíkovi',
+    'vašich odpovědí': 'vašich odpovedí',
     'vašich připomínek': 'vašich pripomienok',
     '1. Jak užitečná je pro vás strategie?': '1. Aká užitočná je pre vás stratégia?',
     '1 = vůbec, 5 = velmi': '1 = vôbec, 5 = veľmi',
@@ -684,7 +684,7 @@
     'Zobrazit moje doporučení →': 'Zobraziť moje odporúčania →',
     'Jsem někdo jiný': 'Som niekto iný',
     'Podle skupiny, kterou jste si vybrali': 'Podľa skupiny, ktorú ste si vybrali',
-    'Podle vaší odpovědi Karpíkovi': 'Podľa vašej odpovede Karpíkovi',
+    'Podle vaší odpovědi': 'Podľa vašej odpovede',
 
     // Projekty obcí
     '🏛️ Pro starosty a obce': '🏛️ Pre starostov a obce',
@@ -910,8 +910,8 @@
 
     // head
     'Strategie Bílé Karpaty – INNOMETHOD': 'Stratégia Biele Karpaty – INNOMETHOD',
-    'Společná strategie ochrany biodiverzity Bílých / Bielych Karpat v kostce. Projděte si ji, odpovězte Karpíkovi a pošlete nám připomínky.':
-      'Spoločná stratégia ochrany biodiverzity Bílých / Bielych Karpát v kocke. Prejdite si ju, odpovedzte Karpíkovi a pošlite nám pripomienky.'
+    'Společná strategie ochrany biodiverzity Bílých / Bielych Karpat v kostce. Projděte si ji, odpovězte na pár otázek a pošlete nám připomínky.':
+      'Spoločná stratégia ochrany biodiverzity Bílých / Bielych Karpát v kocke. Prejdite si ju, odpovedzte na pár otázok a pošlite nám pripomienky.'
   };
 
   // Chapter and group names inside "Další: …", "← …" and "Pokračovat: …".
@@ -932,7 +932,7 @@
   ]);
   var recoText = phrases([
     ['Podle toho, že se díváte jako', 'Podľa toho, že sa pozeráte ako'], ['Podle skupiny, kterou jste si vybrali', 'Podľa skupiny, ktorú ste si vybrali'],
-    ['Podle vaší odpovědi Karpíkovi', 'Podľa vašej odpovede Karpíkovi'], [' prošlých kapitol', ' prejdených kapitol'],
+    ['Podle vaší odpovědi', 'Podľa vašej odpovede'], [' prošlých kapitol', ' prejdených kapitol'],
     ['jsme pro vás vybrali', 'sme pre vás vybrali'], ['konkrétních kroků.', 'konkrétnych krokov.'], ['Už jste si jich označili', 'Už ste si ich označili'],
     ['Obec / samospráva', 'Obec / samospráva'], ['Škola / pedagog', 'Škola / pedagóg'], ['Ochrana přírody / správa CHKO', 'Ochrana prírody / správa CHKO'],
     ['Vzdělávací či ekocentrum', 'Vzdelávacie alebo ekocentrum'], ['Spolek / místní aktér', 'Spolok / miestny aktér'], ['Obyvatel Bílých Karpat', 'Obyvateľ Bielych Karpát'],

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Společná strategie ochrany biodiverzity Bílých / Bielych Karpat v kostce. Projděte si ji, odpovězte Karpíkovi a pošlete nám připomínky.">
+<meta name="description" content="Společná strategie ochrany biodiverzity Bílých / Bielych Karpat v kostce. Projděte si ji, odpovězte na pár otázek a pošlete nám připomínky.">
 <meta property="og:title" content="Strategie pro přírodu Bílých Karpat – váš názor">
 <meta property="og:description" content="Projekt INNOMETHOD · Interreg Slovensko – Česko. Strategie v kostce, území v číslech a doporučení pro obce, školy i návštěvníky.">
 <meta property="og:image" content="assets/strategie/hreben.webp">
@@ -11,7 +11,7 @@
 <style>body{margin:0}[hidden]{display:none!important}</style>
 <title>Strategie Bílé Karpaty – INNOMETHOD</title>
 <script src="assets/i18n.js?v=20261103t"></script>
-<script src="assets/strategie-sk.js?v=20261103s"></script>
+<script src="assets/strategie-sk.js?v=20261103u"></script>
 <style>
 /* Vizuál převzatý z webu INNOMETHOD (krémová, tmavě zelená, žlutá, zaoblené karty); záměrně jen světlý vzhled jako původní web */
 :root{
@@ -184,11 +184,9 @@ td.c{font-variant-numeric:tabular-nums;color:var(--text-muted);white-space:nowra
 .cards .card ul li::marker{color:var(--mid-green)}
 .note{font-size:14.5px;color:var(--text-muted);background:var(--cream-soft);border:1px solid var(--cream-border);border-radius:var(--radius-md);padding:12px 16px;margin:0}
 
-/* Karpík se ptá */
-.karpik{display:grid;grid-template-columns:140px minmax(0,1fr);gap:18px;align-items:end;background:var(--yellow-soft);border-radius:var(--radius-lg);padding:20px 22px 0 14px;overflow:hidden}
-.karpik > img{width:140px;height:auto;align-self:end}
-.karpik .bub{background:var(--white);border-radius:var(--radius-lg);padding:16px 18px;margin-bottom:20px;position:relative;box-shadow:var(--shadow-soft);display:grid;gap:10px;min-width:0}
-.karpik .bub::before{content:"";position:absolute;left:-9px;bottom:26px;border:10px solid transparent;border-right-color:var(--white);border-left:0}
+/* krátká otázka v kapitole */
+.karpik{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:end;background:var(--yellow-soft);border-radius:var(--radius-lg);padding:16px;overflow:hidden}
+.karpik .bub{background:var(--white);border-radius:var(--radius-lg);padding:16px 18px;position:relative;box-shadow:var(--shadow-soft);display:grid;gap:10px;min-width:0}
 .karpik .who{font-size:12.5px;font-weight:800;color:var(--mid-green);letter-spacing:.05em;text-transform:uppercase}
 .karpik .q{font-weight:700;color:var(--dark-green-2);font-size:17.5px;line-height:1.35}
 .opts{display:flex;flex-wrap:wrap;gap:8px}
@@ -203,7 +201,6 @@ td.c{font-variant-numeric:tabular-nums;color:var(--text-muted);white-space:nowra
 .res .r.me .bar i{background:var(--yellow-dark)}
 .res .pc{text-align:right;color:var(--text-muted);font-variant-numeric:tabular-nums}
 .hint{font-size:13px;color:var(--text-muted)}
-@media (max-width:560px){.karpik{grid-template-columns:1fr;padding:18px 16px 0}.karpik > img{order:2;width:96px;justify-self:end;margin-top:-10px}.karpik .bub{margin-bottom:0}.karpik .bub::before{display:none}}
 
 /* připomínky */
 details.fb{background:var(--white);border:1.5px dashed var(--mid-green);border-radius:var(--radius-lg);padding:0}
@@ -247,18 +244,17 @@ legend{font-weight:800;color:var(--dark-green);margin-bottom:8px;padding:0;font-
 .cta-band p{margin:0;color:#dfe6dc;max-width:480px}
 
 /* záměry obcí */
-.zcta{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:20px;align-items:center;background:var(--yellow);color:var(--dark-green-2);border-radius:var(--radius-lg);padding:18px 24px 0 18px;overflow:hidden;box-shadow:var(--shadow-soft-lg)}
-.zcta img{width:120px;align-self:end}
+.zcta{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;background:var(--yellow);color:var(--dark-green-2);border-radius:var(--radius-lg);padding:20px 24px;overflow:hidden;box-shadow:var(--shadow-soft-lg)}
 .zcta .k{font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
 .zcta h3{font-size:22px;color:var(--dark-green-2);margin:4px 0 6px;line-height:1.25}
 .zcta p{margin:0 0 8px;font-size:15.5px}
 .zcta .ob{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
 .zcta .ob span{background:var(--white);border-radius:var(--radius-full);padding:4px 11px;font-size:13.5px;font-weight:700}
-.zcta .go{align-self:center;margin-bottom:18px}
+.zcta .go{align-self:center}
 .zcta .btn{background:var(--dark-green);color:var(--white);white-space:nowrap}
 .zcta.done{background:var(--green-soft)}
-.zcta.slim{grid-template-columns:90px minmax(0,1fr) auto}.zcta.slim img{width:90px}.zcta.slim h3{font-size:19px}
-@media (max-width:700px){.zcta,.zcta.slim{grid-template-columns:1fr;padding:18px 18px 0}.zcta img{order:3;width:90px;justify-self:end;margin-top:-30px}.zcta .go{margin-bottom:0}}
+.zcta.slim{grid-template-columns:minmax(0,1fr) auto}.zcta.slim h3{font-size:19px}
+@media (max-width:700px){.zcta,.zcta.slim{grid-template-columns:1fr;padding:18px}}
 .obl{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
 .obl label{cursor:pointer;display:block}
 .obl input{position:absolute;opacity:0;pointer-events:none}
@@ -357,11 +353,9 @@ legend{font-weight:800;color:var(--dark-green);margin-bottom:8px;padding:0;font-
 .tip-row .tc{grid-area:c;font-size:12.5px;color:var(--mid-green);font-weight:700}
 .tbtn{grid-area:b;font:700 13.5px var(--font);border:1.5px solid var(--dark-green);background:var(--white);color:var(--dark-green);padding:7px 13px;border-radius:var(--radius-full);cursor:pointer;white-space:nowrap}
 .tbtn[aria-pressed="true"]{background:var(--dark-green);color:var(--white)}
-.reco{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;align-items:center;background:var(--white);border:2px solid var(--yellow);border-radius:var(--radius-lg);padding:16px 20px}
-.reco img{width:110px;height:auto}
+.reco{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:center;background:var(--white);border:2px solid var(--yellow);border-radius:var(--radius-lg);padding:16px 20px}
 .reco h3{font-size:19px;margin-bottom:4px}
 .reco p{margin:0 0 10px;color:var(--text-muted);font-size:15px}
-@media (max-width:560px){.reco{grid-template-columns:1fr}.reco img{width:80px}}
 footer{border-top:1px solid var(--cream-border);margin-top:30px;padding-block:28px 36px;text-align:center}
 .partners{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:34px;margin:14px 0}
 .partners img{height:44px;width:auto}
@@ -483,7 +477,6 @@ const F = [
  ["Nadační a firemní zdroje","dobrovolnické akce, výsadby"]
 ];
 S[6].items = F.map(f=>f[0]);
-const KARPIK = {uzemi:"karpik-ahoj",zjisteni:"karpik-rozcestnik",vize:"karpik-deti",cile:"karpik-ahoj",opatreni:"karpik-rozcestnik",obce:"karpik-deti",financovani:"karpik-ahoj"};
 const TYPES = [["souhlas","Souhlasím"],["doplnit","Něco chybí"],["nesouhlas","Nesouhlasím"],["dotaz","Mám dotaz"]];
 const ROLES = ["Obec / samospráva","Škola / pedagog","Ochrana přírody / správa CHKO","Vzdělávací či ekocentrum","Spolek / místní aktér","Odborník","Obyvatel Bílých Karpat","Návštěvník / turista","Jiné"];
 const PARTS = ["Analýza území a zjištění","Vize a cíle","Opatření","Doporučení pro obce","Přehled financování","Mapový portál a QR stanoviště"];
@@ -528,11 +521,11 @@ function homeHtml(){
     <div>
       <span class="pill-badge">🌿 Projekt INNOMETHOD · Interreg Slovensko – Česko</span>
       <h1>Strategie pro přírodu Bílých Karpat — a váš názor na ni</h1>
-      <p class="lead">Připravili jsme společnou česko-slovenskou strategii ochrany biodiverzity. Nemusíte číst 74 stran: projděte si osm krátkých kapitol, odpovězte Karpíkovi na pár otázek a napište nám, co vám chybí.</p>
+      <p class="lead">Připravili jsme společnou česko-slovenskou strategii ochrany biodiverzity. Nemusíte číst 74 stran: projděte si osm krátkých kapitol, odpovězte na pár otázek a napište nám, co vám chybí.</p>
       <div class="hero-actions"><a class="btn btn-accent" href="#${next.id}">${started?"Pokračovat: "+esc(next.t):"Začít procházet"} →</a></div>
       <div class="mini">
         <div><span class="ic">1</span><div><h3>Projděte si</h3><p>To nejdůležitější z každé kapitoly na jedné obrazovce.</p></div></div>
-        <div><span class="ic">2</span><div><h3>Odpovězte Karpíkovi</h3><p>Jedno kliknutí a uvidíte, jak to vidí ostatní.</p></div></div>
+        <div><span class="ic">2</span><div><h3>Odpovězte na otázky</h3><p>Jedno kliknutí a uvidíte, jak to vidí ostatní.</p></div></div>
         <div><span class="ic">3</span><div><h3>Připomínkujte</h3><p>Když budete chtít, napište nám k čemukoli poznámku.</p></div></div>
       </div>
     </div>
@@ -549,8 +542,8 @@ function homeHtml(){
 
 function zctaHtml(slim){
   const z=me.zamer||{};
-  if(z.at) return `<div class="zcta done${slim?" slim":""}"><img src="assets/strategie/karpik-ahoj.webp" alt=""><div><div class="k">🏛️ Projekty obcí</div><h3>Děkujeme, záměr ${z.obec?"obce "+esc(z.obec):"vaší obce"} máme</h3><p>${z.pomoc&&z.pomoc!==ZPOM[2]?"Ozveme se vám kvůli pomoci s přípravou projektu.":"Údaje můžete kdykoli doplnit nebo upravit."}</p></div><div class="go"><a class="btn" href="#zamery">Upravit záměr</a></div></div>`;
-  return `<div class="zcta${slim?" slim":""}"><img src="assets/strategie/karpik-rozcestnik.webp" alt=""><div><div class="k">🏛️ Pro starosty a obce · 2 minuty</div><h3>Chystá vaše obec projekt pro krajinu, vodu nebo přírodu?</h3>${slim?"":`<div class="ob">${OBL.map(o=>`<span>${o[1]} ${o[2]}</span>`).join("")}</div>`}<p>Napište nám o něm. <b>Pomůžeme vám s přípravou projektu i s dotací.</b></p></div><div class="go"><a class="btn" href="#zamery">Přihlásit záměr obce →</a></div></div>`;
+  if(z.at) return `<div class="zcta done${slim?" slim":""}"><div><div class="k">🏛️ Projekty obcí</div><h3>Děkujeme, záměr ${z.obec?"obce "+esc(z.obec):"vaší obce"} máme</h3><p>${z.pomoc&&z.pomoc!==ZPOM[2]?"Ozveme se vám kvůli pomoci s přípravou projektu.":"Údaje můžete kdykoli doplnit nebo upravit."}</p></div><div class="go"><a class="btn" href="#zamery">Upravit záměr</a></div></div>`;
+  return `<div class="zcta${slim?" slim":""}"><div><div class="k">🏛️ Pro starosty a obce · 2 minuty</div><h3>Chystá vaše obec projekt pro krajinu, vodu nebo přírodu?</h3>${slim?"":`<div class="ob">${OBL.map(o=>`<span>${o[1]} ${o[2]}</span>`).join("")}</div>`}<p>Napište nám o něm. <b>Pomůžeme vám s přípravou projektu i s dotací.</b></p></div><div class="go"><a class="btn" href="#zamery">Přihlásit záměr obce →</a></div></div>`;
 }
 
 function zamerHtml(){
@@ -686,8 +679,8 @@ function karpikHtml(s){
   if(!s.q) return "";
   const mine = quick[s.id]; const answered = mine!=null && (!Array.isArray(mine)||mine.length);
   const sel = v => Array.isArray(mine)? mine.includes(v) : mine===v;
-  return `<div class="karpik" id="kq"><img src="assets/strategie/${KARPIK[s.id]}.webp" alt="Karpík, průvodce projektu INNOMETHOD">
-   <div class="bub"><div class="who">Karpík se ptá · nepovinné</div><div class="q">${esc(s.q.q)}</div>
+  return `<div class="karpik" id="kq">
+   <div class="bub"><div class="who">Krátká otázka · nepovinné</div><div class="q">${esc(s.q.q)}</div>
     <div class="opts" role="group" aria-label="${esc(s.q.q)}">${s.q.o.map(o=>`<button type="button" data-o="${esc(o)}" aria-pressed="${sel(o)}">${esc(o)}</button>`).join("")}</div>
     <div id="kres">${answered?resultsHtml(s):'<div class="hint">Klikněte na odpověď a uvidíte, jak odpověděli ostatní.</div>'}</div>
    </div></div>`;
@@ -698,7 +691,7 @@ function resultsHtml(s){
   pool.push(quick[s.id]);
   pool.forEach(a=>{ if(a==null) return; const arr=Array.isArray(a)?a:[a]; if(!arr.length) return; n++; arr.forEach(v=>counts[v]=(counts[v]||0)+1); });
   const mine=quick[s.id]; const isMine=v=>Array.isArray(mine)?mine.includes(v):mine===v;
-  const thanks = ["Díky, Karpík si to zapsal!","Super, díky!","Zapsáno, díky!"][s.id.length%3];
+  const thanks = ["Díky, zapsáno!","Super, díky!","Zapsáno, díky!"][s.id.length%3];
   return `<div class="res"><div class="hint"><b style="color:var(--dark-green)">${thanks}</b> ${n>1?`Takhle odpověděli všichni (celkem ${n}):`:"Jste mezi prvními – výsledky se budou doplňovat."}</div>
    ${n>1?s.q.o.map(o=>{const p=Math.round((counts[o]||0)/n*100);return `<div class="r${isMine(o)?" me":""}"><span>${esc(o)}</span><div class="bar"><i style="width:${p}%"></i></div><span class="pc">${p} %</span></div>`}).join(""):""}</div>`;
 }
@@ -725,7 +718,7 @@ const typeLabel = t => (TYPES.find(x=>x[0]===t)||[0,t])[1];
 function surveyHtml(){
   const v=me.survey||{};
   const qn = Object.keys(quick).filter(k=>quick[k]!=null&&(!Array.isArray(quick[k])||quick[k].length)).length, cn=me.comments.length;
-  return `${me.role==="Obec / samospráva"||me.skupina==="pro-obce"?zctaHtml(true):""}${whoHtml()}<div class="tiles"><div class="tile y"><div class="n">${seen.size}/${S.length}</div><div class="l">prošlých kapitol</div></div><div class="tile"><div class="n">${qn}</div><div class="l">odpovědí Karpíkovi</div></div><div class="tile"><div class="n">${cn}</div><div class="l">vašich připomínek</div></div></div>
+  return `${me.role==="Obec / samospráva"||me.skupina==="pro-obce"?zctaHtml(true):""}${whoHtml()}<div class="tiles"><div class="tile y"><div class="n">${seen.size}/${S.length}</div><div class="l">prošlých kapitol</div></div><div class="tile"><div class="n">${qn}</div><div class="l">vašich odpovědí</div></div><div class="tile"><div class="n">${cn}</div><div class="l">vašich připomínek</div></div></div>
   <form class="survey" id="sv" novalidate>
    <fieldset><legend>1. Jak užitečná je pro vás strategie?</legend><div class="hint">1 = vůbec, 5 = velmi</div>
     <div class="types scale">${[1,2,3,4,5].map(n=>`<label><input type="radio" name="uz" value="${n}"${v.uzitecnost==n?" checked":""}><span>${n}</span></label>`).join("")}</div></fieldset>
@@ -748,7 +741,6 @@ function surveyHtml(){
 
 /* ---------- dashboard „Území v číslech“ ---------- */
 const D = {id:"data", t:"Území v číslech", q:{q:"Co vás v číslech nejvíc překvapilo?",o:["82 druhů rostlin na 1 m²","Stárnutí obcí","Málo dětí v malých obcích","Kolik je chráněných území","Nic, znám to"]}};
-KARPIK.data = "karpik-ahoj";
 // SK: [obec, okres, obyvatel, 0–14, 15–64, 65+] – Štatistický úrad SR (kap. 4.8, příloha 2)
 const SK_ROWS = [
 ["Chropov","SKA",362,54,238,70],["Koválovec","SKA",142,18,98,28],["Radošovce","SKA",1722,250,1146,326],["Skalica","SKA",15399,2312,9978,3108],
@@ -1051,9 +1043,9 @@ const Q2G = {"Bydlím tady":"pro-obyvatele","Jezdím sem rád/a":"pro-navstevnik
 function myGroup(){ const id = ROLE2G[me.role] || me.skupina || Q2G[quick.uzemi]; return G.find(g=>g.id===id)||null; }
 function recoHtml(){
   const g=myGroup(), done=S.filter(s=>seen.has(s.id)).length;
-  if(g){ const n=(quick[tipKey(g)]||[]).length, why = ROLE2G[me.role]?`Podle toho, že se díváte jako „${esc(me.role)}“`:me.skupina?"Podle skupiny, kterou jste si vybrali":"Podle vaší odpovědi Karpíkovi";
-    return `<div class="reco"><img src="assets/strategie/karpik-rozcestnik.webp" alt=""><div><div class="k">Doporučení pro vás</div><h3>${g.ico} Co můžete udělat jako ${g.t==="Obce"?"obec":g.t==="Školy"?"škola":g.t==="Odborné organizace"?"odborná organizace":g.t==="Obyvatelé"?"obyvatel Bílých Karpat":"návštěvník"}</h3><p>${why}${done?` a ${done} prošlých kapitol`:""} jsme pro vás vybrali ${g.groups.reduce((a,x)=>a+x[1].length,0)} konkrétních kroků.${n?` Už jste si jich označili ${n}.`:""}</p><div class="row"><a class="btn btn-accent" href="#${g.id}">Zobrazit moje doporučení →</a><button type="button" class="btn btn-outline" data-reco-pick="">Jsem někdo jiný</button></div><div class="filters" id="recopick" hidden style="margin-top:10px">${G.map(x=>`<button type="button" data-skupina="${x.id}" aria-pressed="${x===g}">${x.ico} ${x.t}</button>`).join("")}</div></div></div>`; }
-  return `<div class="reco"><img src="assets/strategie/karpik-rozcestnik.webp" alt=""><div><div class="k">Doporučení pro vás</div><h3>Kdo jste? Karpík vám ukáže, co můžete udělat</h3><p>Vyberte svou skupinu a dostanete konkrétní kroky na míru.</p><div class="filters">${G.map(x=>`<button type="button" data-skupina="${x.id}" aria-pressed="false">${x.ico} ${x.t}</button>`).join("")}</div></div></div>`;
+  if(g){ const n=(quick[tipKey(g)]||[]).length, why = ROLE2G[me.role]?`Podle toho, že se díváte jako „${esc(me.role)}“`:me.skupina?"Podle skupiny, kterou jste si vybrali":"Podle vaší odpovědi";
+    return `<div class="reco"><div><div class="k">Doporučení pro vás</div><h3>${g.ico} Co můžete udělat jako ${g.t==="Obce"?"obec":g.t==="Školy"?"škola":g.t==="Odborné organizace"?"odborná organizace":g.t==="Obyvatelé"?"obyvatel Bílých Karpat":"návštěvník"}</h3><p>${why}${done?` a ${done} prošlých kapitol`:""} jsme pro vás vybrali ${g.groups.reduce((a,x)=>a+x[1].length,0)} konkrétních kroků.${n?` Už jste si jich označili ${n}.`:""}</p><div class="row"><a class="btn btn-accent" href="#${g.id}">Zobrazit moje doporučení →</a><button type="button" class="btn btn-outline" data-reco-pick="">Jsem někdo jiný</button></div><div class="filters" id="recopick" hidden style="margin-top:10px">${G.map(x=>`<button type="button" data-skupina="${x.id}" aria-pressed="${x===g}">${x.ico} ${x.t}</button>`).join("")}</div></div></div>`; }
+  return `<div class="reco"><div><div class="k">Doporučení pro vás</div><h3>Kdo jste? Ukážeme vám, co můžete udělat</h3><p>Vyberte svou skupinu a dostanete konkrétní kroky na míru.</p><div class="filters">${G.map(x=>`<button type="button" data-skupina="${x.id}" aria-pressed="false">${x.ico} ${x.t}</button>`).join("")}</div></div></div>`;
 }
 function bindReco(){
   document.querySelectorAll("[data-reco-pick]").forEach(b=>b.onclick=()=>{const p=document.getElementById("recopick");p.hidden=!p.hidden});
@@ -1175,7 +1167,7 @@ function refreshCounts(){
 
 function asText(){
   const L=[`Připomínky ke strategii INNOMETHOD – Bílé Karpaty`,`Za: ${me.role||"-"} · ${me.org||"-"}`,""];
-  [D,...S,...GS].forEach(s=>{const cs=me.comments.filter(c=>c.section===s.id); const q=quick[s.id]; if(cs.length||q){L.push(`## ${s.t}`); if(q&&s.q) L.push(`Karpík: ${s.q.q} → ${Array.isArray(q)?q.join(", "):q}`); cs.forEach(c=>L.push(`- [${typeLabel(c.typ)}]${c.item?" ("+c.item+")":""} ${c.text}`));L.push("")}});
+  [D,...S,...GS].forEach(s=>{const cs=me.comments.filter(c=>c.section===s.id); const q=quick[s.id]; if(cs.length||q){L.push(`## ${s.t}`); if(q&&s.q) L.push(`Otázka: ${s.q.q} → ${Array.isArray(q)?q.join(", "):q}`); cs.forEach(c=>L.push(`- [${typeLabel(c.typ)}]${c.item?" ("+c.item+")":""} ${c.text}`));L.push("")}});
   const v=me.survey||{}; if(v.at){L.push("## Hodnocení",`Užitečnost: ${v.uzitecnost||"-"}/5`,`Přínosné části: ${(v.casti||[]).join(", ")||"-"}`,`Využití: ${v.vyuziti||"-"} ${v.co||""}`,`Zapojení: ${(v.zapojeni||[]).join(", ")||"-"}`,`Chybí: ${v.chybi||"-"}`,`Kontakt: ${me.contact||"-"}`,`Zaslat PDF strategie: ${v.chcePdf?"ano – "+v.email:"ne"}`)}
   const z=me.zamer||{}; if(z.at){L.push("","## Záměr obce",`Obec: ${z.obec} (${z.funkce||"-"})`,`Plánuje projekt: ${z.planuje}`,`Oblasti: ${(z.oblasti||[]).map(k=>(OBL.find(o=>o[0]===k)||[,,k])[2]).join(", ")||"-"}`,`Záměr: ${z.popis||"-"}`,`Připravenost: ${z.stav||"-"} · realizace: ${z.kdy||"-"} · náklady: ${z.rozpocet||"-"}`,`Pomoc s přípravou: ${z.pomoc||"-"}${(z.pomocS||[]).length?" – "+z.pomocS.join(", "):""}`,`Kontakt: ${[z.jmeno,z.email,z.telefon].filter(Boolean).join(", ")||"-"}`)}
   return L.join("\n");
@@ -1199,13 +1191,13 @@ function overviewHtml(){
   const count=arr=>{const m={};arr.forEach(x=>(Array.isArray(x)?x:x!=null?[x]:[]).forEach(v=>m[v]=(m[v]||0)+1));return m};
   const bars=(m,labels)=>{const max=Math.max(1,...Object.values(m));return labels.map(l=>`<div class="ov-row"><span>${esc(l)}</span><div class="bar"><i style="width:${(m[l]||0)/max*100}%"></i></div><span class="pc" style="text-align:right">${m[l]||0}</span></div>`).join("")};
   return `<section class="chapter"><div><span class="pill-badge">🔒 Vidíte jen vy a editoři</span><h2 style="font-size:30px;margin-top:10px">Přehled odpovědí</h2></div>
-   <div class="tiles"><div class="tile y"><div class="n">${moods.length}</div><div class="l">lidí odpovídalo Karpíkovi</div></div><div class="tile"><div class="n">${resp.length}</div><div class="l">respondentů s připomínkou nebo hodnocením</div></div><div class="tile"><div class="n">${comments.length}</div><div class="l">připomínek</div></div><div class="tile"><div class="n">${avg}</div><div class="l">průměrná užitečnost (1–5), ${rated.length}×</div></div></div>
+   <div class="tiles"><div class="tile y"><div class="n">${moods.length}</div><div class="l">lidí odpovídalo na otázky</div></div><div class="tile"><div class="n">${resp.length}</div><div class="l">respondentů s připomínkou nebo hodnocením</div></div><div class="tile"><div class="n">${comments.length}</div><div class="l">připomínek</div></div><div class="tile"><div class="n">${avg}</div><div class="l">průměrná užitečnost (1–5), ${rated.length}×</div></div></div>
    <div class="row"><button class="btn btn-outline" type="button" id="csv">Stáhnout CSV</button><span class="status" id="csvs"></span></div>
    ${(()=>{const pdf=resp.filter(r=>r.survey?.chcePdf&&r.survey?.email);return `<div class="card"><h3>Žádosti o PDF strategie (${pdf.length})</h3>${pdf.length?`<div class="copybox" id="pdfm">${pdf.map(r=>esc(r.survey.email)).join("; ")}</div><div class="row"><button class="btn btn-outline" type="button" id="pdfc">Zkopírovat e-maily</button><span class="status" id="pdfs"></span></div>`:'<p class="sub">Zatím nikdo nepožádal.</p>'}</div>`})()}
    <div class="card"><h3>Záměry obcí (${zam.length})</h3>${zam.length?zam.map(r=>{const z=r.zamer;return `<div class="ov-c"><div><b>${esc(z.obec)}</b> · ${esc(z.planuje)}${(z.oblasti||[]).length?" · "+z.oblasti.map(k=>(OBL.find(o=>o[0]===k)||[,k])[1]).join(" "):""}</div>${z.popis?`<div style="overflow-wrap:anywhere">${esc(z.popis)}</div>`:""}<div class="m">${esc([z.stav,z.kdy,z.rozpocet].filter(Boolean).join(" · "))}</div><div>${z.pomoc&&z.pomoc!==ZPOM[2]?`<b style="color:var(--warn)">Chce pomoc:</b> ${esc(z.pomoc)}${(z.pomocS||[]).length?" – "+esc(z.pomocS.join(", ")):""}`:esc(z.pomoc||"")}</div><div class="m">${esc([z.jmeno,z.funkce,z.email,z.telefon].filter(Boolean).join(" · "))}</div></div>`}).join(""):'<p class="sub">Zatím žádný záměr.</p>'}</div>
    <div class="card"><h3>Přínosné části</h3>${bars(count(resp.map(r=>r.survey?.casti)),PARTS)}</div>
    <div class="card"><h3>Zájem o zapojení</h3>${bars(count(resp.map(r=>r.survey?.zapojeni)),JOIN)}</div>
-   ${[D,...S].filter(s=>s.q).map(s=>`<div class="card"><div class="k">Karpík · ${esc(s.t)}</div><h3>${esc(s.q.q)}</h3>${bars(count(moods.map(m=>m.a?.[s.id])),s.q.o)}</div>`).join("")}
+   ${[D,...S].filter(s=>s.q).map(s=>`<div class="card"><div class="k">Otázka · ${esc(s.t)}</div><h3>${esc(s.q.q)}</h3>${bars(count(moods.map(m=>m.a?.[s.id])),s.q.o)}</div>`).join("")}
    <div class="card"><h3>Kdo co zkusí (doporučení)</h3>${G.map(g=>{const rows=g.groups.flatMap((grp,ci)=>grp[1].map((t,ti)=>[t,moods.filter(m=>Array.isArray(m.a?.[tipKey(g)])&&m.a[tipKey(g)].includes(ci+"-"+ti)).length])).filter(r=>r[1]).sort((a,b)=>b[1]-a[1]).slice(0,5);return `<div class="k" style="margin-top:10px">${g.ico} ${g.t}</div>`+(rows.length?rows.map(r=>`<div class="ov-row"><span>${esc(r[0])}</span><div class="bar"><i style="width:${r[1]/Math.max(1,moods.length)*100}%"></i></div><span class="pc" style="text-align:right">${r[1]}</span></div>`).join(""):'<p class="sub" style="margin:0">Zatím nikdo.</p>')}).join("")}</div>
    <div class="card"><h3>Připomínky podle kapitol</h3>${comments.length?[...S,...GS].map(s=>{const cs=comments.filter(c=>c.section===s.id);return cs.length?`<h3 style="margin-top:12px;font-size:16px">${esc(s.t)} (${cs.length})</h3>`+cs.map(c=>`<div class="ov-c"><div><b>${esc(typeLabel(c.typ))}</b>${c.item?" · "+esc(c.item):""}</div><div style="overflow-wrap:anywhere">${esc(c.text)}</div><div class="m">${esc(c.role||"bez uvedení")} · ${esc(c.org||"")} · ${new Date(c.at).toLocaleDateString("cs-CZ")}</div></div>`).join(""):""}).join(""):'<p class="sub">Zatím žádné připomínky. Jakmile je respondenti přidají, objeví se tady.</p>'}</div>
    <div class="card"><h3>Co využijí / co chybí</h3>${resp.filter(r=>r.survey?.chybi||r.survey?.co).map(r=>`<div class="ov-c"><div>${r.survey.co?"<b>Využijí:</b> "+esc(r.survey.co)+"<br>":""}${r.survey.chybi?"<b>Chybí:</b> "+esc(r.survey.chybi):""}</div><div class="m">${esc(r.role||"bez uvedení")} · ${esc(r.org||"")}${r.contact?" · kontakt: "+esc(r.contact):""}</div></div>`).join("")||'<p class="sub">Zatím bez odpovědí.</p>'}</div>
