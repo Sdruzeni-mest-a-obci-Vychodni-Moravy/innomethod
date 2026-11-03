@@ -6,7 +6,7 @@
 <title>Hry – Bílé Karpaty</title>
 <meta name="description" content="Hry z Bílých Karpat – Karpaty Dabble a Karpaty Pexeso. Další hry postupně přibývají.">
 <link rel="stylesheet" href="assets/site.css?v=20261021c">
-<script src="assets/i18n.js?v=20261103c"></script>
+<script src="assets/i18n.js?v=20261103d"></script>
 <style>
   main { max-width: var(--max-width); margin: 0 auto; padding: 0 20px 64px; }
 
@@ -14,18 +14,25 @@
   .page-hero h1 { color: var(--dark-green); font-size: clamp(1.9rem, 4vw, 2.6rem); margin: 14px 0 12px; }
   .page-hero p { color: var(--text-muted); max-width: 640px; margin: 0 auto; line-height: 1.6; font-size: 1.02rem; }
 
-  /* Quick links to each game under the heading */
-  .game-jump { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 24px 0 0; padding: 0; list-style: none; }
-  .game-jump a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 6px 20px; border-radius: var(--radius-full); background: var(--white); border: 1px solid var(--cream-border); color: var(--dark-green); font-weight: 700; text-decoration: none; transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+  /* Game switcher: sticks under the site menu so you can jump between games without scrolling back up.
+     --nav-h is measured by the script at the bottom of the page. */
+  .game-switch { position: sticky; top: var(--nav-h, 71px); z-index: 20; margin: 20px -20px 0; padding: 10px 20px; background: var(--cream, #f6f3ea); border-bottom: 1px solid transparent; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+  .game-switch.is-stuck { border-bottom-color: var(--cream-border); box-shadow: 0 6px 12px -10px rgba(40, 55, 35, 0.35); }
+  .game-jump { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 0; padding: 0; list-style: none; }
+  .game-jump a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 6px 20px; border-radius: var(--radius-full); background: var(--white); border: 1px solid var(--cream-border); color: var(--dark-green); font-weight: 700; text-decoration: none; transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease; }
   .game-jump a:hover { border-color: var(--mid-green); box-shadow: var(--shadow-soft); }
+  .game-jump a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+  .game-jump a[aria-current="true"] { background: var(--dark-green); border-color: var(--dark-green); color: var(--white); }
 
   /* One game = one section; new games are added as another .game section */
-  .game { margin-top: 48px; scroll-margin-top: 90px; }
+  .game { margin-top: 40px; scroll-margin-top: calc(var(--nav-h, 71px) + 84px); }
+  .game-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+  .game-meta li { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: var(--radius-full); background: var(--cream-soft); border: 1px solid var(--cream-border); color: var(--mid-green); font-size: 0.85rem; font-weight: 700; }
+  .game-meta svg { width: 15px; height: 15px; flex: none; }
   .game-head { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 24px; align-items: center; margin-bottom: 24px; }
   .game-icon { width: 112px; height: 112px; padding: 12px; box-sizing: border-box; object-fit: contain; background: var(--white); border: 1px solid var(--cream-border); border-radius: 24px; box-shadow: var(--shadow-soft); }
   .game-head h2 { color: var(--dark-green); font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 6px; }
   .game-head p { color: var(--text-muted); margin: 0; line-height: 1.6; max-width: 46em; }
-  .game-count { display: inline-block; margin-top: 10px; padding: 3px 12px; border-radius: var(--radius-full); background: var(--cream-soft); border: 1px solid var(--cream-border); color: var(--mid-green); font-size: 0.85rem; font-weight: 700; }
 
   .variant-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
   .variant-card { display: flex; flex-direction: column; align-items: center; background: var(--white); border: 1px solid var(--cream-border); border-radius: var(--radius-lg); padding: 22px 20px 24px; text-decoration: none; text-align: center; transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease; }
@@ -92,11 +99,14 @@
       <span class="pill-badge">🎮 Hry</span>
       <h1>Hry z Bílých Karpat</h1>
       <p>Zahrajte si s rodinou nebo kamarády a poznávejte přírodu Bílých Karpat hrou. Hry budou postupně přibývat.</p>
+    </div>
+
+    <nav class="game-switch" aria-label="Přepínání her">
       <ul class="game-jump">
         <li><a href="#dabble">Karpaty Dabble</a></li>
         <li><a href="#pexeso">Karpaty Pexeso</a></li>
       </ul>
-    </div>
+    </nav>
 
     <section class="game" id="dabble" aria-labelledby="dabble-title">
       <div class="game-head">
@@ -104,7 +114,12 @@
         <div>
           <h2 id="dabble-title">Karpaty Dabble</h2>
           <p>Kdo první najde stejný obrázek? Čtyři varianty podle prostředí Bílých Karpat.</p>
-          <span class="game-count">4 varianty</span>
+          <ul class="game-meta">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>4 varianty</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14.3A5 5 0 0 1 21 19"/></svg>2 hráči</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>asi 5 minut</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg>od 6 let</li>
+          </ul>
         </div>
       </div>
       <div class="variant-grid">
@@ -133,7 +148,12 @@
         <div>
           <h2 id="pexeso-title">Karpaty Pexeso</h2>
           <p>Otoč a najdi dvojice! Hledejte páry motýlů a ovocných stromů z Bílých Karpat a u každé dvojice se dozvíte zajímavost.</p>
-          <span class="game-count">3 sady</span>
+          <ul class="game-meta">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>3 sady</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14.3A5 5 0 0 1 21 19"/></svg>2 hráči</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>asi 5 minut</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg>od 4 let</li>
+          </ul>
         </div>
       </div>
       <div class="variant-grid">
@@ -172,6 +192,44 @@
   </footer>
 
   <script src="assets/site.js?v=20261021c"></script>
+  <script>
+    // Game switcher: keeps --nav-h in sync with the site menu, shows a shadow once it sticks
+    // and highlights the game that is currently on screen.
+    (function () {
+      var bar = document.querySelector('.game-switch');
+      var nav = document.querySelector('.site-nav');
+      if (!bar) return;
+      var links = Array.prototype.slice.call(bar.querySelectorAll('a[href^="#"]'));
+      var root = document.documentElement;
+
+      var measure = function () { if (nav) root.style.setProperty('--nav-h', nav.offsetHeight + 'px'); };
+      measure();
+      window.addEventListener('resize', measure);
+
+      var stuck = function () {
+        var top = parseFloat(getComputedStyle(bar).top) || 0;
+        bar.classList.toggle('is-stuck', bar.getBoundingClientRect().top <= top + 0.5 && window.scrollY > 0);
+      };
+      window.addEventListener('scroll', stuck, { passive: true });
+      stuck();
+
+      var setActive = function (id) {
+        links.forEach(function (a) {
+          if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'true');
+          else a.removeAttribute('aria-current');
+        });
+      };
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) { if (en.isIntersecting) setActive(en.target.id); });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        links.forEach(function (a) {
+          var sec = document.getElementById(a.getAttribute('href').slice(1));
+          if (sec) io.observe(sec);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
 
