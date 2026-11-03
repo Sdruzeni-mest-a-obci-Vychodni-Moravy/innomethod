@@ -179,10 +179,10 @@ a.route-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft)
 .route-card h3 { margin: 4px 16px 12px; text-align: center; color: var(--dark-green); font-size: 1.35rem; }
 .route-meta { margin: 0; padding: 7px 12px; background: var(--yellow); color: var(--dark-green-2); text-align: center; font-size: 0.8rem; font-weight: 600; }
 .route-line { display: block; width: 72%; margin: 14px auto 6px; height: auto; }
-.route-body { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) 72px; gap: 10px; align-items: start; padding: 6px 16px 18px; }
+.route-body { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 6px 18px 14px; text-align: center; }
 .route-body p { margin: 0; font-size: 0.93rem; line-height: 1.55; color: var(--text-muted); }
-.route-drawing { width: 72px; height: auto; align-self: end; }
-.route-more { display: block; margin: 0 16px 18px; color: var(--dark-green); font-weight: 700; font-size: 0.9rem; }
+.route-body .route-drawing { width: auto; height: 64px; margin-top: auto; } /* margin-top: auto keeps the drawings on one line across cards */
+.route-more { display: block; margin: 0 16px 18px; text-align: center; color: var(--dark-green); font-weight: 700; font-size: 0.9rem; }
 
 /* ---------- Route detail ---------- */
 .detail-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding: 44px 0 10px; }
