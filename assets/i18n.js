@@ -761,6 +761,7 @@
     'Přehled cenných luk, sadů, stromů a vody ve vašem katastru, který můžete použít při změně územního plánu. Na podzim ho obcím vysvětlíme na semináři.': 'Prehľad cenných lúk, sadov, stromov a vody vo vašom katastri, ktorý môžete použiť pri zmene územného plánu. Na jeseň ho obciam vysvetlíme na seminári.',
     'Tipy, které můžete sdílet ve zpravodaji, na webu obce nebo v rozhlase.': 'Tipy, ktoré môžete zdieľať v spravodaji, na webe obce alebo v rozhlase.',
     'Trasy s Karpíkem': 'Trasy s Karpíkom',
+    'Rodinné trasy': 'Rodinné trasy',
     'Rodinné výlety s úkoly přes QR kód. Hodí se jako tip na víkend do zpravodaje.': 'Rodinné výlety s úlohami cez QR kód. Hodia sa ako tip na víkend do spravodaja.',
     'Zobrazit trasy': 'Zobraziť trasy',
     'Hry a kvíz': 'Hry a kvíz',

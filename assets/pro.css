@@ -5,6 +5,7 @@ main { max-width: var(--max-width); margin: 0 auto; padding: 0 20px 64px; }
 .pro-hero h1 { color: var(--dark-green); font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.15; margin: 14px 0 12px; }
 .pro-hero p { color: var(--text-muted); max-width: 34em; margin: 0; line-height: 1.6; font-size: 1.05rem; }
 .pro-hero img { width: 100%; max-width: 300px; height: auto; justify-self: center; }
+.pro-hero.no-figure { grid-template-columns: minmax(0, 1fr); }
 
 /* Section switcher: sticks under the site menu; --nav-h is measured by the page script. */
 .sec-switch { position: sticky; top: var(--nav-h, 71px); z-index: 20; margin: 24px -20px 0; padding: 10px 20px; background: var(--cream, #f6f3ea); border-bottom: 1px solid transparent; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
