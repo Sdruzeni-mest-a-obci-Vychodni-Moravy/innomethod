@@ -854,7 +854,9 @@
     'Závěrečná výzva k vlastnímu pozorování přírody. S aplikací Seek nebo iNaturalist mohou žáci pokračovat v objevování i mimo školní lavice a svá pozorování přidat do projektu.': 'Záverečná výzva na vlastné pozorovanie prírody. S aplikáciou Seek alebo iNaturalist môžu žiaci pokračovať v objavovaní aj mimo školských lavíc a svoje pozorovania pridať do projektu.',
     'Náhled pracovních listů': 'Náhľad pracovných listov',
     'Kliknutím stránku zvětšíte.': 'Kliknutím stránku zväčšíte.',
-    'Materiály ke stažení': 'Materiály na stiahnutie'
+    'Materiály ke stažení': 'Materiály na stiahnutie',
+    '2. stupeň ZŠ · připravujeme': '2. stupeň ZŠ · pripravujeme',
+    'Vycházka po Veselí nad Moravou za vodou ve městě: jez, ostrov, malá vodní elektrárna, zámek, park a most nad řekou Moravou.': 'Vychádzka po Veselí nad Moravou za vodou v meste: jaz, ostrov, malá vodná elektráreň, zámok, park a most nad riekou Moravou.'
   };
 
   var CS = {};
