@@ -859,7 +859,11 @@
     'Vycházka po Veselí nad Moravou za vodou ve městě: jez, ostrov, malá vodní elektrárna, zámek, park a most nad řekou Moravou.': 'Vychádzka po Veselí nad Moravou za vodou v meste: jaz, ostrov, malá vodná elektráreň, zámok, park a most nad riekou Moravou.',
     'Všechny hry': 'Všetky hry',
     'Trasy v terénu s úkoly přes QR kód. Před výletem si s dětmi prohlédněte, co je na trase čeká.': 'Trasy v teréne s úlohami cez QR kód. Pred výletom si s deťmi pozrite, čo ich na trase čaká.',
-    'Všechny výpravy': 'Všetky výpravy'
+    'Všechny výpravy': 'Všetky výpravy',
+    'Celá Expedice Bílé Karpaty': 'Celá Expedícia Biele Karpaty',
+    'Celé Dabble': 'Celé Dabble',
+    'Celé Pexeso': 'Celé Pexeso',
+    'Všechny Karpíkovy výpravy': 'Všetky Karpíkove výpravy'
   };
 
   var CS = {};

@@ -147,3 +147,27 @@ a.set-cover:hover img { transform: scale(1.03); }
   .pro-steps { grid-template-columns: 1fr; }
   .ws-pages { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* Digital packages: two columns and one clear button row per card */
+.pro-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.card-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 10px; }
+.card-btns + .actions { margin-top: 0; padding-top: 2px; }
+.btn-go { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 10px 20px; border-radius: var(--radius-full); background: var(--dark-green); border: 1px solid var(--dark-green); color: var(--white); font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: background-color 0.15s ease, transform 0.15s ease; }
+.btn-go svg { width: 18px; height: 18px; flex: none; }
+.btn-go:hover { background: var(--dark-green-2); transform: translateX(2px); }
+.btn-go:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .btn-go { transition: none; } .btn-go:hover { transform: none; } }
+@media (max-width: 760px) { .pro-grid.two { grid-template-columns: 1fr; } }
+
+/* Worksheet sets: compact horizontal cards so all sets fit on one screen */
+.set-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.set-card { display: grid; grid-template-columns: 150px minmax(0, 1fr); align-items: stretch; }
+.set-cover { aspect-ratio: auto; height: 100%; min-height: 212px; }
+.set-cover img { object-fit: cover; object-position: top center; }
+.set-body { padding: 16px 18px; gap: 6px; }
+.set-body h4 { font-size: 1.1rem; }
+.set-body p { font-size: 0.9rem; line-height: 1.5; }
+.set-cover.placeholder svg { width: 48px; height: 48px; }
+.set-actions .btn-dl { min-height: 40px; padding: 7px 14px; font-size: 0.88rem; }
+@media (max-width: 900px) { .set-grid { grid-template-columns: 1fr; } }
+@media (max-width: 420px) { .set-card { grid-template-columns: 110px minmax(0, 1fr); } .set-cover { min-height: 170px; } }
