@@ -687,7 +687,7 @@
     'Exkurze a programy': 'Exkurzie a programy',
     'Hotové aktivity do výuky: stačí je otevřít na tabuli, v tabletu nebo vytisknout.': 'Hotové aktivity do výučby: stačí ich otvoriť na tabuli, v tablete alebo vytlačiť.',
     'Expedice Bílé Karpaty': 'Expedícia Biele Karpaty',
-    'Deset druhů na interaktivních kartách objevitele – od vlka po vstavač vojenský. Ke každé kartě je audioprůvodce v češtině i slovenštině. Karty si můžete vytisknout ve formátu A3.': 'Desať druhov na interaktívnych kartách objaviteľa – od vlka po vstavač vojenský. Ku každej karte je audiosprievodca v češtine aj slovenčine. Karty si môžete vytlačiť vo formáte A3.',
+    'Deset druhů na interaktivních kartách objevitele – od vlka po vstavač vojenský. Každá karta má audioprůvodce v češtině i slovenštině a výzvu pro žáky.': 'Desať druhov na interaktívnych kartách objaviteľa – od vlka po vstavač vojenský. Každá karta má audiosprievodcu v češtine aj slovenčine a výzvu pre žiakov.',
     'Karty k tisku (PDF, A3)': 'Karty na tlač (PDF, A3)',
     'Vlk': 'Vlk',
     'Kočka a vlha': 'Mačka a včelárik',
