@@ -856,7 +856,10 @@
     'Kliknutím stránku zvětšíte.': 'Kliknutím stránku zväčšíte.',
     'Materiály ke stažení': 'Materiály na stiahnutie',
     '2. stupeň ZŠ · připravujeme': '2. stupeň ZŠ · pripravujeme',
-    'Vycházka po Veselí nad Moravou za vodou ve městě: jez, ostrov, malá vodní elektrárna, zámek, park a most nad řekou Moravou.': 'Vychádzka po Veselí nad Moravou za vodou v meste: jaz, ostrov, malá vodná elektráreň, zámok, park a most nad riekou Moravou.'
+    'Vycházka po Veselí nad Moravou za vodou ve městě: jez, ostrov, malá vodní elektrárna, zámek, park a most nad řekou Moravou.': 'Vychádzka po Veselí nad Moravou za vodou v meste: jaz, ostrov, malá vodná elektráreň, zámok, park a most nad riekou Moravou.',
+    'Všechny hry': 'Všetky hry',
+    'Trasy v terénu s úkoly přes QR kód. Před výletem si s dětmi prohlédněte, co je na trase čeká.': 'Trasy v teréne s úlohami cez QR kód. Pred výletom si s deťmi pozrite, čo ich na trase čaká.',
+    'Všechny výpravy': 'Všetky výpravy'
   };
 
   var CS = {};

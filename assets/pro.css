@@ -33,6 +33,7 @@ main { max-width: var(--max-width); margin: 0 auto; padding: 0 20px 64px; }
 .pro-card.is-main { border: 2px solid var(--yellow); }
 .pro-card .tag { align-self: flex-start; padding: 3px 11px; border-radius: var(--radius-full); background: var(--yellow); color: var(--dark-green-2); font-size: 0.8rem; font-weight: 700; }
 .pro-card .tag.soon { background: var(--cream-soft); color: var(--text-muted); border: 1px solid var(--cream-border); }
+.pro-card .files-label { margin: 4px 0 -2px; color: var(--dark-green); font-weight: 700; font-size: 0.88rem; }
 .pro-card .files { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
 .pro-card .files a { display: inline-block; padding: 4px 10px; border-radius: var(--radius-full); background: var(--cream-soft); border: 1px solid var(--cream-border); color: var(--dark-green); font-size: 0.85rem; font-weight: 600; text-decoration: none; }
 .pro-card .files a:hover { border-color: var(--mid-green); }
