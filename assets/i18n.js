@@ -863,7 +863,18 @@
     'Celá Expedice Bílé Karpaty': 'Celá Expedícia Biele Karpaty',
     'Celé Dabble': 'Celé Dabble',
     'Celé Pexeso': 'Celé Pexeso',
-    'Všechny Karpíkovy výpravy': 'Všetky Karpíkove výpravy'
+    'Všechny Karpíkovy výpravy': 'Všetky Karpíkove výpravy',
+    'Pracovní listy a digitální aktivity o přírodě Bílých Karpat pro 1. i 2. stupeň ZŠ. Zdarma ke stažení.': 'Pracovné listy a digitálne aktivity o prírode Bielych Karpát pre 1. aj 2. stupeň ZŠ. Zadarmo na stiahnutie.',
+    'Stáhněte, vytiskněte a můžete začít. Připojení k internetu není potřeba.': 'Stiahnite, vytlačte a môžete začať. Pripojenie na internet netreba.',
+    'Aktivity na tabuli, tablet nebo počítač.': 'Aktivity na tabuľu, tablet alebo počítač.',
+    'Deset druhů na interaktivních kartách s audioprůvodcem a výzvou pro žáky.': 'Desať druhov na interaktívnych kartách s audiosprievodcom a výzvou pre žiakov.',
+    'Postřehové hry pro dvojice žáků. Jedna hra trvá asi pět minut.': 'Postrehové hry pre dvojice žiakov. Jedna hra trvá asi päť minút.',
+    'Trasy v terénu s úkoly přes QR kód. Třída je projde sama s učitelem.': 'Trasy v teréne s úlohami cez QR kód. Trieda ich prejde sama s učiteľom.',
+    'Dvanáct otázek o přírodě Bílých Karpat, na tabuli nebo na počítači.': 'Dvanásť otázok o prírode Bielych Karpát, na tabuli alebo na počítači.',
+    'Dabble': 'Dabble',
+    'Pexeso': 'Pexeso',
+    'Program OBJEVIT do vaší školy': 'Program OBJAVIŤ do vašej školy',
+    'Přivezeme interaktivní stanoviště o přírodě a moderních technologiích, včetně dronu. Zdarma.': 'Privezieme interaktívne stanovištia o prírode a moderných technológiách, vrátane dronu. Zadarmo.'
   };
 
   var CS = {};
