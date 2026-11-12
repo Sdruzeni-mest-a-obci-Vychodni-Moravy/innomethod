@@ -21,6 +21,7 @@
     'Kapitoly': 'Kapitoly',
     'Jazyk': 'Jazyk',
     '🌿 Projekt INNOMETHOD · Interreg Slovensko – Česko': '🌿 Projekt INNOMETHOD · Interreg Slovensko – Česko',
+    '🌿 Strategie': '🌿 Stratégia',
     'Strategie pro přírodu Bílých Karpat — a váš názor na ni': 'Stratégia pre prírodu Bielych Karpát — a váš názor na ňu',
     'Připravili jsme společnou česko-slovenskou strategii ochrany biodiverzity. Nemusíte číst 74 stran: projděte si osm krátkých kapitol, odpovězte na pár otázek a napište nám, co vám chybí.':
       'Pripravili sme spoločnú česko-slovenskú stratégiu ochrany biodiverzity. Nemusíte čítať 74 strán: prejdite si osem krátkych kapitol, odpovedzte na pár otázok a napíšte nám, čo vám chýba.',

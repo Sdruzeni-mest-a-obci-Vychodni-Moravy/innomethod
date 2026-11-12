@@ -11,7 +11,7 @@
 <style>body{margin:0}[hidden]{display:none!important}</style>
 <title>Strategie Bílé Karpaty – INNOMETHOD</title>
 <script src="assets/i18n.js?v=20261112"></script>
-<script src="assets/strategie-sk.js?v=20261112"></script>
+<script src="assets/strategie-sk.js?v=20261112b"></script>
 <style>
 /* Vizuál převzatý z webu INNOMETHOD (krémová, tmavě zelená, žlutá, zaoblené karty); záměrně jen světlý vzhled jako původní web */
 :root{
@@ -105,7 +105,8 @@ main{padding-block:28px 40px}
 :focus-visible{outline:3px solid var(--yellow-dark);outline-offset:2px}
 
 /* úvod */
-.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:32px;align-items:center;padding-block:40px 8px}
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:32px;align-items:center;padding-block:44px 8px}
+body.is-home .tabs{display:none}
 .hero h1{color:var(--dark-green);font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.15;margin:14px 0 12px}
 .hero .lead{color:var(--text-muted);font-size:1.05rem;line-height:1.6;max-width:34em;margin:0 0 22px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
@@ -510,7 +511,7 @@ function homeHtml(){
   const started = seen.size>0; const next = S.find(s=>!seen.has(s.id))||S[S.length-1];
   return `<section class="hero">
     <div>
-      <span class="pill-badge">🌿 Projekt INNOMETHOD · Interreg Slovensko – Česko</span>
+      <span class="pill-badge">🌿 Strategie</span>
       <h1>Strategie pro přírodu Bílých Karpat — a váš názor na ni</h1>
       <p class="lead">Připravili jsme společnou česko-slovenskou strategii ochrany biodiverzity. Nemusíte číst 74 stran: projděte si osm krátkých kapitol, odpovězte na pár otázek a napište nám, co vám chybí.</p>
       <div class="hero-actions"><a class="btn btn-accent" href="#${next.id}">${started?"Pokračovat: "+esc(next.t):"Začít procházet"} →</a></div>
@@ -1048,6 +1049,7 @@ function render(){
   document.getElementById("prog").innerHTML = progHtml();
   const cur = document.querySelector('.tabs a[aria-current]'); if(cur) cur.scrollIntoView({block:"nearest",inline:"center"}); tabsHint();
   const v = document.getElementById("view");
+  document.body.classList.toggle("is-home", id==="uvod");
   if(id==="uvod"){ v.innerHTML = homeHtml(); bindReco(); return; }
   if(id==="data"){ v.innerHTML = dataHtml(); bindData(); bind("data"); return; }
   if(id==="pro-koho"){ v.innerHTML = hubHtml(); bindReco(); return; }
