@@ -10,8 +10,8 @@
 <link rel="icon" href="assets/icons/logo-innomethod.svg" type="image/svg+xml">
 <style>body{margin:0}[hidden]{display:none!important}</style>
 <title>Strategie Bílé Karpaty – INNOMETHOD</title>
-<script src="assets/i18n.js?v=20261103t"></script>
-<script src="assets/strategie-sk.js?v=20261103u"></script>
+<script src="assets/i18n.js?v=20261112"></script>
+<script src="assets/strategie-sk.js?v=20261112"></script>
 <style>
 /* Vizuál převzatý z webu INNOMETHOD (krémová, tmavě zelená, žlutá, zaoblené karty); záměrně jen světlý vzhled jako původní web */
 :root{
@@ -109,8 +109,10 @@ main{padding-block:28px 40px}
 .hero h1{color:var(--dark-green);font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.15;margin:14px 0 12px}
 .hero .lead{color:var(--text-muted);font-size:1.05rem;line-height:1.6;max-width:34em;margin:0 0 22px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.hero-img{width:100%;max-width:340px;aspect-ratio:4/3;height:auto;object-fit:cover;justify-self:end;border-radius:var(--radius-lg);box-shadow:var(--shadow-soft)}
-@media (max-width:760px){.hero{grid-template-columns:1fr;gap:20px;padding-top:28px}.hero-img{justify-self:stretch;max-width:none;aspect-ratio:16/7}}
+.hero-fig{position:relative;margin:0;width:100%;max-width:340px;justify-self:end}
+.hero-img{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-soft)}
+.photo-credit{position:absolute;right:10px;bottom:10px;padding:3px 10px;border-radius:999px;background:rgba(28,40,28,.62);color:#fff;font-size:12px;line-height:1.3;pointer-events:none}
+@media (max-width:760px){.hero{grid-template-columns:1fr;gap:20px;padding-top:28px}.hero-fig{justify-self:stretch;max-width:none}.hero-img{aspect-ratio:16/7}}
 .center{text-align:center}
 .sec-head{display:grid;gap:10px;justify-items:center;text-align:center;margin:56px 0 24px}
 .sec-head h2{font-size:clamp(23px,3vw,30px)}
@@ -512,10 +514,10 @@ function homeHtml(){
       <p class="lead">Připravili jsme společnou česko-slovenskou strategii ochrany biodiverzity. Nemusíte číst 74 stran: projděte si osm krátkých kapitol, odpovězte na pár otázek a napište nám, co vám chybí.</p>
       <div class="hero-actions"><a class="btn btn-accent" href="#${next.id}">${started?"Pokračovat: "+esc(next.t):"Začít procházet"} →</a></div>
     </div>
-    <img class="hero-img" src="assets/strategie/hreben.webp" width="700" height="875" alt="Hřeben Bílých Karpat při východu slunce">
+    <figure class="hero-fig"><img class="hero-img" src="assets/strategie/hreben.webp?v=20261112" width="1500" height="1000" alt="Louky v Čertoryjích za večerního slunce"><span class="photo-credit">Foto: Jitka Říhová</span></figure>
   </section>
   <div class="sec-head"><h2>Vyberte, kde začít</h2><p>Kapitoly na sebe navazují, ale můžete přeskakovat. Prošlé kapitoly označíme žlutě.</p></div>
-  <div class="ch-grid">${S.map((s,i)=>`<a class="ch-card" href="#${s.id}"><div class="ph"><img src="assets/strategie/${s.img}.webp" alt="" loading="lazy"><span class="no">${i+1}</span>${seen.has(s.id)?'<span class="done">✓ prošlo</span>':""}</div><div class="b"><h3>${esc(s.h)}</h3><p>${esc(s.teaser)}</p></div></a>`).join("")}</div>
+  <div class="ch-grid">${S.map((s,i)=>`<a class="ch-card" href="#${s.id}"><div class="ph"><img src="assets/strategie/${s.img}.webp?v=20261112" alt="" loading="lazy"><span class="no">${i+1}</span>${seen.has(s.id)?'<span class="done">✓ prošlo</span>':""}</div><div class="b"><h3>${esc(s.h)}</h3><p>${esc(s.teaser)}</p></div></a>`).join("")}</div>
   <h2 class="sr-only">Pro obce a další skupiny</h2>
   ${zctaHtml(true)}
   ${recoHtml()}
@@ -986,7 +988,7 @@ function hubHtml(){
    ${recoHtml()}
    <p class="intro">Ochrana přírody tady nestojí jen na správcích chráněných území. Vyberte, kdo jste, a najděte konkrétní kroky. U každého můžete kliknout „Zkusím to“ a uvidíte, kolik lidí se přidalo.</p>
    <div class="grid2">${[["Bílé Karpaty jsou výjimečné díky lidem.","Nejcennější louky a sady vznikly péčí místních hospodářů."],["Pojďte ven.","Přírodu nejlépe poznáte na místě – QR stanoviště vás provedou."],["Chraňte, co poznáte.","Zůstaňte na značených cestách, nic netrhejte a nerušte."],["Každý může pomoci.","Obec, škola, rodina i jednotlivec – každý má svůj díl."]].map(k=>`<div class="card" style="background:var(--yellow-soft);border-color:var(--yellow-soft)"><h3>${k[0]}</h3><p class="sub">${k[1]}</p></div>`).join("")}</div>
-   <div class="ch-grid">${G.map(g=>{const n=(quick[tipKey(g)]||[]).length;return `<a class="ch-card" href="#${g.id}"><div class="ph"><img src="assets/strategie/${g.img}.webp" alt="" loading="lazy"><span class="no">${g.ico} ${g.t}</span>${n?`<span class="done">✓ ${n}</span>`:""}</div><div class="b"><h3>Pro ${g.pro}</h3><p>${esc(g.lead)}</p></div></a>`}).join("")}</div>
+   <div class="ch-grid">${G.map(g=>{const n=(quick[tipKey(g)]||[]).length;return `<a class="ch-card" href="#${g.id}"><div class="ph"><img src="assets/strategie/${g.img}.webp?v=20261112" alt="" loading="lazy"><span class="no">${g.ico} ${g.t}</span>${n?`<span class="done">✓ ${n}</span>`:""}</div><div class="b"><h3>Pro ${g.pro}</h3><p>${esc(g.lead)}</p></div></a>`}).join("")}</div>
    <p class="src">Zpracováno podle kap. 11, 12, 13.3 a 15 strategie. Čtyři klíčová sdělení vycházejí z interpretačního plánu CHKO Bílé Karpaty.</p>
    <div class="pager"><a class="btn btn-outline" href="#uvod">← Úvod</a><a class="btn btn-primary" href="#hodnoceni">Ohodnotit strategii →</a></div>
   </section>`;
@@ -995,7 +997,7 @@ function hubHtml(){
 function groupHtml(g){
   const gi=G.indexOf(g), mine=quick[tipKey(g)]||[], total=g.groups.reduce((a,x)=>a+x[1].length,0);
   return `<section class="chapter" aria-labelledby="ch-h">
-   <div class="ch-banner"><img src="assets/strategie/${g.img}.webp" alt=""><div class="t"><span>${g.ico} ${esc(g.lead)}</span><h2 id="ch-h">Doporučení pro ${g.pro}</h2></div></div>
+   <div class="ch-banner"><img src="assets/strategie/${g.img}.webp?v=20261112" alt=""><div class="t"><span>${g.ico} ${esc(g.lead)}</span><h2 id="ch-h">Doporučení pro ${g.pro}</h2></div></div>
    <div class="filters" role="group" aria-label="Cílové skupiny">${G.map(x=>`<a class="btn ${x===g?"btn-primary":"btn-outline"}" style="padding:7px 14px;font-size:14px" href="#${x.id}"${x===g?' aria-current="page"':""}>${x.ico} ${x.t}</a>`).join("")}</div>
    <div class="card" style="background:var(--green-soft);border-color:var(--green-soft)"><div class="k">Proč na vás záleží</div><p style="font-size:17px">${esc(g.why)}</p></div>
    ${g.id==="pro-obce"?zctaHtml():""}
@@ -1054,7 +1056,7 @@ function render(){
   const i = S.findIndex(s=>s.id===id), s=S[i];
   if(!seen.has(id)){ seen.add(id); ls.set("bk-seen",[...seen]); document.getElementById("tabs").innerHTML = tabsHtml(id); document.getElementById("prog").innerHTML = progHtml(); }
   v.innerHTML = `<section class="chapter" aria-labelledby="ch-h">
-    <div class="ch-banner"><img src="assets/strategie/${s.img}.webp" alt=""><div class="t"><span>Kapitola ${i+1} z ${S.length}</span><h2 id="ch-h">${esc(s.h)}</h2></div></div>
+    <div class="ch-banner"><img src="assets/strategie/${s.img}.webp?v=20261112" alt=""><div class="t"><span>Kapitola ${i+1} z ${S.length}</span><h2 id="ch-h">${esc(s.h)}</h2></div></div>
     <p class="intro">${esc(s.intro)}</p>
     ${body(id)}
     ${karpikHtml(s)}

@@ -911,7 +911,9 @@
     // head
     'Strategie Bílé Karpaty – INNOMETHOD': 'Stratégia Biele Karpaty – INNOMETHOD',
     'Společná strategie ochrany biodiverzity Bílých / Bielych Karpat v kostce. Projděte si ji, odpovězte na pár otázek a pošlete nám připomínky.':
-      'Spoločná stratégia ochrany biodiverzity Bílých / Bielych Karpát v kocke. Prejdite si ju, odpovedzte na pár otázok a pošlite nám pripomienky.'
+      'Spoločná stratégia ochrany biodiverzity Bílých / Bielych Karpát v kocke. Prejdite si ju, odpovedzte na pár otázok a pošlite nám pripomienky.',
+    'Louky v Čertoryjích za večerního slunce': 'Lúky v Čertoryjích vo večernom slnku',
+    'Foto: Jitka Říhová': 'Foto: Jitka Říhová'
   };
 
   // Chapter and group names inside "Další: …", "← …" and "Pokračovat: …".

@@ -874,7 +874,10 @@
     'Dabble': 'Dabble',
     'Pexeso': 'Pexeso',
     'Program OBJEVIT do vaší školy': 'Program OBJAVIŤ do vašej školy',
-    'Přivezeme interaktivní stanoviště o přírodě a moderních technologiích, včetně dronu. Zdarma.': 'Privezieme interaktívne stanovištia o prírode a moderných technológiách, vrátane dronu. Zadarmo.'
+    'Přivezeme interaktivní stanoviště o přírodě a moderních technologiích, včetně dronu. Zdarma.': 'Privezieme interaktívne stanovištia o prírode a moderných technológiách, vrátane dronu. Zadarmo.',
+    'Velká Javořina, nejvyšší vrchol Bílých Karpat': 'Veľká Javorina, najvyšší vrch Bielych Karpát',
+    'Louky v Čertoryjích za večerního slunce': 'Lúky v Čertoryjích vo večernom slnku',
+    'Foto: Jitka Říhová': 'Foto: Jitka Říhová'
   };
 
   var CS = {};
