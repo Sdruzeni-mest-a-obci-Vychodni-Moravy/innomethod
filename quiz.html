@@ -143,6 +143,7 @@
   .q-text.grow { flex: 1; }
 
   .q-media { position: relative; min-width: 0; min-height: 0; border-radius: var(--radius-md); overflow: hidden; container-type: size; }
+  .q-credit { position: absolute; right: 8px; bottom: 8px; padding: 3px 9px; border-radius: 999px; background: rgba(28, 40, 28, 0.62); color: #fff; font-size: 0.75rem; line-height: 1.3; pointer-events: none; }
   .q-media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .q-media.fit { overflow: visible; border-radius: 0; display: flex; align-items: center; justify-content: center; }
   .q-layout:not(.has-media) > .q-media { flex: 1; margin-top: 4px; }
@@ -465,12 +466,12 @@
         ], correct: ['C'] },
 
       { kind: 'challenge', num: 6, timer: 45, badge: 'VÝZVA 6', title: 'Jak se jmenuje nejvyšší vrchol Bílých Karpat?',
-        layout: 'panel', image: IMG + 'image-7-1.jpg', optionMode: 'textList',
+        layout: 'panel', image: IMG + 'foto-javorina.jpg', credit: 'Jitka Říhová', optionMode: 'textList',
         options: [{ key: 'A', label: 'Velká Javořina' }, { key: 'B', label: 'Lysá hora' }, { key: 'C', label: 'Velký Javorník' }, { key: 'D', label: 'Radhošť' }],
         correct: ['A'] },
 
       { kind: 'challenge', num: 7, timer: 30, badge: 'VÝZVA 7', title: 'Co pomáhá zachovat druhově pestré louky?', subtitle: 'Vyber dvě správné odpovědi.',
-        layout: 'panel', image: IMG + 'image-8-1.jpg', optionMode: 'textList', multiSelect: true, perItemScoring: true,
+        layout: 'panel', image: IMG + 'foto-mozaikova-louka.jpg', credit: 'Jitka Říhová', optionMode: 'textList', multiSelect: true, perItemScoring: true,
         options: [
           { key: 'A', label: 'Šetrné kosení luk' },
           { key: 'B', label: 'Hnojení luk chemickými hnojivy' },
@@ -497,7 +498,7 @@
         correct: ['C'] },
 
       { kind: 'challenge', num: 11, timer: 20, badge: 'VÝZVA 11', title: 'Co bys udělal?', subtitle: 'Našel jsi rostlinu, která vypadá jako vzácná…',
-        layout: 'panel', image: IMG + 'image-13-1.jpg', optionMode: 'textList',
+        layout: 'panel', image: IMG + 'foto-vstavac-vojensky.jpg', credit: 'Jitka Říhová', optionMode: 'textList',
         options: [
           { key: 'A', label: 'Utrhnu ji, abych zjistil, co to bylo.' },
           { key: 'B', label: 'Vyfotím ji a zkusím ji určit pomocí iNaturalistu.' },
@@ -798,12 +799,13 @@
       return '<div class="feedback-banner ' + (ok ? 'correct' : 'incorrect') + '">' + msg + '</div>';
     }
 
-    function mediaHtml(src, fit, alt) {
+    function mediaHtml(src, fit, alt, credit) {
+      var cr = credit ? '<span class="q-credit">' + U('Foto', 'Foto') + ': ' + esc(credit) + '</span>' : '';
       if (fit) {
         return '<div class="q-media fit" style="--ar:' + fit.ar + ';' + (fit.pos ? '--pos:' + fit.pos + ';' : '') + '">' +
           '<div class="fit-box"><img src="' + src + '" alt="' + esc(alt || '') + '"></div></div>';
       }
-      return '<div class="q-media"><img src="' + src + '" alt="' + esc(alt || '') + '"></div>';
+      return '<div class="q-media"><img src="' + src + '" alt="' + esc(alt || '') + '">' + cr + '</div>';
     }
 
     function headHtml(s) {
@@ -900,7 +902,7 @@
         var many = s.options.length > 6 ? ' many-options' : '';
         var fitCls = s.imageFit ? ' media-fit' : '';
         return '<div class="q-layout has-media' + many + fitCls + '"><div class="q-text">' + headHtml(s) + options + count + '</div>' +
-          mediaHtml(s.image, s.imageFit) + '</div>';
+          mediaHtml(s.image, s.imageFit, '', s.credit) + '</div>';
       }
       if (s.layout === 'trackGrid') {
         return '<div class="q-layout"><div class="q-text grow">' +
