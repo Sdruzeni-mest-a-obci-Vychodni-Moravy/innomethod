@@ -11,7 +11,7 @@
 <style>body{margin:0}[hidden]{display:none!important}</style>
 <title>Strategie Bílé Karpaty – INNOMETHOD</title>
 <script src="assets/i18n.js?v=20261112"></script>
-<script src="assets/strategie-sk.js?v=20261116"></script>
+<script src="assets/strategie-sk.js?v=20261116b"></script>
 <style>
 /* Vizuál převzatý z webu INNOMETHOD (krémová, tmavě zelená, žlutá, zaoblené karty); záměrně jen světlý vzhled jako původní web */
 :root{
@@ -86,11 +86,15 @@ h1,h2,h3{color:var(--dark-green);line-height:1.18;text-wrap:balance;margin:0}
 .progress .pb{width:60px;height:6px;border-radius:3px;background:var(--white);overflow:hidden}
 .progress .pb i{display:block;height:100%;background:var(--dark-green)}
 .tabs .progress{flex:none}
+.tabs-arr{flex:none;width:36px;height:36px;border-radius:50%;border:1px solid var(--cream-border);background:var(--white);color:var(--dark-green);font:700 22px/1 var(--font);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0 0 3px;box-shadow:var(--shadow-soft)}
+.tabs-arr[hidden]{display:none}
+.tabs-arr:hover{border-color:var(--mid-green)}
+.tabs-arr:focus-visible{outline:2px solid var(--yellow);outline-offset:2px}
 @media (max-width:640px){.tabs .progress .pb{display:none}}
 .tabs a{flex:0 0 auto;text-decoration:none;color:var(--text-muted);font-weight:600;font-size:14px;padding:6px 14px;min-height:44px;border-radius:var(--radius-full);display:flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid transparent}
 .tabs a:hover{color:var(--dark-green);border-color:var(--cream-border);background:var(--white)}
 .tabs a[aria-current="page"]{background:var(--dark-green);color:var(--white)}
-.tabs a .ck{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--cream-border);display:inline-flex;align-items:center;justify-content:center;font-size:12px;line-height:1}
+.tabs a .ck{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--cream-border);display:inline-flex;align-items:center;justify-content:center;font-size:13px;line-height:1}
 .tabs a.seen .ck{background:var(--yellow);border-color:var(--yellow);color:var(--dark-green-2)}
 .tabs a.owner{color:#7a3a86}
 .tabs a.ztab{background:var(--yellow);color:var(--dark-green-2)} .tabs a.ztab[aria-current="page"]{background:var(--dark-green);color:var(--white)}
@@ -115,7 +119,7 @@ body.is-home .tabs{display:none}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .hero-fig{position:relative;margin:0;width:100%;max-width:340px;justify-self:end}
 .hero-img{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-soft)}
-.photo-credit{position:absolute;right:10px;bottom:10px;padding:3px 10px;border-radius:999px;background:rgba(28,40,28,.62);color:#fff;font-size:12px;line-height:1.3;pointer-events:none}
+.photo-credit{position:absolute;right:10px;bottom:10px;padding:3px 10px;border-radius:999px;background:rgba(28,40,28,.62);color:#fff;font-size:13px;line-height:1.3;pointer-events:none}
 .photo-credit{opacity:0;transform:translateY(4px);transition:opacity .2s ease,transform .2s ease}@media (hover:hover){.hero-fig:hover .photo-credit{opacity:1;transform:none}}.hero-fig.show-credit .photo-credit{opacity:1;transform:none}@media (prefers-reduced-motion:reduce){.photo-credit{transition:none}}
 @media (max-width:760px){.hero{grid-template-columns:1fr;gap:20px;padding-top:28px}.hero-fig{justify-self:stretch;max-width:none}.hero-img{aspect-ratio:16/7}}
 .center{text-align:center}
@@ -129,7 +133,7 @@ body.is-home .tabs{display:none}
 .ch-card .ph{position:relative}
 .ch-card img{width:100%;height:140px;object-fit:cover}
 .ch-card .no{position:absolute;top:12px;left:12px;background:var(--white);color:var(--dark-green);font-weight:800;font-size:13px;border-radius:var(--radius-full);padding:4px 11px}
-.ch-card .done{position:absolute;top:12px;right:12px;background:var(--yellow);color:var(--dark-green-2);font-weight:800;font-size:12px;border-radius:var(--radius-full);padding:4px 10px}
+.ch-card .done{position:absolute;top:12px;right:12px;background:var(--yellow);color:var(--dark-green-2);font-weight:800;font-size:13px;border-radius:var(--radius-full);padding:4px 10px}
 .ch-card .b{padding:16px 18px 20px;display:grid;gap:6px}
 .ch-card h3{font-size:17px}
 .ch-card p{margin:0;color:var(--text-muted);font-size:14px;line-height:1.5}
@@ -162,12 +166,12 @@ details.card[open] summary::after{content:"–"}
 blockquote.vision{margin:0;padding:28px 30px;background:var(--dark-green);color:var(--white);border-radius:var(--radius-lg);font-size:clamp(18px,2.4vw,22px);line-height:1.5}
 blockquote.vision cite{display:block;margin-top:12px;font-size:13.5px;font-style:normal;color:var(--yellow);font-weight:700}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.chip{display:inline-block;font-size:12.5px;font-weight:800;padding:3px 10px;border-radius:var(--radius-full)}
+.chip{display:inline-block;font-size:13px;font-weight:800;padding:3px 10px;border-radius:var(--radius-full)}
 .chip.vys{background:var(--yellow);color:var(--dark-green-2)}
 .chip.str{background:var(--cream);color:var(--text-muted);border:1px solid var(--cream-border)}
 .chip.sc{background:var(--dark-green);color:var(--white)}
 .filters{display:flex;flex-wrap:wrap;gap:6px}
-.filters button{font:600 14px var(--font);border:1px solid var(--cream-border);background:var(--white);color:var(--text-body);padding:7px 14px;border-radius:var(--radius-full);cursor:pointer}
+.filters button{min-height:44px;font:600 14px var(--font);border:1px solid var(--cream-border);background:var(--white);color:var(--text-body);padding:7px 14px;border-radius:var(--radius-full);cursor:pointer}
 .filters button[aria-pressed="true"]{background:var(--dark-green);color:var(--white);border-color:var(--dark-green)}
 .tbl{overflow-x:auto;border:1px solid var(--cream-border);border-radius:var(--radius-lg);background:var(--white)}
 table{border-collapse:collapse;width:100%;min-width:540px;font-size:15px}
@@ -270,12 +274,12 @@ legend{font-weight:800;color:var(--dark-green);margin-bottom:8px;padding:0;font-
 
 /* dashboard */
 .subnav{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:6px;position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--nav-h));z-index:4;background:var(--cream);padding-block:8px}
-.subnav button{flex:0 0 auto;font:700 14px var(--font);border:1.5px solid var(--cream-border);background:var(--white);color:var(--dark-green);padding:7px 14px;border-radius:var(--radius-full);cursor:pointer}
+.subnav button{flex:0 0 auto;min-height:44px;font:700 14px var(--font);border:1.5px solid var(--cream-border);background:var(--white);color:var(--dark-green);padding:7px 14px;border-radius:var(--radius-full);cursor:pointer}
 .subnav button:hover{border-color:var(--mid-green)}
 .dsec{display:grid;gap:16px;scroll-margin-top:calc(var(--nav-h) + 58px)}
 .dsec > h3{font-size:22px;display:flex;align-items:center;gap:10px}
-.dsec > h3 .ic{width:36px;height:36px;border-radius:50%;background:var(--yellow);display:inline-flex;align-items:center;justify-content:center;font-size:17px}
-.src{font-size:12.5px;color:var(--text-muted);margin:0}
+.dsec > h3 .ic{width:36px;height:36px;border-radius:50%;background:var(--yellow);color:var(--dark-green-2);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.src{font-size:13px;color:var(--text-muted);margin:0}
 .panel{background:var(--white);border:1px solid var(--cream-border);border-radius:var(--radius-lg);padding:18px 20px;display:grid;gap:12px;min-width:0}
 .panel h4{margin:0;color:var(--dark-green);font-size:16px}
 .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
@@ -284,11 +288,11 @@ legend{font-weight:800;color:var(--dark-green);margin-bottom:8px;padding:0;font-
 .stack{display:grid;gap:10px}
 .stack .lbl{font-size:13.5px;font-weight:700;color:var(--text-muted);margin-bottom:4px}
 .sbar{display:flex;gap:2px;height:34px;border-radius:6px;overflow:hidden}
-.sbar span{display:flex;align-items:center;justify-content:center;color:#fff;font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden;min-width:0}
+.sbar span{display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;min-width:0}
 .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--text-muted)}
 .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 .seg{display:inline-flex;gap:2px;background:var(--cream);border-radius:var(--radius-full);padding:3px;flex-wrap:wrap}
-.seg button{font:700 13px var(--font);border:0;background:transparent;color:var(--text-muted);padding:6px 12px;border-radius:var(--radius-full);cursor:pointer}
+.seg button{min-height:40px;font:700 13.5px var(--font);border:0;background:transparent;color:var(--text-muted);padding:6px 12px;border-radius:var(--radius-full);cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--dark-green);color:var(--white)}
 .hb{display:grid;gap:8px}
 .hb .r{display:grid;grid-template-columns:150px minmax(0,1fr) 54px;gap:10px;align-items:center;font-size:14px}
@@ -301,8 +305,11 @@ legend{font-weight:800;color:var(--dark-green);margin-bottom:8px;padding:0;font-
 .chart svg{display:block;width:100%;height:auto;overflow:visible}
 .chart text{font:12px var(--font);fill:var(--text-muted)}
 .map-wrap{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;align-items:start}
-@media (max-width:860px){.map-wrap{grid-template-columns:1fr}}
+@media (max-width:860px){.map-wrap{grid-template-columns:minmax(0,1fr)}}
+.map-wrap > *{min-width:0}
 .omap{overflow:visible}.omap svg{min-width:0}
+.map-hint{display:none}
+@media (max-width:600px){.omap{overflow-x:auto;overscroll-behavior-x:contain;border-radius:var(--radius-md);background:var(--cream)}.omap svg{min-width:660px}.map-hint{display:block;margin:4px 0 0}}
 .omap path.ob{stroke:#fff;stroke-width:.8;cursor:pointer;transition:fill-opacity .15s}
 .omap path.ob:hover{stroke:var(--dark-green-2);stroke-width:1.6}
 .omap path.ob:focus-visible{outline:none;stroke:var(--yellow-dark);stroke-width:3}
@@ -318,7 +325,7 @@ legend{font-weight:800;color:var(--dark-green);margin-bottom:8px;padding:0;font-
 .obec-card .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
 .obec-card .kv div{background:var(--white);border-radius:10px;padding:8px 10px}
 .obec-card .kv b{display:block;font-size:19px;color:var(--dark-green-2);font-variant-numeric:tabular-nums}
-.obec-card .kv span{font-size:12px;color:var(--text-muted)}
+.obec-card .kv span{font-size:13px;color:var(--text-muted)}
 .otbl{max-height:360px;overflow:auto;border:1px solid var(--cream-border);border-radius:var(--radius-md)}
 .otbl table{min-width:480px;font-size:14px}
 .otbl th{position:sticky;top:0;cursor:pointer;user-select:none}
@@ -333,7 +340,7 @@ legend{font-weight:800;color:var(--dark-green);margin-bottom:8px;padding:0;font-
 .pillar details{border-top:1px solid var(--cream-border);padding-top:8px}
 .pillar summary{cursor:pointer;font-weight:600;font-size:14.5px;display:flex;gap:8px;align-items:flex-start;list-style:none}
 .pillar summary::-webkit-details-marker{display:none}
-.pillar summary .n{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--cream);color:var(--dark-green);font-size:12px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+.pillar summary .n{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--cream);color:var(--dark-green);font-size:13px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
 .pillar details[open] summary .n{background:var(--yellow)}
 .pillar details p{margin:6px 0 0 32px;font-size:14px;color:var(--text-muted)}
 .pillar.x{background:var(--dark-green);border-color:var(--dark-green);color:var(--white)}
@@ -357,7 +364,7 @@ legend{font-weight:800;color:var(--dark-green);margin-bottom:8px;padding:0;font-
 .tip-row:hover{background:var(--cream-soft)}
 .tip-row.on{background:var(--yellow-soft)}
 .tip-row .tt{grid-area:t;font-size:15.5px}
-.tip-row .tc{grid-area:c;font-size:12.5px;color:var(--mid-green);font-weight:700}
+.tip-row .tc{grid-area:c;font-size:13px;color:var(--mid-green);font-weight:700}
 .tbtn{grid-area:b;font:700 13.5px var(--font);border:1.5px solid var(--dark-green);background:var(--white);color:var(--dark-green);padding:7px 13px;border-radius:var(--radius-full);cursor:pointer;white-space:nowrap}
 .tbtn[aria-pressed="true"]{background:var(--dark-green);color:var(--white)}
 .reco{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:center;background:var(--white);border:2px solid var(--yellow);border-radius:var(--radius-lg);padding:16px 20px}
@@ -366,7 +373,7 @@ legend{font-weight:800;color:var(--dark-green);margin-bottom:8px;padding:0;font-
 footer{border-top:1px solid var(--cream-border);margin-top:30px;padding-block:28px 36px;text-align:center}
 .partners{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:34px;margin:14px 0}
 .partners img{height:44px;width:auto}
-.fine{max-width:620px;margin:0 auto;color:var(--text-muted);font-size:12.5px;line-height:1.5}
+.fine{max-width:620px;margin:0 auto;color:var(--text-muted);font-size:13px;line-height:1.5}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 
@@ -400,7 +407,7 @@ footer{border-top:1px solid var(--cream-border);margin-top:30px;padding-block:28
       <li><a class="nav-cta" href="quiz.html">Kvíz</a></li>
     </ul>
   </div>
-  <nav class="tabs" aria-label="Kapitoly"><div class="wrap"><div class="tabs-list" id="tabs"></div><span class="progress" id="prog"></span></div></nav>
+  <nav class="tabs" aria-label="Kapitoly"><div class="wrap"><button type="button" class="tabs-arr" id="tabs-l" aria-label="Předchozí kapitoly" hidden>‹</button><div class="tabs-list" id="tabs"></div><button type="button" class="tabs-arr" id="tabs-r" aria-label="Další kapitoly" hidden>›</button><span class="progress" id="prog"></span></div></nav>
 </div>
 
 <main class="wrap">
@@ -799,7 +806,7 @@ function dataHtml(){
    <p class="intro">Interaktivní přehled toho, z čeho strategie vychází: příroda, obyvatelé obou stran hranice, obce, problémy a SWOT. Klikejte, filtrujte a najděte svou obec – českou i slovenskou.</p>
    <div class="subnav" role="group" aria-label="Části přehledu">${[["d-priroda","Příroda"],["d-lide","Obyvatelé"],["d-obce","Najděte svou obec"],["d-problemy","15 problémů"],["d-swot","SWOT"]].map(x=>`<button type="button" data-go="${x[0]}">${x[1]}</button>`).join("")}</div>
 
-   <div class="dsec" id="d-priroda"><h3><span class="ic">🌸</span>Příroda</h3>
+   <div class="dsec" id="d-priroda"><h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span>Příroda</h3>
     <div class="tiles">
      <div class="tile y"><div class="n">82</div><div class="l">druhů rostlin na 1 m² louky (až 112 na 16 m²)</div></div>
      <div class="tile"><div class="n">1 500+</div><div class="l">druhů rostlin na české straně; ≈ 1 200 vyšších rostlin na slovenské</div></div>
@@ -814,7 +821,7 @@ function dataHtml(){
     <p class="src">Zdroj: kap. 3 strategie; Plán péče o CHKO Bílé Karpaty 2022–2031; ŠOP SR.</p>
    </div>
 
-   <div class="dsec" id="d-lide"><h3><span class="ic">👪</span>Obyvatelé na obou stranách hranice</h3>
+   <div class="dsec" id="d-lide"><h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Obyvatelé na obou stranách hranice</h3>
     <div class="seg" role="group" aria-label="Strana hranice">${[["CZ","🇨🇿 Česká strana"],["SK","🇸🇰 Slovenská strana"]].map(x=>`<button type="button" data-side="${x[0]}" aria-pressed="${dState.side===x[0]}">${x[1]}</button>`).join("")}</div>
     <div id="lide-side"></div>
     <div class="two">
@@ -831,7 +838,7 @@ function dataHtml(){
     <p class="src" id="lide-src"></p>
    </div>
 
-   <div class="dsec" id="d-obce"><h3><span class="ic">🏡</span>Najděte svou obec</h3>
+   <div class="dsec" id="d-obce"><h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>Najděte svou obec</h3>
     <div class="panel">
      <div class="row" style="justify-content:space-between;gap:10px">
       <label class="f" style="flex:1;min-width:200px">Hledat obec<input type="text" id="oq" list="ol" placeholder="např. Strání nebo Bošáca" value="${esc(dState.q)}"><datalist id="ol">${OBCE.map(o=>`<option value="${esc(o.n)}">`).join("")}</datalist></label>
@@ -840,21 +847,21 @@ function dataHtml(){
      <div class="filters" id="okseg" role="group" aria-label="Okres"></div>
      <div class="row" style="justify-content:space-between;gap:10px;margin-top:4px"><h4 style="margin:0">Mapa obcí</h4>
       <div class="seg" role="group" aria-label="Barva v mapě">${[["ps","Podíl 65+"],["pd","Podíl dětí"],["ix","Index stáří"]].map(m=>`<button type="button" data-mm="${m[0]}" aria-pressed="${dState.mapM===m[0]}">${m[1]}</button>`).join("")}</div></div>
-     <div class="map-wrap"><div class="chart omap" id="sc"><p class="hint">Načítám mapu…</p></div><div id="ocard"></div></div>
+     <div class="map-wrap"><div><div class="chart omap" id="sc"><p class="hint">Načítám mapu…</p></div><p class="hint map-hint">Mapu můžete posouvat prstem do stran.</p></div><div id="ocard"></div></div>
      <div class="legend" id="mlegend"></div>
      <p class="src" style="margin-top:-4px">Klikněte na katastr obce a zobrazí se její údaje. Stárnutí jen slabě souvisí s velikostí obce (korelace 0,10 na české a 0,27 na slovenské straně). Na Slovensku stárnou spíš města (Stará Turá, Myjava), na české straně rozhoduje poloha. Hranice obcí © přispěvatelé OpenStreetMap.</p>
      <div class="otbl"><table><thead><tr>${[["n","Obec"],["pop","Obyvatel"],["pd","Děti %"],["ps","65+ %"],["ix","Index stáří"]].map(c=>`<th data-sort="${c[0]}"${dState.sort[0]===c[0]?` aria-sort="${dState.sort[1]>0?"ascending":"descending"}"`:""}>${c[1]}</th>`).join("")}</tr></thead><tbody id="otb"></tbody></table></div>
     </div>
    </div>
 
-   <div class="dsec" id="d-problemy"><h3><span class="ic">⚠️</span>15 problémových okruhů</h3>
+   <div class="dsec" id="d-problemy"><h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>15 problémových okruhů</h3>
     <p class="intro" style="font-size:16px">Analýza je sdružuje do tří pilířů. Napříč všemi stojí datová a znalostní bariéra. Klikněte na okruh pro vysvětlení.</p>
     <div class="pillars3">${PROB.map(p=>`<div class="pillar"><h4>${p[0]}</h4>${p[1].map(x=>`<details><summary><span class="n">${x[0]}</span>${x[1]}</summary><p>${x[2]}</p></details>`).join("")}</div>`).join("")}
      <div class="pillar x"><h4>Průřezově: datová a znalostní bariéra</h4><p style="margin:0;font-size:14.5px;color:#dfe6dc">Odborná data o území existují, ale jsou roztříštěná a nejsou ve formě použitelné pro obce, školy a veřejnost. Na tento problém míří mapový portál a QR aktivity.</p></div>
     </div>
    </div>
 
-   <div class="dsec" id="d-swot"><h3><span class="ic">🧭</span>SWOT v kostce</h3>
+   <div class="dsec" id="d-swot"><h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z"/></svg></span>SWOT v kostce</h3>
     <div class="swot">${[["s","Silné stránky"],["w","Slabé stránky"],["o","Příležitosti"],["t","Hrozby"]].map(q=>`<div class="q ${q[0]}"><h4>${q[1]}</h4><ul>${SWOT[q[0]].map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("")}</div>
     <p class="src">Výběr hlavních položek z tab. 7 strategie; úplná SWOT analýza je v kap. 9.2.</p>
    </div>
@@ -945,8 +952,9 @@ function drawMap(list){
   g+=`<text class="side-l" x="12" y="30">Česká strana</text><text class="side-l" x="${M.w-12}" y="${M.h-12}" text-anchor="end">Slovenská strana</text>`;
   if(so&&M.c[so.n]) g+=`<text x="${M.c[so.n][0]}" y="${M.c[so.n][1]}" text-anchor="middle" class="sel-l">${esc(so.n)}</text>`;
   g+=`</svg><div class="tip" id="stip" hidden></div>`;
-  el.innerHTML=g;
+  const keepX=el.scrollLeft; el.innerHTML=g; el.scrollLeft=keepX;
   document.getElementById("mlegend").innerHTML=MAPB[m].l.map((t,i)=>`<span><i style="background:${SEQ[i]}"></i>${MAPB[m].n} ${t}</span>`).join("")+`<span>· přerušovaná čára = státní hranice</span>`;
+  if(so&&M.c[so.n]&&el.scrollWidth>el.clientWidth){const k=el.scrollWidth/M.w;el.scrollLeft=Math.max(0,M.c[so.n][0]*k-el.clientWidth/2);}
   const tip=document.getElementById("stip");
   el.querySelectorAll("path.ob").forEach(p=>{
     const o=OBCE.find(x=>x.n===p.dataset.o);
@@ -1061,7 +1069,7 @@ function bindReco(){
 
 /* ---------- vykreslení ---------- */
 // Fades the edge of the chapter bar when more chapters hide behind it, so it is clear the bar scrolls.
-function tabsHint(){ const l=document.getElementById("tabs"); if(!l) return; const max=l.scrollWidth-l.clientWidth; l.classList.toggle("more-l", l.scrollLeft>4); l.classList.toggle("more-r", max>4 && l.scrollLeft<max-4); }
+function tabsHint(){ const l=document.getElementById("tabs"); if(!l) return; const max=l.scrollWidth-l.clientWidth, ml=l.scrollLeft>4, mr=max>4 && l.scrollLeft<max-4; l.classList.toggle("more-l", ml); l.classList.toggle("more-r", mr); document.getElementById("tabs-l").hidden=!ml; document.getElementById("tabs-r").hidden=!mr; }
 function render(){
   let id = location.hash.slice(1)||"uvod";
   if(id==="prehled" && !isAdmin) id="uvod";
@@ -1234,7 +1242,8 @@ if(I18N){
   document.addEventListener("innomethod:langchange",()=>render());
 }
 window.addEventListener("hashchange",()=>{saveState="";render();window.scrollTo({top:0})});
-document.getElementById("tabs").addEventListener("scroll",tabsHint,{passive:true}); window.addEventListener("resize",tabsHint);
+document.getElementById("tabs").addEventListener("scroll",tabsHint,{passive:true});
+["l","r"].forEach(d=>document.getElementById("tabs-"+d).onclick=()=>{const l=document.getElementById("tabs");l.scrollBy({left:(d==="l"?-1:1)*Math.max(160,l.clientWidth*.7),behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}); window.addEventListener("resize",tabsHint);
 render();
 
 (async()=>{
