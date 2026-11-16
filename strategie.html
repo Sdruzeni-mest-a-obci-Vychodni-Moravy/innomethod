@@ -50,12 +50,12 @@ h1,h2,h3{color:var(--dark-green);line-height:1.18;text-wrap:balance;margin:0}
 .nav-sep{flex:none;width:1px;height:22px;background:var(--cream-border)}
 .site-nav-links a{white-space:nowrap;text-decoration:none;color:var(--text-body);font-weight:600;font-size:.95rem;padding:6px 2px;border-bottom:2px solid transparent;transition:border-color .15s ease,color .15s ease}
 .site-nav-links a:hover,.site-nav-links a[aria-current="page"]{color:var(--dark-green);border-color:var(--yellow)}
-.site-nav-links a.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:var(--dark-green-2);font-weight:700;font-size:.95rem;line-height:normal;padding:6px 2px;border-radius:var(--radius-full);transition:background .15s ease,transform .15s ease}
+.site-nav-links a.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:var(--dark-green-2);font-weight:700;font-size:.9rem;line-height:1;min-height:44px;padding:0 20px;border:0;border-radius:var(--radius-full);transition:background .15s ease,transform .15s ease}
 .site-nav-links a.nav-cta:hover{background:var(--yellow-dark);transform:translateY(-1px)}
 .nav-toggle{margin-left:auto;display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--dark-green)}
 .nav-toggle svg{width:26px;height:26px}
-.lang-switch{order:5;flex:none;display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--cream-border);border-radius:var(--radius-full);background:var(--cream-soft);font-size:.8rem;font-weight:700}
-.lang-switch button{font:inherit;line-height:1;border:0;border-radius:var(--radius-full);padding:7px 11px;background:transparent;color:var(--text-muted);cursor:pointer;transition:background .15s ease,color .15s ease}
+.lang-switch{order:5;flex:none;display:inline-flex;align-items:center;gap:2px;padding:2px;border:1px solid var(--cream-border);border-radius:var(--radius-full);background:var(--cream-soft);font-size:.8rem;font-weight:700}
+.lang-switch button{font:inherit;line-height:1;border:0;border-radius:var(--radius-full);min-width:44px;min-height:40px;padding:0 12px;background:transparent;color:var(--text-muted);cursor:pointer;transition:background .15s ease,color .15s ease}
 .lang-switch button:hover{color:var(--dark-green)}
 .lang-switch button[aria-pressed="true"]{background:var(--dark-green);color:var(--white)}
 .lang-switch button:focus-visible{outline:2px solid var(--yellow);outline-offset:1px}
@@ -69,7 +69,7 @@ h1,h2,h3{color:var(--dark-green);line-height:1.18;text-wrap:balance;margin:0}
  .nav-sep{width:100%;height:1px;margin:6px 0}
  .site-nav-links a{width:100%;padding:10px 0}
  .site-nav-links a:hover,.site-nav-links a[aria-current="page"]{border-color:transparent;text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:2px;text-underline-offset:3px}
- .site-nav-links a.nav-cta{width:auto;margin-top:6px;padding:10px 0;text-decoration:none}
+ .site-nav-links a.nav-cta{width:auto;margin-top:6px;padding:0 22px;text-decoration:none}
  .nav-toggle{display:inline-flex}
  .lang-switch{order:0;margin-left:auto}
  .lang-switch + .nav-toggle{margin-left:4px}
@@ -1243,6 +1243,9 @@ if(I18N){
 }
 window.addEventListener("hashchange",()=>{saveState="";render();window.scrollTo({top:0})});
 document.getElementById("tabs").addEventListener("scroll",tabsHint,{passive:true});
+// keep the sticky offset equal to the real header height (menu + chapter bar)
+const syncNavH=()=>{const t=document.querySelector(".tabs"),b=t?Math.round(t.getBoundingClientRect().bottom):0;if(b>0)document.documentElement.style.setProperty("--nav-h",b+"px")};
+window.addEventListener("resize",syncNavH);window.addEventListener("load",syncNavH);window.addEventListener("hashchange",()=>setTimeout(syncNavH,0));if(window.ResizeObserver){const t=document.querySelector(".tabs");if(t)new ResizeObserver(syncNavH).observe(t.parentElement)}syncNavH();
 ["l","r"].forEach(d=>document.getElementById("tabs-"+d).onclick=()=>{const l=document.getElementById("tabs");l.scrollBy({left:(d==="l"?-1:1)*Math.max(160,l.clientWidth*.7),behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}); window.addEventListener("resize",tabsHint);
 render();
 

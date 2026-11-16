@@ -180,6 +180,8 @@ a { color: inherit; }
 }
 
 .nav-cta:hover { background: var(--yellow-dark); transform: translateY(-1px); }
+/* beats the general menu-link rule, so the quiz button keeps its pill shape */
+.site-nav-links a.nav-cta { min-height: 44px; padding: 0 20px; font-size: 0.9rem; line-height: 1; border-bottom: 0; }
 
 .nav-toggle {
   margin-left: auto;
@@ -199,7 +201,7 @@ a { color: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  padding: 3px;
+  padding: 2px;
   border: 1px solid var(--cream-border);
   border-radius: var(--radius-full);
   background: var(--cream-soft);
@@ -211,7 +213,9 @@ a { color: inherit; }
   line-height: 1;
   border: 0;
   border-radius: var(--radius-full);
-  padding: 7px 11px;
+  min-width: 44px;
+  min-height: 40px;
+  padding: 0 12px;
   background: transparent;
   color: var(--text-muted);
   cursor: pointer;
@@ -255,6 +259,7 @@ a { color: inherit; }
     text-underline-offset: 3px;
   }
   .nav-cta { order: 3; margin-top: 6px; }
+  .site-nav-links a.nav-cta { width: auto; padding: 0 22px; }
   .nav-toggle { display: inline-flex; }
 }
 
