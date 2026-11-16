@@ -803,6 +803,8 @@
     '1. stupeň ZŠ · připravujeme': '1. stupeň ZŠ · pripravujeme',
     'Domovy Bílých Karpat': 'Domovy Bielych Karpát',
     '6 záhad Bílých Karpat': '6 záhad Bielych Karpát',
+    'Záhady Bílých Karpat': 'Záhady Bielych Karpát',
+    'Obálka pracovních listů Záhady Bílých Karpat': 'Obálka pracovných listov Záhady Bielych Karpát',
     'Pět přírodních domovů, jejich obyvatelé a příběhy, které dětem přiblíží život v Bílých Karpatech.': 'Päť prírodných domovov, ich obyvatelia a príbehy, ktoré deťom priblížia život v Bielych Karpatoch.',
     'Šest přírodních záhad, při kterých žáci zkoumají stopy, hledají příčiny a odhalují souvislosti.': 'Šesť prírodných záhad, pri ktorých žiaci skúmajú stopy, hľadajú príčiny a odhaľujú súvislosti.',
     'Obálka (PDF)': 'Obálka (PDF)',
