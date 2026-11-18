@@ -179,15 +179,14 @@ a.set-cover:hover img { transform: scale(1.03); }
 
 /* Worksheet sets: compact horizontal cards so all sets fit on one screen */
 .set-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.set-card { display: grid; grid-template-columns: 150px minmax(0, 1fr); align-items: stretch; }
-/* the whole cover stays visible (logos included): it keeps its own A4 ratio and sits on a cream mat */
-.set-cover { aspect-ratio: auto; height: 100%; min-height: 212px; padding: 14px 12px; display: flex; align-items: flex-start; justify-content: center; }
-.set-cover img { height: auto; aspect-ratio: 700 / 990; object-fit: contain; border-radius: 3px; box-shadow: 0 1px 2px rgba(40, 55, 35, 0.12), 0 6px 14px rgba(40, 55, 35, 0.14); transform-origin: top center; }
-.set-cover.placeholder { align-items: center; }
+.set-card { display: grid; grid-template-columns: 200px minmax(0, 1fr); align-items: stretch; }
+/* cover fills its column at full height; any overflow is cut on the right only, so the top and the logo strip at the bottom stay whole and nothing is stretched */
+.set-cover { aspect-ratio: auto; height: 100%; min-height: 283px; }
+.set-cover img { width: 100%; height: 100%; object-fit: cover; object-position: left top; transform-origin: left top; }
 .set-body { padding: 16px 18px; gap: 6px; }
 .set-body h4 { font-size: 1.1rem; }
 .set-body p { font-size: 0.9rem; line-height: 1.5; }
 .set-cover.placeholder svg { width: 48px; height: 48px; }
 .set-actions .btn-dl { min-height: 40px; padding: 7px 14px; font-size: 0.88rem; }
 @media (max-width: 900px) { .set-grid { grid-template-columns: 1fr; } }
-@media (max-width: 420px) { .set-card { grid-template-columns: 110px minmax(0, 1fr); } .set-cover { min-height: 170px; } }
+@media (max-width: 600px) { .set-card { grid-template-columns: 120px minmax(0, 1fr); } .set-cover { height: auto; min-height: 0; align-self: start; } .set-cover img { height: auto; aspect-ratio: 700 / 990; } }
