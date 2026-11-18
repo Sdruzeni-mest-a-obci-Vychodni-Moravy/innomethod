@@ -811,6 +811,7 @@
     'Pět přírodních domovů, jejich obyvatelé a příběhy, které dětem přiblíží život v Bílých Karpatech.': 'Päť prírodných domovov, ich obyvatelia a príbehy, ktoré deťom priblížia život v Bielych Karpatoch.',
     'Šest přírodních záhad, při kterých žáci zkoumají stopy, hledají příčiny a odhalují souvislosti.': 'Šesť prírodných záhad, pri ktorých žiaci skúmajú stopy, hľadajú príčiny a odhaľujú súvislosti.',
     'Obálka (PDF)': 'Obálka (PDF)',
+    'Metodika (PDF)': 'Metodika (PDF)',
     'Průvodce pro pedagogy': 'Sprievodca pre pedagógov',
     'Operace H₂O': 'Operácia H₂O',
     'Dobrodružná cesta vody přírodou, od deště a pramene až po úpravu a čištění vody.': 'Dobrodružná cesta vody prírodou, od dažďa a prameňa až po úpravu a čistenie vody.',
@@ -894,7 +895,8 @@
     [/^Domovy Bílých Karpat – strana (\d+)$/, 'Domovy Bielych Karpát – strana $1'],
     [/^6 záhad Bílých Karpat – strana (\d+)$/, '6 záhad Bielych Karpát – strana $1'],
     [/^Stáhnout pracovní listy \(PDF, (\d+) MB\)$/, 'Stiahnuť pracovné listy (PDF, $1 MB)'],
-    [/^Stáhnout obálku \(PDF, A3, (\d+) MB\)$/, 'Stiahnuť obálku (PDF, A3, $1 MB)']
+    [/^Stáhnout obálku \(PDF, A3, (\d+) MB\)$/, 'Stiahnuť obálku (PDF, A3, $1 MB)'],
+    [/^Stáhnout metodické pokyny \(PDF, (\d+) MB\)$/, 'Stiahnuť metodické pokyny (PDF, $1 MB)']
   ];
 
   function norm(s) { return s.replace(/\s+/g, ' ').trim(); }
