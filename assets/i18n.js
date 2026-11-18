@@ -818,6 +818,8 @@
     'Trasy v terénu se zastaveními a úkoly přes QR kód. Třída je projde sama s učitelem, bez průvodce a bez rezervace. Ke každé trase je PDF na přípravu výletu.': 'Trasy v teréne so zastaveniami a úlohami cez QR kód. Trieda ich prejde sama s učiteľom, bez sprievodcu a bez rezervácie. Ku každej trase je PDF na prípravu výletu.',
     'Domovy Bílých Karpat – pracovní listy pro 1. stupeň': 'Domovy Bielych Karpát – pracovné listy pre 1. stupeň',
     '6 záhad Bílých Karpat – pracovní listy pro 2. stupeň': '6 záhad Bielych Karpát – pracovné listy pre 2. stupeň',
+    'Záhady Bílých Karpat – pracovní listy pro 2. stupeň': 'Záhady Bielych Karpát – pracovné listy pre 2. stupeň',
+    'Pracovní listy Záhady Bílých Karpat pro 2. stupeň ZŠ: průvodce pro pedagogy, náhledy a PDF ke stažení zdarma.': 'Pracovné listy Záhady Bielych Karpát pre 2. stupeň ZŠ: sprievodca pre pedagógov, náhľady a PDF na stiahnutie zadarmo.',
     'Pracovní listy Domovy Bílých Karpat pro 1. stupeň ZŠ: průvodce pro pedagogy, náhledy a PDF ke stažení zdarma.': 'Pracovné listy Domovy Bielych Karpát pre 1. stupeň ZŠ: sprievodca pre pedagógov, náhľady a PDF na stiahnutie zadarmo.',
     'Pracovní listy 6 záhad Bílých Karpat pro 2. stupeň ZŠ: průvodce pro pedagogy, náhledy a PDF ke stažení zdarma.': 'Pracovné listy 6 záhad Bielych Karpát pre 2. stupeň ZŠ: sprievodca pre pedagógov, náhľady a PDF na stiahnutie zadarmo.',
     '› Pracovní listy': '› Pracovné listy',
@@ -894,6 +896,7 @@
     [/^Strana (\d+)$/, 'Strana $1'],
     [/^Domovy Bílých Karpat – strana (\d+)$/, 'Domovy Bielych Karpát – strana $1'],
     [/^6 záhad Bílých Karpat – strana (\d+)$/, '6 záhad Bielych Karpát – strana $1'],
+    [/^Záhady Bílých Karpat – strana (\d+)$/, 'Záhady Bielych Karpát – strana $1'],
     [/^Stáhnout pracovní listy \(PDF, (\d+) MB\)$/, 'Stiahnuť pracovné listy (PDF, $1 MB)'],
     [/^Stáhnout obálku \(PDF, A3, (\d+) MB\)$/, 'Stiahnuť obálku (PDF, A3, $1 MB)'],
     [/^Stáhnout metodické pokyny \(PDF, (\d+) MB\)$/, 'Stiahnuť metodické pokyny (PDF, $1 MB)']
